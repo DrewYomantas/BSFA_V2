@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { createElement } from 'react'
 import { describe, expect, it } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
+import CustomerRecommendationPreview from '../src/components/v8/CustomerRecommendationPreview.jsx'
 import V8SliceIndex from '../src/screens/v8-slice/V8SliceIndex.jsx'
 import kingsman from '../src/data/v8/manifest/kingsman_bentley_39.json'
 import p14 from '../src/data/v8/displayRegister/front_showroom_p14.json'
@@ -177,6 +178,60 @@ describe('V8 proof slice contract', () => {
     expect(screen.queryByText('Legacy Traditional Gas Display')).not.toBeInTheDocument()
     expect(screen.queryByText('Verification Required Gas Fireplace')).not.toBeInTheDocument()
     expect(screen.queryByText('Needs Verification')).not.toBeInTheDocument()
+  })
+
+  it('selects a customer-safe starting direction from preview cards', () => {
+    render(
+      createElement(MemoryRouter, null, createElement(V8SliceIndex)),
+    )
+
+    fireEvent.click(screen.getByRole('button', { name: 'Start with this direction' }))
+
+    const panel = screen.getByText('Selected starting direction').closest('section')
+    expect(within(panel).getByText('Kingsman Bentley 39')).toBeInTheDocument()
+    expect(within(panel).getByText('Fireplace / Gas')).toBeInTheDocument()
+    expect(within(panel).getByText("We'll use this as the starting direction and confirm fit/details with your rep.")).toBeInTheDocument()
+    expect(within(panel).getByText('Confirm measurements')).toBeInTheDocument()
+    expect(panel.textContent).not.toContain('Needs Verification')
+    expect(scanCustomerSafeProjection(panel.textContent)).toEqual([])
+  })
+
+  it('changes the selected starting direction when another card is selected', () => {
+    const fixturePreviews = [
+      {
+        id: 'first_safe_direction',
+        displayName: 'First Safe Direction',
+        category: 'Fireplace',
+        type: 'Gas',
+        description: 'A safe first path.',
+        showroomCue: 'Shown in the Front Showroom',
+        badges: ['Confirm measurements'],
+        measureNote: 'Confirm fit and vent path with your rep.',
+      },
+      {
+        id: 'second_safe_direction',
+        displayName: 'Second Safe Direction',
+        category: 'Fireplace',
+        type: 'Wood',
+        description: 'Another safe path.',
+        showroomCue: null,
+        badges: ['Confirm details'],
+        measureNote: null,
+      },
+    ]
+
+    render(createElement(CustomerRecommendationPreview, { previews: fixturePreviews }))
+
+    const buttons = screen.getAllByRole('button', { name: 'Start with this direction' })
+    fireEvent.click(buttons[0])
+    expect(within(screen.getByText('Selected starting direction').closest('section')).getByText('First Safe Direction')).toBeInTheDocument()
+
+    fireEvent.click(buttons[1])
+    const panel = screen.getByText('Selected starting direction').closest('section')
+    expect(within(panel).getByText('Second Safe Direction')).toBeInTheDocument()
+    expect(within(panel).queryByText('First Safe Direction')).not.toBeInTheDocument()
+    expect(within(panel).getByText('Fireplace / Wood')).toBeInTheDocument()
+    expect(scanCustomerSafeProjection(panel.textContent)).toEqual([])
   })
 
   it('allows rep/backstage verification context without contaminating the customer projection', () => {

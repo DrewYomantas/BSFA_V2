@@ -1,5 +1,11 @@
+import { useState } from 'react'
+
 export default function CustomerRecommendationPreview({ previews }) {
+  const [selectedId, setSelectedId] = useState(null)
+
   if (!previews.length) return null
+
+  const selectedPreview = previews.find((preview) => preview.id === selectedId)
 
   return (
     <section className="mt-8 border-t border-stone-300 pt-6">
@@ -9,7 +15,7 @@ export default function CustomerRecommendationPreview({ previews }) {
           <article key={preview.id} className="rounded border border-stone-300 bg-white p-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <p className="text-sm text-stone-500">{preview.category} · {preview.type}</p>
+                <p className="text-sm text-stone-500">{preview.category} / {preview.type}</p>
                 <h3 className="mt-1 text-lg font-semibold">{preview.displayName}</h3>
               </div>
               {preview.showroomCue ? <p className="text-sm text-stone-600">{preview.showroomCue}</p> : null}
@@ -23,9 +29,35 @@ export default function CustomerRecommendationPreview({ previews }) {
               </ul>
             ) : null}
             {preview.measureNote ? <p className="mt-3 text-sm text-stone-600">{preview.measureNote}</p> : null}
+            <button
+              className="mt-4 rounded border border-stone-800 px-3 py-2 text-sm font-semibold"
+              type="button"
+              onClick={() => setSelectedId(preview.id)}
+            >
+              Start with this direction
+            </button>
           </article>
         ))}
       </div>
+      {selectedPreview ? <SelectedDirectionPanel preview={selectedPreview} /> : null}
+    </section>
+  )
+}
+
+function SelectedDirectionPanel({ preview }) {
+  return (
+    <section className="mt-4 rounded border border-stone-300 bg-stone-50 p-4">
+      <p className="text-sm font-semibold text-stone-500">Selected starting direction</p>
+      <h3 className="mt-1 text-lg font-semibold">{preview.displayName}</h3>
+      <p className="mt-1 text-sm text-stone-700">{preview.category} / {preview.type}</p>
+      <p className="mt-3 text-stone-700">We'll use this as the starting direction and confirm fit/details with your rep.</p>
+      {preview.badges.length > 0 ? (
+        <ul className="mt-3 flex flex-wrap gap-2 text-sm">
+          {preview.badges.map((badge) => (
+            <li key={badge} className="rounded border border-stone-300 bg-white px-2 py-1">{badge}</li>
+          ))}
+        </ul>
+      ) : null}
     </section>
   )
 }
