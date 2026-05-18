@@ -15,7 +15,7 @@ export function deriveCustomerBadges(manifest, slot) {
     verificationItems.push('Showroom reference needs rep guidance')
   }
 
-  const missingFields = criticalCustomerFields.filter((field) => manifest.customer[field] === null)
+  const missingFields = criticalCustomerFields.filter((field) => manifest.customer[field] == null)
   if (missingFields.length > 0) {
     verificationItems.push('Incomplete customer-facing product details')
   }
