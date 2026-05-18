@@ -1,0 +1,64 @@
+{
+  "unitId": "kingsman_bentley_39",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "compatibleSetups": ["new_construction", "remodel_replace_existing"],
+  "sizeTier": "compact_to_standard",
+  "styleAffinity": ["traditional"],
+  "codeFlags": ["rockford_millivolt_affected"],
+  "lastReviewedDate": "2026-05-17",
+  "lastReviewedBy": "drew",
+  "customer": {
+    "displayName": "Kingsman Bentley 39",
+    "shortDescription": "A practical traditional gas fireplace path.",
+    "bestFor": ["Convenience", "Traditional look"],
+    "experiencePillars": ["ambiance", "convenience", "some_heat"],
+    "styleHuman": "Traditional",
+    "sizeHuman": "Compact to Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "entry",
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": ["Wall context (interior vs exterior)", "Vent routing"],
+    "mantelCombustibleNote": null
+  },
+  "rep": {
+    "salesNotes": "Highest-volume gas fireplace at Benson. Builders buy them all day. Multiple sizes in the family.",
+    "verificationNotes": "For Rockford-area installs, verify whether the install address is inside city limits (millivolt ignition restriction).",
+    "liamVoiceCallback": "Our most sold fireplace every single year by far.",
+    "crossSellNotes": "Pairs with Hargrove vented log set if customer wants visible log inside.",
+    "educationCardRefs": ["gas_vs_wood", "btu_vs_sq_ft", "rockford_ignition"],
+    "displayCallback": null,
+    "sampleTargets": []
+  },
+  "internal": {
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Highest-volume seller; bread-and-butter display; current sellable path.",
+    "displayDisposition": null,
+    "displayPosition": null,
+    "displaySection": null,
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": ["builder_volume_driver"]
+  },
+  "sources": {
+    "brandCard": { "fileId": "<placeholder>", "fileName": "Kingsman.md", "lastSynced": "2026-05-17T20:00:00Z" },
+    "manualRefs": [],
+    "brochureRefs": [{ "fileId": "<placeholder>", "fileName": "Kingsman_Solace_Brochure.pdf" }],
+    "displayRegisterRefs": [],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "Apr 22 at 11_02 AM.txt",
+        "speaker": "Liam",
+        "quote": "Our most sold fireplace every single year by far."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-17T20:00:00Z"
+  }
+}

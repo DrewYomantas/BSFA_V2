@@ -1,0 +1,58 @@
+{
+  "unitId": "discontinued_example_unit",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "compatibleSetups": ["remodel_replace_existing"],
+  "sizeTier": null,
+  "styleAffinity": ["traditional"],
+  "codeFlags": [],
+  "lastReviewedDate": "2026-05-17",
+  "lastReviewedBy": "drew",
+  "customer": {
+    "displayName": "Legacy Traditional Gas Display",
+    "shortDescription": null,
+    "bestFor": [],
+    "experiencePillars": [],
+    "styleHuman": "Traditional",
+    "sizeHuman": null,
+    "fuelTypeHuman": "Gas",
+    "pricingBand": null,
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [],
+    "mantelCombustibleNote": null
+  },
+  "rep": {
+    "salesNotes": "Legacy display is useful for explaining older unit layouts, but should not be proposed as a current option.",
+    "verificationNotes": "Confirm current alternatives before discussing replacement paths.",
+    "liamVoiceCallback": null,
+    "crossSellNotes": null,
+    "educationCardRefs": ["gas_vs_wood"],
+    "displayCallback": null,
+    "sampleTargets": []
+  },
+  "internal": {
+    "recommendableStatus": "discontinued",
+    "recommendableStatusReason": "Discontinued sample retained on the showroom floor as a teaching reference.",
+    "displayDisposition": null,
+    "displayPosition": null,
+    "displaySection": null,
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": null,
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": ["teaching_reference_only"]
+  },
+  "sources": {
+    "brandCard": null,
+    "manualRefs": [],
+    "brochureRefs": [],
+    "displayRegisterRefs": [],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-17T20:00:00Z"
+  }
+}

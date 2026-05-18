@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-16",
+  "notes": "Source of truth for every visual asset used in the Hearth Studio customer flow. Edit this file when assets are added or upgraded. See README.md.",
+  "assets": [
+    {
+      "id": "stone-cliffstone",
+      "label": "Cliffstone",
+      "sampleCode": "ST-04",
+      "category": "stone",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/stone/cliffstone.jpg",
+      "customerStory": "Northern quarry texture with a ledgestone profile.",
+      "internalNote": "Replace with real macro photography before showroom launch."
+    },
+    {
+      "id": "stone-fieldledge",
+      "label": "Field Ledge",
+      "sampleCode": "ST-11",
+      "category": "stone",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/stone/fieldledge.jpg",
+      "customerStory": "Iowa fieldstone in a warm, irregular course.",
+      "internalNote": "Replace with real macro photography before showroom launch."
+    },
+    {
+      "id": "mantel-rusticOak",
+      "label": "Rustic Oak",
+      "sampleCode": "MT-03",
+      "category": "mantel",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/mantel/rustic-oak.jpg",
+      "customerStory": "Reclaimed beam, hand-finished to the original grain.",
+      "internalNote": "Coordinate beam photography with the install team — capture at install if no studio shot exists."
+    },
+    {
+      "id": "mantel-paintedWhite",
+      "label": "Painted White",
+      "sampleCode": "MT-08",
+      "category": "mantel",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/mantel/painted-white.jpg",
+      "customerStory": "Hardwood beam with a soft cream finish.",
+      "internalNote": "Studio sample available — schedule a clean macro shot."
+    },
+    {
+      "id": "hearth-bluestone",
+      "label": "Bluestone Slab",
+      "sampleCode": "HR-02",
+      "category": "hearth",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/hearth/bluestone.jpg",
+      "customerStory": "Honed full-depth slab in a quiet bluestone gray.",
+      "internalNote": "Replace with macro photography of the showroom slab."
+    },
+    {
+      "id": "lighting-warmEvening",
+      "label": "Warm Evening",
+      "sampleCode": "LT-01",
+      "category": "lighting",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/lighting/warm-evening.jpg",
+      "customerStory": "Lamps lit, fire on, amber room temperature.",
+      "internalNote": "Stage preview carries the look until a real render exists in /stage-renders/warm-evening/."
+    },
+    {
+      "id": "lighting-cleanDaylight",
+      "label": "Clean Daylight",
+      "sampleCode": "LT-02",
+      "category": "lighting",
+      "assetStatus": "specimen",
+      "imageSrc": "/assets/hearth-studio/materials/lighting/clean-daylight.jpg",
+      "customerStory": "Open shades, neutral midday light.",
+      "internalNote": "Stage preview carries the look until a real render exists in /stage-renders/clean-daylight/."
+    },
+    {
+      "id": "stage-warmEvening",
+      "label": "Hearth at warm evening",
+      "sampleCode": null,
+      "category": "stage-render",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/stage-renders/warm-evening/hero.jpg",
+      "customerStory": null,
+      "internalNote": "Target asset: 2400x1600 UE5 base stage render, room context, no UI overlay. Drop in /stage-renders/warm-evening/.",
+      "unitId": "base",
+      "snapTier": "standard",
+      "mood": "warm-evening",
+      "width": 2400,
+      "height": 1600,
+      "modeVisibility": "all"
+    },
+    {
+      "id": "stage-cleanDaylight",
+      "label": "Hearth at clean daylight",
+      "sampleCode": null,
+      "category": "stage-render",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/stage-renders/clean-daylight/hero.jpg",
+      "customerStory": null,
+      "internalNote": "Target asset: 2400x1600 UE5 base stage render, room context, no UI overlay. Drop in /stage-renders/clean-daylight/.",
+      "unitId": "base",
+      "snapTier": "standard",
+      "mood": "clean-daylight",
+      "width": 2400,
+      "height": 1600,
+      "modeVisibility": "all"
+    },
+    {
+      "id": "transition-stone-standardToExpanded-warmEvening",
+      "label": "Stone expansion · standard → expanded · warm evening",
+      "sampleCode": null,
+      "category": "transition-clip",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/transitions/warm-evening/stone-standard-to-expanded.poster.jpg",
+      "videoSrc": "/assets/hearth-studio/transitions/warm-evening/stone-standard-to-expanded.mp4",
+      "durationMs": 1200,
+      "fromSnapTier": "standard",
+      "toSnapTier": "expanded",
+      "mood": "warm-evening",
+      "layer": "stone",
+      "hasAlpha": false,
+      "customerStory": null,
+      "internalNote": "UE5 render: stone surround snap from standard to expanded footprint. Loopable poster frame plus mp4. Drop both in /transitions/warm-evening/.",
+      "modeVisibility": "customer"
+    },
+    {
+      "id": "overlay-mantelClearance",
+      "label": "Combustible mantel clearance overlay",
+      "sampleCode": null,
+      "category": "render-layer",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/render-layers/overlays/mantel-clearance.png",
+      "layer": "overlays",
+      "hasAlpha": true,
+      "width": 2400,
+      "height": 1600,
+      "customerStory": null,
+      "internalNote": "UE5 render-layer with alpha showing code-required clearance band above the firebox for combustible mantels. Drop in /render-layers/overlays/.",
+      "modeVisibility": "internal"
+    },
+    {
+      "id": "brand-brassDetail",
+      "label": "Brass hardware detail",
+      "sampleCode": null,
+      "category": "brand-detail",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/brand/brass-details/detail-01.jpg",
+      "customerStory": null,
+      "internalNote": "Close-up of brass trim/rivets. Used as a story accent on the welcome screen and folio."
+    },
+    {
+      "id": "brand-showroomWelcome",
+      "label": "Showroom welcome still",
+      "sampleCode": null,
+      "category": "brand-still",
+      "assetStatus": "missing",
+      "imageSrc": "/assets/hearth-studio/brand/showroom-stills/welcome.jpg",
+      "customerStory": null,
+      "internalNote": "Wide showroom photograph for the welcome screen. Captured during showroom hours, no people in frame."
+    }
+  ]
+}

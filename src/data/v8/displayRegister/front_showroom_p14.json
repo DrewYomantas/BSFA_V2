@@ -1,0 +1,50 @@
+{
+  "displaySlotId": "front_showroom_p14",
+  "schemaVersion": "1.0",
+  "currentUnitRef": "kingsman_bentley_39",
+  "currentPlacementId": "placement_20240517_014",
+  "location": {
+    "zone": "front_showroom",
+    "position": 14,
+    "subLocation": "front showroom main fireplace wall"
+  },
+  "lastReviewedDate": "2026-05-17",
+  "lastReviewedBy": "drew",
+  "customer": {
+    "customerSafeDescription": "Currently shown in the Front Showroom.",
+    "showroomZoneFriendly": "Front Showroom",
+    "customerSafeBadges": []
+  },
+  "rep": {
+    "salesNotes": "Use this display as the practical baseline for traditional gas fireplace conversations.",
+    "coachingNotes": "Good first stop when a customer wants a familiar traditional gas fireplace.",
+    "dailyConditionNotes": "Display present; operating condition not verified in this slice.",
+    "displayCallbackLanguage": "Shown on the front showroom wall at position 14."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "recommendableOverride": null,
+    "recommendableOverrideReason": null,
+    "recommendableOverrideBy": null,
+    "recommendableOverrideDate": null,
+    "recommendableOverrideReviewDate": null,
+    "replacementCandidate": null,
+    "businessFlags": ["core_showroom_example"]
+  },
+  "sources": {
+    "photoRefs": [],
+    "sampleMaterialRefs": [],
+    "cheatSheetRefs": [],
+    "inventorySheetRefs": [],
+    "auditTrail": [
+      {
+        "timestamp": "2026-05-17T20:00:00Z",
+        "changedBy": "drew",
+        "fieldChanged": "record_created",
+        "oldValue": null,
+        "newValue": "initial",
+        "reason": "Display register initialized for V8 vertical slice."
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "displaySlotId": "front_showroom_p7",
+  "schemaVersion": "1.0",
+  "currentUnitRef": "discontinued_example_unit",
+  "currentPlacementId": "placement_20240301_001",
+  "location": {
+    "zone": "front_showroom",
+    "position": 7,
+    "subLocation": "west wall, near elevator"
+  },
+  "lastReviewedDate": "2026-05-17",
+  "lastReviewedBy": "drew",
+  "customer": {
+    "customerSafeDescription": null,
+    "showroomZoneFriendly": "Front Showroom",
+    "customerSafeBadges": []
+  },
+  "rep": {
+    "salesNotes": "Display retained as a teaching reference. Use for showing the evolution from older traditional gas units to current options.",
+    "coachingNotes": "If a customer asks about this unit, redirect to current alternatives.",
+    "dailyConditionNotes": "Pilot off - display only, not running.",
+    "displayCallbackLanguage": null
+  },
+  "internal": {
+    "displayDisposition": "discontinued_display",
+    "recommendableOverride": "showroom_reference_only",
+    "recommendableOverrideReason": "Discontinued line on this slot; ensure it is never recommended even if manifest state changes.",
+    "recommendableOverrideBy": "drew",
+    "recommendableOverrideDate": "2026-05-17T20:00:00Z",
+    "recommendableOverrideReviewDate": "2026-06-16",
+    "replacementCandidate": "kingsman_bentley_39",
+    "businessFlags": ["teaching_reference_only"]
+  },
+  "sources": {
+    "photoRefs": [],
+    "sampleMaterialRefs": [],
+    "cheatSheetRefs": [],
+    "inventorySheetRefs": [],
+    "auditTrail": [
+      {
+        "timestamp": "2026-05-17T20:00:00Z",
+        "changedBy": "drew",
+        "fieldChanged": "record_created",
+        "oldValue": null,
+        "newValue": "initial",
+        "reason": "Display register initialized for V8 vertical slice."
+      }
+    ]
+  }
+}

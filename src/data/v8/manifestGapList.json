@@ -1,0 +1,21 @@
+{
+  "version": "2026-05-17",
+  "entries": [
+    {
+      "encounteredAtSlot": "back_showroom_p33",
+      "encounteredDate": "2026-05-17",
+      "encounteredBy": "drew",
+      "displayedUnitGuess": "Hargrove Woodland Timbers 21\"",
+      "notes": "Vented log set on display in masonry test box. No manifest record exists yet. Hargrove is a stocked partner - needs a manifest record created.",
+      "status": "pending_review"
+    },
+    {
+      "encounteredAtSlot": "upstairs_p2",
+      "encounteredDate": "2026-05-17",
+      "encounteredBy": "drew",
+      "displayedUnitGuess": "[unknown traditional gas insert]",
+      "notes": "Unfamiliar unit. Need to ask Liam for brand/model identification before creating manifest record.",
+      "status": "pending_review"
+    }
+  ]
+}

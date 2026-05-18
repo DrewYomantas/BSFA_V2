@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "renders": {
+    "stone.cliffstone":    { "type": "image", "src": "/assets/renders/placeholders/stone-cliffstone.svg",    "placeholder": true },
+    "stone.fieldledge":    { "type": "image", "src": "/assets/renders/placeholders/stone-fieldledge.svg",    "placeholder": true },
+    "mantel.rusticOak":    { "type": "image", "src": "/assets/renders/placeholders/mantel-rustic-oak.svg",   "placeholder": true },
+    "mantel.paintedWhite": { "type": "image", "src": "/assets/renders/placeholders/mantel-painted-white.svg","placeholder": true },
+    "hearth.bluestone":    { "type": "image", "src": "/assets/renders/placeholders/hearth-bluestone.svg",    "placeholder": true },
+    "mood.warmEvening":    { "type": "image", "src": "/assets/renders/placeholders/mood-warm-evening.svg",   "placeholder": true },
+    "mood.cleanDaylight":  { "type": "image", "src": "/assets/renders/placeholders/mood-clean-daylight.svg", "placeholder": true }
+  }
+}
