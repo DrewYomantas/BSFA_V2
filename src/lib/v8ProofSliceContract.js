@@ -1,4 +1,4 @@
-import { deriveCustomerBadges } from './v8DeriveCustomerBadges.js'
+import { deriveCustomerBadges, getMissingCriticalCustomerFields } from './v8DeriveCustomerBadges.js'
 
 export const customerBannedTerms = [
   'cost',
@@ -8,7 +8,9 @@ export const customerBannedTerms = [
   'inventory turn',
   'product rank',
   'sales rank',
+  'sales',
   'OCR',
+  'confidence',
   'raw PDF',
   'BisTrack confidence',
   'fuzzy-match confidence',
@@ -28,6 +30,58 @@ export function projectV8CustomerSafe(manifest, slot) {
     badges,
     verificationItems,
   }
+}
+
+export function deriveManifestRecommendationStatus(manifest, slot = null) {
+  const missingCriticalFields = getMissingCriticalCustomerFields(manifest)
+  const recommendableStatus = manifest.internal.recommendableStatus
+  const displayDisposition = manifest.internal.displayDisposition
+  const displayed = displayDisposition != null
+  const displayOnly = (
+    recommendableStatus === 'discontinued' ||
+    recommendableStatus === 'display_only' ||
+    recommendableStatus === 'reference_only' ||
+    displayDisposition === 'discontinued_display' ||
+    slot?.internal?.recommendableOverride === 'showroom_reference_only'
+  )
+  const verificationRequired = (
+    recommendableStatus === 'recommendable_with_verification' ||
+    Boolean(slot?.internal?.recommendableOverride) ||
+    missingCriticalFields.length > 0
+  )
+  const blockedFromCustomerRecommendation = displayOnly || verificationRequired
+
+  return {
+    canDiscussGenerally: true,
+    displayed,
+    activelyRecommendable: recommendableStatus === 'recommendable' && !blockedFromCustomerRecommendation,
+    displayOnly,
+    discontinuedOrReferenceOnly: displayOnly,
+    verificationRequired,
+    blockedFromCustomerRecommendation,
+    missingCriticalFields,
+  }
+}
+
+export function getRecommendableManifestItems(manifests, registerRecords = []) {
+  return manifests.filter((manifest) => {
+    const slot = findRegisterSlotForManifest(manifest, registerRecords)
+    return deriveManifestRecommendationStatus(manifest, slot).activelyRecommendable
+  })
+}
+
+export function getDisplayOnlyManifestItems(manifests, registerRecords = []) {
+  return manifests.filter((manifest) => {
+    const slot = findRegisterSlotForManifest(manifest, registerRecords)
+    return deriveManifestRecommendationStatus(manifest, slot).displayOnly
+  })
+}
+
+export function getVerificationRequiredManifestItems(manifests, registerRecords = []) {
+  return manifests.filter((manifest) => {
+    const slot = findRegisterSlotForManifest(manifest, registerRecords)
+    return deriveManifestRecommendationStatus(manifest, slot).verificationRequired
+  })
 }
 
 export function projectV8RepBackstage(manifest, slot) {
@@ -75,10 +129,19 @@ export function buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
   const customerBoundaryLeaks = displayedManifests.flatMap(({ manifest, slot }) =>
     scanCustomerSafeProjection(projectV8CustomerSafe(manifest, slot)),
   )
+  const recommendationStatuses = manifests.map((manifest) => {
+    const slot = findRegisterSlotForManifest(manifest, registerRecords)
+    return deriveManifestRecommendationStatus(manifest, slot)
+  })
+  const recommendableItems = getRecommendableManifestItems(manifests, registerRecords)
+  const displayOnlyItems = getDisplayOnlyManifestItems(manifests, registerRecords)
+  const verificationRequiredItems = getVerificationRequiredManifestItems(manifests, registerRecords)
 
   return {
     totalManifestRecords: manifests.length,
+    totalManifestItems: manifests.length,
     totalDisplayRegisterRecords: registerRecords.length,
+    displayedItemsCount: displayedManifests.length,
     recordsSyncedFromDisplayRegister: syncedSlots.length,
     needsVerificationCount,
     discontinuedDisplayedCount: displayedManifests.filter(({ manifest }) =>
@@ -88,8 +151,24 @@ export function buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
       manifest.internal.displayDisposition === 'active_display' &&
       manifest.internal.recommendableStatus === 'recommendable',
     ).length,
+    activelyRecommendableItemsCount: recommendableItems.length,
+    displayOnlyDiscontinuedItemsCount: displayOnlyItems.length,
+    verificationRequiredItemsCount: verificationRequiredItems.length,
+    blockedFromCustomerRecommendationCount: recommendationStatuses.filter((status) =>
+      status.blockedFromCustomerRecommendation,
+    ).length,
+    missingCriticalFieldItems: manifests
+      .map((manifest) => ({
+        unitId: manifest.unitId,
+        missingFields: getMissingCriticalCustomerFields(manifest),
+      }))
+      .filter((item) => item.missingFields.length > 0),
     gapListIssueCount: gapList.entries.length,
     customerSafeBoundaryStatus: customerBoundaryLeaks.length === 0 ? 'clean' : 'blocked',
     customerBoundaryLeaks: [...new Set(customerBoundaryLeaks)],
   }
+}
+
+function findRegisterSlotForManifest(manifest, registerRecords) {
+  return registerRecords.find((record) => record.currentUnitRef === manifest.unitId) ?? null
 }

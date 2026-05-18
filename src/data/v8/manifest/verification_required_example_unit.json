@@ -1,0 +1,58 @@
+{
+  "unitId": "verification_required_example_unit",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "compatibleSetups": ["new_construction", "remodel_replace_existing"],
+  "sizeTier": "standard",
+  "styleAffinity": ["transitional"],
+  "codeFlags": ["manual_review_required"],
+  "lastReviewedDate": "2026-05-18",
+  "lastReviewedBy": "drew",
+  "customer": {
+    "displayName": "Verification Required Gas Fireplace",
+    "shortDescription": null,
+    "bestFor": ["Rep-guided planning"],
+    "experiencePillars": ["ambiance", "convenience"],
+    "styleHuman": "Transitional",
+    "sizeHuman": "Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium",
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [],
+    "mantelCombustibleNote": null
+  },
+  "rep": {
+    "salesNotes": "Manifest-backed proof item for products that can be discussed internally but need customer-facing detail verification before entering narrowing.",
+    "verificationNotes": "Fill customer-safe description and confirm current product details before using in the customer recommendation set.",
+    "liamVoiceCallback": null,
+    "crossSellNotes": null,
+    "educationCardRefs": [],
+    "displayCallback": null,
+    "sampleTargets": []
+  },
+  "internal": {
+    "recommendableStatus": "recommendable_with_verification",
+    "recommendableStatusReason": "Current-path placeholder blocked until customer-facing detail verification is complete.",
+    "displayDisposition": null,
+    "displayPosition": null,
+    "displaySection": null,
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": null,
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": ["proof_contract_edge_case"]
+  },
+  "sources": {
+    "brandCard": null,
+    "manualRefs": [],
+    "brochureRefs": [],
+    "displayRegisterRefs": [],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-18T13:15:00Z"
+  }
+}

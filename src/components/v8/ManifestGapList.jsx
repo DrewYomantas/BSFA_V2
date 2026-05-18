@@ -36,6 +36,10 @@ function ProofSliceHealth({ health }) {
     ['Synced from Display Register', health.recordsSyncedFromDisplayRegister],
     ['Needs Verification', health.needsVerificationCount],
     ['Discontinued but displayed', health.discontinuedDisplayedCount],
+    ['Actively recommendable', health.activelyRecommendableItemsCount],
+    ['Display-only / discontinued', health.displayOnlyDiscontinuedItemsCount],
+    ['Verification-required', health.verificationRequiredItemsCount],
+    ['Blocked from recommendation', health.blockedFromCustomerRecommendationCount],
     ['Customer-safe boundary', health.customerSafeBoundaryStatus],
   ]
 

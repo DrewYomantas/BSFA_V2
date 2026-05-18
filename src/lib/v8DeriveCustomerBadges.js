@@ -1,5 +1,9 @@
 const criticalCustomerFields = ['displayName', 'shortDescription', 'styleHuman', 'sizeHuman', 'fuelTypeHuman', 'pricingBand']
 
+export function getMissingCriticalCustomerFields(manifest) {
+  return criticalCustomerFields.filter((field) => manifest.customer[field] == null)
+}
+
 export function deriveCustomerBadges(manifest, slot) {
   const verificationItems = []
 
@@ -15,7 +19,7 @@ export function deriveCustomerBadges(manifest, slot) {
     verificationItems.push('Showroom reference needs rep guidance')
   }
 
-  const missingFields = criticalCustomerFields.filter((field) => manifest.customer[field] == null)
+  const missingFields = getMissingCriticalCustomerFields(manifest)
   if (missingFields.length > 0) {
     verificationItems.push('Incomplete customer-facing product details')
   }

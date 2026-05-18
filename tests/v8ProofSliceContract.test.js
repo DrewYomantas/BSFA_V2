@@ -5,6 +5,10 @@ import { deriveCustomerBadges } from '../src/lib/v8DeriveCustomerBadges.js'
 import { manifests, registerRecords, gapList } from '../src/lib/v8LoadData.js'
 import {
   buildV8ProofSliceHealth,
+  deriveManifestRecommendationStatus,
+  getDisplayOnlyManifestItems,
+  getRecommendableManifestItems,
+  getVerificationRequiredManifestItems,
   projectV8CustomerSafe,
   projectV8RepBackstage,
   scanCustomerSafeProjection,
@@ -38,11 +42,58 @@ describe('V8 proof slice contract', () => {
   it('proves the sample data has active recommendable and discontinued displayed records', () => {
     const health = buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
 
-    expect(health.totalManifestRecords).toBe(2)
+    expect(health.totalManifestRecords).toBe(3)
     expect(health.totalDisplayRegisterRecords).toBe(2)
     expect(health.recordsSyncedFromDisplayRegister).toBe(2)
     expect(health.activeRecommendableDisplayedCount).toBeGreaterThanOrEqual(1)
     expect(health.discontinuedDisplayedCount).toBeGreaterThanOrEqual(1)
+  })
+
+  it('builds the customer recommendation set from manifest-backed active recommendable items only', () => {
+    const items = getRecommendableManifestItems(manifests, registerRecords)
+
+    expect(items.map((item) => item.unitId)).toEqual(['kingsman_bentley_39'])
+    expect(items).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ unitId: 'discontinued_example_unit' }),
+        expect.objectContaining({ unitId: 'verification_required_example_unit' }),
+      ]),
+    )
+  })
+
+  it('does not treat physical display as automatic customer recommendation eligibility', () => {
+    const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p7')
+    const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
+    const status = deriveManifestRecommendationStatus(manifest, slot)
+
+    expect(status.displayed).toBe(true)
+    expect(status.displayOnly).toBe(true)
+    expect(status.activelyRecommendable).toBe(false)
+    expect(status.blockedFromCustomerRecommendation).toBe(true)
+  })
+
+  it('keeps soft at-home measure badges customer-safe without blocking an active recommendable item', () => {
+    const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p14')
+    const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
+    const status = deriveManifestRecommendationStatus(manifest, slot)
+    const projection = projectV8CustomerSafe(manifest, slot)
+
+    expect(status.activelyRecommendable).toBe(true)
+    expect(projection.badges).toEqual(['Needs Verification'])
+    expect(projection.verificationItems).toEqual(
+      expect.arrayContaining(['Wall context (interior vs exterior)', 'Vent routing']),
+    )
+    expect(scanCustomerSafeProjection(projection)).toEqual([])
+  })
+
+  it('separates display-only and verification-required records from active recommendations', () => {
+    expect(getDisplayOnlyManifestItems(manifests, registerRecords).map((item) => item.unitId)).toEqual([
+      'discontinued_example_unit',
+    ])
+    expect(getVerificationRequiredManifestItems(manifests, registerRecords).map((item) => item.unitId)).toEqual([
+      'discontinued_example_unit',
+      'verification_required_example_unit',
+    ])
   })
 
   it('triggers Needs Verification for all proof slice trigger families', () => {
@@ -79,6 +130,15 @@ describe('V8 proof slice contract', () => {
     }
   })
 
+  it('keeps banned terms out of customer-safe recommendable output', () => {
+    const recommendableOutput = getRecommendableManifestItems(manifests, registerRecords).map((manifest) => {
+      const slot = registerRecords.find((record) => record.currentUnitRef === manifest.unitId)
+      return projectV8CustomerSafe(manifest, slot)
+    })
+
+    expect(scanCustomerSafeProjection(recommendableOutput)).toEqual([])
+  })
+
   it('allows rep/backstage verification context without contaminating the customer projection', () => {
     const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p7')
     const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
@@ -94,6 +154,19 @@ describe('V8 proof slice contract', () => {
     const health = buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
 
     expect(health.gapListIssueCount).toBe(2)
+    expect(health.missingCriticalFieldItems).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          unitId: 'discontinued_example_unit',
+          missingFields: expect.arrayContaining(['shortDescription', 'sizeHuman', 'pricingBand']),
+        }),
+        expect.objectContaining({
+          unitId: 'verification_required_example_unit',
+          missingFields: ['shortDescription'],
+        }),
+      ]),
+    )
+    expect(health.blockedFromCustomerRecommendationCount).toBe(2)
     expect(gapList.entries).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
