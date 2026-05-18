@@ -1,4 +1,8 @@
-import { deriveCustomerBadges, getMissingCriticalCustomerFields } from './v8DeriveCustomerBadges.js'
+import {
+  deriveCustomerBadges,
+  deriveCustomerSafeBadges,
+  getMissingCriticalCustomerFields,
+} from './v8DeriveCustomerBadges.js'
 
 export const customerBannedTerms = [
   'cost',
@@ -19,10 +23,18 @@ export const customerBannedTerms = [
   'proposal ready',
   'customer ready',
   'approved',
+  'discontinued status',
+  'display-only status',
+  'reference-only status',
+  'internal verification',
+  'needs verification',
+  'rep verification required',
+  'showroom reference needs rep guidance',
+  'incomplete customer-facing product details',
 ]
 
 export function projectV8CustomerSafe(manifest, slot) {
-  const { badges, verificationItems } = deriveCustomerBadges(manifest, slot)
+  const { badges, verificationItems } = deriveCustomerSafeBadges(manifest, slot)
 
   return {
     customer: manifest.customer,
@@ -82,6 +94,36 @@ export function getVerificationRequiredManifestItems(manifests, registerRecords 
     const slot = findRegisterSlotForManifest(manifest, registerRecords)
     return deriveManifestRecommendationStatus(manifest, slot).verificationRequired
   })
+}
+
+export function buildCustomerRecommendationPreview(manifest, slot = null) {
+  const safeCustomer = manifest.customer
+  const badges = [
+    ...(safeCustomer.customerSafeBadges || []),
+    ...(slot?.customer?.customerSafeBadges || []),
+  ]
+  const measureConfirmItems = safeCustomer.verifyAtHomeMeasure || []
+
+  if (measureConfirmItems.length > 0) {
+    badges.push('Confirm measurements')
+  }
+
+  return {
+    id: manifest.unitId,
+    displayName: safeCustomer.displayName,
+    category: formatCustomerCategory(manifest.productClass),
+    type: safeCustomer.fuelTypeHuman,
+    description: safeCustomer.shortDescription,
+    showroomCue: slot?.customer?.showroomZoneFriendly ? `Shown in the ${slot.customer.showroomZoneFriendly}` : null,
+    badges: [...new Set(badges)],
+    measureNote: measureConfirmItems.length > 0 ? 'Confirm fit and vent path with your rep.' : null,
+  }
+}
+
+export function buildCustomerRecommendationPreviews(manifests, registerRecords = []) {
+  return getRecommendableManifestItems(manifests, registerRecords).map((manifest) =>
+    buildCustomerRecommendationPreview(manifest, findRegisterSlotForManifest(manifest, registerRecords)),
+  )
 }
 
 export function projectV8RepBackstage(manifest, slot) {
@@ -171,4 +213,12 @@ export function buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
 
 function findRegisterSlotForManifest(manifest, registerRecords) {
   return registerRecords.find((record) => record.currentUnitRef === manifest.unitId) ?? null
+}
+
+function formatCustomerCategory(value) {
+  if (!value) return 'Product'
+  return value
+    .split('_')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
 }

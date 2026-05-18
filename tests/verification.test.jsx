@@ -4,18 +4,18 @@ import SlotCustomerView from '../src/components/v8/SlotCustomerView.jsx'
 import { manifests, registerRecords } from '../src/lib/v8LoadData.js'
 
 describe('V8 verification behavior', () => {
-  it('shows Needs Verification for at-home measure requirements', () => {
+  it('shows customer-safe confirm details for at-home measure requirements', () => {
     const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p14')
     const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
 
     render(<SlotCustomerView manifest={manifest} slot={slot} />)
 
-    expect(screen.getByText('Needs Verification')).toBeInTheDocument()
+    expect(screen.getByText('Confirm details')).toBeInTheDocument()
     expect(screen.getByText('Wall context (interior vs exterior)')).toBeInTheDocument()
     expect(screen.getByText('Vent routing')).toBeInTheDocument()
   })
 
-  it('hides Needs Verification when no trigger exists', () => {
+  it('hides confirm details when no trigger exists', () => {
     const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p14')
     const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
     const readyManifest = {
@@ -32,16 +32,17 @@ describe('V8 verification behavior', () => {
 
     render(<SlotCustomerView manifest={readyManifest} slot={slot} />)
 
-    expect(screen.queryByText('Needs Verification')).not.toBeInTheDocument()
+    expect(screen.queryByText('Confirm details')).not.toBeInTheDocument()
   })
 
-  it('shows Needs Verification when a recommendable override exists', () => {
+  it('shows customer-safe confirm details when a recommendable override exists', () => {
     const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p7')
     const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
 
     render(<SlotCustomerView manifest={manifest} slot={slot} />)
 
-    expect(screen.getByText('Needs Verification')).toBeInTheDocument()
-    expect(screen.getByText('Showroom reference needs rep guidance')).toBeInTheDocument()
+    expect(screen.getByText('Confirm details')).toBeInTheDocument()
+    expect(screen.getByText('Confirm details with your rep.')).toBeInTheDocument()
+    expect(screen.queryByText('Showroom reference needs rep guidance')).not.toBeInTheDocument()
   })
 })

@@ -29,3 +29,21 @@ export function deriveCustomerBadges(manifest, slot) {
     verificationItems,
   }
 }
+
+export function deriveCustomerSafeBadges(manifest, slot) {
+  const { verificationItems } = deriveCustomerBadges(manifest, slot)
+  if (verificationItems.length === 0) {
+    return {
+      badges: [],
+      verificationItems: [],
+    }
+  }
+
+  const measureItems = manifest.customer.verifyAtHomeMeasure || []
+  const safeItems = measureItems.length > 0 ? measureItems : ['Confirm details with your rep.']
+
+  return {
+    badges: ['Confirm details'],
+    verificationItems: safeItems,
+  }
+}

@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom'
+import CustomerRecommendationPreview from '../../components/v8/CustomerRecommendationPreview.jsx'
+import { manifests, registerRecords } from '../../lib/v8LoadData.js'
+import { buildCustomerRecommendationPreviews } from '../../lib/v8ProofSliceContract.js'
 
 export default function V8SliceIndex() {
+  const previews = buildCustomerRecommendationPreviews(manifests, registerRecords)
+
   return (
     <main className="mx-auto max-w-3xl p-6">
       <h1 className="text-3xl font-semibold">Hearth Studio V8 Slice</h1>
@@ -11,6 +16,7 @@ export default function V8SliceIndex() {
         <li><Link className="underline" to="/rep/front_showroom_p7">Rep: front_showroom_p7</Link></li>
         <li><Link className="underline" to="/backstage/gap-list">Backstage gap list</Link></li>
       </ul>
+      <CustomerRecommendationPreview previews={previews} />
     </main>
   )
 }

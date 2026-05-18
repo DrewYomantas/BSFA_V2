@@ -1,10 +1,10 @@
-import { deriveCustomerBadges } from '../../lib/v8DeriveCustomerBadges.js'
+import { deriveCustomerSafeBadges } from '../../lib/v8DeriveCustomerBadges.js'
 import NeedsVerificationBadge from './NeedsVerificationBadge.jsx'
 
 export default function SlotCustomerView({ manifest, slot }) {
   const safeManifest = manifest.customer
   const safeSlot = slot.customer
-  const { verificationItems } = deriveCustomerBadges(manifest, slot)
+  const { verificationItems } = deriveCustomerSafeBadges(manifest, slot)
 
   return (
     <main className="mx-auto max-w-3xl space-y-6 p-6">
@@ -20,7 +20,7 @@ export default function SlotCustomerView({ manifest, slot }) {
         <div>
           <h2 className="font-semibold">Best for</h2>
           <ul className="mt-2 list-disc pl-5 text-stone-700">
-            {safeManifest.bestFor.length > 0 ? safeManifest.bestFor.map((item) => <li key={item}>{item}</li>) : <li>Rep-guided showroom reference</li>}
+            {safeManifest.bestFor.length > 0 ? safeManifest.bestFor.map((item) => <li key={item}>{item}</li>) : <li>Rep-guided showroom conversation</li>}
           </ul>
         </div>
         <div>

@@ -1,9 +1,14 @@
+import { render, screen } from '@testing-library/react'
+import { createElement } from 'react'
 import { describe, expect, it } from 'vitest'
+import { MemoryRouter } from 'react-router-dom'
+import V8SliceIndex from '../src/screens/v8-slice/V8SliceIndex.jsx'
 import kingsman from '../src/data/v8/manifest/kingsman_bentley_39.json'
 import p14 from '../src/data/v8/displayRegister/front_showroom_p14.json'
 import { deriveCustomerBadges } from '../src/lib/v8DeriveCustomerBadges.js'
 import { manifests, registerRecords, gapList } from '../src/lib/v8LoadData.js'
 import {
+  buildCustomerRecommendationPreviews,
   buildV8ProofSliceHealth,
   deriveManifestRecommendationStatus,
   getDisplayOnlyManifestItems,
@@ -79,7 +84,7 @@ describe('V8 proof slice contract', () => {
     const projection = projectV8CustomerSafe(manifest, slot)
 
     expect(status.activelyRecommendable).toBe(true)
-    expect(projection.badges).toEqual(['Needs Verification'])
+    expect(projection.badges).toEqual(['Confirm details'])
     expect(projection.verificationItems).toEqual(
       expect.arrayContaining(['Wall context (interior vs exterior)', 'Vent routing']),
     )
@@ -137,6 +142,41 @@ describe('V8 proof slice contract', () => {
     })
 
     expect(scanCustomerSafeProjection(recommendableOutput)).toEqual([])
+  })
+
+  it('builds customer recommendation previews from the recommendable set only', () => {
+    const previews = buildCustomerRecommendationPreviews(manifests, registerRecords)
+
+    expect(previews).toEqual([
+      expect.objectContaining({
+        id: 'kingsman_bentley_39',
+        displayName: 'Kingsman Bentley 39',
+        category: 'Fireplace',
+        type: 'Gas',
+        description: 'A practical traditional gas fireplace path.',
+        showroomCue: 'Shown in the Front Showroom',
+        badges: ['Confirm measurements'],
+        measureNote: 'Confirm fit and vent path with your rep.',
+      }),
+    ])
+    expect(JSON.stringify(previews)).not.toContain('discontinued_example_unit')
+    expect(JSON.stringify(previews)).not.toContain('verification_required_example_unit')
+    expect(JSON.stringify(previews)).not.toContain('Needs Verification')
+    expect(scanCustomerSafeProjection(previews)).toEqual([])
+  })
+
+  it('renders customer-safe recommendation cards without blocked items', () => {
+    render(
+      createElement(MemoryRouter, null, createElement(V8SliceIndex)),
+    )
+
+    expect(screen.getByText('Customer Recommendation Preview')).toBeInTheDocument()
+    expect(screen.getByText('Kingsman Bentley 39')).toBeInTheDocument()
+    expect(screen.getByText('Confirm measurements')).toBeInTheDocument()
+    expect(screen.getByText('Confirm fit and vent path with your rep.')).toBeInTheDocument()
+    expect(screen.queryByText('Legacy Traditional Gas Display')).not.toBeInTheDocument()
+    expect(screen.queryByText('Verification Required Gas Fireplace')).not.toBeInTheDocument()
+    expect(screen.queryByText('Needs Verification')).not.toBeInTheDocument()
   })
 
   it('allows rep/backstage verification context without contaminating the customer projection', () => {
