@@ -10,6 +10,7 @@ import { deriveCustomerBadges } from '../src/lib/v8DeriveCustomerBadges.js'
 import { manifests, registerRecords, gapList } from '../src/lib/v8LoadData.js'
 import {
   buildCustomerRecommendationPreviews,
+  buildRepStartingDirectionHandoff,
   buildV8ProofSliceHealth,
   deriveManifestRecommendationStatus,
   getDisplayOnlyManifestItems,
@@ -166,6 +167,32 @@ describe('V8 proof slice contract', () => {
     expect(scanCustomerSafeProjection(previews)).toEqual([])
   })
 
+  it('builds a rep starting direction handoff from a selected customer-safe preview', () => {
+    const [preview] = buildCustomerRecommendationPreviews(manifests, registerRecords)
+    const handoff = buildRepStartingDirectionHandoff(preview)
+
+    expect(handoff).toEqual(
+      expect.objectContaining({
+        id: 'kingsman_bentley_39',
+        displayName: 'Kingsman Bentley 39',
+        category: 'Fireplace',
+        type: 'Gas',
+        customerSummary: 'A practical traditional gas fireplace path.',
+        displayContext: 'Shown in the Front Showroom',
+        recommendationNote: 'Use as starting direction.',
+      }),
+    )
+    expect(handoff.verificationReminders).toEqual(
+      expect.arrayContaining(['Measurements and site conditions need confirmation.', 'Product/model details need verification before quote.']),
+    )
+    expect(handoff.nextSteps).toEqual([
+      'Confirm measurements and site conditions.',
+      'Verify product/model details.',
+      'Build official quote in BisTrack.',
+    ])
+    expect(scanCustomerSafeProjection(handoff)).toEqual([])
+  })
+
   it('renders customer-safe recommendation cards without blocked items', () => {
     render(
       createElement(MemoryRouter, null, createElement(V8SliceIndex)),
@@ -180,6 +207,25 @@ describe('V8 proof slice contract', () => {
     expect(screen.queryByText('Needs Verification')).not.toBeInTheDocument()
   })
 
+  it('renders the rep handoff only after a starting direction is selected', () => {
+    render(
+      createElement(MemoryRouter, null, createElement(V8SliceIndex)),
+    )
+
+    expect(screen.queryByText('Rep handoff')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Start with this direction' }))
+
+    const handoff = screen.getByText('Rep handoff').closest('section')
+    expect(within(handoff).getByText('Kingsman Bentley 39')).toBeInTheDocument()
+    expect(within(handoff).getByText('Use as starting direction.')).toBeInTheDocument()
+    expect(within(handoff).getByText('Measurements and site conditions need confirmation.')).toBeInTheDocument()
+    expect(within(handoff).getByText('Confirm measurements and site conditions.')).toBeInTheDocument()
+    expect(within(handoff).getByText('Verify product/model details.')).toBeInTheDocument()
+    expect(within(handoff).getByText('Build official quote in BisTrack.')).toBeInTheDocument()
+    expect(scanCustomerSafeProjection(handoff.textContent)).toEqual([])
+  })
+
   it('selects a customer-safe starting direction from preview cards', () => {
     render(
       createElement(MemoryRouter, null, createElement(V8SliceIndex)),
@@ -192,6 +238,8 @@ describe('V8 proof slice contract', () => {
     expect(within(panel).getByText('Fireplace / Gas')).toBeInTheDocument()
     expect(within(panel).getByText("We'll use this as the starting direction and confirm fit/details with your rep.")).toBeInTheDocument()
     expect(within(panel).getByText('Confirm measurements')).toBeInTheDocument()
+    expect(within(panel).queryByText('Rep handoff')).not.toBeInTheDocument()
+    expect(within(panel).queryByText('Build official quote in BisTrack.')).not.toBeInTheDocument()
     expect(panel.textContent).not.toContain('Needs Verification')
     expect(scanCustomerSafeProjection(panel.textContent)).toEqual([])
   })
@@ -232,6 +280,12 @@ describe('V8 proof slice contract', () => {
     expect(within(panel).queryByText('First Safe Direction')).not.toBeInTheDocument()
     expect(within(panel).getByText('Fireplace / Wood')).toBeInTheDocument()
     expect(scanCustomerSafeProjection(panel.textContent)).toEqual([])
+
+    const handoff = screen.getByText('Rep handoff').closest('section')
+    expect(within(handoff).getByText('Second Safe Direction')).toBeInTheDocument()
+    expect(within(handoff).queryByText('First Safe Direction')).not.toBeInTheDocument()
+    expect(within(handoff).getByText('Confirm fit/details before quote.')).toBeInTheDocument()
+    expect(scanCustomerSafeProjection(handoff.textContent)).toEqual([])
   })
 
   it('allows rep/backstage verification context without contaminating the customer projection', () => {

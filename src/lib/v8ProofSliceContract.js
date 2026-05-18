@@ -126,6 +126,30 @@ export function buildCustomerRecommendationPreviews(manifests, registerRecords =
   )
 }
 
+export function buildRepStartingDirectionHandoff(preview) {
+  if (!preview) return null
+
+  const verificationReminders = preview.badges.includes('Confirm measurements')
+    ? ['Measurements and site conditions need confirmation.', 'Product/model details need verification before quote.']
+    : ['Confirm fit/details before quote.']
+
+  return {
+    id: preview.id,
+    displayName: preview.displayName,
+    category: preview.category,
+    type: preview.type,
+    customerSummary: preview.description,
+    displayContext: preview.showroomCue,
+    recommendationNote: 'Use as starting direction.',
+    verificationReminders,
+    nextSteps: [
+      'Confirm measurements and site conditions.',
+      'Verify product/model details.',
+      'Build official quote in BisTrack.',
+    ],
+  }
+}
+
 export function projectV8RepBackstage(manifest, slot) {
   const { verificationItems } = deriveCustomerBadges(manifest, slot)
 

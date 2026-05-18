@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { buildRepStartingDirectionHandoff } from '../../lib/v8ProofSliceContract.js'
 
 export default function CustomerRecommendationPreview({ previews }) {
   const [selectedId, setSelectedId] = useState(null)
@@ -6,6 +7,7 @@ export default function CustomerRecommendationPreview({ previews }) {
   if (!previews.length) return null
 
   const selectedPreview = previews.find((preview) => preview.id === selectedId)
+  const handoff = buildRepStartingDirectionHandoff(selectedPreview)
 
   return (
     <section className="mt-8 border-t border-stone-300 pt-6">
@@ -40,6 +42,7 @@ export default function CustomerRecommendationPreview({ previews }) {
         ))}
       </div>
       {selectedPreview ? <SelectedDirectionPanel preview={selectedPreview} /> : null}
+      {handoff ? <RepHandoffPanel handoff={handoff} /> : null}
     </section>
   )
 }
@@ -58,6 +61,25 @@ function SelectedDirectionPanel({ preview }) {
           ))}
         </ul>
       ) : null}
+    </section>
+  )
+}
+
+function RepHandoffPanel({ handoff }) {
+  return (
+    <section className="mt-4 rounded border border-stone-400 bg-white p-4">
+      <p className="text-sm font-semibold text-stone-500">Rep handoff</p>
+      <h3 className="mt-1 text-lg font-semibold">{handoff.displayName}</h3>
+      <p className="mt-1 text-sm text-stone-700">{handoff.category} / {handoff.type}</p>
+      <p className="mt-3 text-stone-700">{handoff.customerSummary}</p>
+      {handoff.displayContext ? <p className="mt-2 text-sm text-stone-600">{handoff.displayContext}</p> : null}
+      <p className="mt-3 text-sm font-semibold text-stone-700">{handoff.recommendationNote}</p>
+      <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-stone-700">
+        {handoff.verificationReminders.map((item) => <li key={item}>{item}</li>)}
+      </ul>
+      <ol className="mt-3 list-decimal space-y-1 pl-5 text-sm text-stone-700">
+        {handoff.nextSteps.map((item) => <li key={item}>{item}</li>)}
+      </ol>
     </section>
   )
 }
