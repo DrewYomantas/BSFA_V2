@@ -17,7 +17,8 @@ export default function AppShell({ children }) {
           <Link to="/" className="font-display text-2xl tracking-wide text-hearth-ink">
             Benson Stone <span className="text-hearth-muted">· Hearth Studio</span>
           </Link>
-          <nav className="text-sm text-hearth-muted">
+          <nav className="flex items-center gap-4 text-sm text-hearth-muted">
+            <Link to="/stone-shop-packet" className="hover:text-hearth-ink">Stone + Shop</Link>
             {isRep ? (
               <span className="uppercase tracking-widest text-xs text-hearth-ember">Rep Workbench</span>
             ) : (
