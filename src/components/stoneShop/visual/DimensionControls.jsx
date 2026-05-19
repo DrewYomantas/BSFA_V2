@@ -1,5 +1,14 @@
+import { useEffect, useRef } from 'react'
 import { SNAP_PRESETS } from '../../../lib/stoneShop/dimensionSnap.js'
 import { UNIT_OPTIONS, formatDimensionForUnit, parseDimensionInputToInches } from '../../../lib/stoneShop/unitConversion.js'
+
+const WIDTH_PRESETS = [48, 60, 72, 84, 96]
+const DEPTH_PRESETS = [12, 16, 18, 20, 24]
+const THICKNESS_PRESETS = [
+  ['2-1/4"', '2-1/4 inch'],
+  ['3"', '3 inch'],
+  ['4"', '4 inch'],
+]
 
 export default function DimensionControls({
   snapEnabled,
@@ -11,9 +20,15 @@ export default function DimensionControls({
   activeTarget,
   packet,
   onExactDimension,
+  onThicknessPreset,
 }) {
   const activeField = activeTarget === 'width' ? 'widthInches' : activeTarget === 'depth' ? 'depthInches' : null
   const activeValue = activeField ? packet.dimensions[activeField] : null
+  const exactInputRef = useRef(null)
+
+  useEffect(() => {
+    if (activeField) exactInputRef.current?.focus()
+  }, [activeField])
 
   function submitExact(e) {
     e.preventDefault()
@@ -58,6 +73,7 @@ export default function DimensionControls({
           <label>
             <span>Exact {activeTarget}</span>
             <input
+              ref={exactInputRef}
               name="exactDimension"
               aria-label={`Exact ${activeTarget}`}
               placeholder={formatDimensionForUnit(activeValue, unit, activeTarget)}
@@ -66,6 +82,46 @@ export default function DimensionControls({
           <button type="submit">Set</button>
         </form>
       )}
+      <div className="dimension-presets" aria-label="Standard hearth presets">
+        <PresetGroup label="Width" presets={WIDTH_PRESETS} onPick={(value) => onExactDimension('widthInches', value)} />
+        <PresetGroup label="Depth" presets={DEPTH_PRESETS} onPick={(value) => onExactDimension('depthInches', value)} />
+        <div className="dimension-presets__group">
+          <span>Thickness</span>
+          <div>
+            {THICKNESS_PRESETS.map(([label, value]) => (
+              <button
+                key={value}
+                type="button"
+                aria-label={`Set thickness ${label.replace('"', ' inches')}`}
+                aria-pressed={packet.material.thickness === value}
+                onClick={() => onThicknessPreset(value)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function PresetGroup({ label, presets, onPick }) {
+  return (
+    <div className="dimension-presets__group">
+      <span>{label}</span>
+      <div>
+        {presets.map((value) => (
+          <button
+            key={value}
+            type="button"
+            aria-label={`Set ${label.toLowerCase()} ${value} inches`}
+            onClick={() => onPick(value)}
+          >
+            {value}"
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

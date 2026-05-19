@@ -5,9 +5,11 @@ const SHAPES = [
   ['radius_front', 'Radius front'],
 ]
 
-export default function HearthShapeControls({ value, onChange }) {
+export default function HearthShapeControls({ value, active, onChange }) {
+  const className = active ? 'hearth-shape-controls is-active' : 'hearth-shape-controls'
+
   return (
-    <div className="hearth-shape-controls" aria-label="Front style">
+    <div className={className} aria-label="Front style">
       {SHAPES.map(([shape, label]) => (
         <button
           key={shape}

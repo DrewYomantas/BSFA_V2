@@ -66,6 +66,10 @@ export default function StoneShopPacketBuilder() {
         ...partial,
       },
     })
+    if (section === 'dimensions') {
+      if (partial.widthInches && !packet.dimensions.depthInches) setActiveTarget('depth')
+      if (partial.depthInches && !packet.visualWorkflow?.frontStyleConfirmed) setActiveTarget('front-style')
+    }
   }
 
   function updatePacket(partial) {
@@ -86,8 +90,20 @@ export default function StoneShopPacketBuilder() {
     if (packetType === 'hearth_radius_front') nextFabrication.radiusFrontEdge = true
     if (packetType === 'hearth_angle_cuts' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
     if (packetType === 'hearth_clipped_corners' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
-    replacePacket({ ...packet, packetType, fabrication: nextFabrication })
-    setActiveTarget('width')
+    replacePacket({
+      ...packet,
+      packetType,
+      fabrication: nextFabrication,
+      visualWorkflow: {
+        ...(packet.visualWorkflow || {}),
+        frontStyleConfirmed: true,
+      },
+    })
+    setActiveTarget(packet.dimensions.widthInches && packet.dimensions.depthInches ? getNextHearthVisualTarget({
+      ...packet,
+      packetType,
+      visualWorkflow: { ...(packet.visualWorkflow || {}), frontStyleConfirmed: true },
+    }).target : 'width')
     setActiveStep('Dimensions')
   }
 
@@ -98,7 +114,14 @@ export default function StoneShopPacketBuilder() {
   }
 
   function updateVisualDimension(field, value) {
-    updateSection('dimensions', { [field]: value === null ? null : Number(value) })
+    const nextValue = value === null ? null : Number(value)
+    updateSection('dimensions', { [field]: nextValue })
+    if (nextValue && field === 'widthInches' && !packet.dimensions.depthInches) setActiveTarget('depth')
+    if (nextValue && field === 'depthInches' && !packet.visualWorkflow?.frontStyleConfirmed) setActiveTarget('front-style')
+  }
+
+  function updateThicknessPreset(thickness) {
+    updateSection('material', { thickness })
   }
 
   function newPacket() {
@@ -161,6 +184,7 @@ export default function StoneShopPacketBuilder() {
               unit={unit}
               onUnitChange={setUnit}
               onDimensionUpdate={updateVisualDimension}
+              onThicknessPreset={updateThicknessPreset}
             />
           )}
 

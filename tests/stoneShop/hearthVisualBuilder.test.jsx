@@ -14,8 +14,8 @@ describe('hearth visual builder', () => {
     render(<HearthVisualBuilder packet={createStoneShopPacket()} activeTarget="width" onTarget={() => {}} onShapeChange={() => {}} />)
 
     expect(screen.getByLabelText('basic hearth technical diagram')).toBeInTheDocument()
-    expect(screen.getByText('Width')).toBeInTheDocument()
-    expect(screen.getByText('Depth')).toBeInTheDocument()
+    expect(screen.getAllByText('Width').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Depth').length).toBeGreaterThan(0)
   })
 
   it('updates width and depth labels from packet state', () => {
@@ -29,8 +29,8 @@ describe('hearth visual builder', () => {
 
     render(<HearthVisualBuilder packet={packet} activeTarget="width" onTarget={() => {}} onShapeChange={() => {}} />)
 
-    expect(screen.getByText('96"')).toBeInTheDocument()
-    expect(screen.getByText('16"')).toBeInTheDocument()
+    expect(screen.getAllByText('96"').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('16"').length).toBeGreaterThan(0)
   })
 
   it('renders clipped, angle, and radius hearth SVG variants', () => {
@@ -44,7 +44,7 @@ describe('hearth visual builder', () => {
 
     rerender(<HearthVisualBuilder packet={createStoneShopPacket({ packetType: 'hearth_radius_front' })} activeTarget="front-edge" onTarget={() => {}} onShapeChange={() => {}} />)
     expect(screen.getByLabelText('radius front hearth technical diagram')).toBeInTheDocument()
-    expect(screen.getByText('Radius depth')).toBeInTheDocument()
+    expect(screen.getAllByText('Radius depth').length).toBeGreaterThan(0)
   })
 
   it('clicking width, depth, front edge, and corner changes active editing target', () => {
@@ -57,6 +57,58 @@ describe('hearth visual builder', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Edit front corners' }))
 
     expect(targets).toEqual(['width', 'depth', 'front-edge', 'corner'])
+  })
+
+  it('guides from width to depth after the width is entered', () => {
+    render(<StoneShopPacketBuilder />)
+
+    expect(screen.getAllByText('Start with overall width.').length).toBeGreaterThan(0)
+
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '96' } })
+
+    expect(screen.getAllByText('Now enter hearth depth.').length).toBeGreaterThan(0)
+    expect(screen.getByLabelText('Depth inches')).toHaveClass('ring-2')
+  })
+
+  it('uses common dimension and thickness presets without blocking custom values', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Set width 72 inches' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Set depth 20 inches' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Set thickness 3 inches' }))
+
+    expect(screen.getByLabelText('Width inches')).toHaveValue(72)
+    expect(screen.getByLabelText('Depth inches')).toHaveValue(20)
+    expect(screen.getByText('72 x 20 / 144')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Set thickness 3 inches' })).toHaveAttribute('aria-pressed', 'true')
+
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '73' } })
+    expect(screen.getByLabelText('Width inches')).toHaveValue(73)
+  })
+
+  it('shows drag affordance and live snap context while dragging', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    expect(widthHandle).toHaveAttribute('title', 'Drag to resize width')
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+
+    expect(screen.getAllByText('114"').length).toBeGreaterThan(0)
+    expect(screen.getByText('Snap 6"')).toBeInTheDocument()
+
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+  })
+
+  it('clicking a dimension label focuses exact entry for that dimension', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit depth' }))
+
+    expect(screen.getByLabelText('Exact depth')).toHaveFocus()
   })
 
   it('changing hearth shape changes required fields and missing info', () => {

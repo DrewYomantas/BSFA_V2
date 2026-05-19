@@ -57,6 +57,9 @@ export function getNextHearthVisualTarget(packet) {
   const dimensions = model.dimensions
   if (!dimensions.widthInches) return { target: 'width', copy: 'Start with overall width.' }
   if (!dimensions.depthInches) return { target: 'depth', copy: 'Now enter hearth depth.' }
+  if (!packet?.visualWorkflow?.frontStyleConfirmed) {
+    return { target: 'front-style', copy: 'Choose the front shape, or confirm Straight.' }
+  }
   if (model.hearthShape === 'clipped_corners' && (!dimensions.leftClipInches || !dimensions.rightClipInches)) {
     return { target: 'corner', copy: 'Confirm left and right clipped corner dimensions.' }
   }

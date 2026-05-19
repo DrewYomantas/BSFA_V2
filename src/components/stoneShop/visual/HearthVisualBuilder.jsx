@@ -18,6 +18,7 @@ export default function HearthVisualBuilder({
   unit = 'inches',
   onUnitChange = () => {},
   onDimensionUpdate = () => {},
+  onThicknessPreset = () => {},
 }) {
   const model = useMemo(() => buildStoneShopShapeModel(packet), [packet])
   const next = getNextHearthVisualTarget(packet)
@@ -37,6 +38,7 @@ export default function HearthVisualBuilder({
         </div>
         <HearthShapeControls
           value={model.hearthShape}
+          active={(activeTarget || next.target) === 'front-style'}
           onChange={(shape) => onShapeChange(packetTypeForHearthShape(shape))}
         />
       </div>
@@ -50,6 +52,7 @@ export default function HearthVisualBuilder({
         activeTarget={activeTarget || next.target}
         packet={packet}
         onExactDimension={(field, value) => onDimensionUpdate(field, snapEnabled ? snapToIncrement(value, snapIncrement) : value)}
+        onThicknessPreset={onThicknessPreset}
       />
       <div className="hearth-visual-builder__body">
         <HearthSvgModel
@@ -64,9 +67,56 @@ export default function HearthVisualBuilder({
         <div className="hearth-visual-builder__cue">
           <p>Next</p>
           <strong>{next.copy}</strong>
+          <StepRail shape={model.hearthShape} activeTarget={next.target} />
           <span>Click a dimension, corner, front edge, or the slab surface to edit that part of the packet.</span>
         </div>
       </div>
     </section>
+  )
+}
+
+function StepRail({ shape, activeTarget }) {
+  const stepsByShape = {
+    basic: [
+      ['width', 'Width'],
+      ['depth', 'Depth'],
+      ['front-style', 'Front shape'],
+      ['front-edge', 'Edge'],
+      ['surface', 'Finish'],
+    ],
+    clipped_corners: [
+      ['width', 'Width'],
+      ['depth', 'Depth'],
+      ['corner', 'Clip sizes'],
+      ['front-edge', 'Edge'],
+      ['field-measure', 'Field measure'],
+    ],
+    angle_cuts: [
+      ['width', 'Width'],
+      ['depth', 'Depth'],
+      ['corner', 'Angle cuts'],
+      ['surface', 'Angle notes'],
+      ['field-measure', 'Review'],
+    ],
+    radius_front: [
+      ['width', 'Width'],
+      ['depth', 'Depth'],
+      ['front-edge', 'Radius depth'],
+      ['front-edge', 'Front edge'],
+      ['field-measure', 'Review'],
+    ],
+  }
+  const steps = stepsByShape[shape] || stepsByShape.basic
+  const activeIndex = steps.findIndex(([target]) => target === activeTarget)
+
+  return (
+    <ol className="hearth-step-rail" aria-label="Shape-specific mini flow">
+      {steps.map(([target, label], index) => (
+        <li key={`${target}-${label}`} className={index === activeIndex ? 'is-active' : ''}>
+          <span>{index + 1}</span>
+          {label}
+        </li>
+      ))}
+    </ol>
   )
 }

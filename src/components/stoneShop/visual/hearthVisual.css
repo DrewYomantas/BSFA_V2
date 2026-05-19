@@ -36,6 +36,11 @@
   justify-content: flex-end;
 }
 
+.hearth-shape-controls.is-active {
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px rgba(154, 52, 18, 0.16);
+}
+
 .dimension-controls {
   align-items: end;
   border-top: 1px solid #e7ddd0;
@@ -98,6 +103,40 @@
   cursor: pointer;
   min-height: 34px;
   padding: 6px 14px;
+}
+
+.dimension-presets {
+  border-top: 1px solid #eee4d8;
+  display: grid;
+  gap: 10px;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding-top: 10px;
+}
+
+.dimension-presets__group {
+  display: grid;
+  gap: 6px;
+}
+
+.dimension-presets__group > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dimension-presets__group button {
+  background: #fff;
+  border-color: #e7ddd0;
+  color: #1c1917;
+  min-height: 30px;
+  padding: 5px 9px;
+}
+
+.dimension-presets__group button[aria-pressed="true"],
+.dimension-presets__group button:hover {
+  border-color: #9a3412;
+  color: #9a3412;
 }
 
 .hearth-shape-controls button {
@@ -168,6 +207,10 @@
   stroke: #9a3412;
 }
 
+.hearth-dimension.is-active line {
+  filter: drop-shadow(0 0 3px rgba(154, 52, 18, 0.6));
+}
+
 .hearth-edge text,
 .hearth-dimension text,
 .hearth-svg-dimensions text {
@@ -190,6 +233,17 @@
   cursor: grab;
 }
 
+.hearth-dimension-handle:hover circle:first-child,
+.hearth-dimension-handle.is-dragging circle:first-child {
+  fill: #fff7ed;
+  stroke: #9a3412;
+  stroke-width: 3;
+}
+
+.hearth-dimension-handle.is-dragging {
+  cursor: grabbing;
+}
+
 .hearth-dimension-handle circle:first-child {
   fill: #fff;
   stroke: #111;
@@ -199,6 +253,52 @@
 .hearth-dimension-handle circle:last-child {
   fill: #9a3412;
   pointer-events: none;
+}
+
+.hearth-dimension-drag-label text {
+  fill: #9a3412;
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+  text-anchor: start;
+}
+
+.hearth-step-rail {
+  display: grid;
+  gap: 6px;
+  list-style: none;
+  margin: 4px 0;
+  padding: 0;
+}
+
+.hearth-step-rail li {
+  align-items: center;
+  color: #6b6157;
+  display: flex;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.hearth-step-rail li span {
+  align-items: center;
+  border: 1px solid #e7ddd0;
+  border-radius: 999px;
+  color: #6b6157;
+  display: inline-flex;
+  height: 20px;
+  justify-content: center;
+  width: 20px;
+}
+
+.hearth-step-rail li.is-active {
+  color: #1c1917;
+  font-weight: 700;
+}
+
+.hearth-step-rail li.is-active span {
+  background: #9a3412;
+  border-color: #9a3412;
+  color: #fffdf9;
 }
 
 .hearth-corners {
@@ -242,7 +342,8 @@
   .hearth-visual-builder__header,
   .hearth-visual-builder__body,
   .dimension-controls,
-  .dimension-controls form {
+  .dimension-controls form,
+  .dimension-presets {
     grid-template-columns: 1fr;
   }
 
