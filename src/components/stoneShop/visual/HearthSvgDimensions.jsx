@@ -58,6 +58,12 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
           label={radiusLabel}
           labelX={x + width / 2 + 56}
           labelY={y + depth - geometry.markers.radiusDepth / 2}
+          valueInches={model.dimensions.radiusDepthInches}
+          fallbackInches={6}
+          pixelsPerInch={scale}
+          snapEnabled={snapEnabled}
+          snapIncrement={snapIncrement}
+          onDimensionChange={onDimensionChange}
         />
       )}
       {model.hearthShape === 'clipped_corners' && (

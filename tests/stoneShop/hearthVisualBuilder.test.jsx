@@ -225,6 +225,159 @@ describe('hearth visual builder', () => {
     expect(screen.getByText('96 x 16 / 144')).toBeInTheDocument()
   })
 
+  it('snap applies to clipped corner width drag', () => {
+    const packet = createStoneShopPacket({ packetType: 'hearth_clipped_corners' })
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clipped corners' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value % 6).toBe(0)
+  })
+
+  it('snap applies to angle cut width drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Angle cuts' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value % 6).toBe(0)
+  })
+
+  it('snap applies to radius front width drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Radius front' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value % 6).toBe(0)
+  })
+
+  it('snap applies to radius front radius-depth drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit width' }))
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '96' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Edit depth' }))
+    fireEvent.change(screen.getByLabelText('Depth inches'), { target: { value: '18' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Radius front' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '1' } })
+
+    const radiusHandle = screen.getAllByRole('slider', { name: 'Drag front-edge' })[1]
+
+    fireEvent.pointerDown(radiusHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 0, clientY: 20 })
+    fireEvent.pointerUp(window, { clientX: 0, clientY: 20 })
+
+    expect(screen.getByLabelText('Radius depth inches').value).not.toBe('')
+  })
+
+  it('freeform mode bypasses snap on clipped corners width drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clipped corners' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 50, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 50, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value).toBeGreaterThan(96)
+    expect(value % 6).not.toBe(0)
+  })
+
+  it('freeform mode bypasses snap on angle cut width drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Angle cuts' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 50, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 50, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value).toBeGreaterThan(96)
+    expect(value % 6).not.toBe(0)
+  })
+
+  it('freeform mode bypasses snap on radius front width drag', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Radius front' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 50, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 50, clientY: 0 })
+
+    const value = Number(screen.getByLabelText('Width inches').value)
+    expect(value).toBeGreaterThan(96)
+    expect(value % 6).not.toBe(0)
+  })
+
+  it('changing hearth shape does not reset snap mode', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    expect(screen.getByLabelText('Snap to points')).not.toBeChecked()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Clipped corners' }))
+    expect(screen.getByLabelText('Snap to points')).not.toBeChecked()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Radius front' }))
+    expect(screen.getByLabelText('Snap to points')).not.toBeChecked()
+  })
+
+  it('estimate updates after snapped drag on clipped corners', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit width' }))
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '96' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Edit depth' }))
+    fireEvent.change(screen.getByLabelText('Depth inches'), { target: { value: '18' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Clipped corners' }))
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+
+    const width = Number(screen.getByLabelText('Width inches').value)
+    expect(width).toBeGreaterThan(96)
+    expect(width % 6).toBe(0)
+
+    const mathPanel = screen.getByText('Liam-style math').closest('div').parentElement
+    expect(within(mathPanel).getByText(`${width} x 18 / 144`)).toBeInTheDocument()
+  })
+
   it('shaped hearths show preliminary geometry note', () => {
     const packet = createStoneShopPacket({
       packetType: 'hearth_radius_front',

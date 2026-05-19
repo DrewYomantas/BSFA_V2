@@ -24,7 +24,10 @@ export default function HearthVisualBuilder({
   const next = getNextHearthVisualTarget(packet)
 
   function changeDimension(target, value, options = {}) {
-    const field = target === 'width' ? 'widthInches' : target === 'depth' ? 'depthInches' : null
+    const field =
+      target === 'width' ? 'widthInches' :
+      target === 'depth' ? 'depthInches' :
+      target === 'front-edge' ? 'radiusDepthInches' : null
     if (!field || value === null) return
     onDimensionUpdate(field, options.commit && snapEnabled ? snapToIncrement(value, snapIncrement) : value)
   }
