@@ -254,3 +254,247 @@ input:focus-visible,
     width: 100%;
   }
 }
+
+.build-mode-toggle {
+  align-items: center;
+  background: rgba(246, 235, 210, 0.08);
+  border: 1px solid rgba(232, 199, 131, 0.2);
+  border-radius: 999px;
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+}
+
+.build-mode-toggle button {
+  border: 0;
+  border-radius: 999px;
+  color: rgba(246, 235, 210, 0.72);
+  cursor: pointer;
+  font: 600 11px/1 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  padding: 8px 11px;
+  text-transform: uppercase;
+}
+
+.build-mode-toggle button[aria-pressed="true"] {
+  background: #e8c783;
+  color: #1e1610;
+}
+
+.build3d {
+  background:
+    linear-gradient(180deg, rgba(12, 9, 7, 0.18), rgba(12, 9, 7, 0.86)),
+    #14110d;
+  color: #f6ebd2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  height: 100%;
+  overflow: hidden;
+}
+
+.build3d__stage {
+  min-height: 0;
+  position: relative;
+}
+
+.build3d-scene {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.build3d-scene canvas,
+.build3d-scene__test-canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.build3d-scene__test-canvas {
+  background: #17130f;
+}
+
+.build3d__intro {
+  left: clamp(22px, 4vw, 58px);
+  max-width: 440px;
+  position: absolute;
+  top: clamp(22px, 5vw, 58px);
+}
+
+.build3d__intro p,
+.build3d__eyebrow {
+  color: #e8c783;
+  font: 700 11px/1.2 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.build3d__intro h1 {
+  color: #fff7df;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(38px, 6vw, 76px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.92;
+  margin: 10px 0 12px;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.build3d__intro span {
+  color: rgba(246, 235, 210, 0.78);
+  font-size: 15px;
+}
+
+.build3d__camera {
+  bottom: 26px;
+  display: inline-flex;
+  gap: 6px;
+  left: clamp(22px, 4vw, 58px);
+  position: absolute;
+}
+
+.build3d__camera button,
+.build3d__shape-controls button {
+  background: rgba(246, 235, 210, 0.08);
+  border: 1px solid rgba(232, 199, 131, 0.22);
+  border-radius: 999px;
+  color: #f6ebd2;
+  cursor: pointer;
+  font: 600 12px/1 'DM Sans', system-ui, sans-serif;
+  padding: 10px 13px;
+}
+
+.build3d__camera button[aria-pressed="true"],
+.build3d__shape-controls button[aria-pressed="true"] {
+  background: #d9591e;
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff7df;
+}
+
+.build3d__controls {
+  align-content: start;
+  background: rgba(14, 10, 8, 0.82);
+  border-left: 1px solid rgba(232, 199, 131, 0.16);
+  display: grid;
+  gap: 18px;
+  overflow: auto;
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.build3d__safe-note,
+.build3d__shape-note {
+  color: rgba(246, 235, 210, 0.68);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+.build3d__controls label {
+  color: rgba(246, 235, 210, 0.72);
+  display: grid;
+  font-size: 12px;
+  gap: 7px;
+}
+
+.build3d__controls select {
+  background: rgba(246, 235, 210, 0.08);
+  border: 1px solid rgba(232, 199, 131, 0.2);
+  border-radius: 8px;
+  color: #fff7df;
+  padding: 10px;
+}
+
+.build3d-slider {
+  display: grid;
+  gap: 8px;
+}
+
+.build3d-slider > div:first-child {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.build3d-slider label {
+  color: #fff7df;
+  font-size: 14px;
+}
+
+.build3d-slider output {
+  color: #e8c783;
+  font: 700 13px/1 'DM Sans', system-ui, sans-serif;
+}
+
+.build3d-slider__row {
+  align-items: center;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 34px 1fr 34px;
+}
+
+.build3d-slider__row button {
+  background: rgba(232, 199, 131, 0.12);
+  border: 1px solid rgba(232, 199, 131, 0.22);
+  border-radius: 999px;
+  color: #fff7df;
+  cursor: pointer;
+  height: 34px;
+}
+
+.build3d-slider input[type="range"] {
+  accent-color: #d9591e;
+  width: 100%;
+}
+
+.build3d__shape-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.build3d-dimensions {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.build3d-dimension {
+  background: rgba(255, 247, 223, 0.9);
+  border: 1px solid rgba(30, 22, 16, 0.2);
+  border-radius: 999px;
+  color: #1e1610;
+  font: 700 12px/1 'DM Sans', system-ui, sans-serif;
+  padding: 8px 10px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.build3d-dimension--width {
+  bottom: 24%;
+  left: 38%;
+}
+
+.build3d-dimension--depth {
+  bottom: 34%;
+  right: 24%;
+}
+
+.build3d-dimension--thickness {
+  bottom: 19%;
+  right: 34%;
+}
+
+@media (max-width: 920px) {
+  .build3d {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .build3d__controls {
+    border-left: 0;
+    border-top: 1px solid rgba(232, 199, 131, 0.16);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 42vh;
+  }
+}

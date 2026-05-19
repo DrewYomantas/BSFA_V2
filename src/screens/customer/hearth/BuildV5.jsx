@@ -23,6 +23,8 @@ import {
 import {
   projectTypes, fireExperiences, stones, mantels, hearths, lightingMoods, findOption,
 } from '../../../lib/buildOptions.js'
+import CustomerHearthBuild3D from '../../../components/build3d/CustomerHearthBuild3D.jsx'
+import BuildModeToggle from '../../../components/build3d/BuildModeToggle.jsx'
 
 const STEP_ORDER = ['projectType', 'fireExperience', 'stoneId', 'mantelId', 'hearthId', 'lightingMoodId']
 const STEP_META = {
@@ -55,6 +57,7 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
 
   const [trayKey, setTrayKey]   = useState(null)
   const [stackOpen, setStackOpen] = useState(false)
+  const [buildMode, setBuildMode] = useState('hearth3d')
 
   const openTray = (key) => { setStackOpen(false); setTrayKey(key) }
   const dismissTray = () => setTrayKey(null)
@@ -120,6 +123,7 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
               </div>
             )}
 
+            <BuildModeToggle value={buildMode} onChange={setBuildMode} />
             <GuideAttribution guide={guide} dark/>
 
             {allDone && (
@@ -150,6 +154,10 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
         <div style={{
           position: 'relative', flex: 1, minHeight: 0, overflow: 'hidden', background: '#000',
         }}>
+          {buildMode === 'hearth3d' ? (
+            <CustomerHearthBuild3D />
+          ) : (
+            <>
           <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
             <AssetSlot kind="stage" id={preview.light}
                        alt={preview.light === 'warmEvening' ? 'Hearth at warm evening' : 'Hearth at clean daylight'}>
@@ -267,6 +275,8 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
               background: 'rgba(8,5,3,0.32)',
               transition: 'opacity 220ms ease',
             }}/>
+          )}
+            </>
           )}
         </div>
 
