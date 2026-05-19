@@ -11,6 +11,8 @@ export default function HearthVisualBuilder({
   activeTarget,
   onTarget,
   onShapeChange,
+  snapEnabled = true,
+  onSnapEnabledChange = () => {},
   snapIncrement = 1,
   onSnapChange = () => {},
   unit = 'inches',
@@ -23,7 +25,7 @@ export default function HearthVisualBuilder({
   function changeDimension(target, value, options = {}) {
     const field = target === 'width' ? 'widthInches' : target === 'depth' ? 'depthInches' : null
     if (!field || value === null) return
-    onDimensionUpdate(field, options.commit ? snapToIncrement(value, snapIncrement) : value)
+    onDimensionUpdate(field, options.commit && snapEnabled ? snapToIncrement(value, snapIncrement) : value)
   }
 
   return (
@@ -39,13 +41,15 @@ export default function HearthVisualBuilder({
         />
       </div>
       <DimensionControls
+        snapEnabled={snapEnabled}
+        onSnapEnabledChange={onSnapEnabledChange}
         snapIncrement={snapIncrement}
         onSnapChange={onSnapChange}
         unit={unit}
         onUnitChange={onUnitChange}
         activeTarget={activeTarget || next.target}
         packet={packet}
-        onExactDimension={(field, value) => onDimensionUpdate(field, snapToIncrement(value, snapIncrement))}
+        onExactDimension={(field, value) => onDimensionUpdate(field, snapEnabled ? snapToIncrement(value, snapIncrement) : value)}
       />
       <div className="hearth-visual-builder__body">
         <HearthSvgModel
@@ -53,6 +57,7 @@ export default function HearthVisualBuilder({
           activeTarget={activeTarget || next.target}
           onTarget={onTarget}
           unit={unit}
+          snapEnabled={snapEnabled}
           snapIncrement={snapIncrement}
           onDimensionChange={changeDimension}
         />

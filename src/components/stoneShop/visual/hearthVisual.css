@@ -41,7 +41,7 @@
   border-top: 1px solid #e7ddd0;
   display: grid;
   gap: 10px;
-  grid-template-columns: 110px 150px minmax(180px, 1fr);
+  grid-template-columns: 110px 140px 150px minmax(180px, 1fr);
   margin-top: 14px;
   padding-top: 14px;
 }
@@ -71,6 +71,23 @@
   display: grid;
   gap: 8px;
   grid-template-columns: minmax(120px, 1fr) auto;
+}
+
+.dimension-controls__toggle-row {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e7ddd0;
+  border-radius: 999px;
+  color: #1c1917;
+  display: inline-flex;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 10px;
+}
+
+.dimension-controls__toggle-row input {
+  min-height: auto;
+  padding: 0;
 }
 
 .dimension-controls button {

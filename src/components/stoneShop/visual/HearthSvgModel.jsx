@@ -1,7 +1,7 @@
 import HearthSvgDimensions from './HearthSvgDimensions.jsx'
 import { buildHearthGeometry, pointsToString } from './hearthGeometry.js'
 
-export default function HearthSvgModel({ model, activeTarget, onTarget, unit, snapIncrement, onDimensionChange }) {
+export default function HearthSvgModel({ model, activeTarget, onTarget, unit, snapEnabled, snapIncrement, onDimensionChange }) {
   const geometry = buildHearthGeometry(model)
   const { x, y, width, depth } = geometry.bounds
   const shapeProps = {
@@ -54,6 +54,7 @@ export default function HearthSvgModel({ model, activeTarget, onTarget, unit, sn
         activeTarget={activeTarget}
         onTarget={onTarget}
         unit={unit}
+        snapEnabled={snapEnabled}
         snapIncrement={snapIncrement}
         onDimensionChange={onDimensionChange}
       />

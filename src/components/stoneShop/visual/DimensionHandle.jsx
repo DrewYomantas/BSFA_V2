@@ -8,6 +8,7 @@ export default function DimensionHandle({
   valueInches,
   fallbackInches,
   pixelsPerInch,
+  snapEnabled,
   snapIncrement,
   onTarget,
   onChange,
@@ -29,7 +30,8 @@ export default function DimensionHandle({
     function stop(upEvent) {
       const currentClient = axis === 'x' ? upEvent.clientX : upEvent.clientY
       const delta = (currentClient - startClient) / scale
-      onChange(target, snapToIncrement(startValue + delta, snapIncrement), { commit: true })
+      const nextValue = Math.max(1, startValue + delta)
+      onChange(target, snapEnabled ? snapToIncrement(nextValue, snapIncrement) : nextValue, { commit: true })
       window.removeEventListener('pointermove', move)
       window.removeEventListener('pointerup', stop)
     }

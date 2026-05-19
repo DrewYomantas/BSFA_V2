@@ -87,7 +87,7 @@ describe('hearth visual builder', () => {
   it('dragging a width handle updates and snaps the internal width', () => {
     render(<StoneShopPacketBuilder />)
 
-    fireEvent.change(screen.getByLabelText('Snap'), { target: { value: '6' } })
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
     const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
 
     fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
@@ -98,10 +98,38 @@ describe('hearth visual builder', () => {
     expect(screen.getByLabelText('Width inches')).toHaveValue(114)
   })
 
+  it('can toggle width dragging to freeform without snapping', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 50, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 50, clientY: 0 })
+
+    const widthValue = Number(screen.getByLabelText('Width inches').value)
+    expect(widthValue).toBeGreaterThan(96)
+    expect(widthValue % 6).not.toBe(0)
+  })
+
+  it('exact input respects freeform mode when snap is off', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '6' } })
+    fireEvent.click(screen.getByLabelText('Snap to points'))
+    fireEvent.click(screen.getByRole('button', { name: 'Edit width' }))
+    fireEvent.change(screen.getByLabelText('Exact width'), { target: { value: '97' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Set' }))
+
+    expect(screen.getByLabelText('Width inches')).toHaveValue(97)
+  })
+
   it('dragging a depth handle updates with the selected snap', () => {
     render(<StoneShopPacketBuilder />)
 
-    fireEvent.change(screen.getByLabelText('Snap'), { target: { value: '1' } })
+    fireEvent.change(screen.getByLabelText('Snap increment'), { target: { value: '1' } })
     const depthHandle = screen.getAllByRole('slider', { name: 'Drag depth' })[1]
 
     fireEvent.pointerDown(depthHandle, { clientX: 0, clientY: 0 })

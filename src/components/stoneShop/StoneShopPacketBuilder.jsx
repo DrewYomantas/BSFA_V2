@@ -29,6 +29,7 @@ export default function StoneShopPacketBuilder() {
   const [currentId, setCurrentId] = useState(() => loadCurrentStoneShopPacketId())
   const [activeStep, setActiveStep] = useState('Customer')
   const [activeTarget, setActiveTarget] = useState('width')
+  const [snapEnabled, setSnapEnabled] = useState(true)
   const [snapIncrement, setSnapIncrement] = useState(1)
   const [unit, setUnit] = useState('inches')
 
@@ -153,6 +154,8 @@ export default function StoneShopPacketBuilder() {
               activeTarget={activeTarget}
               onTarget={setVisualTarget}
               onShapeChange={changePacketType}
+              snapEnabled={snapEnabled}
+              onSnapEnabledChange={setSnapEnabled}
               snapIncrement={snapIncrement}
               onSnapChange={setSnapIncrement}
               unit={unit}

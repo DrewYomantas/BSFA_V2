@@ -2,6 +2,8 @@ import { SNAP_PRESETS } from '../../../lib/stoneShop/dimensionSnap.js'
 import { UNIT_OPTIONS, formatDimensionForUnit, parseDimensionInputToInches } from '../../../lib/stoneShop/unitConversion.js'
 
 export default function DimensionControls({
+  snapEnabled,
+  onSnapEnabledChange,
   snapIncrement,
   onSnapChange,
   unit,
@@ -25,11 +27,23 @@ export default function DimensionControls({
     <div className="dimension-controls">
       <label>
         <span>Snap</span>
-        <select value={snapIncrement} onChange={(e) => onSnapChange(Number(e.target.value))}>
+        <select aria-label="Snap increment" value={snapIncrement} onChange={(e) => onSnapChange(Number(e.target.value))}>
           {SNAP_PRESETS.map((preset) => (
             <option key={preset.label} value={preset.value}>{preset.label}</option>
           ))}
         </select>
+      </label>
+      <label className="dimension-controls__toggle">
+        <span>Mode</span>
+        <span className="dimension-controls__toggle-row">
+          <input
+            type="checkbox"
+            checked={snapEnabled}
+            onChange={(e) => onSnapEnabledChange(e.target.checked)}
+            aria-label="Snap to points"
+          />
+          Snap to points
+        </span>
       </label>
       <label>
         <span>Units</span>

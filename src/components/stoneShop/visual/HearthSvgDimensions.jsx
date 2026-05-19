@@ -1,7 +1,7 @@
 import { formatDimensionForUnit } from '../../../lib/stoneShop/unitConversion.js'
 import DimensionHandle from './DimensionHandle.jsx'
 
-export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget, unit, snapIncrement, onDimensionChange }) {
+export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget, unit, snapEnabled, snapIncrement, onDimensionChange }) {
   const { x, y, width, depth, scale } = geometry.bounds
   const widthLabel = formatDimensionForUnit(model.dimensions.widthInches, unit, 'Width')
   const depthLabel = formatDimensionForUnit(model.dimensions.depthInches, unit, 'Depth')
@@ -24,6 +24,7 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         valueInches={model.dimensions.widthInches}
         fallbackInches={96}
         pixelsPerInch={scale}
+        snapEnabled={snapEnabled}
         snapIncrement={snapIncrement}
         onDimensionChange={onDimensionChange}
       />
@@ -41,6 +42,7 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         valueInches={model.dimensions.depthInches}
         fallbackInches={18}
         pixelsPerInch={scale}
+        snapEnabled={snapEnabled}
         snapIncrement={snapIncrement}
         onDimensionChange={onDimensionChange}
       />
@@ -86,6 +88,7 @@ function DimensionLine({
   valueInches,
   fallbackInches,
   pixelsPerInch,
+  snapEnabled,
   snapIncrement,
   onDimensionChange,
 }) {
@@ -116,6 +119,7 @@ function DimensionLine({
             valueInches={valueInches}
             fallbackInches={fallbackInches}
             pixelsPerInch={pixelsPerInch}
+            snapEnabled={snapEnabled}
             snapIncrement={snapIncrement}
             onTarget={onTarget}
             onChange={onDimensionChange}
@@ -128,6 +132,7 @@ function DimensionLine({
             valueInches={valueInches}
             fallbackInches={fallbackInches}
             pixelsPerInch={pixelsPerInch}
+            snapEnabled={snapEnabled}
             snapIncrement={snapIncrement}
             onTarget={onTarget}
             onChange={onDimensionChange}
@@ -140,6 +145,7 @@ function DimensionLine({
             valueInches={valueInches}
             fallbackInches={fallbackInches}
             pixelsPerInch={pixelsPerInch}
+            snapEnabled={snapEnabled}
             snapIncrement={snapIncrement}
             onTarget={onTarget}
             onChange={onDimensionChange}
