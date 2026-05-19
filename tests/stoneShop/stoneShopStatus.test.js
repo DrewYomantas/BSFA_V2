@@ -24,6 +24,12 @@ function readyBase(overrides = {}) {
       },
       ...(overrides.verification || {}),
     },
+    visualWorkflow: {
+      ...base.visualWorkflow,
+      frontStyleConfirmed: true,
+      fabricationDetailsConfirmed: true,
+      ...(overrides.visualWorkflow || {}),
+    },
   }
 
   return packet
@@ -41,6 +47,19 @@ describe('stone shop status', () => {
       label: 'Needs Field Verification',
       next: 'Next: confirm field measure before releasing this to shop.',
     }))
+  })
+
+  it('requires shape and fabrication confirmation before shop review', () => {
+    const unconfirmedShape = readyBase({ visualWorkflow: { frontStyleConfirmed: false } })
+    expect(deriveStoneShopStatus(unconfirmedShape).label).toBe('Needs Field Verification')
+
+    const unconfirmedFabrication = readyBase({
+      visualWorkflow: {
+        frontStyleConfirmed: true,
+        fabricationDetailsConfirmed: false,
+      },
+    })
+    expect(deriveStoneShopStatus(unconfirmedFabrication).label).toBe('Needs Field Verification')
   })
 
   it('returns missing material approval status', () => {

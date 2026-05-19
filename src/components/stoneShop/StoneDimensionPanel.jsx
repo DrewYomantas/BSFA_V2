@@ -1,6 +1,13 @@
 import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
 import { DIMENSION_FIELD_TYPES, DIMENSION_LABELS } from '../../lib/stoneShop/stoneShopTemplates.js'
 
+const MEASUREMENT_CONFIDENCE = [
+  ['rough_customer', 'Rough customer measurement'],
+  ['showroom_estimate', 'Showroom estimate'],
+  ['field_measured', 'Field measured'],
+  ['shop_verified', 'Shop verified'],
+]
+
 export default function StoneDimensionPanel({ packet, updateSection, activeTarget }) {
   const type = getPacketType(packet.packetType)
 
@@ -23,6 +30,19 @@ export default function StoneDimensionPanel({ packet, updateSection, activeTarge
         {type.dimensions.map((field) => (
           <DimensionInput key={field} field={field} packet={packet} updateSection={updateSection} activeTarget={activeTarget} />
         ))}
+        <label className="block">
+          <span className="text-sm text-hearth-muted">Measurement confidence</span>
+          <select
+            aria-label="Measurement confidence"
+            value={packet.dimensions.measurementConfidence || 'rough_customer'}
+            onChange={(e) => updateSection('dimensions', { measurementConfidence: e.target.value })}
+            className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+          >
+            {MEASUREMENT_CONFIDENCE.map(([value, label]) => (
+              <option key={value} value={value}>{label}</option>
+            ))}
+          </select>
+        </label>
       </div>
       <label className="block">
         <span className="text-sm text-hearth-muted">Shop dimension notes</span>

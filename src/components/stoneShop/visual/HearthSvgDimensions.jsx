@@ -1,7 +1,7 @@
 import { formatDimensionForUnit } from '../../../lib/stoneShop/unitConversion.js'
 import DimensionHandle from './DimensionHandle.jsx'
 
-export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget, unit, snapEnabled, snapIncrement, onDimensionChange }) {
+export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget, unit, snapEnabled, snapIncrement, onDimensionChange, printMode = false }) {
   const { x, y, width, depth, scale } = geometry.bounds
   const widthLabel = formatDimensionForUnit(model.dimensions.widthInches, unit, 'Width')
   const depthLabel = formatDimensionForUnit(model.dimensions.depthInches, unit, 'Depth')
@@ -27,6 +27,7 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         snapEnabled={snapEnabled}
         snapIncrement={snapIncrement}
         onDimensionChange={onDimensionChange}
+        printMode={printMode}
       />
       <DimensionLine
         target="depth"
@@ -45,6 +46,7 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         snapEnabled={snapEnabled}
         snapIncrement={snapIncrement}
         onDimensionChange={onDimensionChange}
+        printMode={printMode}
       />
       {model.hearthShape === 'radius_front' && (
         <DimensionLine
@@ -64,15 +66,16 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
           snapEnabled={snapEnabled}
           snapIncrement={snapIncrement}
           onDimensionChange={onDimensionChange}
+          printMode={printMode}
         />
       )}
       {model.hearthShape === 'clipped_corners' && (
-        <text className={activeTarget === 'corner' ? 'is-active' : ''} x={x + 18} y={y + depth + 32} onClick={() => onTarget('corner')}>
+        <text className={activeTarget === 'corner' ? 'is-active' : ''} x={x + 18} y={y + depth + 32} onClick={printMode ? undefined : () => onTarget('corner')}>
           {clipLabel}
         </text>
       )}
       {model.hearthShape === 'angle_cuts' && (
-        <text className={activeTarget === 'corner' ? 'is-active' : ''} x={x + 18} y={y + depth + 32} onClick={() => onTarget('corner')}>
+        <text className={activeTarget === 'corner' ? 'is-active' : ''} x={x + 18} y={y + depth + 32} onClick={printMode ? undefined : () => onTarget('corner')}>
           Angle cuts
         </text>
       )}
@@ -97,17 +100,18 @@ function DimensionLine({
   snapEnabled,
   snapIncrement,
   onDimensionChange,
+  printMode,
 }) {
   const active = activeTarget === target
   const axis = target === 'width' ? 'x' : 'y'
   return (
     <g
       className={active ? 'hearth-dimension is-active' : 'hearth-dimension'}
-      role="button"
-      tabIndex="0"
-      aria-label={`Edit ${target}`}
-      onClick={() => onTarget(target)}
-      onKeyDown={(e) => {
+      role={printMode ? undefined : 'button'}
+      tabIndex={printMode ? undefined : '0'}
+      aria-label={printMode ? undefined : `Edit ${target}`}
+      onClick={printMode ? undefined : () => onTarget(target)}
+      onKeyDown={printMode ? undefined : (e) => {
         if (e.key === 'Enter' || e.key === ' ') onTarget(target)
       }}
     >
@@ -115,7 +119,7 @@ function DimensionLine({
       <circle cx={x1} cy={y1} r="3" />
       <circle cx={x2} cy={y2} r="3" />
       <text x={labelX} y={labelY}>{label}</text>
-      {onDimensionChange && (
+      {!printMode && onDimensionChange && (
         <>
           <DimensionHandle
             target={target}

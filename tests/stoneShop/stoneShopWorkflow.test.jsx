@@ -99,4 +99,44 @@ describe('stone shop guided workflow', () => {
       expect(screen.getAllByText(type.label).length).toBeGreaterThan(0)
     }
   })
+
+  it('attaches manual shop notes to clicked model parts', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit front edge' }))
+    fireEvent.change(screen.getByLabelText('Front edge profile note'), { target: { value: 'Full bullnose front.' } })
+    fireEvent.change(screen.getByLabelText('Front polish note'), { target: { value: 'Polish visible face only.' } })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit front corners' }))
+    fireEvent.change(screen.getByLabelText('Clipped corner note'), { target: { value: 'Confirm clip with template.' } })
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit front edge' }))
+    expect(screen.getByDisplayValue('Full bullnose front.')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('Polish visible face only.')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Print / Export' }))
+    expect(screen.getByText('Confirm clip with template.')).toBeInTheDocument()
+  })
+
+  it('shows measurement confidence and release checklist gates', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Dimensions' }))
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '60' } })
+    fireEvent.change(screen.getByLabelText('Depth inches'), { target: { value: '24' } })
+    fireEvent.change(screen.getByLabelText('Measurement confidence'), { target: { value: 'field_measured' } })
+
+    expect(screen.getAllByText('Field measured').length).toBeGreaterThan(0)
+    expect(screen.getByText(/Dimensions entered/)).toBeInTheDocument()
+    expect(screen.getByLabelText('Shape confirmed')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByLabelText('Shape confirmed'))
+    fireEvent.click(screen.getByLabelText('Edge/fabrication details confirmed'))
+    fireEvent.click(screen.getByLabelText('Field measure confirmed'))
+    fireEvent.click(screen.getByLabelText('Material sample approved'))
+    fireEvent.click(screen.getByLabelText('Customer signed'))
+    fireEvent.click(screen.getByLabelText('Price reviewed'))
+
+    expect(screen.getByRole('heading', { name: 'Ready for Shop Review' })).toBeInTheDocument()
+  })
 })

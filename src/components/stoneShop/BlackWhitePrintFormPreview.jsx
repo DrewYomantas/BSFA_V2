@@ -1,9 +1,13 @@
 import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
+import { buildStoneShopShapeModel, isHearthVisualPacket } from '../../lib/stoneShop/stoneShopShapeModel.js'
 import { DIMENSION_LABELS, FUTURE_PRINT_FORM_LABELS, REQUIRED_CHECKBOXES, SIGNATURE_LINES } from '../../lib/stoneShop/stoneShopTemplates.js'
+import HearthSvgModel from './visual/HearthSvgModel.jsx'
 
 export default function BlackWhitePrintFormPreview({ packet }) {
   const type = getPacketType(packet.packetType)
   const formLabel = FUTURE_PRINT_FORM_LABELS[type.futureFormType] || type.formLabel
+  const isHearthVisual = isHearthVisualPacket(packet.packetType)
+  const partNotes = flattenPartNotes(packet.fabrication?.partNotes)
 
   return (
     <section className="stone-print-form bg-white text-black" aria-label="Black and white production form">
@@ -45,7 +49,18 @@ export default function BlackWhitePrintFormPreview({ packet }) {
           )}
         </PrintBlock>
         <PrintBlock title="Sketch">
-          <div className="stone-print-form__sketch">Shop sketch / field notes</div>
+          <div className="stone-print-form__sketch">
+            {isHearthVisual ? (
+              <HearthSvgModel
+                model={buildStoneShopShapeModel(packet)}
+                activeTarget=""
+                unit="inches"
+                printMode
+              />
+            ) : (
+              'Shop sketch / field notes'
+            )}
+          </div>
         </PrintBlock>
       </div>
 
@@ -55,6 +70,9 @@ export default function BlackWhitePrintFormPreview({ packet }) {
         <PrintLine label="Holes" value={packet.fabrication.holes || ''} />
         <PrintLine label="Cutouts" value={packet.fabrication.cutouts || ''} />
         <PrintLine label="Notes" value={packet.fabrication.customNotes || packet.dimensions.notes} wide />
+        {partNotes.map(({ label, value }) => (
+          <PrintLine key={`${label}:${value}`} label={label} value={value} wide />
+        ))}
       </PrintBlock>
 
       <PrintBlock title="Approval / Internal Shop">
@@ -71,6 +89,21 @@ export default function BlackWhitePrintFormPreview({ packet }) {
       </PrintBlock>
     </section>
   )
+}
+
+function flattenPartNotes(partNotes = {}) {
+  const fields = [
+    ['Front edge profile', partNotes.frontEdge?.edgeProfileNote],
+    ['Front polish note', partNotes.frontEdge?.polishNote],
+    ['Radius front note', partNotes.frontEdge?.radiusFrontNote],
+    ['Corner clip note', partNotes.corner?.clippedCornerNote],
+    ['Angle cut note', partNotes.corner?.angleCutNote],
+    ['Cutout note', partNotes.surface?.cutoutNote],
+    ['Hole note', partNotes.surface?.holeNote],
+    ['Notch note', partNotes.surface?.notchNote],
+    ['Surface custom note', partNotes.surface?.customNote],
+  ]
+  return fields.filter(([, value]) => value).map(([label, value]) => ({ label, value }))
 }
 
 function formatPrintValue(field, value) {

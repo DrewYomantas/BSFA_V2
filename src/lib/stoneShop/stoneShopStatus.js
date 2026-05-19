@@ -82,6 +82,22 @@ export function deriveStoneShopStatus(packet) {
     }
   }
 
+  if (!type.internalOnly && packet.packetType !== 'material_approval' && !packet.visualWorkflow?.frontStyleConfirmed) {
+    return {
+      label: 'Needs Field Verification',
+      next: 'Next: confirm the hearth shape before releasing this to shop.',
+      why: 'The drawing needs an explicit shape confirmation so the shop knows the default was intentional.',
+    }
+  }
+
+  if (!type.internalOnly && packet.packetType !== 'material_approval' && !packet.visualWorkflow?.fabricationDetailsConfirmed) {
+    return {
+      label: 'Needs Field Verification',
+      next: 'Next: confirm edge and fabrication details before releasing this to shop.',
+      why: 'Part notes, edge treatments, holes, notches, and cutouts should be reviewed against the sketch.',
+    }
+  }
+
   if (!type.internalOnly && packet.packetType !== 'material_approval' && !packet.verification?.fieldMeasureConfirmed) {
     return {
       label: 'Needs Field Verification',

@@ -124,6 +124,18 @@ export default function StoneShopPacketBuilder() {
     updateSection('material', { thickness })
   }
 
+  function updatePartNote(part, field, value) {
+    updateSection('fabrication', {
+      partNotes: {
+        ...(packet.fabrication.partNotes || {}),
+        [part]: {
+          ...(packet.fabrication.partNotes?.[part] || {}),
+          [field]: value,
+        },
+      },
+    })
+  }
+
   function newPacket() {
     const next = createStoneShopPacket()
     setPackets((items) => [next, ...items])
@@ -185,6 +197,7 @@ export default function StoneShopPacketBuilder() {
               onUnitChange={setUnit}
               onDimensionUpdate={updateVisualDimension}
               onThicknessPreset={updateThicknessPreset}
+              onPartNoteChange={updatePartNote}
             />
           )}
 
@@ -238,8 +251,12 @@ export default function StoneShopPacketBuilder() {
           </section>
 
           <section className={activeStep === 'Print / Export' ? 'space-y-5' : 'hidden'}>
-            <StoneShopExportActions onMarkGenerated={markGenerated} />
-            <BlackWhitePrintFormPreview packet={packet} />
+            {activeStep === 'Print / Export' && (
+              <>
+                <StoneShopExportActions onMarkGenerated={markGenerated} />
+                <BlackWhitePrintFormPreview packet={packet} />
+              </>
+            )}
           </section>
         </main>
 

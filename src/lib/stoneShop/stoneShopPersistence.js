@@ -54,6 +54,7 @@ export function createStoneShopPacket(overrides = {}) {
       pieceDepthInches: null,
       quantity: null,
       installLocation: '',
+      measurementConfidence: 'rough_customer',
       corbelQuantity: null,
       corbelWidthInches: null,
       corbelDepthInches: null,
@@ -76,6 +77,23 @@ export function createStoneShopPacket(overrides = {}) {
       radiusFrontEdge: false,
       polishLinearFeet: null,
       customNotes: '',
+      partNotes: {
+        frontEdge: {
+          edgeProfileNote: '',
+          polishNote: '',
+          radiusFrontNote: '',
+        },
+        corner: {
+          clippedCornerNote: '',
+          angleCutNote: '',
+        },
+        surface: {
+          cutoutNote: '',
+          holeNote: '',
+          notchNote: '',
+          customNote: '',
+        },
+      },
     },
     edgeTreatments: {
       front: '',
@@ -89,6 +107,10 @@ export function createStoneShopPacket(overrides = {}) {
       customerSignatureCaptured: false,
       managerReviewedPricing: false,
       shopReadyApproved: false,
+    },
+    visualWorkflow: {
+      frontStyleConfirmed: false,
+      fabricationDetailsConfirmed: false,
     },
     pricing: {
       sqFt: null,

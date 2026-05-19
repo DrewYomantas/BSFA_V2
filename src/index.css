@@ -186,8 +186,14 @@ input:focus-visible,
   align-items: flex-start;
   border: 2px solid #000;
   display: flex;
-  height: 150px;
+  min-height: 190px;
   padding: 8px;
+}
+
+.stone-print-form__sketch .hearth-svg-model {
+  background: #fff;
+  height: 185px;
+  width: 100%;
 }
 
 .stone-print-form__checks {

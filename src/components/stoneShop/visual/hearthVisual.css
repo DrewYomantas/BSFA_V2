@@ -171,6 +171,19 @@
   width: 100%;
 }
 
+.hearth-svg-model--print {
+  border: 0;
+  min-height: 0;
+}
+
+.hearth-svg-model--print .hearth-shape {
+  fill: #fff;
+}
+
+.hearth-svg-model--print .hearth-dimension-handle {
+  display: none;
+}
+
 .hearth-shape {
   cursor: pointer;
   fill: #faf7f1;
@@ -338,9 +351,58 @@
   line-height: 1.5;
 }
 
+.hearth-part-notes {
+  border-top: 1px solid #e7ddd0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+.hearth-part-notes p {
+  color: #6b6157;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.hearth-part-notes h3 {
+  color: #1c1917;
+  font-size: 16px;
+  margin: 3px 0 0;
+}
+
+.hearth-part-notes__grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hearth-part-notes label {
+  display: grid;
+  gap: 4px;
+}
+
+.hearth-part-notes span {
+  color: #6b6157;
+  font-size: 12px;
+}
+
+.hearth-part-notes textarea {
+  border: 1px solid #e7ddd0;
+  border-radius: 6px;
+  color: #1c1917;
+  padding: 7px 9px;
+  resize: vertical;
+}
+
 @media (max-width: 860px) {
   .hearth-visual-builder__header,
   .hearth-visual-builder__body,
+  .hearth-part-notes,
+  .hearth-part-notes__grid,
   .dimension-controls,
   .dimension-controls form,
   .dimension-presets {

@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { getNextHearthVisualTarget, buildStoneShopShapeModel, packetTypeForHearthShape } from '../../../lib/stoneShop/stoneShopShapeModel.js'
 import { snapToIncrement } from '../../../lib/stoneShop/dimensionSnap.js'
 import DimensionControls from './DimensionControls.jsx'
+import HearthPartNotesPanel from './HearthPartNotesPanel.jsx'
 import HearthShapeControls from './HearthShapeControls.jsx'
 import HearthSvgModel from './HearthSvgModel.jsx'
 import './hearthVisual.css'
@@ -19,6 +20,7 @@ export default function HearthVisualBuilder({
   onUnitChange = () => {},
   onDimensionUpdate = () => {},
   onThicknessPreset = () => {},
+  onPartNoteChange = () => {},
 }) {
   const model = useMemo(() => buildStoneShopShapeModel(packet), [packet])
   const next = getNextHearthVisualTarget(packet)
@@ -74,6 +76,13 @@ export default function HearthVisualBuilder({
           <span>Click a dimension, corner, front edge, or the slab surface to edit that part of the packet.</span>
         </div>
       </div>
+      {['front-edge', 'corner', 'surface'].includes(activeTarget || next.target) && (
+        <HearthPartNotesPanel
+          activeTarget={activeTarget || next.target}
+          partNotes={packet.fabrication?.partNotes}
+          onChange={onPartNoteChange}
+        />
+      )}
     </section>
   )
 }
