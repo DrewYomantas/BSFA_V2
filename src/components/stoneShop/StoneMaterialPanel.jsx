@@ -54,6 +54,15 @@ export default function StoneMaterialPanel({ packet, updateSection }) {
             className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
           />
         </label>
+        <label className="block sm:col-span-2">
+          <span className="text-sm text-hearth-muted">Application</span>
+          <input
+            value={packet.material.application || ''}
+            onChange={(e) => updateSection('material', { application: e.target.value })}
+            placeholder="Hearth, surround, mantel, cap, shelf, or approval-only"
+            className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+          />
+        </label>
       </div>
       <p className="text-xs uppercase tracking-widest text-hearth-muted">
         Source: {STONE_SHOP_RATE_SOURCE.label} / Last reviewed {STONE_SHOP_RATE_SOURCE.lastReviewed}

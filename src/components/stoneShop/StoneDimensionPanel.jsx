@@ -1,5 +1,5 @@
 import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
-import { DIMENSION_LABELS } from '../../lib/stoneShop/stoneShopTemplates.js'
+import { DIMENSION_FIELD_TYPES, DIMENSION_LABELS } from '../../lib/stoneShop/stoneShopTemplates.js'
 
 export default function StoneDimensionPanel({ packet, updateSection }) {
   const type = getPacketType(packet.packetType)
@@ -21,16 +21,7 @@ export default function StoneDimensionPanel({ packet, updateSection }) {
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {type.dimensions.map((field) => (
-          <label key={field} className="block">
-            <span className="text-sm text-hearth-muted">{DIMENSION_LABELS[field]} inches</span>
-            <input
-              type="number"
-              min="0"
-              value={packet.dimensions[field] ?? ''}
-              onChange={(e) => updateSection('dimensions', { [field]: e.target.value === '' ? null : Number(e.target.value) })}
-              className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
-            />
-          </label>
+          <DimensionInput key={field} field={field} packet={packet} updateSection={updateSection} />
         ))}
       </div>
       <label className="block">
@@ -43,5 +34,51 @@ export default function StoneDimensionPanel({ packet, updateSection }) {
         />
       </label>
     </section>
+  )
+}
+
+function DimensionInput({ field, packet, updateSection }) {
+  const fieldType = DIMENSION_FIELD_TYPES[field] || 'number'
+  const label = DIMENSION_LABELS[field] || field
+  const value = packet.dimensions[field] ?? ''
+
+  if (fieldType === 'textarea') {
+    return (
+      <label className="block sm:col-span-2">
+        <span className="text-sm text-hearth-muted">{label}</span>
+        <textarea
+          value={value}
+          onChange={(e) => updateSection('dimensions', { [field]: e.target.value })}
+          rows="3"
+          className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+        />
+      </label>
+    )
+  }
+
+  if (fieldType === 'text') {
+    return (
+      <label className="block">
+        <span className="text-sm text-hearth-muted">{label}</span>
+        <input
+          value={value}
+          onChange={(e) => updateSection('dimensions', { [field]: e.target.value })}
+          className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+        />
+      </label>
+    )
+  }
+
+  return (
+    <label className="block">
+      <span className="text-sm text-hearth-muted">{label}{field.endsWith('Inches') ? ' inches' : ''}</span>
+      <input
+        type="number"
+        min="0"
+        value={value}
+        onChange={(e) => updateSection('dimensions', { [field]: e.target.value === '' ? null : Number(e.target.value) })}
+        className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+      />
+    </label>
   )
 }

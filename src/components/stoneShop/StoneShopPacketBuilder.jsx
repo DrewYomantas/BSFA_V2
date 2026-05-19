@@ -7,6 +7,7 @@ import StonePacketStatusPanel from './StonePacketStatusPanel.jsx'
 import ModernPacketPreview from './ModernPacketPreview.jsx'
 import BlackWhitePrintFormPreview from './BlackWhitePrintFormPreview.jsx'
 import StoneShopExportActions from './StoneShopExportActions.jsx'
+import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
 import { calculateStoneShopPricing } from '../../lib/stoneShop/stoneShopCalculations.js'
 import {
   createStoneShopPacket,
@@ -29,6 +30,7 @@ export default function StoneShopPacketBuilder() {
   const packet = useMemo(() => {
     return packets.find((item) => item.id === currentId) || packets[0]
   }, [packets, currentId])
+  const packetType = getPacketType(packet.packetType)
 
   useEffect(() => {
     if (packet?.id && packet.id !== currentId) setCurrentId(packet.id)
@@ -62,6 +64,23 @@ export default function StoneShopPacketBuilder() {
     replacePacket({ ...packet, ...partial })
   }
 
+  function changePacketType(packetType) {
+    const nextType = getPacketType(packetType)
+    const nextFabrication = {
+      ...packet.fabrication,
+      angleCuts: nextType.adders.includes('angleCuts') ? packet.fabrication.angleCuts : 0,
+      notches: nextType.adders.includes('notches') ? packet.fabrication.notches : 0,
+      holes: nextType.adders.includes('holes') ? packet.fabrication.holes : 0,
+      cutouts: nextType.adders.includes('cutouts') ? packet.fabrication.cutouts : 0,
+      radiusCorners: nextType.adders.includes('radiusCorners') ? packet.fabrication.radiusCorners : 0,
+      radiusFrontEdge: nextType.adders.includes('radiusFrontEdge') ? packet.fabrication.radiusFrontEdge : false,
+    }
+    if (packetType === 'hearth_radius_front') nextFabrication.radiusFrontEdge = true
+    if (packetType === 'hearth_angle_cuts' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
+    if (packetType === 'hearth_clipped_corners' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
+    replacePacket({ ...packet, packetType, fabrication: nextFabrication })
+  }
+
   function newPacket() {
     const next = createStoneShopPacket()
     setPackets((items) => [next, ...items])
@@ -81,6 +100,9 @@ export default function StoneShopPacketBuilder() {
           <h1 className="font-display text-4xl text-hearth-ink">Stone + Shop Packet</h1>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-hearth-muted">
             Guided hearth and material-selection packets with rep-only estimates, missing-info checks, and production-safe print forms.
+          </p>
+          <p className="mt-2 text-xs uppercase tracking-widest text-hearth-muted">
+            Current form: {packetType.formLabel}
           </p>
         </div>
         <button type="button" onClick={newPacket} className="w-fit rounded-full border border-hearth-ink px-5 py-2 text-sm font-medium text-hearth-ink hover:bg-white">
@@ -136,7 +158,7 @@ export default function StoneShopPacketBuilder() {
               <h2 className="font-display text-2xl text-hearth-ink">Packet Type</h2>
               <p className="text-sm text-hearth-muted">The builder changes required dimensions and adders based on this choice.</p>
             </div>
-            <StonePacketTypePicker value={packet.packetType} onChange={(packetType) => updatePacket({ packetType })} />
+            <StonePacketTypePicker value={packet.packetType} onChange={changePacketType} />
           </section>
 
           <div className={activeStep === 'Material' ? 'block' : 'hidden'}>

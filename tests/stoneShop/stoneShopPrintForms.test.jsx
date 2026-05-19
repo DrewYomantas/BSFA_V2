@@ -28,6 +28,8 @@ describe('stone shop print forms', () => {
 
     expect(screen.getByText('BENSON STONE COMPANY')).toBeInTheDocument()
     expect(screen.getByText('STONE FABRICATION ORDER')).toBeInTheDocument()
+    expect(screen.getByText('DRAFT - INTERNAL REVIEW ONLY')).toBeInTheDocument()
+    expect(screen.getByText(/Selected packet: Basic Hearth/)).toBeInTheDocument()
     expect(screen.getByText('Field measure confirmed')).toBeInTheDocument()
     expect(screen.getByText('Customer approval: ______________________________')).toBeInTheDocument()
     expect(form.className).toContain('stone-print-form')

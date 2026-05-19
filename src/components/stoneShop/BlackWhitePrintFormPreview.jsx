@@ -1,8 +1,9 @@
 import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
-import { REQUIRED_CHECKBOXES, SIGNATURE_LINES } from '../../lib/stoneShop/stoneShopTemplates.js'
+import { DIMENSION_LABELS, FUTURE_PRINT_FORM_LABELS, REQUIRED_CHECKBOXES, SIGNATURE_LINES } from '../../lib/stoneShop/stoneShopTemplates.js'
 
 export default function BlackWhitePrintFormPreview({ packet }) {
   const type = getPacketType(packet.packetType)
+  const formLabel = FUTURE_PRINT_FORM_LABELS[type.futureFormType] || type.formLabel
 
   return (
     <section className="stone-print-form bg-white text-black" aria-label="Black and white production form">
@@ -10,11 +11,16 @@ export default function BlackWhitePrintFormPreview({ packet }) {
         <div>
           <p>BENSON STONE COMPANY</p>
           <h2>STONE FABRICATION ORDER</h2>
+          <strong>DRAFT - INTERNAL REVIEW ONLY</strong>
         </div>
         <div className="stone-print-form__date">Date: ____________</div>
       </header>
 
-      <div className="stone-print-form__type">Form type: {type.formLabel}</div>
+      <div className="stone-print-form__type">
+        Form type: {formLabel}
+        <br />
+        Selected packet: {type.label}
+      </div>
 
       <PrintBlock title="Customer / Job">
         <PrintLine label="Customer" value={packet.customer.name} />
@@ -32,10 +38,11 @@ export default function BlackWhitePrintFormPreview({ packet }) {
 
       <div className="stone-print-form__grid">
         <PrintBlock title="Dimensions">
-          <PrintLine label="Width" value={packet.dimensions.widthInches ? `${packet.dimensions.widthInches} in` : ''} />
-          <PrintLine label="Depth" value={packet.dimensions.depthInches ? `${packet.dimensions.depthInches} in` : ''} />
-          <PrintLine label="Left clipped corner" value={packet.dimensions.leftReturnInches ? `${packet.dimensions.leftReturnInches} in` : ''} />
-          <PrintLine label="Right clipped corner" value={packet.dimensions.rightReturnInches ? `${packet.dimensions.rightReturnInches} in` : ''} />
+          {type.dimensions.length > 0 ? type.dimensions.slice(0, 8).map((field) => (
+            <PrintLine key={field} label={DIMENSION_LABELS[field] || field} value={formatPrintValue(field, packet.dimensions[field])} />
+          )) : (
+            <PrintLine label="Approval packet" value="No hearth dimensions required" wide />
+          )}
         </PrintBlock>
         <PrintBlock title="Sketch">
           <div className="stone-print-form__sketch">Shop sketch / field notes</div>
@@ -64,6 +71,12 @@ export default function BlackWhitePrintFormPreview({ packet }) {
       </PrintBlock>
     </section>
   )
+}
+
+function formatPrintValue(field, value) {
+  if (value === null || value === undefined || value === '') return ''
+  if (field.endsWith('Inches')) return `${value} in`
+  return String(value)
 }
 
 function PrintBlock({ title, children }) {

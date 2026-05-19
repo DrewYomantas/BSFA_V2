@@ -1,4 +1,4 @@
-import { FABRICATION_ADDERS, MATERIAL_RATES, STONE_SHOP_RATE_SOURCE } from '../../data/stoneShop/stoneShopRates.js'
+import { FABRICATION_ADDERS, MATERIAL_RATES, STONE_SHOP_RATE_SOURCE, getPacketType, isPricingEnabled } from '../../data/stoneShop/stoneShopRates.js'
 
 export function calculateSqFt(widthInches, depthInches) {
   const width = Number(widthInches)
@@ -21,7 +21,29 @@ export function calculateAddersSubtotal(fabrication = {}) {
 }
 
 export function calculateStoneShopPricing(packet) {
-  const sqFt = calculateSqFt(packet?.dimensions?.widthInches, packet?.dimensions?.depthInches)
+  const type = getPacketType(packet?.packetType)
+  if (!isPricingEnabled(packet?.packetType)) {
+    return {
+      sqFt: null,
+      materialRate: null,
+      materialSubtotal: null,
+      addersSubtotal: null,
+      estimatedTotal: null,
+      sourceLabel: 'Internal usage log - pricing calculator disabled',
+      formula: null,
+      activeAdders: [],
+    }
+  }
+
+  const widthField = type.dimensions.includes('pieceWidthInches') && !type.dimensions.includes('widthInches')
+    ? 'pieceWidthInches'
+    : 'widthInches'
+  const depthField = type.dimensions.includes('pieceDepthInches') && !type.dimensions.includes('depthInches')
+    ? 'pieceDepthInches'
+    : 'depthInches'
+  const width = packet?.dimensions?.[widthField]
+  const depth = packet?.dimensions?.[depthField]
+  const sqFt = calculateSqFt(width, depth)
   const rate = lookupMaterialRate(packet?.material?.name, packet?.material?.thickness)
   const materialRate = rate?.ratePerSqFt ?? null
   const materialSubtotal = sqFt !== null && materialRate !== null
@@ -39,6 +61,16 @@ export function calculateStoneShopPricing(packet) {
     addersSubtotal,
     estimatedTotal,
     sourceLabel: `${STONE_SHOP_RATE_SOURCE.label} - reviewed ${STONE_SHOP_RATE_SOURCE.lastReviewed}`,
+    formula: Number(width) > 0 && Number(depth) > 0 ? `${width} x ${depth} / 144` : null,
+    activeAdders: Object.entries(FABRICATION_ADDERS)
+      .map(([key, rule]) => {
+        const value = packet?.fabrication?.[key]
+        const total = key === 'radiusFrontEdge'
+          ? (value ? rule.amount : 0)
+          : (Number(value || 0) > 0 ? Number(value) * rule.amount : 0)
+        return { key, ...rule, value, total }
+      })
+      .filter((adder) => adder.total > 0),
   }
 }
 

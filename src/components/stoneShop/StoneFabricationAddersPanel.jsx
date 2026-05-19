@@ -17,15 +17,39 @@ export default function StoneFabricationAddersPanel({ packet, updateSection }) {
               <span className="text-sm text-hearth-muted">
                 {FABRICATION_ADDERS[field].label} ({FABRICATION_ADDERS[field].unit})
               </span>
+              {field === 'radiusFrontEdge' ? (
+                <span className="mt-2 flex items-center gap-2 rounded-md border border-hearth-line bg-white px-3 py-2">
+                  <input
+                    type="checkbox"
+                    checked={!!packet.fabrication[field]}
+                    onChange={(e) => updateSection('fabrication', { [field]: e.target.checked })}
+                    className="h-4 w-4 accent-hearth-ember"
+                  />
+                  <span className="text-sm text-hearth-ink">Apply flat radius-front adder</span>
+                </span>
+              ) : (
+                <input
+                  type="number"
+                  min="0"
+                  value={packet.fabrication[field] ?? 0}
+                  onChange={(e) => updateSection('fabrication', { [field]: Number(e.target.value) || 0 })}
+                  className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+                />
+              )}
+            </label>
+          ))}
+          {type.calculatorEnabled !== false && (
+            <label className="block">
+              <span className="text-sm text-hearth-muted">Polish linear feet (note only)</span>
               <input
                 type="number"
                 min="0"
-                value={packet.fabrication[field] ?? 0}
-                onChange={(e) => updateSection('fabrication', { [field]: Number(e.target.value) || 0 })}
+                value={packet.fabrication.polishLinearFeet ?? ''}
+                onChange={(e) => updateSection('fabrication', { polishLinearFeet: e.target.value === '' ? null : Number(e.target.value) })}
                 className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
               />
             </label>
-          ))}
+          )}
         </div>
       ) : (
         <p className="rounded-md border border-hearth-line bg-white px-4 py-3 text-sm text-hearth-muted">

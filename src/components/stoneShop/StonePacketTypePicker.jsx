@@ -18,6 +18,9 @@ export default function StonePacketTypePicker({ value, onChange }) {
         >
           <span className="block font-display text-xl text-hearth-ink">{type.label}</span>
           <span className="mt-1 block text-sm leading-5 text-hearth-muted">{type.description}</span>
+          <span className="mt-3 block text-xs uppercase tracking-widest text-hearth-muted">
+            {type.formLabel}{type.internalOnly ? ' / internal' : ''}
+          </span>
         </button>
       ))}
     </div>
