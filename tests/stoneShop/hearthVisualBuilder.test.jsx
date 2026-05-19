@@ -92,6 +92,7 @@ describe('hearth visual builder', () => {
 
     fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
     fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    expect(screen.getByLabelText('Width inches')).toHaveValue(114)
     fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
 
     expect(screen.getByText('114"')).toBeInTheDocument()

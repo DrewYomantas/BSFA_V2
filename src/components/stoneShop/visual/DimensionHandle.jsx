@@ -24,7 +24,8 @@ export default function DimensionHandle({
     function move(moveEvent) {
       const currentClient = axis === 'x' ? moveEvent.clientX : moveEvent.clientY
       const delta = (currentClient - startClient) / scale
-      onChange(target, Math.max(1, startValue + delta))
+      const nextValue = Math.max(1, startValue + delta)
+      onChange(target, snapEnabled ? snapToIncrement(nextValue, snapIncrement) : nextValue)
     }
 
     function stop(upEvent) {
