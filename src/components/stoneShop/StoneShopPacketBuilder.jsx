@@ -7,8 +7,10 @@ import StonePacketStatusPanel from './StonePacketStatusPanel.jsx'
 import ModernPacketPreview from './ModernPacketPreview.jsx'
 import BlackWhitePrintFormPreview from './BlackWhitePrintFormPreview.jsx'
 import StoneShopExportActions from './StoneShopExportActions.jsx'
+import HearthVisualBuilder from './visual/HearthVisualBuilder.jsx'
 import { getPacketType } from '../../data/stoneShop/stoneShopRates.js'
 import { calculateStoneShopPricing } from '../../lib/stoneShop/stoneShopCalculations.js'
+import { getNextHearthVisualTarget, isHearthVisualPacket } from '../../lib/stoneShop/stoneShopShapeModel.js'
 import {
   createStoneShopPacket,
   loadCurrentStoneShopPacketId,
@@ -26,11 +28,14 @@ export default function StoneShopPacketBuilder() {
   })
   const [currentId, setCurrentId] = useState(() => loadCurrentStoneShopPacketId())
   const [activeStep, setActiveStep] = useState('Customer')
+  const [activeTarget, setActiveTarget] = useState('width')
 
   const packet = useMemo(() => {
     return packets.find((item) => item.id === currentId) || packets[0]
   }, [packets, currentId])
   const packetType = getPacketType(packet.packetType)
+  const isHearthVisual = isHearthVisualPacket(packet.packetType)
+  const visualNext = isHearthVisual ? getNextHearthVisualTarget(packet) : null
 
   useEffect(() => {
     if (packet?.id && packet.id !== currentId) setCurrentId(packet.id)
@@ -54,7 +59,7 @@ export default function StoneShopPacketBuilder() {
     replacePacket({
       ...packet,
       [section]: {
-        ...packet[section],
+        ...(packet[section] || {}),
         ...partial,
       },
     })
@@ -79,6 +84,14 @@ export default function StoneShopPacketBuilder() {
     if (packetType === 'hearth_angle_cuts' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
     if (packetType === 'hearth_clipped_corners' && !nextFabrication.angleCuts) nextFabrication.angleCuts = 2
     replacePacket({ ...packet, packetType, fabrication: nextFabrication })
+    setActiveTarget('width')
+    setActiveStep('Dimensions')
+  }
+
+  function setVisualTarget(target) {
+    setActiveTarget(target)
+    if (['width', 'depth', 'corner'].includes(target)) setActiveStep('Dimensions')
+    if (['front-edge', 'surface'].includes(target)) setActiveStep('Fabrication')
   }
 
   function newPacket() {
@@ -128,6 +141,15 @@ export default function StoneShopPacketBuilder() {
 
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
         <main className="space-y-6">
+          {isHearthVisual && (
+            <HearthVisualBuilder
+              packet={packet}
+              activeTarget={activeTarget}
+              onTarget={setVisualTarget}
+              onShapeChange={changePacketType}
+            />
+          )}
+
           <section className={activeStep === 'Customer' ? 'space-y-4' : 'hidden'}>
             <div>
               <h2 className="font-display text-2xl text-hearth-ink">Customer</h2>
@@ -166,11 +188,11 @@ export default function StoneShopPacketBuilder() {
           </div>
 
           <div className={activeStep === 'Dimensions' ? 'block' : 'hidden'}>
-            <StoneDimensionPanel packet={packet} updateSection={updateSection} />
+            <StoneDimensionPanel packet={packet} updateSection={updateSection} activeTarget={activeTarget} />
           </div>
 
           <div className={activeStep === 'Fabrication' ? 'block' : 'hidden'}>
-            <StoneFabricationAddersPanel packet={packet} updateSection={updateSection} />
+            <StoneFabricationAddersPanel packet={packet} updateSection={updateSection} activeTarget={activeTarget} />
           </div>
 
           <section className={activeStep === 'Review' ? 'space-y-6' : 'hidden'}>
@@ -183,7 +205,7 @@ export default function StoneShopPacketBuilder() {
           </section>
         </main>
 
-        <StonePacketStatusPanel packet={packet} updateSection={updateSection} />
+        <StonePacketStatusPanel packet={packet} updateSection={updateSection} visualNext={visualNext} />
       </div>
     </div>
   )

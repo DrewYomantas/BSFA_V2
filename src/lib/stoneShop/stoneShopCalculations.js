@@ -1,4 +1,5 @@
 import { FABRICATION_ADDERS, MATERIAL_RATES, STONE_SHOP_RATE_SOURCE, getPacketType, isPricingEnabled } from '../../data/stoneShop/stoneShopRates.js'
+import { isShapedHearth } from './stoneShopShapeModel.js'
 
 export function calculateSqFt(widthInches, depthInches) {
   const width = Number(widthInches)
@@ -32,6 +33,7 @@ export function calculateStoneShopPricing(packet) {
       sourceLabel: 'Internal usage log - pricing calculator disabled',
       formula: null,
       activeAdders: [],
+      geometryNote: null,
     }
   }
 
@@ -62,6 +64,9 @@ export function calculateStoneShopPricing(packet) {
     estimatedTotal,
     sourceLabel: `${STONE_SHOP_RATE_SOURCE.label} - reviewed ${STONE_SHOP_RATE_SOURCE.lastReviewed}`,
     formula: Number(width) > 0 && Number(depth) > 0 ? `${width} x ${depth} / 144` : null,
+    geometryNote: isShapedHearth(packet?.packetType)
+      ? 'Preliminary area uses overall width x depth. Final shaped-piece pricing should be reviewed before shop release.'
+      : null,
     activeAdders: Object.entries(FABRICATION_ADDERS)
       .map(([key, rule]) => {
         const value = packet?.fabrication?.[key]

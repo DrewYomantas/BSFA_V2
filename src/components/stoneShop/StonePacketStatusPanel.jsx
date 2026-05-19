@@ -2,7 +2,7 @@ import { calculateStoneShopPricing, formatMoney } from '../../lib/stoneShop/ston
 import { getPacketType, isPricingEnabled } from '../../data/stoneShop/stoneShopRates.js'
 import { deriveStoneShopStatus, getMissingInfoItems } from '../../lib/stoneShop/stoneShopStatus.js'
 
-export default function StonePacketStatusPanel({ packet, updateSection }) {
+export default function StonePacketStatusPanel({ packet, updateSection, visualNext }) {
   const type = getPacketType(packet.packetType)
   const status = deriveStoneShopStatus(packet)
   const pricing = calculateStoneShopPricing(packet)
@@ -21,6 +21,7 @@ export default function StonePacketStatusPanel({ packet, updateSection }) {
         <p className="text-xs uppercase tracking-widest text-hearth-muted">Next best move</p>
         <h2 className="mt-1 font-display text-3xl text-hearth-ink">{status.label}</h2>
         <p className="mt-2 text-sm leading-5 text-hearth-muted">{status.next}</p>
+        {visualNext?.copy && <p className="mt-2 text-sm leading-5 text-hearth-ink">{visualNext.copy}</p>}
         {status.why && <p className="mt-2 rounded-md bg-hearth-bg px-3 py-2 text-xs leading-5 text-hearth-muted">{status.why}</p>}
       </div>
 
@@ -46,6 +47,7 @@ export default function StonePacketStatusPanel({ packet, updateSection }) {
             ))}
           </ul>
         )}
+        {pricing.geometryNote && <p className="mt-3 rounded-md border border-hearth-line px-3 py-2 text-xs leading-5 text-hearth-muted">{pricing.geometryNote}</p>}
         <p className="mt-3 text-xs leading-5 text-hearth-muted">{pricing.sourceLabel}</p>
       </div>
 

@@ -77,6 +77,12 @@ export function createStoneShopPacket(overrides = {}) {
       polishLinearFeet: null,
       customNotes: '',
     },
+    edgeTreatments: {
+      front: '',
+      back: '',
+      left: '',
+      right: '',
+    },
     verification: {
       fieldMeasureConfirmed: false,
       materialApproved: false,

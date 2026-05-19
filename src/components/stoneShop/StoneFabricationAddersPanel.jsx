@@ -1,6 +1,6 @@
 import { FABRICATION_ADDERS, getPacketType } from '../../data/stoneShop/stoneShopRates.js'
 
-export default function StoneFabricationAddersPanel({ packet, updateSection }) {
+export default function StoneFabricationAddersPanel({ packet, updateSection, activeTarget }) {
   const type = getPacketType(packet.packetType)
   const visibleAdders = type.adders
 
@@ -12,6 +12,20 @@ export default function StoneFabricationAddersPanel({ packet, updateSection }) {
       </div>
       {visibleAdders.length > 0 ? (
         <div className="grid gap-3 sm:grid-cols-2">
+          <label className={activeTarget === 'front-edge' ? 'block rounded-md bg-hearth-bg p-3' : 'block'}>
+            <span className="text-sm text-hearth-muted">Front edge treatment</span>
+            <select
+              value={packet.edgeTreatments?.front || ''}
+              onChange={(e) => updateSection('edgeTreatments', { front: e.target.value })}
+              className="mt-1 w-full rounded-md border border-hearth-line bg-white px-3 py-2"
+            >
+              <option value="">Select front edge</option>
+              <option value="Polished">Polished</option>
+              <option value="Radius">Radius</option>
+              <option value="Eased">Eased</option>
+              <option value="Sawn">Sawn</option>
+            </select>
+          </label>
           {visibleAdders.map((field) => (
             <label key={field} className="block">
               <span className="text-sm text-hearth-muted">
