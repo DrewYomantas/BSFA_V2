@@ -8,7 +8,7 @@
 //   • "See your hearth" CTA appears top-right ONLY when all 6 are chosen
 //   • No 3-column grid, no Compare/Fit-to-wall ghost buttons, no disabled CTA placeholder
 
-import React, { useState, useMemo } from 'react'
+import React, { Suspense, lazy, useState, useMemo } from 'react'
 import { V4 } from './tokens.js'
 import {
   G, Eye, MonogramV4, Swatch, AssetCard, SpecimenCard, SpecimenTag, EtchedPlate,
@@ -23,8 +23,9 @@ import {
 import {
   projectTypes, fireExperiences, stones, mantels, hearths, lightingMoods, findOption,
 } from '../../../lib/buildOptions.js'
-import CustomerHearthBuild3D from '../../../components/build3d/CustomerHearthBuild3D.jsx'
 import BuildModeToggle from '../../../components/build3d/BuildModeToggle.jsx'
+
+const CustomerHearthBuild3D = lazy(() => import('../../../components/build3d/CustomerHearthBuild3D.jsx'))
 
 const STEP_ORDER = ['projectType', 'fireExperience', 'stoneId', 'mantelId', 'hearthId', 'lightingMoodId']
 const STEP_META = {
@@ -155,7 +156,9 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
           position: 'relative', flex: 1, minHeight: 0, overflow: 'hidden', background: '#000',
         }}>
           {buildMode === 'hearth3d' ? (
-            <CustomerHearthBuild3D />
+            <Suspense fallback={<HearthBuildLoading />}>
+              <CustomerHearthBuild3D />
+            </Suspense>
           ) : (
             <>
           <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
@@ -288,6 +291,21 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
         )}
       </div>
     </PresentationGuard>
+  )
+}
+
+function HearthBuildLoading() {
+  return (
+    <div className="build3d-loading" role="status" aria-live="polite">
+      <div className="build3d-loading__sketch" aria-hidden="true">
+        <span />
+      </div>
+      <div>
+        <p>Build Your Fireplace / Room</p>
+        <h1>Preparing the 3D room view.</h1>
+        <span>A simple planning view is loading so you can judge hearth size in the room.</span>
+      </div>
+    </div>
   )
 }
 

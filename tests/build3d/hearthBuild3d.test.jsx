@@ -9,10 +9,8 @@ describe('customer 3D hearth build proof slice', () => {
 
     expect(screen.getByLabelText('3D hearth build proof slice')).toBeInTheDocument()
     expect(screen.getByTestId('hearth-3d-scene')).toHaveAttribute('data-shape', 'basic')
-    expect(screen.getByText('Approximate visualization only. Final dimensions are confirmed before fabrication.')).toBeInTheDocument()
-    expect(screen.queryByText(/pricing/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/shop readiness/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/BisTrack/i)).not.toBeInTheDocument()
+    expect(screen.getByText('A visual planning aid for scale and proportion. Your Benson Stone guide will confirm final measurements with you.')).toBeInTheDocument()
+    expect(screen.queryByText(/pricing|quote|shop|BisTrack|fabrication|CAD|approval|readiness|internal/i)).not.toBeInTheDocument()
   })
 
   it('updates dimensions from drag-friendly controls', () => {
@@ -39,6 +37,15 @@ describe('customer 3D hearth build proof slice', () => {
 
     fireEvent.click(screen.getByRole('button', { name: 'Radius front' }))
     expect(screen.getByTestId('hearth-3d-scene')).toHaveAttribute('data-shape', 'radius_front')
+  })
+
+  it('offers the customer-safe seated camera preset', () => {
+    render(<CustomerHearthBuild3D renderCanvas={false} />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Seated' }))
+
+    expect(screen.getByRole('button', { name: 'Seated' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByLabelText('3D hearth dimensions')).toHaveClass('build3d-dimensions--seated')
   })
 
   it('keeps the backstage stone shop packet route intact', () => {

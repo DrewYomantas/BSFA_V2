@@ -19,6 +19,13 @@ export const HEARTH_SHAPE_TO_PACKET = {
   [HEARTH_SHAPES.RADIUS_FRONT]: 'hearth_radius_front',
 }
 
+export const CUSTOMER_HEARTH_SHAPE_OPTIONS = [
+  { shape: HEARTH_SHAPES.BASIC, label: 'Straight' },
+  { shape: HEARTH_SHAPES.CLIPPED_CORNERS, label: 'Clipped corners' },
+  { shape: HEARTH_SHAPES.ANGLE_CUTS, label: 'Angle cuts' },
+  { shape: HEARTH_SHAPES.RADIUS_FRONT, label: 'Radius front' },
+]
+
 export const DEFAULT_CUSTOMER_HEARTH_MODEL = {
   pieceType: 'hearth',
   hearthShape: HEARTH_SHAPES.BASIC,

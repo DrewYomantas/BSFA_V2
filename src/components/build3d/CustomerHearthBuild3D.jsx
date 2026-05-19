@@ -3,22 +3,17 @@ import HearthScene3D from './HearthScene3D.jsx'
 import { SNAP_PRESETS, snapToIncrement } from '../../lib/stoneShop/dimensionSnap.js'
 import {
   DEFAULT_CUSTOMER_HEARTH_MODEL,
+  CUSTOMER_HEARTH_SHAPE_OPTIONS,
   HEARTH_SHAPES,
   updateHearthDimension,
   updateHearthShape,
 } from '../../lib/sharedHearthModel.js'
 
-const SHAPE_OPTIONS = [
-  ['basic', 'Straight'],
-  ['clipped_corners', 'Clipped corners'],
-  ['angle_cuts', 'Angle cuts'],
-  ['radius_front', 'Radius front'],
-]
-
 const CAMERA_OPTIONS = [
   ['perspective', 'Perspective'],
   ['front', 'Front'],
   ['top', 'Top'],
+  ['seated', 'Seated'],
 ]
 
 export default function CustomerHearthBuild3D({ renderCanvas = true }) {
@@ -43,7 +38,7 @@ export default function CustomerHearthBuild3D({ renderCanvas = true }) {
         <HearthScene3D model={model} cameraPreset={cameraPreset} renderCanvas={renderCanvas} />
         <div className="build3d__intro">
           <p>Build Your Fireplace / Room</p>
-          <h1>Size the hearth in the room.</h1>
+          <h1>See how the hearth feels in the room.</h1>
           <span>{summary}</span>
         </div>
         <div className="build3d__camera" aria-label="Camera presets">
@@ -58,7 +53,7 @@ export default function CustomerHearthBuild3D({ renderCanvas = true }) {
       <div className="build3d__controls" aria-label="Hearth 3D controls">
         <div>
           <p className="build3d__eyebrow">Hearth size</p>
-          <p className="build3d__safe-note">Approximate visualization only. Final dimensions are confirmed before fabrication.</p>
+          <p className="build3d__safe-note">A visual planning aid for scale and proportion. Your Benson Stone guide will confirm final measurements with you.</p>
         </div>
 
         <label>
@@ -75,7 +70,7 @@ export default function CustomerHearthBuild3D({ renderCanvas = true }) {
         <DimensionSlider label="Thickness" field="thicknessInches" min={1.5} max={6} model={model} snapIncrement={snapIncrement} onChange={setDimension} onNudge={nudge} />
 
         <div className="build3d__shape-controls" aria-label="3D hearth front shape">
-          {SHAPE_OPTIONS.map(([shape, label]) => (
+          {CUSTOMER_HEARTH_SHAPE_OPTIONS.map(({ shape, label }) => (
             <button
               key={shape}
               type="button"
@@ -88,7 +83,7 @@ export default function CustomerHearthBuild3D({ renderCanvas = true }) {
         </div>
 
         {model.hearthShape !== HEARTH_SHAPES.BASIC && (
-          <p className="build3d__shape-note">Shape is shown as a planning model. Field confirmation can change final fabrication details.</p>
+          <p className="build3d__shape-note">Shaped fronts are shown to help you compare the look. Final shape details are confirmed together.</p>
         )}
       </div>
     </section>

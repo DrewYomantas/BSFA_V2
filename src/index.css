@@ -292,6 +292,65 @@ input:focus-visible,
   overflow: hidden;
 }
 
+.build3d-loading {
+  align-items: center;
+  background:
+    radial-gradient(circle at 50% 36%, rgba(232, 199, 131, 0.16), transparent 34%),
+    linear-gradient(180deg, #17120f, #0d0907);
+  color: #f6ebd2;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(180px, 320px) minmax(260px, 460px);
+  height: 100%;
+  justify-content: center;
+  padding: 40px;
+}
+
+.build3d-loading__sketch {
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(232, 199, 131, 0.22);
+  border-radius: 8px;
+  position: relative;
+}
+
+.build3d-loading__sketch::before {
+  background: rgba(246, 235, 210, 0.08);
+  content: "";
+  inset: 18% 20% 36%;
+  position: absolute;
+}
+
+.build3d-loading__sketch span {
+  background: rgba(217, 89, 30, 0.42);
+  bottom: 24%;
+  height: 18%;
+  left: 16%;
+  position: absolute;
+  width: 68%;
+}
+
+.build3d-loading p {
+  color: #e8c783;
+  font: 700 11px/1.2 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.build3d-loading h1 {
+  color: #fff7df;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.96;
+  margin: 10px 0 12px;
+}
+
+.build3d-loading span {
+  color: rgba(246, 235, 210, 0.72);
+}
+
 .build3d__stage {
   min-height: 0;
   position: relative;
@@ -485,10 +544,34 @@ input:focus-visible,
   right: 34%;
 }
 
+.build3d-dimensions--top .build3d-dimension--width {
+  bottom: 30%;
+  left: 42%;
+}
+
+.build3d-dimensions--top .build3d-dimension--depth {
+  bottom: 48%;
+  right: 20%;
+}
+
+.build3d-dimensions--seated .build3d-dimension--width {
+  bottom: 21%;
+  left: 31%;
+}
+
+.build3d-dimensions--seated .build3d-dimension--depth {
+  bottom: 29%;
+  right: 20%;
+}
+
 @media (max-width: 920px) {
   .build3d {
     grid-template-columns: 1fr;
     grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .build3d-loading {
+    grid-template-columns: 1fr;
   }
 
   .build3d__controls {

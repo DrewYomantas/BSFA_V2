@@ -5,6 +5,7 @@ const CAMERA_PRESETS = {
   perspective: { position: [5.2, 3.6, 5.2], zoom: 1 },
   front: { position: [0, 2.2, 7.4], zoom: 1.15 },
   top: { position: [0, 8.2, 0.02], zoom: 1.05 },
+  seated: { position: [3.5, 1.25, 6.4], zoom: 1.08 },
 }
 
 export default function SceneCameraControls({ preset }) {
