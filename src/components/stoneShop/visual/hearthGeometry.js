@@ -23,7 +23,7 @@ export function buildHearthGeometry(model) {
   if (model?.hearthShape === 'radius_front') {
     return {
       viewBox: VIEWBOX,
-      bounds: { x, y, width: shapeWidth, depth: shapeDepth },
+      bounds: { x, y, width: shapeWidth, depth: shapeDepth, scale },
       path: [
         `M ${x} ${y}`,
         `L ${x + shapeWidth} ${y}`,
@@ -38,7 +38,7 @@ export function buildHearthGeometry(model) {
   if (model?.hearthShape === 'clipped_corners') {
     return {
       viewBox: VIEWBOX,
-      bounds: { x, y, width: shapeWidth, depth: shapeDepth },
+      bounds: { x, y, width: shapeWidth, depth: shapeDepth, scale },
       points: [
         [x, y],
         [x + shapeWidth, y],
@@ -54,7 +54,7 @@ export function buildHearthGeometry(model) {
   if (model?.hearthShape === 'angle_cuts') {
     return {
       viewBox: VIEWBOX,
-      bounds: { x, y, width: shapeWidth, depth: shapeDepth },
+      bounds: { x, y, width: shapeWidth, depth: shapeDepth, scale },
       points: [
         [x, y],
         [x + shapeWidth, y],
@@ -69,7 +69,7 @@ export function buildHearthGeometry(model) {
 
   return {
     viewBox: VIEWBOX,
-    bounds: { x, y, width: shapeWidth, depth: shapeDepth },
+    bounds: { x, y, width: shapeWidth, depth: shapeDepth, scale },
     points: [
       [x, y],
       [x + shapeWidth, y],
@@ -82,10 +82,6 @@ export function buildHearthGeometry(model) {
 
 export function pointsToString(points) {
   return points.map(([x, y]) => `${round(x)},${round(y)}`).join(' ')
-}
-
-export function formatDimensionLabel(value, fallback) {
-  return value ? `${value}"` : fallback
 }
 
 function normalizeDimension(value, fallback) {

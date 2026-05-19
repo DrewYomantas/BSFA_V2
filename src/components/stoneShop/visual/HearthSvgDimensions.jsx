@@ -1,11 +1,12 @@
-import { formatDimensionLabel } from './hearthGeometry.js'
+import { formatDimensionForUnit } from '../../../lib/stoneShop/unitConversion.js'
+import DimensionHandle from './DimensionHandle.jsx'
 
-export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget }) {
-  const { x, y, width, depth } = geometry.bounds
-  const widthLabel = formatDimensionLabel(model.dimensions.widthInches, 'Width')
-  const depthLabel = formatDimensionLabel(model.dimensions.depthInches, 'Depth')
-  const radiusLabel = formatDimensionLabel(model.dimensions.radiusDepthInches, 'Radius depth')
-  const clipLabel = formatDimensionLabel(model.dimensions.leftClipInches || model.dimensions.rightClipInches, 'Clip')
+export default function HearthSvgDimensions({ geometry, model, activeTarget, onTarget, unit, snapIncrement, onDimensionChange }) {
+  const { x, y, width, depth, scale } = geometry.bounds
+  const widthLabel = formatDimensionForUnit(model.dimensions.widthInches, unit, 'Width')
+  const depthLabel = formatDimensionForUnit(model.dimensions.depthInches, unit, 'Depth')
+  const radiusLabel = formatDimensionForUnit(model.dimensions.radiusDepthInches, unit, 'Radius depth')
+  const clipLabel = formatDimensionForUnit(model.dimensions.leftClipInches || model.dimensions.rightClipInches, unit, 'Clip')
 
   return (
     <g className="hearth-svg-dimensions">
@@ -20,6 +21,11 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         label={widthLabel}
         labelX={x + width / 2}
         labelY={y - 38}
+        valueInches={model.dimensions.widthInches}
+        fallbackInches={96}
+        pixelsPerInch={scale}
+        snapIncrement={snapIncrement}
+        onDimensionChange={onDimensionChange}
       />
       <DimensionLine
         target="depth"
@@ -32,6 +38,11 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
         label={depthLabel}
         labelX={x + width + 54}
         labelY={y + depth / 2}
+        valueInches={model.dimensions.depthInches}
+        fallbackInches={18}
+        pixelsPerInch={scale}
+        snapIncrement={snapIncrement}
+        onDimensionChange={onDimensionChange}
       />
       {model.hearthShape === 'radius_front' && (
         <DimensionLine
@@ -61,8 +72,25 @@ export default function HearthSvgDimensions({ geometry, model, activeTarget, onT
   )
 }
 
-function DimensionLine({ target, activeTarget, onTarget, x1, y1, x2, y2, label, labelX, labelY }) {
+function DimensionLine({
+  target,
+  activeTarget,
+  onTarget,
+  x1,
+  y1,
+  x2,
+  y2,
+  label,
+  labelX,
+  labelY,
+  valueInches,
+  fallbackInches,
+  pixelsPerInch,
+  snapIncrement,
+  onDimensionChange,
+}) {
   const active = activeTarget === target
+  const axis = target === 'width' ? 'x' : 'y'
   return (
     <g
       className={active ? 'hearth-dimension is-active' : 'hearth-dimension'}
@@ -78,6 +106,46 @@ function DimensionLine({ target, activeTarget, onTarget, x1, y1, x2, y2, label, 
       <circle cx={x1} cy={y1} r="3" />
       <circle cx={x2} cy={y2} r="3" />
       <text x={labelX} y={labelY}>{label}</text>
+      {onDimensionChange && (
+        <>
+          <DimensionHandle
+            target={target}
+            x={x1}
+            y={y1}
+            axis={axis}
+            valueInches={valueInches}
+            fallbackInches={fallbackInches}
+            pixelsPerInch={pixelsPerInch}
+            snapIncrement={snapIncrement}
+            onTarget={onTarget}
+            onChange={onDimensionChange}
+          />
+          <DimensionHandle
+            target={target}
+            x={(x1 + x2) / 2}
+            y={(y1 + y2) / 2}
+            axis={axis}
+            valueInches={valueInches}
+            fallbackInches={fallbackInches}
+            pixelsPerInch={pixelsPerInch}
+            snapIncrement={snapIncrement}
+            onTarget={onTarget}
+            onChange={onDimensionChange}
+          />
+          <DimensionHandle
+            target={target}
+            x={x2}
+            y={y2}
+            axis={axis}
+            valueInches={valueInches}
+            fallbackInches={fallbackInches}
+            pixelsPerInch={pixelsPerInch}
+            snapIncrement={snapIncrement}
+            onTarget={onTarget}
+            onChange={onDimensionChange}
+          />
+        </>
+      )}
     </g>
   )
 }

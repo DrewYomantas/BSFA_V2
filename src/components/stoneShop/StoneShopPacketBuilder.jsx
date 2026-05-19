@@ -29,6 +29,8 @@ export default function StoneShopPacketBuilder() {
   const [currentId, setCurrentId] = useState(() => loadCurrentStoneShopPacketId())
   const [activeStep, setActiveStep] = useState('Customer')
   const [activeTarget, setActiveTarget] = useState('width')
+  const [snapIncrement, setSnapIncrement] = useState(1)
+  const [unit, setUnit] = useState('inches')
 
   const packet = useMemo(() => {
     return packets.find((item) => item.id === currentId) || packets[0]
@@ -94,6 +96,10 @@ export default function StoneShopPacketBuilder() {
     if (['front-edge', 'surface'].includes(target)) setActiveStep('Fabrication')
   }
 
+  function updateVisualDimension(field, value) {
+    updateSection('dimensions', { [field]: value === null ? null : Number(value) })
+  }
+
   function newPacket() {
     const next = createStoneShopPacket()
     setPackets((items) => [next, ...items])
@@ -147,6 +153,11 @@ export default function StoneShopPacketBuilder() {
               activeTarget={activeTarget}
               onTarget={setVisualTarget}
               onShapeChange={changePacketType}
+              snapIncrement={snapIncrement}
+              onSnapChange={setSnapIncrement}
+              unit={unit}
+              onUnitChange={setUnit}
+              onDimensionUpdate={updateVisualDimension}
             />
           )}
 

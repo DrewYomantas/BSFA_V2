@@ -36,6 +36,53 @@
   justify-content: flex-end;
 }
 
+.dimension-controls {
+  align-items: end;
+  border-top: 1px solid #e7ddd0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 110px 150px minmax(180px, 1fr);
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.dimension-controls label {
+  display: grid;
+  gap: 4px;
+}
+
+.dimension-controls span {
+  color: #6b6157;
+  font-size: 12px;
+}
+
+.dimension-controls select,
+.dimension-controls input {
+  background: #fff;
+  border: 1px solid #e7ddd0;
+  border-radius: 6px;
+  color: #1c1917;
+  min-height: 34px;
+  padding: 6px 8px;
+}
+
+.dimension-controls form {
+  align-items: end;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(120px, 1fr) auto;
+}
+
+.dimension-controls button {
+  background: #1c1917;
+  border: 1px solid #1c1917;
+  border-radius: 999px;
+  color: #fffdf9;
+  cursor: pointer;
+  min-height: 34px;
+  padding: 6px 14px;
+}
+
 .hearth-shape-controls button {
   background: #fff;
   border: 1px solid #e7ddd0;
@@ -122,6 +169,21 @@
   fill: #111;
 }
 
+.hearth-dimension-handle {
+  cursor: grab;
+}
+
+.hearth-dimension-handle circle:first-child {
+  fill: #fff;
+  stroke: #111;
+  stroke-width: 2;
+}
+
+.hearth-dimension-handle circle:last-child {
+  fill: #9a3412;
+  pointer-events: none;
+}
+
 .hearth-corners {
   cursor: pointer;
 }
@@ -161,7 +223,9 @@
 
 @media (max-width: 860px) {
   .hearth-visual-builder__header,
-  .hearth-visual-builder__body {
+  .hearth-visual-builder__body,
+  .dimension-controls,
+  .dimension-controls form {
     grid-template-columns: 1fr;
   }
 

@@ -84,6 +84,66 @@ describe('hearth visual builder', () => {
     expect(within(mathPanel).getByText('10.67')).toBeInTheDocument()
   })
 
+  it('dragging a width handle updates and snaps the internal width', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap'), { target: { value: '6' } })
+    const widthHandle = screen.getAllByRole('slider', { name: 'Drag width' })[1]
+
+    fireEvent.pointerDown(widthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 60, clientY: 0 })
+    fireEvent.pointerUp(window, { clientX: 60, clientY: 0 })
+
+    expect(screen.getByText('114"')).toBeInTheDocument()
+    expect(screen.getByLabelText('Width inches')).toHaveValue(114)
+  })
+
+  it('dragging a depth handle updates with the selected snap', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Snap'), { target: { value: '1' } })
+    const depthHandle = screen.getAllByRole('slider', { name: 'Drag depth' })[1]
+
+    fireEvent.pointerDown(depthHandle, { clientX: 0, clientY: 0 })
+    fireEvent.pointerMove(window, { clientX: 0, clientY: 36 })
+    fireEvent.pointerUp(window, { clientX: 0, clientY: 36 })
+
+    expect(screen.getByLabelText('Depth inches').value).not.toBe('')
+  })
+
+  it('unit display changes labels without changing stored dimension values', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Edit width' }))
+    fireEvent.change(screen.getByLabelText('Width inches'), { target: { value: '96' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Edit depth' }))
+    fireEvent.change(screen.getByLabelText('Depth inches'), { target: { value: '16' } })
+
+    fireEvent.change(screen.getByLabelText('Units'), { target: { value: 'feet_inches' } })
+    expect(screen.getByText('8\' 0"')).toBeInTheDocument()
+
+    fireEvent.change(screen.getByLabelText('Units'), { target: { value: 'centimeters' } })
+    expect(screen.getByText('243.8 cm')).toBeInTheDocument()
+
+    fireEvent.change(screen.getByLabelText('Units'), { target: { value: 'millimeters' } })
+    expect(screen.getByText('2438 mm')).toBeInTheDocument()
+    expect(screen.getByText('96 x 16 / 144')).toBeInTheDocument()
+  })
+
+  it('exact metric input converts to internal inches for estimate math', () => {
+    render(<StoneShopPacketBuilder />)
+
+    fireEvent.change(screen.getByLabelText('Units'), { target: { value: 'centimeters' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Edit width' }))
+    fireEvent.change(screen.getByLabelText('Exact width'), { target: { value: '243.84' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Set' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Edit depth' }))
+    fireEvent.change(screen.getByLabelText('Exact depth'), { target: { value: '40.64' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Set' }))
+
+    expect(screen.getByText('96 x 16 / 144')).toBeInTheDocument()
+  })
+
   it('shaped hearths show preliminary geometry note', () => {
     const packet = createStoneShopPacket({
       packetType: 'hearth_radius_front',
