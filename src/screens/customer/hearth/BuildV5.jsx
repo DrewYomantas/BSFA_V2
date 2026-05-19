@@ -13,17 +13,15 @@ import { V4 } from './tokens.js'
 import {
   G, Eye, MonogramV4, Swatch, AssetCard, SpecimenCard, SpecimenTag, EtchedPlate,
 } from './atoms.jsx'
-import { FireplaceV4 } from './FireplaceStage.jsx'
 import { useAppMode } from './AppModeContext.jsx'
 import { getAsset, assetIdFor } from './assets.js'
 import {
-  AssetSlot, GuideAttribution, ProjectName, NowChoosingPill, DesignStackBadge, MaterialTray,
+  AssetSlot, GuideAttribution, ProjectName, DesignStackBadge, MaterialTray,
   PresentationGuard,
 } from './v6Atoms.jsx'
 import {
   projectTypes, fireExperiences, stones, mantels, hearths, lightingMoods, findOption,
 } from '../../../lib/buildOptions.js'
-import BuildModeToggle from '../../../components/build3d/BuildModeToggle.jsx'
 
 const CustomerHearthBuild3D = lazy(() => import('../../../components/build3d/CustomerHearthBuild3D.jsx'))
 
@@ -58,7 +56,6 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
 
   const [trayKey, setTrayKey]   = useState(null)
   const [stackOpen, setStackOpen] = useState(false)
-  const [buildMode, setBuildMode] = useState('hearth3d')
 
   const openTray = (key) => { setStackOpen(false); setTrayKey(key) }
   const dismissTray = () => setTrayKey(null)
@@ -68,12 +65,6 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
     setTimeout(() => setTrayKey(null), 600)
   }
 
-  const preview = {
-    stone:  sel.stoneId        || 'cliffstone',
-    mantel: sel.mantelId       || 'rusticOak',
-    hearth: sel.hearthId       || 'bluestone',
-    light:  sel.lightingMoodId || 'warmEvening',
-  }
   const stepIndex = focusStep ? STEP_ORDER.indexOf(focusStep) + 1 : STEP_ORDER.length
 
   return (
@@ -124,7 +115,6 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
               </div>
             )}
 
-            <BuildModeToggle value={buildMode} onChange={setBuildMode} />
             <GuideAttribution guide={guide} dark/>
 
             {allDone && (
@@ -155,37 +145,13 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
         <div style={{
           position: 'relative', flex: 1, minHeight: 0, overflow: 'hidden', background: '#000',
         }}>
-          {buildMode === 'hearth3d' ? (
-            <Suspense fallback={<HearthBuildLoading />}>
-              <CustomerHearthBuild3D />
-            </Suspense>
-          ) : (
-            <>
-          <div style={{ position: 'absolute', inset: 0 }} aria-hidden="true">
-            <AssetSlot kind="stage" id={preview.light}
-                       alt={preview.light === 'warmEvening' ? 'Hearth at warm evening' : 'Hearth at clean daylight'}>
-              <FireplaceV4 width={1920} height={1080}
-                           stoneId={preview.stone} mantelId={preview.mantel}
-                           hearthId={preview.hearth} moodId={preview.light}
-                           showHint showLabel={false} showFurniture showParticles showFloorReflection
-                           disclosure={mode === 'internal'}
-                           livePreviewLabel="LIVE PREVIEW"/>
-            </AssetSlot>
-          </div>
-
-          {/* NowChoosingPill — bottom center, above the tray */}
-          {!trayKey && !allDone && focusStep && (
-            <div style={{
-              position: 'absolute', left: 0, right: 0, bottom: 110,
-              display: 'flex', justifyContent: 'center', zIndex: 25,
-            }}>
-              <NowChoosingPill
-                step={STEP_META[focusStep].label}
-                hint={STEP_META[focusStep].hint}
-                onTap={() => openTray(focusStep)}/>
-            </div>
-          )}
-
+          <Suspense fallback={<HearthBuildLoading />}>
+            <CustomerHearthBuild3D
+              build={sel}
+              focusStep={focusStep}
+              onOpenMaterialTray={openTray}
+            />
+          </Suspense>
           {/* All-done celebration pill */}
           {allDone && !trayKey && (
             <div style={{
@@ -278,8 +244,6 @@ export default function BuildV5({ build, customer = {}, project = {}, guide, onS
               background: 'rgba(8,5,3,0.32)',
               transition: 'opacity 220ms ease',
             }}/>
-          )}
-            </>
           )}
         </div>
 

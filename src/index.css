@@ -441,6 +441,87 @@ input:focus-visible,
   padding: clamp(22px, 3vw, 34px);
 }
 
+.build3d__focus-rail,
+.build3d__choice-grid,
+.build3d__direction-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.build3d__focus-rail {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.build3d__focus-rail button,
+.build3d__choice-grid button,
+.build3d__direction-grid button {
+  background: rgba(246, 235, 210, 0.07);
+  border: 1px solid rgba(232, 199, 131, 0.18);
+  border-radius: 8px;
+  color: #f6ebd2;
+  cursor: pointer;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+.build3d__focus-rail button {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 11px;
+}
+
+.build3d__focus-rail button[aria-pressed="true"],
+.build3d__choice-grid button[aria-pressed="true"] {
+  background: rgba(217, 89, 30, 0.34);
+  border-color: rgba(232, 199, 131, 0.38);
+}
+
+.build3d__room-panel,
+.build3d__direction-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.build3d__section-title {
+  color: #fff7df;
+  font: 700 13px/1.2 'DM Sans', system-ui, sans-serif;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.build3d__choice-grid button {
+  display: grid;
+  gap: 4px;
+  min-height: 58px;
+  padding: 11px 12px;
+}
+
+.build3d__choice-grid strong,
+.build3d__direction-grid strong {
+  color: #fff7df;
+  font-size: 13px;
+  line-height: 1.15;
+}
+
+.build3d__choice-grid span,
+.build3d__direction-grid span {
+  color: rgba(246, 235, 210, 0.64);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.build3d__direction-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.build3d__direction-grid button {
+  display: grid;
+  gap: 4px;
+  min-height: 54px;
+  padding: 10px 12px;
+}
+
 .build3d__safe-note,
 .build3d__shape-note {
   color: rgba(246, 235, 210, 0.68);
