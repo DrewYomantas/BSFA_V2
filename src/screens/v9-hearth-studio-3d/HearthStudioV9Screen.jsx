@@ -46,7 +46,7 @@ export default function HearthStudioV9Screen({ renderCanvas = true }) {
 
         <div className="v9-studio__brand">
           <p>Benson Stone</p>
-          <h1>Hearth Studio V9</h1>
+          <h1>Hearth Studio</h1>
           <span>{material.label} · {lighting.label}</span>
         </div>
 
@@ -60,7 +60,7 @@ export default function HearthStudioV9Screen({ renderCanvas = true }) {
 
         {state.repOverlayOpen && (
           <aside className="v9-rep-overlay" aria-label="V9 rep fit overlay">
-            <p className="v9-kicker">Rep Fit Overlay</p>
+            <p className="v9-kicker">Backstage Fit Notes</p>
             <strong>Dimension grid / labels</strong>
             <span>Fit notes: opening, hearth projection, mantel height, and stone mass are planning studies.</span>
             <span>Verify field measurements before quote/fabrication.</span>
@@ -71,7 +71,7 @@ export default function HearthStudioV9Screen({ renderCanvas = true }) {
       <aside className="v9-studio__drawer" aria-label="V9 hearth planning drawer">
         <div className="v9-studio__drawer-header">
           <p className="v9-kicker">Customer Planning Study</p>
-          <h2>Shape the fireplace wall in dimensional space.</h2>
+          <h2>Adjust the fireplace wall.</h2>
         </div>
 
         <section className="v9-summary" aria-label="V9 customer-safe summary">

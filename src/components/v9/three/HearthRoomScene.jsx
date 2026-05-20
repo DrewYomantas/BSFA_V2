@@ -37,11 +37,12 @@ export default function HearthRoomScene({ state, renderCanvas = true }) {
     >
       <Canvas shadows camera={{ position: camera.position, fov: camera.fov }} gl={{ antialias: true, alpha: false }}>
         <color attach="background" args={[lighting.background]} />
-        <fog attach="fog" args={[lighting.background, 9, 18]} />
+        <fog attach="fog" args={[lighting.background, 11, 20]} />
         <ambientLight intensity={lighting.ambient} />
-        <directionalLight position={[-3, 6, 5]} intensity={lighting.key} castShadow shadow-mapSize={[1024, 1024]} />
-        <pointLight position={[0, 1.2, 1.25]} color="#ff8a2f" intensity={lighting.fire} distance={5} />
-        <pointLight position={[4.2, 2.8, 2.6]} color="#f6d49a" intensity={lighting.fill} distance={8} />
+        <directionalLight position={[-4.5, 7.4, 5.2]} intensity={lighting.key} castShadow shadow-mapSize={[1536, 1536]} />
+        <directionalLight position={[3.8, 3.8, 3.8]} intensity={lighting.fill} color="#e6cfaa" />
+        <pointLight position={[0, 1.38, 0.22]} color="#f28a3b" intensity={lighting.fire} distance={4.2} />
+        <pointLight position={[0, 4.4, 1.5]} color="#f1d59e" intensity={lighting.fill * 0.42} distance={7} />
         <CameraPose cameraPreset={camera} />
         <ParametricFireplaceWall state={state} material={material} repOverlayOpen={state.repOverlayOpen} />
       </Canvas>
