@@ -1,0 +1,419 @@
+.v9-studio {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(185, 123, 62, 0.18), transparent 38%),
+    linear-gradient(180deg, #17100b 0%, #090706 100%);
+  color: #fff4df;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.v9-studio__stage {
+  min-height: 100svh;
+  position: relative;
+}
+
+.v9-studio-scene {
+  height: 100%;
+  min-height: 100svh;
+  width: 100%;
+}
+
+.v9-studio-scene canvas {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.v9-studio-scene--fallback {
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.5), transparent 28%, transparent 72%, rgba(0, 0, 0, 0.55)),
+    radial-gradient(circle at 50% 62%, rgba(230, 116, 39, 0.36), transparent 28%),
+    #16100c;
+  display: grid;
+  justify-items: center;
+}
+
+.v9-studio-scene__fallback-wall {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg, rgba(214, 196, 158, 0.82), rgba(116, 103, 84, 0.95));
+  border: 1px solid rgba(242, 211, 141, 0.35);
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.42);
+  display: grid;
+  height: min(72svh, 680px);
+  justify-items: center;
+  position: relative;
+  width: min(42vw, 560px);
+}
+
+.v9-studio-scene__fallback-wall span {
+  background: rgba(18, 11, 7, 0.94);
+  bottom: 18%;
+  height: 24%;
+  position: absolute;
+  width: 38%;
+}
+
+.v9-studio-scene__fallback-wall strong {
+  background: #80522f;
+  bottom: 45%;
+  height: 5%;
+  position: absolute;
+  width: 58%;
+}
+
+.v9-studio-scene__fallback-wall em {
+  background: #403934;
+  bottom: 13%;
+  height: 6%;
+  position: absolute;
+  width: 74%;
+}
+
+.v9-studio__brand {
+  left: clamp(24px, 4vw, 58px);
+  max-width: 450px;
+  position: absolute;
+  top: clamp(22px, 4vw, 54px);
+}
+
+.v9-studio__brand p,
+.v9-kicker {
+  color: #f2d38d;
+  font: 700 11px/1.2 "DM Sans", system-ui, sans-serif;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.v9-studio__brand h1 {
+  color: #fff8e8;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(44px, 7vw, 88px);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.9;
+  margin: 10px 0 12px;
+  text-shadow: 0 14px 36px rgba(0, 0, 0, 0.58);
+}
+
+.v9-studio__brand span {
+  color: rgba(255, 244, 223, 0.78);
+  font-size: 14px;
+}
+
+.v9-studio__drawer {
+  align-content: start;
+  backdrop-filter: blur(18px);
+  background: rgba(20, 13, 9, 0.82);
+  border-left: 1px solid rgba(242, 211, 141, 0.18);
+  display: grid;
+  gap: 18px;
+  max-height: 100svh;
+  overflow: auto;
+  padding: clamp(24px, 3vw, 36px);
+  position: relative;
+  z-index: 2;
+}
+
+.v9-studio__drawer-header h2,
+.v9-material-tray h2 {
+  color: #fff8e8;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 8px 0 0;
+}
+
+.v9-panel,
+.v9-summary,
+.v9-lighting {
+  border-top: 1px solid rgba(242, 211, 141, 0.18);
+  display: grid;
+  gap: 14px;
+  padding-top: 18px;
+}
+
+.v9-summary p {
+  color: #fff8e8;
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.v9-summary ul {
+  color: rgba(255, 244, 223, 0.72);
+  display: grid;
+  font-size: 13px;
+  gap: 8px;
+  line-height: 1.45;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.v9-dimensions__list {
+  display: grid;
+  gap: 13px;
+}
+
+.v9-dimension-control {
+  display: grid;
+  gap: 8px;
+}
+
+.v9-dimension-control span {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.v9-dimension-control strong {
+  color: #fff8e8;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.v9-dimension-control output {
+  color: #f2d38d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.v9-dimension-control input {
+  accent-color: #b24714;
+  width: 100%;
+}
+
+.v9-lighting__options {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.v9-lighting__options button,
+.v9-overlay-toggle,
+.v9-studio__camera button,
+.v9-material-tray button {
+  background: rgba(255, 244, 223, 0.08);
+  border: 1px solid rgba(242, 211, 141, 0.2);
+  border-radius: 8px;
+  color: #fff4df;
+  cursor: pointer;
+  font-family: "DM Sans", system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+.v9-lighting__options button {
+  min-height: 42px;
+  padding: 10px;
+}
+
+.v9-lighting__options button[aria-pressed="true"],
+.v9-studio__camera button[aria-pressed="true"],
+.v9-material-tray button[aria-pressed="true"],
+.v9-overlay-toggle[aria-pressed="true"] {
+  background: rgba(178, 71, 20, 0.78);
+  border-color: rgba(255, 248, 232, 0.25);
+  color: #fff8e8;
+}
+
+.v9-overlay-toggle {
+  min-height: 44px;
+  padding: 12px 14px;
+}
+
+.v9-studio__camera {
+  bottom: 28px;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  left: 50%;
+  max-width: min(620px, calc(100% - 56px));
+  padding: 6px;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 620px;
+}
+
+.v9-studio__camera::before {
+  background: rgba(255, 244, 223, 0.88);
+  border: 1px solid rgba(55, 36, 23, 0.18);
+  border-radius: 999px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.34);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.v9-studio__camera button {
+  border-radius: 999px;
+  color: #3b271a;
+  font-size: 12px;
+  font-weight: 800;
+  min-height: 38px;
+  padding: 9px 12px;
+}
+
+.v9-studio__camera button[aria-pressed="true"] {
+  color: #fff8e8;
+}
+
+.v9-material-tray {
+  align-items: center;
+  background: rgba(255, 244, 223, 0.92);
+  border: 1px solid rgba(84, 55, 35, 0.16);
+  border-radius: 8px;
+  bottom: 104px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+  color: #241913;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  left: clamp(24px, 6vw, 92px);
+  max-width: min(780px, calc(100vw - 500px));
+  padding: 18px;
+  position: absolute;
+  z-index: 2;
+}
+
+.v9-material-tray .v9-kicker {
+  color: #9d3f10;
+}
+
+.v9-material-tray h2 {
+  color: #241913;
+  font-size: 24px;
+}
+
+.v9-material-tray__options {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.v9-material-tray button {
+  align-content: start;
+  color: #241913;
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 10px;
+  text-align: left;
+}
+
+.v9-material-tray button[aria-pressed="true"] {
+  color: #fff8e8;
+}
+
+.v9-material-tray strong {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.v9-material-tray small {
+  color: rgba(36, 25, 19, 0.66);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.v9-material-tray button[aria-pressed="true"] small {
+  color: rgba(255, 248, 232, 0.78);
+}
+
+.v9-material-swatch {
+  background:
+    linear-gradient(135deg, var(--stone), var(--hearth)),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.14) 0 1px, transparent 1px 8px);
+  border: 1px solid rgba(36, 25, 19, 0.18);
+  border-radius: 6px;
+  display: block;
+  height: 44px;
+  width: 100%;
+}
+
+.v9-rep-overlay {
+  background: rgba(12, 9, 7, 0.82);
+  border: 1px solid rgba(242, 211, 141, 0.38);
+  color: #fff8e8;
+  display: grid;
+  gap: 8px;
+  left: clamp(24px, 4vw, 58px);
+  max-width: 340px;
+  padding: 14px;
+  position: absolute;
+  top: 210px;
+}
+
+.v9-rep-overlay span {
+  color: rgba(255, 244, 223, 0.74);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1120px) {
+  .v9-studio {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(620px, 64svh) auto;
+  }
+
+  .v9-studio__stage,
+  .v9-studio-scene {
+    min-height: 620px;
+  }
+
+  .v9-studio__drawer {
+    border-left: 0;
+    border-top: 1px solid rgba(242, 211, 141, 0.18);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+  }
+
+  .v9-studio__drawer-header,
+  .v9-summary {
+    grid-column: span 2;
+  }
+
+  .v9-material-tray {
+    border-radius: 0;
+    bottom: auto;
+    left: auto;
+    max-width: none;
+    position: relative;
+  }
+}
+
+@media (max-width: 760px) {
+  .v9-studio {
+    display: block;
+  }
+
+  .v9-studio__drawer,
+  .v9-material-tray,
+  .v9-material-tray__options,
+  .v9-studio__camera {
+    grid-template-columns: 1fr;
+  }
+
+  .v9-studio__drawer-header,
+  .v9-summary {
+    grid-column: auto;
+  }
+
+  .v9-material-tray {
+    border-radius: 0;
+  }
+
+  .v9-studio__camera {
+    left: 18px;
+    max-width: calc(100% - 36px);
+    transform: none;
+    width: auto;
+  }
+}

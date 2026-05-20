@@ -11,6 +11,7 @@ import CustomerRoute from './screens/v8-slice/CustomerRoute.jsx'
 import RepRoute from './screens/v8-slice/RepRoute.jsx'
 import GapListRoute from './screens/v8-slice/GapListRoute.jsx'
 import StoneShopPacketScreen from './screens/stone-shop-packet/StoneShopPacketScreen.jsx'
+import HearthStudioV9Screen from './screens/v9-hearth-studio-3d/HearthStudioV9Screen.jsx'
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <Route path="/rep/:slotId" element={<RepRoute />} />
       <Route path="/backstage/gap-list" element={<GapListRoute />} />
       <Route path="/stone-shop-packet" element={<AppShell><StoneShopPacketScreen /></AppShell>} />
+      <Route path="/v9-hearth-studio-3d" element={<HearthStudioV9Screen />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
