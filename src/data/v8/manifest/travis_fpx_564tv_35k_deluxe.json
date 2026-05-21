@@ -1,0 +1,102 @@
+{
+  "unitId": "travis_fpx_564tv_35k_deluxe",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "standard",
+  "styleAffinity": [
+    "traditional",
+    "transitional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall context",
+      "Vent routing path",
+      "Hearth/mantel surround dimensions"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Travis FPX 564 TV 35K Deluxe",
+    "shortDescription": "A premium traditional gas fireplace with an arch face and oak logs \u2014 Travis-built quality you can feel.",
+    "bestFor": [
+      "Premium traditional feel",
+      "Arch face character",
+      "Strong showroom anchor"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "some_heat",
+      "convenience"
+    ],
+    "styleHuman": "Premium Traditional",
+    "sizeHuman": "Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": null,
+    "liamVoiceCallback": "Travis Industries \u2014 40+ years dealing with them. We get good margins.",
+    "crossSellNotes": "Pairs with limestone/stone surround conversation. If customer wants comparable price-band traditional with builder familiarity, cross-shop with Kingsman Bentley line.",
+    "educationCardRefs": [
+      "gas_vs_wood",
+      "btu_vs_sq_ft"
+    ],
+    "displayCallback": "Position 1 \u2014 first-floor showroom anchor; first thing customers see on the traditional path.",
+    "sampleTargets": [],
+    "salesNotes": "Position 1 showroom anchor. Travis FPX (Fireplace Xtrordinair) \u2014 Travis Industries premium gas line. Arch face + oak logs + black glass fireback = traditional conversation starter. Strong margins."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": "Travis Industries 40+ year relationship \u2192 good margins per Liam.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "premium_traditional",
+      "showroom_anchor"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active showroom anchor (position 1) with strong margins from Travis Industries partnership.",
+    "displayPosition": 1
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Travis Industries.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-fpx-sep-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 1,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-note-apr25-showroom-walkthrough.txt",
+        "speaker": "Speaker 3 (Drew/Liam)",
+        "quote": "Travis Industries has sister brands. They have Lopi. They have DaVinci. They have Fireplace Xtrordinair. We have a good relationship with them for 40+ years. So we get good margins."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "displaySlotId": "front_showroom_p14",
+  "displaySlotId": "front_showroom_p6",
   "schemaVersion": "1.0",
-  "currentUnitRef": "heatilator_icon60_hargrove_woodland_timbers",
-  "currentPlacementId": "placement_2026_pos14",
+  "currentUnitRef": "travis_fpx_864tv_40k_deluxe",
+  "currentPlacementId": "placement_2026_pos06",
   "location": {
     "zone": "front_showroom",
-    "position": 14,
-    "subLocation": "front showroom \u2014 position 14 (wood + log set teaching display)"
+    "position": 6,
+    "subLocation": "front showroom \u2014 position 6 (Travis double-door)"
   },
   "lastReviewedDate": "2026-05-20",
   "lastReviewedBy": "claude (audit-content sync pass)",
@@ -16,10 +16,10 @@
     "customerSafeBadges": []
   },
   "rep": {
-    "salesNotes": "Use to walk a customer through the wood-fireplace-to-gas-log decision.",
-    "coachingNotes": "Pair with masonry-vs-prefab diagnostic. Get all dimensions (front W/H/D, rear W, hearth context) before quoting.",
-    "dailyConditionNotes": "Display: open-face wood unit with Hargrove Woodland Timbers log set installed for teaching.",
-    "displayCallbackLanguage": "Shown at front showroom position 14 \u2014 wood-to-gas-logs teaching display."
+    "salesNotes": "Use for premium-with-double-door visual distinction from clean-face options.",
+    "coachingNotes": "Cross-shop with position 2 (FPX 4237 CF) for clean-face vs double-door.",
+    "dailyConditionNotes": "Display operational.",
+    "displayCallbackLanguage": "Shown at front showroom position 6 \u2014 Travis FPX 864TV double-door."
   },
   "internal": {
     "displayDisposition": "active_display",
@@ -30,8 +30,8 @@
     "recommendableOverrideReviewDate": null,
     "replacementCandidate": null,
     "businessFlags": [
-      "teaching_display",
-      "wood_to_gas_path"
+      "premium_traditional",
+      "double_door"
     ]
   },
   "sources": {

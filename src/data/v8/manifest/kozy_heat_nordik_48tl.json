@@ -1,0 +1,104 @@
+{
+  "unitId": "kozy_heat_nordik_48tl",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "modern",
+    "linear"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall opening (linear width)",
+      "TV-above clearance",
+      "Heat-management plan (Komfort Zone Kit routing)",
+      "Finish-wall material"
+    ],
+    "mantelCombustibleNote": "Linear gas fireplaces create finish-wall and TV-above heat-management questions. Verify combustible mantel clearance with Komfort Zone Kit installed.",
+    "displayName": "Kozy Heat Nordik 48TL",
+    "shortDescription": "A modern linear gas fireplace from Kozy Heat \u2014 black glass panels, log set, and Komfort Zone Kit for heat redirect.",
+    "bestFor": [
+      "Modern linear look",
+      "Cool-wall conversation",
+      "TV-over-fireplace setups"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "heat",
+      "convenience"
+    ],
+    "styleHuman": "Modern Linear",
+    "sizeHuman": "Large",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": "Linear FP installs require careful heat-management planning. Verify Komfort Zone Kit included in quote. Confirm TV-above plan.",
+    "liamVoiceCallback": "Cozy Heat Nordik 48 TL \u2014 actively in the Freeman job. Limestone hearth and mantel sized at 96 x 16 x 2.25 and 96 x 14 x 2.25 respectively.",
+    "crossSellNotes": "Pairs with limestone/stone hearth + mantel package. Cross-shop linear: Travis 4415HO (position 13). For Kozy traditional alternative, position 3 (Nordik 41DV).",
+    "educationCardRefs": [
+      "linear_finish_wall",
+      "tv_above_clearance"
+    ],
+    "displayCallback": "Position 10 \u2014 Kozy modern linear; primary linear conversation anchor.",
+    "sampleTargets": [],
+    "salesNotes": "Active modern-linear conversation anchor. Currently in a real job (Freeman) per Liam transcript \u2014 including limestone hearth/mantel build. Linear units always generate finish-wall, TV-above, and heat-management follow-ups."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": "Pairs with limestone hearth/mantel labor and material margins \u2014 combined Benson revenue.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "modern_linear",
+      "stone_shop_pairing",
+      "active_freeman_job"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active job evidence (Freeman); strong modern-linear seller; pairs with stone shop work for Benson revenue.",
+    "displayPosition": 10
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Kozy Heat.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "kozy-heat-june-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 10,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-note-apr22-1102-raw.txt",
+        "speaker": "Liam",
+        "quote": "Cozy Heat Nordik 48 TL \u2014 building limestone hearth and mantel for the Freemans."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

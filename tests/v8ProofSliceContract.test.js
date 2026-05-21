@@ -5,7 +5,8 @@ import { MemoryRouter } from 'react-router-dom'
 import CustomerRecommendationPreview from '../src/components/v8/CustomerRecommendationPreview.jsx'
 import V8SliceIndex from '../src/screens/v8-slice/V8SliceIndex.jsx'
 import kingsman from '../src/data/v8/manifest/kingsman_bentley_39.json'
-import p14 from '../src/data/v8/displayRegister/front_showroom_p14.json'
+import p11 from '../src/data/v8/displayRegister/front_showroom_p11.json'
+import p7 from '../src/data/v8/displayRegister/front_showroom_p7.json'
 import { deriveCustomerBadges } from '../src/lib/v8DeriveCustomerBadges.js'
 import { manifests, registerRecords, gapList } from '../src/lib/v8LoadData.js'
 import {
@@ -38,20 +39,23 @@ describe('V8 proof slice contract', () => {
       },
     }
 
-    const synced = syncRegisterToManifest(staleManifest, [p14])
+    const synced = syncRegisterToManifest(staleManifest, [p11])
 
-    expect(synced.rep.displayCallback).toBe(p14.rep.displayCallbackLanguage)
-    expect(synced.internal.displayDisposition).toBe(p14.internal.displayDisposition)
-    expect(synced.internal.displayPosition).toBe(p14.location.position)
-    expect(synced.internal.displaySection).toBe(p14.location.zone)
+    expect(synced.rep.displayCallback).toBe(p11.rep.displayCallbackLanguage)
+    expect(synced.internal.displayDisposition).toBe(p11.internal.displayDisposition)
+    expect(synced.internal.displayPosition).toBe(p11.location.position)
+    expect(synced.internal.displaySection).toBe(p11.location.zone)
   })
 
   it('proves the sample data has active recommendable and discontinued displayed records', () => {
     const health = buildV8ProofSliceHealth({ manifests, registerRecords, gapList })
 
-    expect(health.totalManifestRecords).toBe(3)
-    expect(health.totalDisplayRegisterRecords).toBe(2)
-    expect(health.recordsSyncedFromDisplayRegister).toBe(2)
+    // 13 manifests = 3 original (kingsman + 2 example fixtures) + 10 audit-sync additions
+    expect(health.totalManifestRecords).toBe(13)
+    // 12 register slots = p7 (discontinued example) + 11 active positions (p1-p31 subset)
+    expect(health.totalDisplayRegisterRecords).toBe(12)
+    // Every manifest in the 12-slot register set must sync cleanly
+    expect(health.recordsSyncedFromDisplayRegister).toBe(12)
     expect(health.activeRecommendableDisplayedCount).toBeGreaterThanOrEqual(1)
     expect(health.discontinuedDisplayedCount).toBeGreaterThanOrEqual(1)
   })
@@ -59,11 +63,28 @@ describe('V8 proof slice contract', () => {
   it('builds the customer recommendation set from manifest-backed active recommendable items only', () => {
     const items = getRecommendableManifestItems(manifests, registerRecords)
 
-    expect(items.map((item) => item.unitId)).toEqual(['kingsman_bentley_39'])
+    // 10 recommendable items: kingsman_bentley_39 (existing) + 9 new (davinci_6030 is excluded
+    // because it carries recommendable_with_verification, which is verification-required, not active).
+    expect(items.map((item) => item.unitId)).toEqual(
+      expect.arrayContaining([
+        'kingsman_bentley_39',
+        'travis_fpx_564tv_35k_deluxe',
+        'travis_fpx_4237_cf_gsr2',
+        'kozy_heat_nordik_41dv',
+        'kingsman_hbzdv3628n',
+        'travis_fpx_864tv_40k_deluxe',
+        'kozy_heat_nordik_48tl',
+        'heatilator_icon60_hargrove_woodland_timbers',
+        'mendota_fv44i',
+        'lopi_large_flush_wood_nexgen',
+      ]),
+    )
+    expect(items).toHaveLength(10)
     expect(items).not.toEqual(
       expect.arrayContaining([
         expect.objectContaining({ unitId: 'discontinued_example_unit' }),
         expect.objectContaining({ unitId: 'verification_required_example_unit' }),
+        expect.objectContaining({ unitId: 'davinci_6030' }),
       ]),
     )
   })
@@ -80,7 +101,9 @@ describe('V8 proof slice contract', () => {
   })
 
   it('keeps soft at-home measure badges customer-safe without blocking an active recommendable item', () => {
-    const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p14')
+    // Kingsman Bentley 39 now lives at position 11 (per audit showroom register).
+    // p14 is now the Heatilator + Hargrove Woodland Timbers teaching display.
+    const slot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p11')
     const manifest = manifests.find((record) => record.unitId === slot.currentUnitRef)
     const status = deriveManifestRecommendationStatus(manifest, slot)
     const projection = projectV8CustomerSafe(manifest, slot)
@@ -97,14 +120,21 @@ describe('V8 proof slice contract', () => {
     expect(getDisplayOnlyManifestItems(manifests, registerRecords).map((item) => item.unitId)).toEqual([
       'discontinued_example_unit',
     ])
-    expect(getVerificationRequiredManifestItems(manifests, registerRecords).map((item) => item.unitId)).toEqual([
-      'discontinued_example_unit',
-      'verification_required_example_unit',
-    ])
+    // verification-required now includes davinci_6030 (recommendable_with_verification status)
+    // in addition to the two original example fixtures.
+    expect(getVerificationRequiredManifestItems(manifests, registerRecords).map((item) => item.unitId)).toEqual(
+      expect.arrayContaining([
+        'discontinued_example_unit',
+        'verification_required_example_unit',
+        'davinci_6030',
+      ]),
+    )
+    expect(getVerificationRequiredManifestItems(manifests, registerRecords)).toHaveLength(3)
   })
 
   it('triggers Needs Verification for all proof slice trigger families', () => {
-    const activeSlot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p14')
+    // Kingsman is the canonical "active recommendable" exemplar; it now lives at p11.
+    const activeSlot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p11')
     const activeManifest = manifests.find((record) => record.unitId === activeSlot.currentUnitRef)
     const discontinuedSlot = registerRecords.find((record) => record.displaySlotId === 'front_showroom_p7')
     const discontinuedManifest = manifests.find((record) => record.unitId === discontinuedSlot.currentUnitRef)
@@ -149,25 +179,31 @@ describe('V8 proof slice contract', () => {
   it('builds customer recommendation previews from the recommendable set only', () => {
     const previews = buildCustomerRecommendationPreviews(manifests, registerRecords)
 
-    expect(previews).toEqual([
-      expect.objectContaining({
-        id: 'kingsman_bentley_39',
-        displayName: 'Kingsman Bentley 39',
-        category: 'Fireplace',
-        type: 'Gas',
-        description: 'A practical traditional gas fireplace path.',
-        showroomCue: 'Shown in the Front Showroom',
-        badges: ['Confirm measurements'],
-        measureNote: 'Confirm fit and vent path with your rep.',
-      }),
-    ])
+    // 10 active-recommendable previews
+    expect(previews).toHaveLength(10)
+    expect(previews).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 'kingsman_bentley_39',
+          displayName: 'Kingsman Bentley 39',
+          category: 'Fireplace',
+          type: 'Gas',
+          description: 'A practical traditional gas fireplace path.',
+          showroomCue: 'Shown in the Front Showroom',
+          badges: ['Confirm measurements'],
+          measureNote: 'Confirm fit and vent path with your rep.',
+        }),
+      ]),
+    )
     expect(JSON.stringify(previews)).not.toContain('discontinued_example_unit')
     expect(JSON.stringify(previews)).not.toContain('verification_required_example_unit')
+    expect(JSON.stringify(previews)).not.toContain('davinci_6030')
     expect(JSON.stringify(previews)).not.toContain('Needs Verification')
     expect(scanCustomerSafeProjection(previews)).toEqual([])
   })
 
   it('builds a rep starting direction handoff from a selected customer-safe preview', () => {
+    // First preview reflects load order in v8LoadData.js; kingsman_bentley_39 is imported first.
     const [preview] = buildCustomerRecommendationPreviews(manifests, registerRecords)
     const handoff = buildRepStartingDirectionHandoff(preview)
 
@@ -200,10 +236,13 @@ describe('V8 proof slice contract', () => {
 
     expect(screen.getByText('Customer Recommendation Preview')).toBeInTheDocument()
     expect(screen.getByText('Kingsman Bentley 39')).toBeInTheDocument()
-    expect(screen.getByText('Confirm measurements')).toBeInTheDocument()
-    expect(screen.getByText('Confirm fit and vent path with your rep.')).toBeInTheDocument()
+    // First-card details are still Kingsman-specific (it's first in load order)
+    expect(screen.getAllByText('Confirm measurements').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('Confirm fit and vent path with your rep.').length).toBeGreaterThan(0)
+    // Blocked items must never appear
     expect(screen.queryByText('Legacy Traditional Gas Display')).not.toBeInTheDocument()
     expect(screen.queryByText('Verification Required Gas Fireplace')).not.toBeInTheDocument()
+    expect(screen.queryByText('DaVinci 6030')).not.toBeInTheDocument()
     expect(screen.queryByText('Needs Verification')).not.toBeInTheDocument()
   })
 
@@ -214,7 +253,9 @@ describe('V8 proof slice contract', () => {
 
     expect(screen.queryByText('Rep handoff')).not.toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Start with this direction' }))
+    // First "Start with this direction" maps to the first preview = Kingsman (load order)
+    const startButtons = screen.getAllByRole('button', { name: 'Start with this direction' })
+    fireEvent.click(startButtons[0])
 
     const handoff = screen.getByText('Rep handoff').closest('section')
     expect(within(handoff).getByText('Kingsman Bentley 39')).toBeInTheDocument()
@@ -231,7 +272,8 @@ describe('V8 proof slice contract', () => {
       createElement(MemoryRouter, null, createElement(V8SliceIndex)),
     )
 
-    fireEvent.click(screen.getByRole('button', { name: 'Start with this direction' }))
+    const startButtons = screen.getAllByRole('button', { name: 'Start with this direction' })
+    fireEvent.click(startButtons[0])
 
     const panel = screen.getByText('Selected starting direction').closest('section')
     expect(within(panel).getByText('Kingsman Bentley 39')).toBeInTheDocument()
@@ -315,7 +357,8 @@ describe('V8 proof slice contract', () => {
         }),
       ]),
     )
-    expect(health.blockedFromCustomerRecommendationCount).toBe(2)
+    // 3 blocked = discontinued_example_unit + verification_required_example_unit + davinci_6030
+    expect(health.blockedFromCustomerRecommendationCount).toBe(3)
     expect(gapList.entries).toEqual(
       expect.arrayContaining([
         expect.objectContaining({

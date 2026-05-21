@@ -1,13 +1,26 @@
 {
-  "version": "2026-05-17",
+  "version": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
   "entries": [
     {
       "encounteredAtSlot": "back_showroom_p33",
       "encounteredDate": "2026-05-17",
       "encounteredBy": "drew",
-      "displayedUnitGuess": "Hargrove Woodland Timbers 21\"",
+      "displayedUnitGuess": "Hargrove Woodland Timbers 21 inch",
       "notes": "Vented log set on display in masonry test box. No manifest record exists yet. Hargrove is a stocked partner - needs a manifest record created.",
-      "status": "pending_review"
+      "status": "pending_review",
+      "researchNotes": {
+        "vendorDataLocation": "src/data/vendors/hargrove-2026-skus.json (vented_gas_logs.log_set_families[family_name=Woodland Timbers])",
+        "sizeCaveat": "Hargrove Woodland Timbers ships in 18, 24, 30, 36 inch -- no 21 inch. The displayedUnitGuess size is approximate. Most likely 24 inch.",
+        "candidateSkus": [
+          {"sku": "WTS2418RG", "size": "24 inch", "application": "radiant_heat (RG)", "dealer_price": 859, "confidence": "high -- drew_notable flag"},
+          {"sku": "WTS1816RG", "size": "18 inch", "application": "radiant_heat (RG)", "dealer_price": 742, "confidence": "medium -- if smaller"},
+          {"sku": "WTS2413SL", "size": "24 inch", "application": "stealth_radiant (SL)", "dealer_price": 756, "confidence": "low"}
+        ],
+        "characterization": "Ceramic fiber radiant-heat vented log set. Hand painted. Includes Radiant Riser and Glow Kit.",
+        "blocker": "Need Liam confirmation of exact SKU and whether p33 is a back-of-showroom slot or cellar position.",
+        "addedBy": "claude audit-content sync pass 2026-05-20"
+      }
     },
     {
       "encounteredAtSlot": "upstairs_p2",
@@ -15,7 +28,14 @@
       "encounteredBy": "drew",
       "displayedUnitGuess": "[unknown traditional gas insert]",
       "notes": "Unfamiliar unit. Need to ask Liam for brand/model identification before creating manifest record.",
-      "status": "pending_review"
+      "status": "pending_review",
+      "researchNotes": {
+        "candidatePool": "Traditional gas inserts: Kingsman IDV26N, Mendota FV44i, Kozy Heat Nordik 29i, Enviro EX35/E30, Travis 34 DVL GSR2 / 430 / 616 Deluxe, Lopi Radiant Plus.",
+        "characterization": "Likely a legacy insert. Could be a stove if upstairs has stove space.",
+        "blocker": "Visual ID from Liam required. Photo would let us match against vendor brochures.",
+        "suggestedNextStep": "Ask Liam: brand badging visible? Approximate dimensions? Single-pane or split front? Log set style?",
+        "addedBy": "claude audit-content sync pass 2026-05-20"
+      }
     }
   ]
 }

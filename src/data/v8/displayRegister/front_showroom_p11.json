@@ -1,12 +1,12 @@
 {
-  "displaySlotId": "front_showroom_p14",
+  "displaySlotId": "front_showroom_p11",
   "schemaVersion": "1.0",
-  "currentUnitRef": "heatilator_icon60_hargrove_woodland_timbers",
-  "currentPlacementId": "placement_2026_pos14",
+  "currentUnitRef": "kingsman_bentley_39",
+  "currentPlacementId": "placement_2026_pos11",
   "location": {
     "zone": "front_showroom",
-    "position": 14,
-    "subLocation": "front showroom \u2014 position 14 (wood + log set teaching display)"
+    "position": 11,
+    "subLocation": "front showroom — position 11 (Kingsman Bentley bread-and-butter)"
   },
   "lastReviewedDate": "2026-05-20",
   "lastReviewedBy": "claude (audit-content sync pass)",
@@ -16,10 +16,10 @@
     "customerSafeBadges": []
   },
   "rep": {
-    "salesNotes": "Use to walk a customer through the wood-fireplace-to-gas-log decision.",
-    "coachingNotes": "Pair with masonry-vs-prefab diagnostic. Get all dimensions (front W/H/D, rear W, hearth context) before quoting.",
-    "dailyConditionNotes": "Display: open-face wood unit with Hargrove Woodland Timbers log set installed for teaching.",
-    "displayCallbackLanguage": "Shown at front showroom position 14 \u2014 wood-to-gas-logs teaching display."
+    "salesNotes": "Bread-and-butter Kingsman Bentley display. Highest-volume gas fireplace at Benson.",
+    "coachingNotes": "Default starting direction for a customer wanting reliable traditional gas at a practical price.",
+    "dailyConditionNotes": "Display operational; fan NOT included in the tag per showroom register note.",
+    "displayCallbackLanguage": "Shown on the front showroom wall at position 11."
   },
   "internal": {
     "displayDisposition": "active_display",
@@ -29,10 +29,7 @@
     "recommendableOverrideDate": null,
     "recommendableOverrideReviewDate": null,
     "replacementCandidate": null,
-    "businessFlags": [
-      "teaching_display",
-      "wood_to_gas_path"
-    ]
+    "businessFlags": ["core_showroom_example", "builder_volume_driver"]
   },
   "sources": {
     "photoRefs": [],
@@ -46,7 +43,7 @@
         "fieldChanged": "record_created",
         "oldValue": null,
         "newValue": "initial",
-        "reason": "Display register record added during audit-content sync pass."
+        "reason": "Display register record created for Kingsman Bentley 39 at correct position 11 (per audit showroom register). Replaces old front_showroom_p14 placeholder which incorrectly assigned position 14."
       }
     ]
   }

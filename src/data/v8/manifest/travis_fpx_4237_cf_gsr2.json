@@ -1,0 +1,96 @@
+{
+  "unitId": "travis_fpx_4237_cf_gsr2",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "traditional",
+    "transitional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall opening (large unit)",
+      "Framing accommodation",
+      "Vent run length"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Travis FPX 4237 CF GSR2",
+    "shortDescription": "A large premium gas fireplace \u2014 herringbone brick, trim, oak logs \u2014 built for bigger rooms with a refined traditional feel.",
+    "bestFor": [
+      "Large rooms",
+      "Premium traditional",
+      "Strong visual presence"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "heat",
+      "convenience"
+    ],
+    "styleHuman": "Premium Traditional (Large)",
+    "sizeHuman": "Large",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": null,
+    "liamVoiceCallback": "Travis Industries \u2014 40+ years dealing with them. We get good margins.",
+    "crossSellNotes": "If room is large and customer values modern over traditional, cross-shop with Kozy Heat Nordik 48TL (linear).",
+    "educationCardRefs": [
+      "btu_vs_sq_ft",
+      "gas_vs_wood"
+    ],
+    "displayCallback": "Position 2 \u2014 adjacent to position 1 FPX anchor; reinforces Travis premium presence.",
+    "sampleTargets": [],
+    "salesNotes": "Large-room premium Travis FPX. CF = clean-face. Herringbone brick interior + oak logs = high-end traditional. GSR2 generation indicates current production."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": [
+      "premium_traditional",
+      "large_room"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Large-format premium option for the traditional path with Travis margins.",
+    "displayPosition": 2
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Travis Industries.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-fpx-sep-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 2,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

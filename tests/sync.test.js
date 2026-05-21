@@ -1,18 +1,20 @@
 import { describe, expect, it } from 'vitest'
 import kingsman from '../src/data/v8/manifest/kingsman_bentley_39.json'
 import discontinued from '../src/data/v8/manifest/discontinued_example_unit.json'
-import p14 from '../src/data/v8/displayRegister/front_showroom_p14.json'
+// Kingsman Bentley 39 now lives at position 11 (audit showroom register).
+// p14 is the Heatilator + Hargrove Woodland Timbers teaching display.
+import p11 from '../src/data/v8/displayRegister/front_showroom_p11.json'
 import p7 from '../src/data/v8/displayRegister/front_showroom_p7.json'
 import { syncRegisterToManifest } from '../src/lib/v8SyncRegisterToManifest.js'
 
 describe('V8 register sync', () => {
   it('derives active display fields from the matching register record', () => {
-    const synced = syncRegisterToManifest(kingsman, [p14])
+    const synced = syncRegisterToManifest(kingsman, [p11])
 
     expect(synced.internal.displayDisposition).toBe('active_display')
-    expect(synced.internal.displayPosition).toBe(14)
+    expect(synced.internal.displayPosition).toBe(11)
     expect(synced.internal.displaySection).toBe('front_showroom')
-    expect(synced.rep.displayCallback).toBe(p14.rep.displayCallbackLanguage)
+    expect(synced.rep.displayCallback).toBe(p11.rep.displayCallbackLanguage)
   })
 
   it('derives discontinued display fields independently of recommendable status', () => {
@@ -33,6 +35,7 @@ describe('V8 register sync', () => {
   })
 
   it('does not sync from a mismatched slot', () => {
+    // p7 holds discontinued_example_unit; kingsman_bentley_39 won't match.
     const synced = syncRegisterToManifest(kingsman, [p7])
 
     expect(synced.internal.displayDisposition).toBeNull()

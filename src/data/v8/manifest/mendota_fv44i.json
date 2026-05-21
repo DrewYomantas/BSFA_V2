@@ -1,0 +1,95 @@
+{
+  "unitId": "mendota_fv44i",
+  "schemaVersion": "1.0",
+  "productClass": "gas_insert",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "retrofit_existing_open_face"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent_insert",
+  "sizeTier": "standard",
+  "styleAffinity": [
+    "premium",
+    "transitional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Existing firebox dimensions",
+      "Existing chimney/venting",
+      "Gas line presence + entry"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Mendota FV44i Gas Insert",
+    "shortDescription": "A premium gas insert from Mendota \u2014 white oak logs, black porcelain lining, and a Grace surround/front.",
+    "bestFor": [
+      "Premium gas insert customer",
+      "Existing Mendota owner / brand preference",
+      "Existing fireplace upgrade"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "heat",
+      "convenience"
+    ],
+    "styleHuman": "Premium Transitional",
+    "sizeHuman": "Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": "Verify current price list and exact model. Older Mendota parts manuals are reference only unless current confirmed.",
+    "liamVoiceCallback": null,
+    "crossSellNotes": "If customer wants comparable premium insert at different price point: Travis 34 DVL / 616 Deluxe (positions 21, 23). If wanting value insert, Lopi Radiant Plus (position 26) or Kingsman IDV26N (position 27).",
+    "educationCardRefs": [
+      "insert_vs_full_fp"
+    ],
+    "displayCallback": "Position 25 \u2014 Mendota premium insert; \"stuck on display\" \u2014 push when profile fits.",
+    "sampleTargets": [],
+    "salesNotes": "Mendota premium insert. Active to move per Drew \u2014 Mendota is \"stuck on display\" \u2014 give this priority on the insert path when customer profile fits premium. White oak + Grace front = strong visual."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": [
+      "premium_insert",
+      "priority_to_move"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active premium insert display; Drew flagged as priority to move (\"stuck on display\").",
+    "displayPosition": 25
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Mendota.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [],
+    "displayRegisterRefs": [
+      {
+        "position": 25,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-notes-insights.md",
+        "speaker": "Drew",
+        "quote": "Mendota \u2014 stuck on display."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

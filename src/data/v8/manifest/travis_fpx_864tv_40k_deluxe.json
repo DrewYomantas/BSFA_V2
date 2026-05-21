@@ -1,0 +1,95 @@
+{
+  "unitId": "travis_fpx_864tv_40k_deluxe",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "traditional",
+    "premium"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall opening",
+      "Vent routing",
+      "Hearth depth for double-door"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Travis FPX 864 TV 40K Deluxe",
+    "shortDescription": "Travis FPX 864 \u2014 birch logs, fireback, double-door front. Premium gas direct-vent built for serious traditional rooms.",
+    "bestFor": [
+      "Premium traditional",
+      "Double-door character",
+      "Travis quality"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "heat",
+      "convenience"
+    ],
+    "styleHuman": "Premium Traditional",
+    "sizeHuman": "Large",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": null,
+    "liamVoiceCallback": "Travis Industries \u2014 40+ years dealing with them. We get good margins.",
+    "crossSellNotes": "If customer wants similar premium feel but linear/modern, walk to position 13 (Travis 4415HO linear). If wanting cleaner face, position 2 (FPX 4237 CF).",
+    "educationCardRefs": [
+      "gas_vs_wood"
+    ],
+    "displayCallback": "Position 6 \u2014 Travis FPX double-door anchor.",
+    "sampleTargets": [],
+    "salesNotes": "Travis FPX 864 \u2014 double-door = visual distinction from clean-face 4237. Birch logs vs oak. Premium tier; Travis margins are strong."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": "Travis Industries \u2014 40+ year relationship; strong margins.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "premium_traditional",
+      "double_door"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Travis premium display, double-door variant of the FPX line.",
+    "displayPosition": 6
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Travis Industries.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-fpx-sep-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 6,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

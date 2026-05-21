@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "vendor-cards.json — corrections delta (2026-05-19)",
+  "description": "Corrections to vendor-cards.json discovered during transcript reading + LEARNINGS file analysis. Merge into the base file at next BSFA ingestion. Generated 2026-05-19 after reading Apr 22 11:02, Apr 30, May 15, May 16 wood-burning, May 16 electric, and various LEARNINGS files.",
+  "generated_at": "2026-05-19T17:35:00Z",
+  "merge_strategy": "field-level merge — each vendor block below replaces/extends the corresponding field in the base vendor-cards.json",
+  "vendor_updates": {
+    "napoleon": {
+      "_correction_reason": "I had Napoleon listed only as 'grills.' Per Jonathan electric LEARNINGS: Benson does NOT carry Napoleon FIREPLACES and won't order them. Napoleon requires 6 burning display fireplaces in showroom — not feasible. Grills only. Other guys in town carry Napoleon FIREPLACES.",
+      "vendor_id": "napoleon",
+      "display_name": "Napoleon",
+      "fireplaces": {
+        "carried": false,
+        "reason_not_carried": "Napoleon requires dealers to have 6 burning display fireplaces in the showroom — not feasible for Benson space",
+        "competitor_status": "Other guys in town carry Napoleon fireplaces — fine to mention without disparaging",
+        "rep_response_when_customer_asks": "We don't carry Napoleon fireplaces here. We've got Modern Flames or Dimplex for similar electric, or [point to Kingsman/Travis] for gas. Other dealers around town do carry Napoleon if you specifically want that brand."
+      },
+      "grills": {
+        "carried": true,
+        "role": "bread-and-butter freestanding grill",
+        "premium_line": "Prestige Pro Series",
+        "current_price_book": "Napoleon Grill April 2025.pdf"
+      },
+      "distributor": {"primary": "F&C Dist 630-241-0506 ext. 724"}
+    },
+    "kozy_heat": {
+      "_correction_reason": "Per Apr 22 11:02 transcript: Liam's DEFAULT recommendation when customers ask 'what would you do?' (happens on 8/10 closes). Per Apr 30 transcript: 'Cozy heat protects their pricing — they don't sell online anywhere' — margin protection makes Kozy preferred.",
+      "vendor_id": "kozy_heat",
+      "liam_default_recommendation": true,
+      "liam_recommendation_quote": "Kozy Heat is what Liam steers toward when customers ask 'what would you do?' — happens on 8/10 closes",
+      "competitive_protection": "Kozy Heat protects their pricing — they don't sell online anywhere. Margin protection makes Kozy a preferred vendor.",
+      "comparable_units_liam_triangulates": [
+        "Travis Industries 36\"",
+        "Enviro 36\"",
+        "Kozy Heat 3060"
+      ],
+      "comparable_specs_per_liam": "All American-made, same gauge steel, same BTUs — true competitors. Liam steers to Kozy.",
+      "notable_models_addition": ["Nordic 60 TL (Drew's go-to for Freeman job; ledgestone refractory + traditional logs + fan kit + Comfort Zone cool-wall)"],
+      "verification_flag": "Apr 22 11:02 ASR garbled when Liam said 'I'm a big fan of the [unclear] brand' — likely Kozy Heat consistently, but confirm with Liam"
+    },
+    "dimplex": {
+      "_correction_reason": "Per Jonathan electric LEARNINGS: glass pre-installed (unique), real wood logs (cut/burned/treated), concrete background DISCONTINUED.",
+      "vendor_id": "dimplex",
+      "differentiators": [
+        "Glass pane ships ALREADY INSTALLED — unique among electric brands carried (install-anxious customers love this)",
+        "Log inserts use REAL WOOD (cut, burned, treated) for traditional look",
+        "Older 'hologram' angle-glass styles produce NO heat output (purely decorative)"
+      ],
+      "discontinued_items": ["concrete background"],
+      "current_background_options": ["weathered gray concrete", "black"],
+      "agent_answer_addition": "Dimplex is the easy install path — glass comes pre-installed unlike other electric brands. If the customer wants real-wood look, our log inserts use actual wood that's been cut, burned, and treated."
+    },
+    "modern_flames": {
+      "_correction_reason": "Was missing from vendor-cards.json entirely. Per Jonathan electric LEARNINGS: this is the showroom favorite for mid-modern electric.",
+      "vendor_id": "modern_flames",
+      "display_name": "Modern Flames",
+      "aliases": ["Modern Flames"],
+      "role": "Mid-modern electric — showroom favorite, working demo upstairs is the 'wow' moment",
+      "good_fit_customer": "Wants contemporary linear electric look, supplemental heat OK but not primary",
+      "watch_points": [
+        "Cellar display unit currently broken (old plastic chip, since redesigned to metal) — needs swap or pull off floor",
+        "Use upstairs working demo as the closer when walking customers through electric options"
+      ],
+      "price_ranges": {
+        "entry": [2000, 3000],
+        "premium": [5000, 6000]
+      },
+      "categories": ["electric_linear_fireplace"]
+    },
+    "heatilator": {
+      "_correction_reason": "Per Apr 22 11:02 transcript: Kevin Obie (mythic predecessor) is now national sales manager at HHT distributor. He visits Drew, gives advice biased toward HHT family. Liam's explicit warning: take Kevin's recommendations with a grain of salt.",
+      "vendor_id": "heatilator",
+      "kevin_obie_bias_warning": "Kevin Obie (predecessor at Benson, now national sales manager at HHT distributor) drops by occasionally. His technical info is factual, but his recommendations skew toward HHT brands. Per Liam's explicit warning: 'Kevin is gonna be telling you HIS units… those are the best units. Take it with a grain of salt.'",
+      "bsfa_smart_context_rule": "When quote vendor = HHT family (Heatilator/Heat&Glo/Quadra-Fire/Monessen/Majestic), optionally surface Kevin Obie bias note for Drew's situational awareness"
+    },
+    "summerset": {
+      "_correction_reason": "Per Apr 25 showroom walkthrough: stronger positioning data than initial vendor card. 'Bread and butter for built-in kitchen islands. Good margins. Long lasting partnership.' Jonathan owns one (social proof).",
+      "vendor_id": "summerset",
+      "role": "Bread-and-butter for built-in kitchen islands. Good margins. Long lasting partnership.",
+      "relationship_strength": "long_partnership",
+      "margin_quality": "good",
+      "social_proof": "Jonathan owns a Summerset",
+      "key_features": [
+        "Lifetime warranty (no cover needed even outside)",
+        "Made of 3 or 4 stainless",
+        "Built to be outside forever",
+        "Cart feature available (can be freestanding too)"
+      ],
+      "agent_answer_template": "Summerset is our go-to for kitchen-island builds. Lifetime warranty, all stainless, made to live outside forever. Good margins for us means we can be competitive on the all-in install + granite + counter package — often $20K-plus jobs that look freaking sick.",
+      "premium_anchor_use": "$20K sale with better margins and just looks freaking sick — for full kitchen-island Summerset + granite countertop"
+    },
+    "fire_magic": {
+      "_correction_reason": "Per Apr 25 + Daily Desk Reference SPIFFs: Drew personally biased against (transparent honesty); $200 SPIFF active to incentivize sales; needs training. Current $200 SPIFF active per Daily Desk Reference (refreshed May 14 2026).",
+      "vendor_id": "fire_magic",
+      "drew_bias": "not_a_fan",
+      "drew_bias_reason": "Pricing positioning relative to alternatives — 'to justify between 10 grand? It's a complete opinion.' Drew genuinely doesn't sell off it often.",
+      "drew_quote": "I'm not a big fan of Fire Magic... they're made incredibly well but to justify between 10 grand? It's a complete opinion.",
+      "current_spiff_amount": 200,
+      "spiff_source": "Daily Desk Reference (refreshed May 14 2026)",
+      "spiff_purpose": "Incentivize sale-floor adoption despite Drew's bias",
+      "training_gap": "Drew explicitly notes: 'I've never had Fire Magic training before' — opportunity for Fire Magic rep to do training visit",
+      "carried": true,
+      "categories": ["grill_luxury"]
+    },
+    "mendota": {
+      "_correction_reason": "Per Apr 25 + Apr 30 transcripts: display status struggling. Drew explicitly: 'I'm trying to sell this off display. I got it on a couple quotes. I think I might sell it this year.' Apr 30 references frequent Mendota price-book updates ('who has the most updated price book for Mendota').",
+      "vendor_id": "mendota",
+      "display_status": "stuck_on_display",
+      "drew_intent": "trying to move off display",
+      "drew_quote": "I'm trying to sell this off display. I got it on a couple quotes. I think I might sell it this year.",
+      "price_book_velocity": "high — frequent updates, ask 'who has the most updated price book for Mendota' before quoting"
+    },
+    "davinci": {
+      "_correction_reason": "Per Apr 25 transcript: 'Very high ticket. Very high margin. Very hard sell, because you just don't sell too often.' Travis Industries subsidiary — important to frame separately from base Travis line.",
+      "vendor_id": "davinci",
+      "_in_brand_family": "travis_industries",
+      "ticket_size": "very_high",
+      "margin_quality": "very_high",
+      "sell_difficulty": "very_hard",
+      "drew_quote": "DaVinci is owned by Travis Industries. Same company makes this completely different fireplace. Still a direct vent. This is designed to heat. Designer fireplace — custom burners, custom glass. Very high ticket. Very high margin. Very hard sell, because you just don't sell too often.",
+      "customer_fit": "Customer who values custom design + heating performance + high investment ($15K+ unit territory)",
+      "sales_strategy": "Don't lead with DaVinci. Offer when customer expresses high-end design priority. The hard-sell + low-volume means low pressure to close — let it be the right fit or move on."
+    },
+    "stoll": {
+      "_correction_reason": "Per Jonathan electric LEARNINGS: Stoll-style ZC box with vertical vent is a frequent Benson configuration at ~$6K out the door (~$4K unit + $1.5-2K vent).",
+      "vendor_id": "stoll",
+      "common_configuration": {
+        "type": "ZC box with vertical vent",
+        "unit_only_price": 4000,
+        "vent_price_range": [1500, 2000],
+        "out_the_door_typical": 6000,
+        "carried_volume": "Benson does this configuration a TON",
+        "features": ["heat-rated decorative door"]
+      },
+      "stoll_glass_doors_inventory_alert": "65% of glass door displays in showroom are DISCONTINUED — verify with current Stoll/Design Specialties/Iron Haus orderbook before quoting"
+    }
+  },
+  "behavior_rules_updates": {
+    "escalation_map": {
+      "_correction_reason": "Add Mike Wallin escalation for stone questions when Liam unavailable. Also add Jonathan as design escalation.",
+      "stone_or_brick_match_questions": "Liam → Mike Wallin (Brick & Stone manager, x175, forwards to cell) — Mike is non-commissioned, happy to help. Gordon was the legacy stone SME who taught Liam.",
+      "design_or_proposal_visualization": "Jonathan (currently doing this manually + via Zach upstairs) → BSFA replacement target by September 2026"
+    },
+    "fp_to_napoleon_redirect_rule": {
+      "_correction_reason": "Customer mentions Napoleon fireplace — auto-pivot to alternatives.",
+      "trigger": "customer mentions Napoleon + fireplace",
+      "action": "Recommend Modern Flames or Dimplex (electric) or Kingsman/Travis (gas) alternative. Acknowledge: 'We don't carry Napoleon fireplaces, only their grills.' Don't disparage — note other guys in town do carry."
+    }
+  },
+  "summary_of_corrections_for_drew": [
+    "Napoleon — FIREPLACES NOT CARRIED (was misframed). Only grills. Other guys in town carry Napoleon fireplaces.",
+    "Kozy Heat — Liam's DEFAULT recommendation for 'what would you do?' Customers ask this on 8/10 closes. Kozy doesn't sell online → protected pricing.",
+    "Dimplex — glass pre-installed (unique selling point); real wood logs; concrete background DISCONTINUED.",
+    "Modern Flames — was MISSING from vendor-cards. Now added: showroom favorite mid-modern electric, $2-3K entry / $5-6K premium. Cellar unit BROKEN (needs swap).",
+    "Heatilator — added Kevin Obie HHT bias warning per Liam's explicit instruction.",
+    "Summerset — better positioning: bread-and-butter for kitchen islands, Jonathan owns one (social proof), good margins, $20K all-in sale framing.",
+    "Fire Magic — $200 SPIFF currently active per Daily Desk Reference; Drew personally biased; never had training.",
+    "Mendota — display unit stuck; Drew trying to move; price book velocity high.",
+    "DaVinci — very high ticket / very high margin / very hard sell (Travis Industries subsidiary).",
+    "Stoll — ZC vertical vent common config at ~$6K out the door; 65% of door displays discontinued.",
+    "Escalation map — added Mike Wallin (x175) for stone questions; added Jonathan for design/proposal."
+  ]
+}

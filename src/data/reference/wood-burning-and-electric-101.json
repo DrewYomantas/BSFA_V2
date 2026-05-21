@@ -1,0 +1,289 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Wood-Burning & Electric Fireplace 101 — Liam + Jonathan Teachings",
+  "description": "Canonical training content extracted from Drew's two May 16 2026 LEARNINGS .md files. The wood-burning section is Liam's training (with Duke the hornet anecdote about checking every firebox). The electric section is Jonathan's customer-walk-in pitch. Use in BSFA Smart Context Discovery + Recommendation phases.",
+  "generated_at": "2026-05-19T17:30:00Z",
+  "source_files": [
+    "May 16 - LEARNINGS (Liam wood-burning training, with Duke the hornet).md (Drive ID TBD - in 02 Training / Voice Notes)",
+    "May 16 at 12 30 PM - LEARNINGS (Jonathan electric shadow).md (Drive ID 1Od4g2i1fdpY-zPjjsMBsFPmwelSoednh)"
+  ],
+  "wood_burning": {
+    "three_categories": {
+      "open_face_wood": {
+        "efficiency_pct": 25,
+        "purpose": "ambiance only",
+        "description": "Traditional wood-burning fireplace with an open firebox. Heat lost mostly up the chimney. Customer asks for it because they love the smell, the experience, the crackle.",
+        "honest_pitch": "Open-face wood is mostly ambiance. If you actually want to heat the room, we need to talk about a different product."
+      },
+      "high_efficiency_wood": {
+        "efficiency_pct": 85,
+        "purpose": "real heat for entire single-level homes (multi-level needs furnace ducting)",
+        "features": [
+          "ceramic glass (NOT tempered)",
+          "gasketed door",
+          "air control / damper arm",
+          "blower (always)",
+          "louvers — inlet at bottom, outlet at top",
+          "wood-only — CANNOT be converted to gas"
+        ],
+        "honest_pitch": "High-efficiency wood is a real heater — customers heat entire single-level homes with these. 85% efficient. Wood-only, period."
+      },
+      "wood_stoves": {
+        "description": "Separate freestanding category — not a fireplace. See stove section."
+      }
+    },
+    "zc_vs_masonry_tells": {
+      "zc_signs": [
+        "black metal box visible in firebox",
+        "panel lines (visible seams in firebox face)",
+        "manufacturer tag inside firebox",
+        "metal louvers above/below firebox",
+        "sided chase outside the house",
+        "metal pipe termination at roof"
+      ],
+      "masonry_signs": [
+        "mortar visible inside firebox",
+        "no black metal visible",
+        "heavy masonry mass / large brick chimney",
+        "clay flue liner visible",
+        "rectangular damper with lever"
+      ],
+      "trick_to_watch": "Aftermarket metal door frames can hide masonry → looks like ZC but isn't. Always look beyond the front frame at the actual firebox walls.",
+      "benson_inventory_skew": "Benson doesn't really sell masonry — main line is ZC open-face. Customer with masonry = relatively unusual."
+    },
+    "conversion_rules": {
+      "open_face_wood_to_gas": {
+        "verdict": "NO in-place conversion. Tear out + reframe + fresh install required.",
+        "options_for_customer": [
+          "Tear out + install gas insert (sealed unit into existing opening) — $7K-$10K all-in",
+          "Tear out + install gas log set in the cleaned masonry — $2.5K-$3.5K all-in",
+          "Tear out + install gas log lighter (still burn wood, easier startup)"
+        ]
+      },
+      "high_efficiency_wood_to_gas": {
+        "verdict": "CANNOT be converted at ALL. Period.",
+        "honesty_principle": "Don't promise. The customer with a high-eff wood fireplace and a gas itch needs to hear 'no, but here are alternatives' — not a soft sell."
+      }
+    },
+    "drafting_honesty": {
+      "liams_line": "Be transparent. You know the answer is 'it depends' — tell them that.",
+      "details": [
+        "Older homes leak more (better draft)",
+        "Newer airtight homes harder to draft (sometimes cold rooms)",
+        "No manual predicts it accurately for a specific house",
+        "Customers asking 'will the room get cold?' should hear: 'Yes, that can happen with open-face wood. Every house drafts differently. We can do steps to mitigate, but I can't promise it won't be an issue.'"
+      ]
+    },
+    "performance_metrics_summary": {
+      "open_face_efficiency": "25%",
+      "high_efficiency_wood": "85%",
+      "implication": "85 - 25 = 60 percentage points swing. Customer choosing 'I want wood + heat' is choosing between $0 heat (open-face) and real-house-heating (high-eff)."
+    },
+    "outside_air": {
+      "rule": "Outside air is NON-NEGOTIABLE on every wood fireplace install.",
+      "liam_quote": "You will not install a wooden fireplace without outside air.",
+      "implication_for_bsfa": "Wood fireplace quotes must include outside-air kit as a line item or installation note — Field Rule candidate."
+    },
+    "hearth_requirements": {
+      "rule": "All wood-burning units REQUIRE a hearth by code.",
+      "minimum_typical": "18 inches",
+      "minimum_some_units": "6-8 inches",
+      "exception": "Electric fireplaces are the ONLY exception — no hearth required.",
+      "implication_for_bsfa": "Wood fireplace quotes must include hearth line item or confirm existing hearth meets minimum. Limestone/bluestone hearth pricing in `hearth-pricing.json`."
+    },
+    "burn_dynamics": {
+      "damper_more_open": "faster burn",
+      "damper_more_closed": "longer burn",
+      "burn_time_with_good_coal_base": "8 hours possible (high-efficiency wood)",
+      "customer_pitch_for_long_burns": "If you load it right and bank a good coal bed at night, you can come down to embers in the morning."
+    },
+    "sales_meta_lessons_from_liam": [
+      "Be on the floor, not on the phone",
+      "Always say 'but' — yes, but...",
+      "Don't bluff — ask Rick (or now, ask Liam → going to phase out, then Drew leans on Mike Wallin for stone, Phil/Rodney for install, Jonathan for design)",
+      "Lead with hard numbers — 'this heats 2,000 sq ft' beats '85% efficient'"
+    ],
+    "duke_the_hornet_lesson": "Liam found a hornet living in a firebox; named him Duke. Reminder: open every firebox, check every unit. Add to closing/opening checks."
+  },
+  "electric": {
+    "context_principle": "Customer says they want electric — but the question is WHY. 'Are you mainly trying to make the wall look finished, or are you counting on this for heat?' — Jonathan's qualifying question.",
+    "pricing_tiers": [
+      {
+        "tier": "older_electric_tech",
+        "examples": ["Dimplex log-style", "Uptown angle-glass / hologram look"],
+        "price_range": [1500, 3500],
+        "heat_output": "no actual heat — purely decorative",
+        "still_selling": true,
+        "use_case": "Customer says 'I don't care about heat' — cheap path"
+      },
+      {
+        "tier": "mid_modern_electric",
+        "examples": ["Modern Flames linear"],
+        "price_range_entry": [2000, 3000],
+        "price_range_premium": [5000, 6000],
+        "heat_output": "~5,000 BTU (cosmetic + small space heater)",
+        "showroom_favorite": true,
+        "use_case": "Most common path — modern look + light supplemental heat"
+      },
+      {
+        "tier": "premium_electric_napoleon",
+        "examples": ["Napoleon 3-tier with LCD"],
+        "carried_by_benson": false,
+        "reason_not_carried": "Napoleon requires dealers to have 6 burning display fireplaces in showroom — not feasible for Benson space",
+        "competitor_carries": "Other guys in town carry Napoleon fireplaces — fine to mention without disparaging",
+        "implication": "When customer cites Napoleon fireplace, don't promise we can order it. Recommend Modern Flames or Dimplex alternatives."
+      }
+    ],
+    "gas_pricing_tiers_for_comparison": [
+      {
+        "scenario": "new_vented_gas_full_teardown_and_reframe",
+        "price_range": [7000, 9000],
+        "starting": 7000,
+        "when_applies": "Customer is tearing back to studs anyway"
+      },
+      {
+        "scenario": "vented_gas_reusing_opening",
+        "price_range": [5000, 9000],
+        "midpoint": 7000,
+        "when_applies": "Tear from back side, custom-cut fit — don't have to redo wall"
+      },
+      {
+        "scenario": "stoll_zc_vertical_vent",
+        "unit_only": 4000,
+        "vent_addition": [1500, 2000],
+        "out_the_door_typical": 6000,
+        "carried_status": "Benson does this a TON",
+        "features": "heat-rated decorative door"
+      }
+    ],
+    "heat_rated_vs_standard_glass": {
+      "delta_dollars": 1500,
+      "heat_rated": {
+        "material": "ceramic glass",
+        "heat_passthrough_pct": 90,
+        "heat_type": "radiant heat passes through"
+      },
+      "standard": {
+        "material": "tempered glass",
+        "heat_passthrough_pct": 30,
+        "reflection_pct": 70
+      },
+      "rule_of_thumb": "If you've got a furnace working in there, you don't really need the heat — standard glass, no fan, no remote. Just cosmetic.",
+      "implication_for_quote_padding": "Stripping fan + remote + going standard glass can save ~$1,500. Smart move when customer is heat-indifferent."
+    },
+    "gas_vs_electric_btu_comparison": {
+      "gas_btu_range": [25000, 40000],
+      "electric_btu_typical": 5000,
+      "gas_use_case": "real heat for a large area",
+      "electric_use_case": "cosmetic, ambiance only, supplemental space-heater warmth"
+    },
+    "sales_techniques_to_steal": [
+      {
+        "name": "custom_cut_surround_panel_pitch",
+        "pitch": "Our tech custom-cuts a piece of sheet metal to span the gap, silicone-sealed — exact to your opening, keeps cold air out. If you order one online, it is what it is.",
+        "when_to_use": "Every time customer mentions sizing or 'I saw one online' — this is Benson's competitive moat against online buyers"
+      },
+      {
+        "name": "a_la_carte_framing",
+        "pitch": "Strip down the build when customer doesn't need heat — standard glass, no fan kit, no remote — just a light switch on the wall.",
+        "why_works": "Customer feels respected (not upsold), doesn't pay for unwanted features, removes 'too expensive' friction"
+      },
+      {
+        "name": "cellar_then_upstairs_flow",
+        "process": "Walk hesitant customer through cellar options first → bring them upstairs to see the WORKING Modern Flames linear demo → upstairs becomes the 'wow' moment.",
+        "why_works": "Working unit upstairs makes the others feel like reference points"
+      },
+      {
+        "name": "honest_brand_comparison",
+        "principle": "Jonathan flat-out tells customers gas looks better than electric when that's true. Doesn't talk them out of preference — gives them the truth, builds trust, keeps the conversation open.",
+        "tradeoff": "Sometimes loses the electric sale; gains the gas sale + future loyalty"
+      },
+      {
+        "name": "acknowledge_broken_demo_move_on",
+        "scenario": "When in-store Modern Flames wouldn't turn on (old plastic chip, since redesigned to metal), Jonathan apologized casually and pivoted upstairs.",
+        "principle": "No drama, no defense, just route around"
+      },
+      {
+        "name": "stop_selling_when_customer_self_sells",
+        "trigger_phrase_from_customer": "'The smart thing is electric' (or equivalent buying signal)",
+        "next_move": "Confirm the cabinet / opening dimensions and quote it. DON'T keep selling — start measuring."
+      }
+    ],
+    "brand_specific_facts": [
+      {
+        "brand": "dimplex",
+        "facts": [
+          "Glass pane ships ALREADY INSTALLED — unique among electric brands carried",
+          "Log inserts use REAL WOOD (cut, burned, treated) for traditional look",
+          "Concrete background DISCONTINUED. Current options: weathered gray concrete, black.",
+          "Selling point for install-anxious customers: pre-installed glass means no DIY assembly fear."
+        ]
+      },
+      {
+        "brand": "napoleon",
+        "facts": [
+          "Premium electric: 3-tier flame, LCD screen, hologram-like depth",
+          "Benson does NOT carry Napoleon fireplaces and WILL NOT order them",
+          "Reason: Napoleon requires 6 burning display fireplaces in showroom — not feasible",
+          "Carry Napoleon GRILLS only",
+          "Other guys in town carry Napoleon fireplaces — fine to mention without disparaging"
+        ]
+      },
+      {
+        "brand": "modern_flames",
+        "facts": [
+          "Showroom favorite for mid-modern electric",
+          "Currently has a broken display unit (old plastic chip, since redesigned to metal) — needs replacement or pull off floor"
+        ]
+      },
+      {
+        "brand": "uptown_dimplex_hologram",
+        "facts": [
+          "Older 'hologram' angle-glass electrics produce NO heat output at all — purely decorative",
+          "If a customer says 'I don't care about heat,' these are the cheap path"
+        ]
+      }
+    ],
+    "things_to_verify": [
+      "Is the Modern Flames cellar unit still broken (old plastic chip)? If so, swap for the metal-chip rev or pull off the floor — actively hurting sales.",
+      "Confirm $1,500 heat-rated vs standard glass delta against manufacturer pricing (Heat & Glo, Heatilator, Kingsman). Jonathan said 'roughly maybe $1,500 difference' — pin down per brand.",
+      "Confirm Napoleon fireplace ordering status — ANSWERED via Jonathan LEARNINGS: Benson does not carry, won't order, grills only.",
+      "Gas conversion ballpark ranges ($5K-$9K with no tear-out, $7K-$9K with full tear-out) — line up against 2022 install sheet + current service pricing (May 2026 refresh)."
+    ]
+  },
+  "implications_for_bsfa": {
+    "smart_context_panel_additions": [
+      "When customer goal = 'real heat' + current fuel = wood → recommend high-efficiency wood OR gas insert; never gas log set",
+      "When customer goal = 'just looks finished' + budget low → electric tier 1 or 2",
+      "When customer mentions Napoleon fireplace → automatically surface 'we don't carry, but here's our alternative' script",
+      "When quote includes wood fireplace → enforce outside air kit + hearth as required line items",
+      "When ZC + gas insert combo detected → trigger Field Rule 2 (ZC gas insert acknowledgement)"
+    ],
+    "field_rule_candidates": [
+      {
+        "id": "wood_outside_air_required",
+        "trigger": "quote.lines contains wood_fireplace + no outside_air_kit line",
+        "severity": "blocker",
+        "message": "Wood fireplaces require outside air kit — Liam rule. Add line item before submitting."
+      },
+      {
+        "id": "wood_hearth_required",
+        "trigger": "quote.lines contains wood_fireplace + no hearth (and no confirmation existing hearth meets 18\" minimum)",
+        "severity": "blocker",
+        "message": "Wood fireplaces require a hearth by code. Confirm existing hearth or add hearth line item (see hearth-pricing.json)."
+      },
+      {
+        "id": "high_eff_wood_no_gas_conversion",
+        "trigger": "customer mentions 'convert high efficiency wood to gas'",
+        "severity": "blocker",
+        "message": "High-efficiency wood fireplaces CANNOT be converted to gas. Recommend full tear-out + new gas install."
+      },
+      {
+        "id": "napoleon_fireplace_not_carried",
+        "trigger": "customer mentions Napoleon fireplace OR quote line names Napoleon FP",
+        "severity": "warning",
+        "message": "Benson does not carry Napoleon fireplaces — only grills. Recommend Modern Flames or Dimplex alternative. Other guys in town carry Napoleon — mention without disparaging."
+      }
+    ]
+  }
+}

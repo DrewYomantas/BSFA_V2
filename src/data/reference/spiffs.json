@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sales SPIFFs — Hearth Products",
+  "description": "Current sales incentive bonuses (SPIFFs) extracted from Daily Desk Reference (refreshed May 14 2026, Drive ID 1YnLeHDIIFnrbETWj12kMdbr-QPHR4mEC). These are commissions/bonuses earned per unit sold. INTERNAL-ONLY data — never expose to customers. Source text was partially OCR'd, some entries flagged for verification.",
+  "generated_at": "2026-05-19T13:30:00Z",
+  "currency": "USD",
+  "sensitivity": "internal_only",
+  "as_of": "May 14 2026",
+  "spiffs": [
+    {
+      "product_code": "ODCASTLEWD",
+      "product_name": "Castlewood 42\"",
+      "vendor": "Outdoor Concepts (likely)",
+      "category": "woodburning_fireplace",
+      "spiff_amount": 200,
+      "qty_in_stock_or_target": 42,
+      "notes": "$200 per unit, woodburning category"
+    },
+    {
+      "product_code": "ODCTGWD36",
+      "product_name": "Cottager 36\"",
+      "vendor": "Outdoor Concepts (likely)",
+      "category": "woodburning_fireplace",
+      "spiff_amount": 200,
+      "qty_in_stock_or_target": 2,
+      "notes": "$200 per unit, woodburning category"
+    },
+    {
+      "product_code": "BIR42B",
+      "product_name": "Birmingham 42\"",
+      "vendor": "Heatilator",
+      "category": "woodburning_fireplace",
+      "spiff_amount": 200,
+      "qty_in_stock_or_target": 2,
+      "notes": "$200 per unit"
+    },
+    {
+      "product_name": "Lopi Rockport",
+      "vendor": "Lopi (Travis Industries)",
+      "category": "stove_or_fireplace",
+      "spiff_amount": 100,
+      "verification_needed": "OCR ambiguity — '$100 Inte 200' likely means $100 base with separate interim/incentive of $200; needs confirmation"
+    },
+    {
+      "product_code": "AL11020050",
+      "product_name": "Alderlea T4",
+      "vendor": "Pacific Energy",
+      "category": "stove",
+      "spiff_amount": 100,
+      "qty_in_stock_or_target": 1
+    },
+    {
+      "product_code": "WDIYADTO",
+      "product_name": "DIY Pizza Oven",
+      "vendor": "(verify)",
+      "category": "outdoor_pizza_oven",
+      "spiff_amount": "?",
+      "qty_in_stock_or_target": 4,
+      "verification_needed": "OCR text 'Sell for 1500/100 4' is ambiguous — could mean MAP $1500, spiff $100, qty 4. Confirm."
+    },
+    {
+      "product_name": "Bentley 48 (or 'Bentley 48 One')",
+      "vendor": "Kingsman",
+      "category": "gas_fireplace_dv",
+      "spiff_amount": 200,
+      "qty_in_stock_or_target": 1,
+      "verification_needed": "Bentley series often DV gas — verify exact model number (likely ZCV48N or similar)"
+    },
+    {
+      "product_name": "Heatilator Caliber",
+      "vendor": "Heatilator (HHT)",
+      "category": "gas_fireplace",
+      "spiff_amount": 200
+    },
+    {
+      "product_pattern": "Any old Summerset grills",
+      "vendor": "Summerset",
+      "category": "grill",
+      "spiff_amount": 100,
+      "notes": "Inventory liquidation spiff — clear old Summerset grill inventory"
+    },
+    {
+      "product_code": "18011 (likely Impact for demo)",
+      "spiff_amount": 100,
+      "condition": "NO DAMAGE!",
+      "verification_needed": "OCR ambiguity — '+18011/ Impact for demo' suggests demo unit; verification needed"
+    },
+    {
+      "product_code": "MQHBZDV4736N",
+      "product_name": "Marquis HBZDV4736N",
+      "vendor": "Marquis (Kingsman)",
+      "category": "gas_fireplace_dv",
+      "spiff_amount": 200,
+      "qty_in_stock_or_target": 2,
+      "verification_needed": "OCR shows '2 MQ #BL014736N' — likely Marquis HBZDV4736N (4736 = 47\" wide, 36\" tall direct vent)"
+    },
+    {
+      "product_code": "ZCVRB47N",
+      "vendor": "Kingsman (likely)",
+      "category": "gas_fireplace_dv",
+      "spiff_amount": 200,
+      "alt_spiff": "25%",
+      "qty_in_stock_or_target": 2,
+      "verification_needed": "OCR shows '2 ZCVRB47N 25% 100 $200' — multiple numbers, unclear if spiff is $200, $100, or 25% discount; verify"
+    }
+  ],
+  "verification_needed": "5 of 12 entries flagged for OCR ambiguity. Recommend cross-checking with the original source — the SPIFFS table section of the Daily Desk Reference PDF.",
+  "spiff_design_patterns": [
+    "Woodburning fireplaces consistently $200 (Castlewood, Cottager, Birmingham)",
+    "Premium gas DV consistently $200 (Bentley 48, Heatilator Caliber, Marquis HBZDV4736N)",
+    "Value/stove products at $100 (Lopi Rockport, PE Alderlea, old Summerset grills)",
+    "Special-condition spiffs exist (NO DAMAGE for demos, qty-bounded for inventory liquidation)"
+  ],
+  "implications_for_bsfa": [
+    "BSFA Smart Context can surface SPIFF info when rep is configuring a quote — internal-only display",
+    "When customer asks about specific product, BSFA can optionally remind rep 'this product has a $200 SPIFF' as internal nudge",
+    "Field Rule candidate: when rep marks a quote 'ready for BisTrack' that includes a SPIFF product, optionally flag the spiff total",
+    "Long-term: BSFA could compute rep's projected SPIFFs from active opportunities"
+  ]
+}

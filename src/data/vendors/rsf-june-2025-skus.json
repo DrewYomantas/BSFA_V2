@@ -1,0 +1,186 @@
+{
+  "vendor": "rsf",
+  "price_book_title": "RSF June 2025",
+  "drive_id": "1F5gvm0VK-HHIWQEv0RtR8Kb6whX8yzhS",
+  "extracted_at": "2026-05-19T00:00:00Z",
+  "effective_date": "2025-06",
+  "currency": "USD",
+  "price_field_note": "RSF price book (distributed by Associated Energy Systems, in effect June 3rd 2025) publishes a single 'Retail Price' column only. There is no separate dealer/wholesale column, so msrp is populated and dealer_price is left null. RSF appliances are high-efficiency wood-burning fireplaces; fuel_type is 'wood' and ignition is null (manual wood lighting). Models listed are the fireplace bodies only; blowers, vent kits, trims, louvers, liner parts and other line items are recorded under accessories_required where a selection is mandatory for a complete unit.",
+  "discontinued_for_june_2025": [],
+  "categories": [
+    "wood_burning_fireplace_insert",
+    "wood_burning_fireplace",
+    "see_through_wood_burning_fireplace"
+  ],
+  "model_count": 8,
+  "models": [
+    {
+      "vendor": "rsf",
+      "model_code": "RFFGF3600BIN",
+      "model_name": "Focus 3600i Fireplace Insert",
+      "category": "wood_burning_fireplace_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 50000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4057,
+      "accessories_required": null,
+      "notes": "Re-certified model. 2.04 cubic foot firebox, heats up to 1,500 sq ft, EPA certified at 1.7 g/h, detachable flue collar w/pull handle, uses 6\" stainless liner, fits masonry fireplaces less than 28\"W, tapered firebox design. Optional heat-activated blower (RFFOHB1) and oversize backing plate. Ship weight 340 lbs.",
+      "parent_series": "Focus 3600",
+      "page": 3
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFF3600B",
+      "model_name": "Focus 3600 Fireplace",
+      "category": "wood_burning_fireplace",
+      "width_inches": 34.4375,
+      "height_inches": 40.8125,
+      "depth_inches": 22.5,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 50000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4390,
+      "accessories_required": "Choice of trim required: RFFOF3600ST Straight Trim ($280) or RFFOF3600FT Frame Trim ($400).",
+      "notes": "Re-certified model. 2.04 cubic foot firebox, heats up to 1,500 sq ft, EPA certified at 1.7 g/h, optimal efficiency 75.3% (79% LHV per spec sheet), BTU output 44,135 BTU/h, uses 6\" Excel chimney, accepts up to 18\" logs. Most installations require vented flashing. Order body plus a choice of trim for a complete unit. Ship weight 398 lbs. Mobile home approved.",
+      "parent_series": "Focus 3600",
+      "page": 4
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFPRL3600B",
+      "model_name": "Pearl 3600 Fireplace w/Black Door & Decorative Faceplate",
+      "category": "wood_burning_fireplace",
+      "width_inches": 36.625,
+      "height_inches": 38.6875,
+      "depth_inches": 24.125,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 50000
+      },
+      "viewing_area": "20 1/4\" x 11 1/4\" + arch",
+      "dealer_price": null,
+      "msrp": 5542,
+      "accessories_required": null,
+      "notes": "Re-certified model. Heats up to 1,500 sq ft, EPA certified at 1.7 g/hr, non-catalytic fully adjustable fire, optimal efficiency 75.3% (79% LHV per spec sheet), BTU output 44,135 BTU/h, 2.04 cubic foot firebox, takes 18\" logs in front (16\" in back), uses 6\" Excel chimney. Black decorative faceplate included. Ship weight 430 lbs. Mobile home approved.",
+      "parent_series": "Pearl 3600",
+      "page": 5
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFF320SBR",
+      "model_name": "Focus SBR Fireplace",
+      "category": "wood_burning_fireplace",
+      "width_inches": 45,
+      "height_inches": 44.25,
+      "depth_inches": 24,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 50000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4950,
+      "accessories_required": "Louvers or clean face required: RFFOF320SBRLB Louver Assembly - Black ($494) OR RFFOF2 Clean Face Kit ($395) which requires two gravity vents (RFFOV2/RFFOV3).",
+      "notes": "Smart Burn Rate technology, fully automatic air control system, 10,000-50,000 BTU's, 2.6 cubic foot firebox, up to 2,000 sq ft heating capacity, EPA certified at 1.4 g/hr, optimal efficiency 75% LHV, BTU output 22,563 BTU/h, 22\" maximum firewood length, can connect to central heating, uses 7\" Excel chimney. Order body plus louvers or clean face kit with two gravity vents. Ship weight 562 lbs.",
+      "parent_series": "Focus SBR",
+      "page": 6
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFOPPK",
+      "model_name": "Opel Keystone Catalytic Fireplace",
+      "category": "wood_burning_fireplace",
+      "width_inches": 36.875,
+      "height_inches": 52.25,
+      "depth_inches": 24,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5760,
+      "accessories_required": "Louver/venting required: RFFOOPLK Opel Keystone Louver - Black ($871) OR two gravity vents (RFFOV2 $387 / RFFOV3 $346).",
+      "notes": "BTU output 10,000 to 70,000, heating capacity 3,000 sq ft, 3.6 cubic foot firebox, catalytic, EPA certified to 2020 particulate emission standards at 0.7 g/hr (with 635cfm central heating blower), optimal efficiency 80% LHV, BTU output 27,034 BTU/h, comes with black door, semi clean face option, uses 7\" Excel chimney, accepts up to 18\" logs. Most installations require vented flashing. Ship weight 615 lbs.",
+      "parent_series": "Opel",
+      "page": 7
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFOPP2C",
+      "model_name": "Opel 2 Plus Catalytic Fireplace - Black Doors",
+      "category": "wood_burning_fireplace",
+      "width_inches": 37,
+      "height_inches": 52.25,
+      "depth_inches": 24,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5460,
+      "accessories_required": "Louver set or facing required: RFFOOPLB Black Louver Assembly ($354), RFFOOPLC Classic Black Decorative Cast Iron Grill ($395), or RFFOF3 Clean Face Kit ($453).",
+      "notes": "Opel2C Plus high-efficiency catalytic fireplace, black doors. 10,000-70,000 BTU's, 3.6 cubic foot firebox, 36\"W x 48\"H x 24\"D firebox spec, 1,500 to 3,000 sq ft heating capacity, EPA certified to 2020 particulate emission standards at 0.7 g/hr, optimal efficiency 80% LHV, BTU output 27,034 BTU/h, 18\" maximum firewood length, can connect to central heating, uses 7\" Excel chimney. Order body plus louver assembly or facing. Ship weight 554 lbs.",
+      "parent_series": "Opel",
+      "page": 8
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFOPP3C",
+      "model_name": "Opel 3 Plus Catalytic Fireplace - Black Single Door",
+      "category": "wood_burning_fireplace",
+      "width_inches": 37,
+      "height_inches": 52.25,
+      "depth_inches": 24,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5460,
+      "accessories_required": "Louver set or facing required: RFFOOPLB Black Louver Assembly ($354), RFFOOPLC Classic Black Decorative Cast Iron Grill ($395), or RFFOF3 Clean Face Kit ($453). Optional decorative door trims: RFFOPDTG Gold ($234), RFFOPDTP Pewter ($234), RFFOPDTB Painted Black ($198).",
+      "notes": "Opel3C Plus high-efficiency catalytic fireplace, black single door. 10,000-70,000 BTU's, 3.6 cubic foot firebox, 36\"W x 48\"H x 24\"D firebox spec, 1,500 to 3,000 sq ft heating capacity, EPA certified to 2020 particulate emission standards at 0.7 g/hr, optimal efficiency 80% LHV, BTU output 27,034 BTU/h, 18\" maximum firewood length, can connect to central heating, uses 7\" Excel chimney. Order body plus louver assembly or facing. Ship weight 578 lbs.",
+      "parent_series": "Opel",
+      "page": 8
+    },
+    {
+      "vendor": "rsf",
+      "model_code": "RFFFFST",
+      "model_name": "Focus See-Thru Fireplace w/Doors & Louvers",
+      "category": "see_through_wood_burning_fireplace",
+      "width_inches": 37.25,
+      "height_inches": 45.25,
+      "depth_inches": 21.75,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "wood": 50000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 7184,
+      "accessories_required": null,
+      "notes": "Focus See Thru (Focus ST). 10,000-50,000 BTU's, 4.1 cubic foot firebox, 45\"W x 37\"H x 22\"D firebox spec, up to 1,000 sq ft heating capacity, EPA exempt, 20\" maximum firewood length, can be installed into a masonry chimney with an RSF adapter and UL/ULC listed stainless liner, uses 8\" Excel chimney. Comes with doors and louvers. Ship weight 550 lbs.",
+      "parent_series": "Focus ST",
+      "page": 10
+    }
+  ]
+}

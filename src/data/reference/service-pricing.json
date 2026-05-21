@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Service & Install Pricing — Benson Fireplace",
+  "description": "Structured service pricing extracted from Daily Desk Reference (refreshed May 14 2026, Drive ID 1YnLeHDIIFnrbETWj12kMdbr-QPHR4mEC). Plus install pricing from CLAUDE.md (2022 sheet — most recent reference). These two sources do not fully agree — both captured here with provenance.",
+  "generated_at": "2026-05-19T13:30:00Z",
+  "currency": "USD",
+  "sensitivity": "internal_only",
+  "service_pricing_may_2026_refresh": {
+    "source": "Daily Desk Reference (refreshed May 14 2026)",
+    "fire_up": {
+      "base": 179,
+      "plus": "mileage",
+      "notes": "Initial fire-up service call"
+    },
+    "service_call_hourly": {
+      "first_hour": 189,
+      "subsequent_hourly": 120,
+      "billing_increment": "15 min",
+      "plus": "parts",
+      "notes": "First hour at $189, then $120/hr in 15-min increments + parts"
+    },
+    "return_trip_discount": "25%",
+    "in_house_service": 120,
+    "chimney_sweep": {
+      "1_story": 254,
+      "2_story": 304,
+      "mileage": "$2.00/mile one way",
+      "external_resource": "Jones Chimney Sweep 815-788-1980"
+    },
+    "gas_run_up_to_15ft": {
+      "base": 549,
+      "extension_per_ft": 14,
+      "applies_to_extensions": ["drop_ceiling", "crawl_space"],
+      "notes": "$549 base for up to 15', then $14/ft for drop ceiling, crawl space, etc."
+    },
+    "log_only": {
+      "base": 200,
+      "removal_add": 15
+    },
+    "see_thru_or_36_plus": 250,
+    "mileage_general": {
+      "service_calls": "$2.00/mile one way",
+      "notes": "Standard service-call mileage rate"
+    }
+  },
+  "install_pricing_2022_sheet": {
+    "source": "CLAUDE.md (legacy 2022 install sheet — most recent in reference)",
+    "note": "Drew flagged this as 2022 data still in active reference. Service pricing above is fresher (May 2026 refresh). May need to reconcile.",
+    "dv_fireplace_with_cabinet": 1350,
+    "vent_free_with_cabinet": 1250,
+    "electric_with_cabinet": 975,
+    "set_fp_plus_chimney": {
+      "1_story": 1475,
+      "2_story": 1575
+    },
+    "set_fp_plus_dv_through_wall": 1275,
+    "wood_or_gas_insert": {
+      "1_story": 1475,
+      "2_story": 1575
+    },
+    "gas_line_up_to_15ft": {
+      "base": 415,
+      "extension_per_ft": 11
+    },
+    "electric_for_fan_up_to_15ft": {
+      "base": 285,
+      "extension_per_ft": 5
+    },
+    "tear_out_starting": 749,
+    "wood_surround": 275,
+    "raised_hearth_box": 200,
+    "install_mantel": 200,
+    "mileage_install_one_way": 3,
+    "service_call_legacy": {
+      "first_hour": 189,
+      "subsequent_hourly": 100,
+      "billing_increment": "15 min",
+      "note": "Daily Desk Reference (May 2026) updated to $120/hr subsequent — newer rate"
+    },
+    "add_ons": {
+      "hi_eff_or_birmingham": 325,
+      "icon_or_bis_or_constitution_or_mendota": 200,
+      "fpx_elite_or_stuv": 325,
+      "source": "2020 sheet"
+    }
+  },
+  "stone_and_masonry": {
+    "stone_brick_per_sqft_range": "$40-$50",
+    "drywall_mud_tape": "NO DO — call Rich or German",
+    "subcontractors": [
+      {"name": "Larry Lawson Masonry", "scope": "stone/brick work", "pricing_sheet": "01 / Benson Stone Price Lists"},
+      {"name": "Josh Mullin", "scope": "masonry"},
+      {"name": "Roger Fritz", "scope": "electrical"},
+      {"name": "Uncle Mike's Drywall", "scope": "drywall"},
+      {"name": "Mudders Inc.", "scope": "general", "phone": "815-621-3095"}
+    ]
+  },
+  "reconciliation_needed": [
+    "Service Call hourly rate: 2022 sheet says $100/hr subsequent; May 2026 refresh says $120/hr — confirm which is current",
+    "Mileage rate: 2022 sheet says $3/mile one way (install); May 2026 refresh says $2/mile one way (service) — confirm if these are different categories or one supersedes other",
+    "Gas Line up to 15': 2022 sheet says $415 base / $11 per ft; May 2026 refresh has Gas RUN up to 15' at $549 / $14 per ft — are these the same item with a price increase?",
+    "Add-on pricing (Hi-Eff/ICON/BIS/Stuv) from 2020 sheet — likely needs refresh"
+  ]
+}

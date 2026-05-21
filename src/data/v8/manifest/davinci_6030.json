@@ -1,0 +1,110 @@
+{
+  "unitId": "davinci_6030",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [
+    "manual_review_required"
+  ],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "luxury",
+    "modern",
+    "designer"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Site visit required",
+      "Custom surround/finish planning",
+      "Designer/architect coordination"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "DaVinci 6030",
+    "shortDescription": "A designer linear fireplace built by Travis Industries' DaVinci brand. Custom burners, custom glass \u2014 for commercial spaces and high-end homes.",
+    "bestFor": [
+      "Luxury / designer projects",
+      "Commercial installs",
+      "Customer who values custom design + visual presence"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "design"
+    ],
+    "styleHuman": "Designer Luxury",
+    "sizeHuman": "Large",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "luxury"
+  },
+  "rep": {
+    "verificationNotes": "Selling DaVinci requires a customer who understands they're buying a design object, not a heat source. Always pair with a designer/architect conversation. Custom burners + custom glass = lead time and confirmation cycle.",
+    "liamVoiceCallback": "DaVinci \u2014 sold one to the Rockford Public Library; this exact unit. Commercial purposes mostly. Very high ticket, very high margin, very hard sell \u2014 because you just don't sell too often.",
+    "crossSellNotes": "If customer wants comparable visual without DaVinci price, walk to Kozy Heat Nordik 48TL (position 10) or Travis 4415HO linear (position 13).",
+    "educationCardRefs": [],
+    "displayCallback": "Position 12 \u2014 luxury anchor; commercial-inspiration display.",
+    "sampleTargets": [
+      "Designers",
+      "Architects",
+      "Commercial-spec customers"
+    ],
+    "salesNotes": "High-ticket, high-margin, low-volume. DaVinci is owned by Travis Industries. Designed for visual presence over heat. Cool-to-touch front (no screen). Strictly for looks \u2014 commercial purposes mostly, plus very wealthy residential."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "very_high",
+    "marginNotes": "Per Liam: very high margin, very hard sell, low volume. Travis Industries family.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "luxury",
+      "commercial_inspiration",
+      "low_volume_high_margin"
+    ],
+    "recommendableStatus": "recommendable_with_verification",
+    "recommendableStatusReason": "High-value display; only recommend when customer profile fits luxury/commercial. Not for typical residential narrowing.",
+    "displayPosition": 12
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Travis Industries.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-davinci-gas-june-2025-skus.json"
+      },
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-davinci-electric-july-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 12,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-note-apr25-showroom-walkthrough.txt",
+        "speaker": "Speaker 3 (Drew)",
+        "quote": "DaVinci is owned by Travis Industries. Strictly for looks. Is commercial purposes only, really. Some very, very wealthy people will get these in their home. Very high ticket. Very high margin. Very hard sell, because you just don't sell too often."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

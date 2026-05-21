@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Gas Log Set vs Gas Insert — Sales Script & Reference",
+  "description": "Canonical comparison + sales script extracted from May 15 2026 Leo walk-in customer transcript (Drew + Jonathan tag-team sale). This is the most common 'I want to convert my wood fireplace to gas' conversation. Use in BSFA Smart Context when customer indicates gas-conversion intent.",
+  "generated_at": "2026-05-19T15:50:00Z",
+  "source_transcripts": [
+    "voice-note-apr22-bistrack-quote-workflow.txt (Christina Okasan + Aaron stove quote)",
+    "voice-note-apr25-showroom-walkthrough.txt (display-by-display commentary)",
+    "May 15 at 3 27 PM (Leo walk-in - gas log set conversation Rockford).txt (live customer transcript)",
+    "Liam wood-burning LEARNINGS.md (May 16)",
+    "Jonathan electric LEARNINGS.md (May 16 12:30 PM)"
+  ],
+  "decision_question": "Customer wants gas conversion in existing fireplace. Are they buying ambiance or heat?",
+  "products": {
+    "gas_log_set": {
+      "primary_purpose": "ambiance",
+      "heat_type": "radiant (heats objects + skin, 10-15 ft into room)",
+      "heat_capacity": "warms area in front of fireplace, NOT whole room",
+      "all_in_price_typical": {
+        "min": 2500,
+        "max": 3500,
+        "midpoint_quoted_to_leo": 3000,
+        "rockford_minimum_quoted": 2600,
+        "includes": ["gas run", "burner", "logs", "grate", "valve", "remote control", "installation", "tax"]
+      },
+      "anatomy": [
+        "Burner (installed in existing firebox)",
+        "Grate",
+        "Ceramic logs (lifetime warranty)",
+        "Valve",
+        "Optional remote control (flame height up/down)"
+      ],
+      "operation": "Operates same as burning wood — DOORS OPEN, DAMPER OPEN when burning",
+      "fireplace_keeps": "Existing fireplace walls + black trim + factory finish all stay",
+      "log_customization": "Top logs can be moved within base diagram; base logs must follow manufacturer diagram (controls flame travel + prevents sooting)",
+      "warranties": {
+        "logs": "lifetime (ceramic)",
+        "burner": "5 years",
+        "valve_and_electronics": "3 years"
+      },
+      "vendor": "Hargrove (primary supplier for Benson)",
+      "preferred_display_per_drew_apr25": "Most popular log style on display — 'glows more' than alternatives",
+      "popularity_note": "On display: 30% efficient, feels heat 15 feet away. Other log styles produce same heat + same flame size but don't glow as much"
+    },
+    "gas_insert": {
+      "primary_purpose": "heat",
+      "heat_type": "convection (blower pulls cold air from floor, heats it, pushes out top)",
+      "heat_capacity": "1,500-2,000 sq ft, ~80% efficient (Drew quote: 'like home furnaces — like getting another furnace')",
+      "all_in_price_typical": {
+        "low_end": 7000,
+        "high_end": 10000,
+        "high_end_max": 11000,
+        "includes": ["gas insert unit", "venting system through existing pipes + new cap", "face/surround", "log/media", "panel", "installation"]
+      },
+      "anatomy": [
+        "Sealed gas unit that slides into existing opening",
+        "Own venting system goes up through existing chimney + new cap",
+        "Face with screen on front",
+        "Ceramic gasketed glass behind screen",
+        "Two burners on premium units (front + back — turn off back burner to reduce heat)",
+        "Fan kit / blower system inside",
+        "Remote control for flame height"
+      ],
+      "operation": "Fully sealed appliance — doors come off existing fireplace, panel surrounds the insert",
+      "installation_complexity": "More involved than log set (venting + cap + opening modification)",
+      "lock_in_to_vendor": "You are at the mercy of the gas insert manufacturer — only their logs work, set up to specific diagram, cannot be moved",
+      "thermal_efficiency_pitch": "These are like home furnaces. In some situations cheaper to heat your house with this than the whole furnace (depends on electric vs gas heat baseline)",
+      "vendors": "Travis, Mendota, Enviro, Kozy Heat, Kingsman, Lopi all carried"
+    }
+  },
+  "key_differentiators_for_customer": [
+    {
+      "factor": "Heat type",
+      "log_set": "Radiant (warms 10-15 ft in front)",
+      "insert": "Convection (warms whole room, can heat house in some cases)"
+    },
+    {
+      "factor": "Heat coverage",
+      "log_set": "Localized — sitting in front of fireplace",
+      "insert": "1,500-2,000 sq ft"
+    },
+    {
+      "factor": "Installation cost",
+      "log_set": "$2,500-$3,500 all-in",
+      "insert": "$7,000-$11,000 all-in"
+    },
+    {
+      "factor": "Realism / look",
+      "log_set": "More realistic — open fire, no glass between you and flame",
+      "insert": "Looks beautiful + ceramic glass front; less 'real wood' look but very polished"
+    },
+    {
+      "factor": "Door & damper behavior",
+      "log_set": "Doors open + damper open when burning (just like wood)",
+      "insert": "Fully sealed — doors come off, panel surrounds it"
+    },
+    {
+      "factor": "Customization flexibility",
+      "log_set": "More freedom — different log styles, mix-and-match (within base diagram)",
+      "insert": "Locked to manufacturer — their logs, their layout, their specs"
+    },
+    {
+      "factor": "Warranty depth",
+      "log_set": "Logs: lifetime; Burner: 5yr; Electronics: 3yr",
+      "insert": "Per manufacturer (verify per unit)"
+    }
+  ],
+  "drew_sales_script_for_gas_log_set": [
+    "It operates the same as if you're burning wood. Doors open, damper open when it's running.",
+    "The logs have a lifetime warranty — they're ceramic. They may eventually crumble over years, but Hargrove warranties them for life.",
+    "Burner is 5 years, valve and electronics are 3 years.",
+    "It looks realistic because there's no glass in front of it. It's an open fire.",
+    "It radiates heat 10-15 feet into the room — heats objects and skin. It's not convection heat.",
+    "Main purpose is ambiance. It looks pretty and warms the area in front of it.",
+    "All-in cost with gas run, installation, and remote — around $3,000 after tax. Could be less."
+  ],
+  "drew_sales_script_for_gas_insert": [
+    "These are powerful heaters. I cannot stress that enough — their main purpose is heating. They look beautiful as well, but they're heaters.",
+    "It's an actual unit that slides into your opening. It has its own venting system that goes up through your existing pipes with a new cap.",
+    "These average 1,500-2,000 sq ft of heating. They're like home furnaces. About 80% efficient.",
+    "They have fan kits — blower system that pulls room air in for convection. Cold air sits on the floor, so it pulls air in down low, heats it, and spits it out up top.",
+    "The two-burner models let you turn off the back burner if you want less heat. Or you can control flame height with the remote.",
+    "Out-the-door install price: low end $7,000, high-end $10,000-$11,000.",
+    "In some situations, it's cheaper to heat your house with this than running your whole furnace — depends on whether you have electric or gas heat."
+  ],
+  "common_customer_questions": [
+    {
+      "q": "Can I change the look (logs)?",
+      "log_set_answer": "Yes — within a base diagram. Top logs you can move around. Base logs follow a manufacturer pattern that controls flame travel and prevents sooting.",
+      "insert_answer": "No — you're at the mercy of the manufacturer. Only their logs, set up to their diagram."
+    },
+    {
+      "q": "Is there harmful gas?",
+      "shared_answer": "No — these are vented. The gas burns and goes up the chimney/vent. No harmful exhaust in the room."
+    },
+    {
+      "q": "Do the doors stay closed?",
+      "log_set_answer": "Doors are open when burning. When it's off, you can shut them. Damper is also always open when burning — just like burning wood.",
+      "insert_answer": "Insert is fully sealed — the existing doors come off, and a panel surrounds the new unit. Sealed gasketed glass."
+    },
+    {
+      "q": "How much heat does it actually produce?",
+      "log_set_answer": "Heats objects and skin in front of it. ~10-15 feet of warm zone. Not for heating a whole room.",
+      "insert_answer": "1,500-2,000 sq ft. Like a furnace."
+    },
+    {
+      "q": "When can you install?",
+      "shared_answer": "If it's in stock, about 3-4 weeks. Once you put a down payment in, the countdown starts."
+    },
+    {
+      "q": "Does the price change?",
+      "shared_answer": "Quote is guaranteed for 30 days from save date in BisTrack."
+    }
+  ],
+  "process_notes": [
+    "Quote saved in BisTrack — locked-in price for 30 days",
+    "Down payment converts the quote into a scheduled order",
+    "Customer financing via Synchrony or Wells Fargo — link on Benson website",
+    "Oralba (receptionist x100) helps walk customers through financing process",
+    "Lead time 3-4 weeks for in-stock items",
+    "21\" is a common gas log set size (sized to existing fireplace opening)"
+  ],
+  "implications_for_bsfa": [
+    "Smart Context: when customer enters 'gas conversion' or 'wood-to-gas' goal, surface the log-set-vs-insert decision tree",
+    "Field Rule candidate: when quote includes gas log set, surface 'verify doors open + damper open during operation' as install note",
+    "Quote Prep: gas insert quotes should include face/surround/log/media/panel/venting/cap line items minimum",
+    "Brand Voice: customer-safe wording from Drew's script is reusable verbatim",
+    "Customer financing — BSFA should know about Synchrony + Wells Fargo + Oralba contact pattern",
+    "30-day quote validity is currently a constant in BSFA (PAYMENT_TERMS = 50% down, QUOTE_GOOD_FOR = 30 days per CLAUDE.md) — confirmed in this transcript"
+  ]
+}

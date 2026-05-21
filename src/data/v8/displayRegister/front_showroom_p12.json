@@ -1,12 +1,12 @@
 {
-  "displaySlotId": "front_showroom_p14",
+  "displaySlotId": "front_showroom_p12",
   "schemaVersion": "1.0",
-  "currentUnitRef": "heatilator_icon60_hargrove_woodland_timbers",
-  "currentPlacementId": "placement_2026_pos14",
+  "currentUnitRef": "davinci_6030",
+  "currentPlacementId": "placement_2026_pos12",
   "location": {
     "zone": "front_showroom",
-    "position": 14,
-    "subLocation": "front showroom \u2014 position 14 (wood + log set teaching display)"
+    "position": 12,
+    "subLocation": "front showroom \u2014 position 12 (luxury anchor)"
   },
   "lastReviewedDate": "2026-05-20",
   "lastReviewedBy": "claude (audit-content sync pass)",
@@ -16,10 +16,10 @@
     "customerSafeBadges": []
   },
   "rep": {
-    "salesNotes": "Use to walk a customer through the wood-fireplace-to-gas-log decision.",
-    "coachingNotes": "Pair with masonry-vs-prefab diagnostic. Get all dimensions (front W/H/D, rear W, hearth context) before quoting.",
-    "dailyConditionNotes": "Display: open-face wood unit with Hargrove Woodland Timbers log set installed for teaching.",
-    "displayCallbackLanguage": "Shown at front showroom position 14 \u2014 wood-to-gas-logs teaching display."
+    "salesNotes": "Only recommend when customer profile fits luxury/commercial. Strictly visual \u2014 not designed primarily for heat.",
+    "coachingNotes": "Very high ticket, very high margin, low volume. Have an architect/designer in the room when serious.",
+    "dailyConditionNotes": "Display operational; cool-to-touch front demonstrable.",
+    "displayCallbackLanguage": "Shown at front showroom position 12 \u2014 luxury anchor / commercial inspiration."
   },
   "internal": {
     "displayDisposition": "active_display",
@@ -30,8 +30,8 @@
     "recommendableOverrideReviewDate": null,
     "replacementCandidate": null,
     "businessFlags": [
-      "teaching_display",
-      "wood_to_gas_path"
+      "luxury_anchor",
+      "low_volume_high_margin"
     ]
   },
   "sources": {

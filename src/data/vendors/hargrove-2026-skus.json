@@ -1,0 +1,1156 @@
+{
+  "vendor": "hargrove",
+  "vendor_full_name": "Hargrove Premium Products",
+  "vendor_address": "207 Wellston Park Road, Sand Springs, OK 74063",
+  "vendor_contacts": {
+    "email": "orders@e-hargrove.com",
+    "phone": "800-725-4166",
+    "website": "www.hargrovegaslogs.com"
+  },
+  "price_book_titles": {
+    "vented": "Hargrove 2026 Vented Gas Log price list (RGA)",
+    "vent_free": "Hargrove Vent Free 2026"
+  },
+  "drive_ids": {
+    "vented": "1qMdFv2DZIlZ6udG3hWx_jO6aerGt5pkW",
+    "vent_free": "1Stvd9ZrGz4nIQDptIHJ6_WFS95TeF7Mq",
+    "alt_vented_id_accessed": "1LuJpLcZXHo_OTDxaIQq9bmvrPB9753Rd",
+    "alt_vent_free_id_accessed": "1P5wJycoo2u_3Fgm9k6DCJGykTZxZ1BWv"
+  },
+  "extracted_at": "2026-05-19T21:30:00Z",
+  "effective_date": "2026-01-05",
+  "currency": "USD",
+  "price_field_note": "Hargrove price book publishes SUGGESTED RETAIL PRICE (MSRP). Field 'dealer_price' in schema is populated with MSRP and 'price_type' = 'MSRP' to flag. Benson's dealer cost is typically MSRP minus a vendor-specific discount (not published here).",
+  "price_type": "MSRP",
+  "vendor_context": {
+    "role": "Benson Stone Company primary gas log supplier",
+    "source_notes": "Drew training (Apr 22 PM + Apr 25 walkthrough). Vented = realism + ambiance path. Vent-free = heat path. Hargrove VF includes flex connector, so Field Rule 1 (Empire VF needs Whisper Flex) does NOT apply to Hargrove VF.",
+    "notable_models": ["WTS2418RG Woodland Timbers", "Pinnacle Series", "CTS Cross Timbers"],
+    "preferred_vf_display": "White Mountain (Empire), not Hargrove VF, per Drew Apr 25",
+    "drew_quote_apr25": "I'm not a big fan of [vent-free model X], but I do sell these"
+  },
+  "categories": [
+    "vented_gas_log_set",
+    "vented_burner_kit",
+    "vent_free_gas_log_set",
+    "outdoor_burner_kit",
+    "outdoor_firepit_logs",
+    "pinnacle_log_set",
+    "see_thru_log_set",
+    "see_thru_shallow_log_set",
+    "full_pan_log_set",
+    "large_log_set",
+    "double_stack_log_set",
+    "triple_stack_log_set",
+    "olde_world_basket",
+    "kiva_log_set",
+    "control_system_concealer"
+  ],
+  "valve_control_legend": {
+    "0A": "No Safety Pilot - Match Light (manual lighter)",
+    "1B": "CPE Safety Pilot Valve - Manual",
+    "1T": "AFE Safety Pilot Valve - Manual",
+    "1H": "CPE Safety Pilot with On/Off Remote Upgrade",
+    "1F": "MHE Safety Pilot Valve - Variable Remote",
+    "1K": "AFE Safety Pilot Valve with Variable Remote Upgrade",
+    "2A": "RME Millivolt Pilot Valve - On/Off Wall Switch",
+    "2B": "RMBE Hi-Capacity Millivolt Pilot Valve - On/Off Wall Switch",
+    "2C": "Millivolt Valve (vent-free, remote ready)",
+    "1E": "Variable Flame Valve (vent-free)",
+    "1G": "Manual Valve (vent-free)",
+    "3E": "Electronic Ignition Valve (vent-free, includes variable remote)",
+    "3F": "MEI Electronic Ignition Valve - Variable Remote",
+    "3A": "DEI Electronic Ignition Valve - On/Off Switch",
+    "3B": "DBEI Hi-Capacity Electronic Ignition Valve - On/Off Switch"
+  },
+  "burner_legend": {
+    "EB": "E-Burner (standard vented burner, single tube, sand/vermiculite pan)",
+    "HB": "H-Burner (additional tube for more front flame)",
+    "SL/SLHB": "Hidden Control/Stealth Burner (hides valve components)",
+    "SF": "System 4 Burner (specialized for LP, sandless/vermiculite-free)",
+    "ES": "Ember Supreme Burner (large, deeper pan, more flame)",
+    "DS": "Double Stack Burner (Kodiak series)",
+    "TS": "Triple Stack Burner (Kodiak series)",
+    "ST": "See Thru Burner",
+    "SS": "See Thru Shallow Burner (12\" deep grate)",
+    "FP": "Full Pan Burner",
+    "RM": "Pinnacle Burner"
+  },
+  "log_kit_application_legend": {
+    "AA": "Standard Single Sided logs",
+    "RG": "Radiant Heat Single Sided logs (Ceramic Fiber)",
+    "SL": "Radiant Heat logs for Stealth Burner",
+    "DS": "Double Stack logs",
+    "TS": "Triple Stack logs",
+    "ST": "See Thru logs",
+    "SS": "See Thru Shallow logs",
+    "FP": "Full Pan logs",
+    "FL": "Firepit logs",
+    "PL": "Pinnacle logs"
+  },
+  "series_material_notes": {
+    "fresh_cut_series": "Refractory concrete logs (Classic Oak, Driftwood, Grand Oak, Hargrove Select, Supreme Ponderosa, Western Pine)",
+    "charred_series": "Refractory concrete logs (Blazing Pecan, Inferno Series, Magnificent Inferno, Mountain Timber, Twilight Inferno)",
+    "radiant_heat_series": "Ceramic fiber logs (Aspen Timbers, Canyon Timbers, Cross Timbers, Rustic Timbers, Woodland Timbers) - 3x more heat than standard concrete vented sets"
+  },
+  "vented_gas_logs": {
+    "summary": "Vented log sets ship as 2-part orders: log kit + burner kit (matched by size). Prices below are LOG KIT only. Burner kits priced separately under 'vented_burner_kits' section.",
+    "log_set_families": [
+      {
+        "family_name": "Classic Oak",
+        "log_set_series": "CLS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["15\"", "18\"", "24\"", "30\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "CLS1504AA", "size": "15\"", "dealer_price": 124, "price_type": "MSRP", "weight_lbs": 16, "application": "standard"},
+          {"model_code": "CLS1805AA", "size": "18\"", "dealer_price": 251, "price_type": "MSRP", "weight_lbs": 32, "application": "standard"},
+          {"model_code": "CLS2406AA", "size": "24\"", "dealer_price": 276, "price_type": "MSRP", "weight_lbs": 44, "application": "standard"},
+          {"model_code": "CLS3007AA", "size": "30\"", "dealer_price": 380, "price_type": "MSRP", "weight_lbs": 58, "application": "standard"},
+          {"model_code": "CLS1806ST", "size": "18\"", "dealer_price": 348, "price_type": "MSRP", "weight_lbs": 42, "application": "see_thru"},
+          {"model_code": "CLS2407ST", "size": "24\"", "dealer_price": 435, "price_type": "MSRP", "weight_lbs": 64, "application": "see_thru"},
+          {"model_code": "CLS3008ST", "size": "30\"", "dealer_price": 554, "price_type": "MSRP", "weight_lbs": 93, "application": "see_thru"},
+          {"model_code": "CLS1805SS", "size": "18\"", "dealer_price": 291, "price_type": "MSRP", "weight_lbs": 40, "application": "see_thru_shallow"},
+          {"model_code": "CLS2406SS", "size": "24\"", "dealer_price": 323, "price_type": "MSRP", "weight_lbs": 56, "application": "see_thru_shallow"},
+          {"model_code": "CLS3007SS", "size": "30\"", "dealer_price": 423, "price_type": "MSRP", "weight_lbs": 68, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Driftwood",
+        "log_set_series": "DRS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "full pan (FP)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "DRS1805AA", "size": "18\"", "dealer_price": 235, "price_type": "MSRP", "weight_lbs": 28, "application": "standard"},
+          {"model_code": "DRS2406AA", "size": "24\"", "dealer_price": 294, "price_type": "MSRP", "weight_lbs": 32, "application": "standard"},
+          {"model_code": "DRS3007AA", "size": "30\"", "dealer_price": 409, "price_type": "MSRP", "weight_lbs": 44, "application": "standard"},
+          {"model_code": "DRS1806ST", "size": "18\"", "dealer_price": 319, "price_type": "MSRP", "weight_lbs": 39, "application": "see_thru"},
+          {"model_code": "DRS2407ST", "size": "24\"", "dealer_price": 466, "price_type": "MSRP", "weight_lbs": 44, "application": "see_thru"},
+          {"model_code": "DRS3008ST", "size": "30\"", "dealer_price": 592, "price_type": "MSRP", "weight_lbs": 64, "application": "see_thru"},
+          {"model_code": "DRS1805FP", "size": "18\"", "dealer_price": 235, "price_type": "MSRP", "weight_lbs": 28, "application": "full_pan"},
+          {"model_code": "DRS2406FP", "size": "24\"", "dealer_price": 294, "price_type": "MSRP", "weight_lbs": 32, "application": "full_pan"},
+          {"model_code": "DRS3007FP", "size": "28\"", "dealer_price": 409, "price_type": "MSRP", "weight_lbs": 44, "application": "full_pan"}
+        ]
+      },
+      {
+        "family_name": "Grand Oak",
+        "log_set_series": "GOS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\"", "42\"", "48\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "GOS1805AA", "size": "18\"", "dealer_price": 294, "price_type": "MSRP", "weight_lbs": 32, "application": "standard"},
+          {"model_code": "GOS2406AA", "size": "24\"", "dealer_price": 460, "price_type": "MSRP", "weight_lbs": 68, "application": "standard"},
+          {"model_code": "GOS3007AA", "size": "30\"", "dealer_price": 594, "price_type": "MSRP", "weight_lbs": 93, "application": "standard"},
+          {"model_code": "GOS3608AA", "size": "36\"", "dealer_price": 725, "price_type": "MSRP", "weight_lbs": 103, "application": "standard"},
+          {"model_code": "GOS4208AA", "size": "42\"", "dealer_price": 884, "price_type": "MSRP", "weight_lbs": 136, "application": "standard"},
+          {"model_code": "GOS4808AA", "size": "48\"", "dealer_price": 1009, "price_type": "MSRP", "weight_lbs": 151, "application": "standard"},
+          {"model_code": "GOS1806ST", "size": "18\"", "dealer_price": 485, "price_type": "MSRP", "weight_lbs": 69, "application": "see_thru"},
+          {"model_code": "GOS2407ST", "size": "24\"", "dealer_price": 634, "price_type": "MSRP", "weight_lbs": 96, "application": "see_thru"},
+          {"model_code": "GOS3008ST", "size": "30\"", "dealer_price": 818, "price_type": "MSRP", "weight_lbs": 132, "application": "see_thru"},
+          {"model_code": "GOS3610ST", "size": "36\"", "dealer_price": 1056, "price_type": "MSRP", "weight_lbs": 175, "application": "see_thru"},
+          {"model_code": "GOS1805SS", "size": "18\"", "dealer_price": 416, "price_type": "MSRP", "weight_lbs": 49, "application": "see_thru_shallow"},
+          {"model_code": "GOS2406SS", "size": "24\"", "dealer_price": 513, "price_type": "MSRP", "weight_lbs": 82, "application": "see_thru_shallow"},
+          {"model_code": "GOS3007SS", "size": "30\"", "dealer_price": 679, "price_type": "MSRP", "weight_lbs": 115, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Hargrove Select",
+        "log_set_series": "HSS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\"", "42\"", "48\"", "66\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "HSS1808AA", "size": "18\"", "dealer_price": 460, "price_type": "MSRP", "weight_lbs": 41, "application": "standard"},
+          {"model_code": "HSS2409AA", "size": "24\"", "dealer_price": 594, "price_type": "MSRP", "weight_lbs": 69, "application": "standard"},
+          {"model_code": "HSS3010AA", "size": "30\"", "dealer_price": 733, "price_type": "MSRP", "weight_lbs": 94, "application": "standard"},
+          {"model_code": "HSS3611AA", "size": "36\"", "dealer_price": 877, "price_type": "MSRP", "weight_lbs": 107, "application": "standard"},
+          {"model_code": "HSS4212AA", "size": "42\"", "dealer_price": 1100, "price_type": "MSRP", "weight_lbs": 139, "application": "standard"},
+          {"model_code": "HSS4813AA", "size": "48\"", "dealer_price": 1271, "price_type": "MSRP", "weight_lbs": 165, "application": "standard"},
+          {"model_code": "HSS6613AA", "size": "66\"", "dealer_price": 1638, "price_type": "MSRP", "weight_lbs": 227, "application": "standard"},
+          {"model_code": "HSS1809ST", "size": "18\"", "dealer_price": 613, "price_type": "MSRP", "weight_lbs": 69, "application": "see_thru"},
+          {"model_code": "HSS2410ST", "size": "24\"", "dealer_price": 768, "price_type": "MSRP", "weight_lbs": 96, "application": "see_thru"},
+          {"model_code": "HSS3011ST", "size": "30\"", "dealer_price": 950, "price_type": "MSRP", "weight_lbs": 132, "application": "see_thru"},
+          {"model_code": "HSS3612ST", "size": "36\"", "dealer_price": 1128, "price_type": "MSRP", "weight_lbs": 175, "application": "see_thru"}
+        ]
+      },
+      {
+        "family_name": "Supreme Ponderosa",
+        "log_set_series": "SPS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["24\"", "30\"", "36\"", "42\"", "48\"", "60\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "SPS2407AA", "size": "24\"", "dealer_price": 733, "price_type": "MSRP", "weight_lbs": 75, "application": "standard"},
+          {"model_code": "SPS3008AA", "size": "30\"", "dealer_price": 962, "price_type": "MSRP", "weight_lbs": 111, "application": "standard"},
+          {"model_code": "SPS3609AA", "size": "36\"", "dealer_price": 1213, "price_type": "MSRP", "weight_lbs": 132, "application": "standard"},
+          {"model_code": "SPS4211AA", "size": "42\"", "dealer_price": 1471, "price_type": "MSRP", "weight_lbs": 160, "application": "standard"},
+          {"model_code": "SPS4812AA", "size": "48\"", "dealer_price": 1644, "price_type": "MSRP", "weight_lbs": 176, "application": "standard"},
+          {"model_code": "SPS6013AA", "size": "60\"", "dealer_price": 1880, "price_type": "MSRP", "weight_lbs": 226, "application": "standard"},
+          {"model_code": "SPS2410ST", "size": "24\"", "dealer_price": 1071, "price_type": "MSRP", "weight_lbs": 110, "application": "see_thru"},
+          {"model_code": "SPS3011ST", "size": "30\"", "dealer_price": 1327, "price_type": "MSRP", "weight_lbs": 158, "application": "see_thru"},
+          {"model_code": "SPS3612ST", "size": "36\"", "dealer_price": 1625, "price_type": "MSRP", "weight_lbs": 182, "application": "see_thru"},
+          {"model_code": "SPS4214ST", "size": "42\"", "dealer_price": 1964, "price_type": "MSRP", "weight_lbs": 224, "application": "see_thru"},
+          {"model_code": "SPS4814ST", "size": "48\"", "dealer_price": 2005, "price_type": "MSRP", "weight_lbs": 235, "application": "see_thru"}
+        ]
+      },
+      {
+        "family_name": "Western Pine",
+        "log_set_series": "WPS",
+        "material": "refractory concrete",
+        "series_category": "fresh_cut",
+        "available_sizes": ["15\"", "18\"", "24\"", "30\"", "36\"", "42\"", "48\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "see-thru shallow (SS)", "full pan (FP)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "WPS1504AA", "size": "15\"", "dealer_price": 199, "price_type": "MSRP", "weight_lbs": 20, "application": "standard"},
+          {"model_code": "WPS1806AA", "size": "18\"", "dealer_price": 400, "price_type": "MSRP", "weight_lbs": 28, "application": "standard"},
+          {"model_code": "WPS2407AA", "size": "24\"", "dealer_price": 544, "price_type": "MSRP", "weight_lbs": 54, "application": "standard"},
+          {"model_code": "WPS3008AA", "size": "30\"", "dealer_price": 692, "price_type": "MSRP", "weight_lbs": 67, "application": "standard"},
+          {"model_code": "WPS3609AA", "size": "36\"", "dealer_price": 884, "price_type": "MSRP", "weight_lbs": 88, "application": "standard"},
+          {"model_code": "WPS4209AA", "size": "42\"", "dealer_price": 1120, "price_type": "MSRP", "weight_lbs": 118, "application": "standard"},
+          {"model_code": "WPS4809AA", "size": "48\"", "dealer_price": 1217, "price_type": "MSRP", "weight_lbs": 128, "application": "standard"},
+          {"model_code": "WPS1807ST", "size": "18\"", "dealer_price": 543, "price_type": "MSRP", "weight_lbs": 56, "application": "see_thru"},
+          {"model_code": "WPS2409ST", "size": "24\"", "dealer_price": 745, "price_type": "MSRP", "weight_lbs": 71, "application": "see_thru"},
+          {"model_code": "WPS3009ST", "size": "30\"", "dealer_price": 942, "price_type": "MSRP", "weight_lbs": 93, "application": "see_thru"},
+          {"model_code": "WPS3610ST", "size": "36\"", "dealer_price": 1172, "price_type": "MSRP", "weight_lbs": 169, "application": "see_thru"},
+          {"model_code": "WPS1805SS", "size": "18\"", "dealer_price": 455, "price_type": "MSRP", "weight_lbs": 40, "application": "see_thru_shallow"},
+          {"model_code": "WPS2407SS", "size": "24\"", "dealer_price": 627, "price_type": "MSRP", "weight_lbs": 68, "application": "see_thru_shallow"},
+          {"model_code": "WPS3008SS", "size": "30\"", "dealer_price": 785, "price_type": "MSRP", "weight_lbs": 87, "application": "see_thru_shallow"},
+          {"model_code": "WPS1805FP", "size": "18\"", "dealer_price": 354, "price_type": "MSRP", "weight_lbs": 40, "application": "full_pan"},
+          {"model_code": "WPS2407FP", "size": "24\"", "dealer_price": 556, "price_type": "MSRP", "weight_lbs": 62, "application": "full_pan"},
+          {"model_code": "WPS3008FP", "size": "30\"", "dealer_price": 785, "price_type": "MSRP", "weight_lbs": 85, "application": "full_pan"}
+        ]
+      },
+      {
+        "family_name": "Blazing Pecan",
+        "log_set_series": "BPS",
+        "material": "refractory concrete",
+        "series_category": "charred",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["standard (AA)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "BPS1804AA", "size": "18\"", "dealer_price": 493, "price_type": "MSRP", "weight_lbs": 40, "application": "standard"},
+          {"model_code": "BPS2405AA", "size": "24\"", "dealer_price": 599, "price_type": "MSRP", "weight_lbs": 61, "application": "standard"},
+          {"model_code": "BPS3006AA", "size": "30\"", "dealer_price": 687, "price_type": "MSRP", "weight_lbs": 68, "application": "standard"}
+        ]
+      },
+      {
+        "family_name": "Inferno Series",
+        "log_set_series": "ISS",
+        "material": "refractory concrete",
+        "series_category": "charred",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "ISS1806AA", "size": "18\"", "dealer_price": 364, "price_type": "MSRP", "weight_lbs": 23, "application": "standard"},
+          {"model_code": "ISS2406AA", "size": "24\"", "dealer_price": 558, "price_type": "MSRP", "weight_lbs": 43, "application": "standard"},
+          {"model_code": "ISS3007AA", "size": "30\"", "dealer_price": 707, "price_type": "MSRP", "weight_lbs": 45, "application": "standard"},
+          {"model_code": "ISS1810ST", "size": "18\"", "dealer_price": 592, "price_type": "MSRP", "weight_lbs": 44, "application": "see_thru"},
+          {"model_code": "ISS2410ST", "size": "24\"", "dealer_price": 808, "price_type": "MSRP", "weight_lbs": 58, "application": "see_thru"},
+          {"model_code": "ISS3011ST", "size": "30\"", "dealer_price": 943, "price_type": "MSRP", "weight_lbs": 71, "application": "see_thru"},
+          {"model_code": "ISS1809SS", "size": "18\"", "dealer_price": 536, "price_type": "MSRP", "weight_lbs": 39, "application": "see_thru_shallow"},
+          {"model_code": "ISS2409SS", "size": "24\"", "dealer_price": 750, "price_type": "MSRP", "weight_lbs": 53, "application": "see_thru_shallow"},
+          {"model_code": "ISS3010SS", "size": "30\"", "dealer_price": 893, "price_type": "MSRP", "weight_lbs": 66, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Magnificent Inferno",
+        "log_set_series": "MIS",
+        "material": "refractory concrete",
+        "series_category": "charred",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["standard (AA)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "MIS1806AA", "size": "18\"", "dealer_price": 464, "price_type": "MSRP", "weight_lbs": 41, "application": "standard"},
+          {"model_code": "MIS2407AA", "size": "24\"", "dealer_price": 572, "price_type": "MSRP", "weight_lbs": 50, "application": "standard"},
+          {"model_code": "MIS3008AA", "size": "30\"", "dealer_price": 715, "price_type": "MSRP", "weight_lbs": 62, "application": "standard"},
+          {"model_code": "MIS3610AA", "size": "36\"", "dealer_price": 820, "price_type": "MSRP", "weight_lbs": 75, "application": "standard"},
+          {"model_code": "MIS1808ST", "size": "18\"", "dealer_price": 590, "price_type": "MSRP", "weight_lbs": 53, "application": "see_thru"},
+          {"model_code": "MIS2409ST", "size": "24\"", "dealer_price": 766, "price_type": "MSRP", "weight_lbs": 64, "application": "see_thru"},
+          {"model_code": "MIS3010ST", "size": "30\"", "dealer_price": 890, "price_type": "MSRP", "weight_lbs": 79, "application": "see_thru"},
+          {"model_code": "MIS3613ST", "size": "36\"", "dealer_price": 1122, "price_type": "MSRP", "weight_lbs": 99, "application": "see_thru"},
+          {"model_code": "MIS1807SS", "size": "18\"", "dealer_price": 507, "price_type": "MSRP", "weight_lbs": 38, "application": "see_thru_shallow"},
+          {"model_code": "MIS2408SS", "size": "24\"", "dealer_price": 621, "price_type": "MSRP", "weight_lbs": 45, "application": "see_thru_shallow"},
+          {"model_code": "MIS3009SS", "size": "30\"", "dealer_price": 750, "price_type": "MSRP", "weight_lbs": 57, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Twilight Inferno",
+        "log_set_series": "TIS",
+        "material": "refractory concrete",
+        "series_category": "charred",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["standard (AA)"],
+        "page": 2,
+        "notes": "Uses 60\" E-Burner",
+        "skus": [
+          {"model_code": "TIS1806AA", "size": "18\"", "dealer_price": 504, "price_type": "MSRP", "weight_lbs": 37, "application": "standard"},
+          {"model_code": "TIS2407AA", "size": "24\"", "dealer_price": 613, "price_type": "MSRP", "weight_lbs": 51, "application": "standard"},
+          {"model_code": "TIS3008AA", "size": "30\"", "dealer_price": 754, "price_type": "MSRP", "weight_lbs": 59, "application": "standard"},
+          {"model_code": "TIS3610AA", "size": "36\"", "dealer_price": 890, "price_type": "MSRP", "weight_lbs": 76, "application": "standard"}
+        ]
+      },
+      {
+        "family_name": "Mountain Timber",
+        "log_set_series": "MTS",
+        "material": "refractory concrete",
+        "series_category": "charred_large",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\"", "42\"", "48\"", "60\""],
+        "styles_available": ["standard (AA)"],
+        "page": 2,
+        "notes": "Sizes 30\"+ use Ember Supreme (ES) burner system - deeper pan, more flame. NG only for ES kits.",
+        "skus": [
+          {"model_code": "MTS1805AA", "size": "18\"", "dealer_price": 745, "price_type": "MSRP", "weight_lbs": 62, "application": "standard"},
+          {"model_code": "MTS2406AA", "size": "24\"", "dealer_price": 873, "price_type": "MSRP", "weight_lbs": 74, "application": "standard"},
+          {"model_code": "MTS3006AA", "size": "30\"", "dealer_price": 984, "price_type": "MSRP", "weight_lbs": 77, "application": "standard"},
+          {"model_code": "MTS3007AA", "size": "30\"", "dealer_price": 1196, "price_type": "MSRP", "weight_lbs": 94, "application": "standard_large_ES"},
+          {"model_code": "MTS3608AA", "size": "36\"", "dealer_price": 1555, "price_type": "MSRP", "weight_lbs": 124, "application": "standard_large_ES"},
+          {"model_code": "MTS4208AA", "size": "42\"", "dealer_price": 2182, "price_type": "MSRP", "weight_lbs": 173, "application": "standard_large_ES"},
+          {"model_code": "MTS4809AA", "size": "48\"", "dealer_price": 2398, "price_type": "MSRP", "weight_lbs": 190, "application": "standard_large_ES"},
+          {"model_code": "MTS6010AA", "size": "60\"", "dealer_price": 2562, "price_type": "MSRP", "weight_lbs": 200, "application": "standard_large_ES"}
+        ]
+      },
+      {
+        "family_name": "Aspen Timbers",
+        "log_set_series": "ATS",
+        "material": "ceramic fiber",
+        "series_category": "radiant_heat",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["radiant (RG)", "stealth-burner radiant (SL)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "notes": "Hand painted ceramic fiber. Includes Radiant Riser & Glow Kit. Contemporary appearance. Radiant heat output comparable to vent-free.",
+        "skus": [
+          {"model_code": "ATS1813RG", "size": "18\"", "dealer_price": 884, "price_type": "MSRP", "weight_lbs": 12, "application": "radiant_heat"},
+          {"model_code": "ATS2414RG", "size": "24\"", "dealer_price": 996, "price_type": "MSRP", "weight_lbs": 15, "application": "radiant_heat"},
+          {"model_code": "ATS3015RG", "size": "30\"", "dealer_price": 1109, "price_type": "MSRP", "weight_lbs": 21, "application": "radiant_heat"},
+          {"model_code": "ATS3616RG", "size": "36\"", "dealer_price": 1170, "price_type": "MSRP", "weight_lbs": 22, "application": "radiant_heat"},
+          {"model_code": "ATS1811SL", "size": "18\"", "dealer_price": 781, "price_type": "MSRP", "weight_lbs": 12, "application": "stealth_radiant"},
+          {"model_code": "ATS2412SL", "size": "24\"", "dealer_price": 893, "price_type": "MSRP", "weight_lbs": 15, "application": "stealth_radiant"},
+          {"model_code": "ATS3013SL", "size": "30\"", "dealer_price": 1006, "price_type": "MSRP", "weight_lbs": 21, "application": "stealth_radiant"},
+          {"model_code": "ATS3615SL", "size": "36\"", "dealer_price": 1067, "price_type": "MSRP", "weight_lbs": 22, "application": "stealth_radiant"},
+          {"model_code": "ATS1820ST", "size": "18\"", "dealer_price": 1310, "price_type": "MSRP", "weight_lbs": 17, "application": "see_thru"},
+          {"model_code": "ATS2421ST", "size": "24\"", "dealer_price": 1421, "price_type": "MSRP", "weight_lbs": 19, "application": "see_thru"},
+          {"model_code": "ATS3022ST", "size": "30\"", "dealer_price": 1515, "price_type": "MSRP", "weight_lbs": 23, "application": "see_thru"},
+          {"model_code": "ATS3624ST", "size": "36\"", "dealer_price": 1607, "price_type": "MSRP", "weight_lbs": 26, "application": "see_thru"},
+          {"model_code": "ATS1818SS", "size": "18\"", "dealer_price": 1012, "price_type": "MSRP", "weight_lbs": 15, "application": "see_thru_shallow"},
+          {"model_code": "ATS2419SS", "size": "24\"", "dealer_price": 1107, "price_type": "MSRP", "weight_lbs": 17, "application": "see_thru_shallow"},
+          {"model_code": "ATS3020SS", "size": "30\"", "dealer_price": 1160, "price_type": "MSRP", "weight_lbs": 21, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Canyon Timbers",
+        "log_set_series": "CYS",
+        "material": "ceramic fiber",
+        "series_category": "radiant_heat",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["radiant (RG)", "stealth-burner radiant (SL)"],
+        "page": 2,
+        "notes": "Hand painted ceramic fiber. Includes Radiant Riser & Glow Kit.",
+        "skus": [
+          {"model_code": "CYS1813RG", "size": "18\"", "dealer_price": 730, "price_type": "MSRP", "weight_lbs": 12, "application": "radiant_heat"},
+          {"model_code": "CYS2416RG", "size": "24\"", "dealer_price": 845, "price_type": "MSRP", "weight_lbs": 15, "application": "radiant_heat"},
+          {"model_code": "CYS3017RG", "size": "30\"", "dealer_price": 961, "price_type": "MSRP", "weight_lbs": 20, "application": "radiant_heat"},
+          {"model_code": "CYS3619RG", "size": "36\"", "dealer_price": 1003, "price_type": "MSRP", "weight_lbs": 21, "application": "radiant_heat"},
+          {"model_code": "CYS1811SL", "size": "18\"", "dealer_price": 627, "price_type": "MSRP", "weight_lbs": 12, "application": "stealth_radiant"},
+          {"model_code": "CYS2413SL", "size": "24\"", "dealer_price": 742, "price_type": "MSRP", "weight_lbs": 15, "application": "stealth_radiant"},
+          {"model_code": "CYS3014SL", "size": "30\"", "dealer_price": 858, "price_type": "MSRP", "weight_lbs": 20, "application": "stealth_radiant"},
+          {"model_code": "CYS3615SL", "size": "36\"", "dealer_price": 900, "price_type": "MSRP", "weight_lbs": 61, "application": "stealth_radiant"}
+        ]
+      },
+      {
+        "family_name": "Cross Timbers",
+        "log_set_series": "CTS",
+        "material": "ceramic fiber",
+        "series_category": "radiant_heat",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["radiant (RG)", "stealth-burner radiant (SL)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "notes": "Hand painted ceramic fiber. Includes Radiant Riser & Glow Kit. Drew flagged this as a notable Hargrove model.",
+        "skus": [
+          {"model_code": "CTS1808RG", "size": "18\"", "dealer_price": 641, "price_type": "MSRP", "weight_lbs": 12, "application": "radiant_heat"},
+          {"model_code": "CTS2409RG", "size": "24\"", "dealer_price": 750, "price_type": "MSRP", "weight_lbs": 15, "application": "radiant_heat"},
+          {"model_code": "CTS3010RG", "size": "30\"", "dealer_price": 866, "price_type": "MSRP", "weight_lbs": 20, "application": "radiant_heat"},
+          {"model_code": "CTS3611RG", "size": "36\"", "dealer_price": 941, "price_type": "MSRP", "weight_lbs": 21, "application": "radiant_heat"},
+          {"model_code": "CTS1807SL", "size": "18\"", "dealer_price": 538, "price_type": "MSRP", "weight_lbs": 12, "application": "stealth_radiant"},
+          {"model_code": "CTS2408SL", "size": "24\"", "dealer_price": 647, "price_type": "MSRP", "weight_lbs": 15, "application": "stealth_radiant"},
+          {"model_code": "CTS3009SL", "size": "30\"", "dealer_price": 763, "price_type": "MSRP", "weight_lbs": 20, "application": "stealth_radiant"},
+          {"model_code": "CTS3610SL", "size": "36\"", "dealer_price": 838, "price_type": "MSRP", "weight_lbs": 21, "application": "stealth_radiant"},
+          {"model_code": "CTS1813ST", "size": "18\"", "dealer_price": 948, "price_type": "MSRP", "weight_lbs": 21, "application": "see_thru"},
+          {"model_code": "CTS2416ST", "size": "24\"", "dealer_price": 1175, "price_type": "MSRP", "weight_lbs": 24, "application": "see_thru"},
+          {"model_code": "CTS3017ST", "size": "30\"", "dealer_price": 1302, "price_type": "MSRP", "weight_lbs": 29, "application": "see_thru"},
+          {"model_code": "CTS3618ST", "size": "36\"", "dealer_price": 1398, "price_type": "MSRP", "weight_lbs": 31, "application": "see_thru"},
+          {"model_code": "CTS1811SS", "size": "18\"", "dealer_price": 801, "price_type": "MSRP", "weight_lbs": 16, "application": "see_thru_shallow"},
+          {"model_code": "CTS2412SS", "size": "24\"", "dealer_price": 896, "price_type": "MSRP", "weight_lbs": 20, "application": "see_thru_shallow"},
+          {"model_code": "CTS3013SS", "size": "30\"", "dealer_price": 983, "price_type": "MSRP", "weight_lbs": 24, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Rustic Timbers",
+        "log_set_series": "RTS",
+        "material": "ceramic fiber",
+        "series_category": "radiant_heat",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["radiant (RG)", "stealth-burner radiant (SL)", "see-thru (ST)"],
+        "page": 2,
+        "skus": [
+          {"model_code": "RTS1810RG", "size": "18\"", "dealer_price": 694, "price_type": "MSRP", "weight_lbs": 11, "application": "radiant_heat"},
+          {"model_code": "RTS2411RG", "size": "24\"", "dealer_price": 787, "price_type": "MSRP", "weight_lbs": 14, "application": "radiant_heat"},
+          {"model_code": "RTS3012RG", "size": "30\"", "dealer_price": 901, "price_type": "MSRP", "weight_lbs": 16, "application": "radiant_heat"},
+          {"model_code": "RTS3614RG", "size": "36\"", "dealer_price": 958, "price_type": "MSRP", "weight_lbs": 18, "application": "radiant_heat"},
+          {"model_code": "RTS1809SL", "size": "18\"", "dealer_price": 591, "price_type": "MSRP", "weight_lbs": 11, "application": "stealth_radiant"},
+          {"model_code": "RTS2410SL", "size": "24\"", "dealer_price": 684, "price_type": "MSRP", "weight_lbs": 14, "application": "stealth_radiant"},
+          {"model_code": "RTS3011SL", "size": "30\"", "dealer_price": 798, "price_type": "MSRP", "weight_lbs": 16, "application": "stealth_radiant"},
+          {"model_code": "RTS3613SL", "size": "36\"", "dealer_price": 855, "price_type": "MSRP", "weight_lbs": 18, "application": "stealth_radiant"},
+          {"model_code": "RTS1818ST", "size": "18\"", "dealer_price": 1075, "price_type": "MSRP", "weight_lbs": 17, "application": "see_thru"},
+          {"model_code": "RTS2418ST", "size": "24\"", "dealer_price": 1152, "price_type": "MSRP", "weight_lbs": 20, "application": "see_thru"},
+          {"model_code": "RTS3021ST", "size": "30\"", "dealer_price": 1316, "price_type": "MSRP", "weight_lbs": 23, "application": "see_thru"},
+          {"model_code": "RTS3622ST", "size": "36\"", "dealer_price": 1412, "price_type": "MSRP", "weight_lbs": 25, "application": "see_thru"}
+        ]
+      },
+      {
+        "family_name": "Woodland Timbers",
+        "log_set_series": "WTS",
+        "material": "ceramic fiber",
+        "series_category": "radiant_heat",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["radiant (RG)", "stealth-burner radiant (SL)", "see-thru (ST)", "see-thru shallow (SS)"],
+        "page": 2,
+        "notes": "Drew flagged WTS2418RG as a notable Hargrove model. Hand painted ceramic fiber. Includes Radiant Riser & Glow Kit. Radiant heat output comparable to vent-free.",
+        "skus": [
+          {"model_code": "WTS1816RG", "size": "18\"", "dealer_price": 742, "price_type": "MSRP", "weight_lbs": 12, "application": "radiant_heat"},
+          {"model_code": "WTS2418RG", "size": "24\"", "dealer_price": 859, "price_type": "MSRP", "weight_lbs": 15, "application": "radiant_heat", "drew_notable": true},
+          {"model_code": "WTS3020RG", "size": "30\"", "dealer_price": 972, "price_type": "MSRP", "weight_lbs": 20, "application": "radiant_heat"},
+          {"model_code": "WTS3622RG", "size": "36\"", "dealer_price": 1021, "price_type": "MSRP", "weight_lbs": 21, "application": "radiant_heat"},
+          {"model_code": "WTS1812SL", "size": "18\"", "dealer_price": 639, "price_type": "MSRP", "weight_lbs": 12, "application": "stealth_radiant"},
+          {"model_code": "WTS2413SL", "size": "24\"", "dealer_price": 756, "price_type": "MSRP", "weight_lbs": 15, "application": "stealth_radiant"},
+          {"model_code": "WTS3014SL", "size": "30\"", "dealer_price": 869, "price_type": "MSRP", "weight_lbs": 20, "application": "stealth_radiant"},
+          {"model_code": "WTS3617SL", "size": "36\"", "dealer_price": 918, "price_type": "MSRP", "weight_lbs": 21, "application": "stealth_radiant"},
+          {"model_code": "WTS1827ST", "size": "18\"", "dealer_price": 1149, "price_type": "MSRP", "weight_lbs": 17, "application": "see_thru"},
+          {"model_code": "WTS2428ST", "size": "24\"", "dealer_price": 1266, "price_type": "MSRP", "weight_lbs": 20, "application": "see_thru"},
+          {"model_code": "WTS3029ST", "size": "30\"", "dealer_price": 1367, "price_type": "MSRP", "weight_lbs": 23, "application": "see_thru"},
+          {"model_code": "WTS3633ST", "size": "36\"", "dealer_price": 1483, "price_type": "MSRP", "weight_lbs": 25, "application": "see_thru"},
+          {"model_code": "WTS1818SS", "size": "18\"", "dealer_price": 856, "price_type": "MSRP", "weight_lbs": 11, "application": "see_thru_shallow"},
+          {"model_code": "WTS2419SS", "size": "24\"", "dealer_price": 948, "price_type": "MSRP", "weight_lbs": 13, "application": "see_thru_shallow"},
+          {"model_code": "WTS3020SS", "size": "30\"", "dealer_price": 1048, "price_type": "MSRP", "weight_lbs": 15, "application": "see_thru_shallow"}
+        ]
+      },
+      {
+        "family_name": "Kodiak Char",
+        "log_set_series": "KCS",
+        "material": "refractory concrete (large)",
+        "series_category": "charred_large_double_stack",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\"", "48\"", "60\""],
+        "styles_available": ["double-stack (DS)", "triple-stack (TS)"],
+        "page": 7,
+        "notes": "Huge charred logs and split pieces. Sets 18-36 need 15\" depth; 48-60 need 21\" depth. Triple stack 30-36 need 25\" depth; 48-60 need 31\" depth.",
+        "skus": [
+          {"model_code": "KCS1808DS", "size": "18\"", "dealer_price": 753, "price_type": "MSRP", "weight_lbs": 87, "application": "double_stack"},
+          {"model_code": "KCS2409DS", "size": "24\"", "dealer_price": 850, "price_type": "MSRP", "weight_lbs": 92, "application": "double_stack"},
+          {"model_code": "KCS3010DS", "size": "30\"", "dealer_price": 1200, "price_type": "MSRP", "weight_lbs": 135, "application": "double_stack"},
+          {"model_code": "KCS3611DS", "size": "36\"", "dealer_price": 1415, "price_type": "MSRP", "weight_lbs": 162, "application": "double_stack"},
+          {"model_code": "KCS4814DS", "size": "48\"", "dealer_price": 1867, "price_type": "MSRP", "weight_lbs": 224, "application": "double_stack"},
+          {"model_code": "KCS6016DS", "size": "60\"", "dealer_price": 2157, "price_type": "MSRP", "weight_lbs": 244, "application": "double_stack"},
+          {"model_code": "KCS3003TS", "size": "30\"", "dealer_price": 383, "price_type": "MSRP", "weight_lbs": 58, "application": "triple_stack_addon"},
+          {"model_code": "KCS3604TS", "size": "36\"", "dealer_price": 639, "price_type": "MSRP", "weight_lbs": 86, "application": "triple_stack_addon"},
+          {"model_code": "KCS4804TS", "size": "48\"", "dealer_price": 701, "price_type": "MSRP", "weight_lbs": 111, "application": "triple_stack_addon"},
+          {"model_code": "KCS6004TS", "size": "60\"", "dealer_price": 776, "price_type": "MSRP", "weight_lbs": 126, "application": "triple_stack_addon"}
+        ]
+      },
+      {
+        "family_name": "Kodiak Split",
+        "log_set_series": "KSS",
+        "material": "refractory concrete (large)",
+        "series_category": "charred_large_double_stack",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\"", "48\"", "60\""],
+        "styles_available": ["double-stack (DS)", "triple-stack (TS)"],
+        "page": 7,
+        "notes": "ANSI Z21.60 Certified. Kodiak Split logs NOT recommended for propane applications.",
+        "skus": [
+          {"model_code": "KSS1807DS", "size": "18\"", "dealer_price": 792, "price_type": "MSRP", "weight_lbs": 96, "application": "double_stack"},
+          {"model_code": "KSS2408DS", "size": "24\"", "dealer_price": 854, "price_type": "MSRP", "weight_lbs": 103, "application": "double_stack"},
+          {"model_code": "KSS3009DS", "size": "30\"", "dealer_price": 989, "price_type": "MSRP", "weight_lbs": 116, "application": "double_stack"},
+          {"model_code": "KSS3612DS", "size": "36\"", "dealer_price": 1738, "price_type": "MSRP", "weight_lbs": 253, "application": "double_stack"},
+          {"model_code": "KSS4812DS", "size": "48\"", "dealer_price": 2023, "price_type": "MSRP", "weight_lbs": 304, "application": "double_stack"},
+          {"model_code": "KSS3003TS", "size": "30\"", "dealer_price": 464, "price_type": "MSRP", "weight_lbs": 61, "application": "triple_stack_addon"},
+          {"model_code": "KSS3603TS", "size": "36\"", "dealer_price": 507, "price_type": "MSRP", "weight_lbs": 75, "application": "triple_stack_addon"},
+          {"model_code": "KSS4804TS", "size": "48\"", "dealer_price": 740, "price_type": "MSRP", "weight_lbs": 110, "application": "triple_stack_addon"},
+          {"model_code": "KSS6004TS", "size": "60\"", "dealer_price": 773, "price_type": "MSRP", "weight_lbs": 120, "application": "triple_stack_addon"}
+        ]
+      },
+      {
+        "family_name": "Kodiak Timbers",
+        "log_set_series": "KTS",
+        "material": "ceramic fiber (large)",
+        "series_category": "radiant_heat_large_double_stack",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["double-stack (DS)"],
+        "page": 7,
+        "skus": [
+          {"model_code": "KTS1816DS", "size": "18\"", "dealer_price": 824, "price_type": "MSRP", "weight_lbs": 25, "application": "double_stack"},
+          {"model_code": "KTS2418DS", "size": "24\"", "dealer_price": 962, "price_type": "MSRP", "weight_lbs": 27, "application": "double_stack"},
+          {"model_code": "KTS3020DS", "size": "30\"", "dealer_price": 1301, "price_type": "MSRP", "weight_lbs": 30, "application": "double_stack"},
+          {"model_code": "KTS3622DS", "size": "36\"", "dealer_price": 1503, "price_type": "MSRP", "weight_lbs": 35, "application": "double_stack"}
+        ]
+      },
+      {
+        "family_name": "Pinnacle Sierra Stack",
+        "log_set_series": "SRS",
+        "material": "ceramic fiber",
+        "series_category": "pinnacle",
+        "available_sizes": ["12\"", "18\"", "24\"", "30\""],
+        "styles_available": ["short stack (PL)"],
+        "page": 16,
+        "notes": "Sierra stacks are 14\" tall. ANSI Z.21-60 Certified.",
+        "skus": [
+          {"model_code": "SRS1204PL", "size": "12\"", "dealer_price": 246, "price_type": "MSRP", "weight_lbs": 6, "application": "pinnacle_short_stack"},
+          {"model_code": "SRS1805PL", "size": "18\"", "dealer_price": 323, "price_type": "MSRP", "weight_lbs": 7, "application": "pinnacle_short_stack"},
+          {"model_code": "SRS2406PL", "size": "24\"", "dealer_price": 394, "price_type": "MSRP", "weight_lbs": 8, "application": "pinnacle_short_stack"},
+          {"model_code": "SRS3007PL", "size": "30\"", "dealer_price": 471, "price_type": "MSRP", "weight_lbs": 9, "application": "pinnacle_short_stack"}
+        ]
+      },
+      {
+        "family_name": "Pinnacle Everest Stack",
+        "log_set_series": "EVS",
+        "material": "ceramic fiber",
+        "series_category": "pinnacle",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["mid stack (PL)"],
+        "page": 16,
+        "notes": "Everest stacks are 24\" tall. ANSI Z.21-60 Certified.",
+        "skus": [
+          {"model_code": "EVS1806PL", "size": "18\"", "dealer_price": 431, "price_type": "MSRP", "weight_lbs": 8, "application": "pinnacle_mid_stack"},
+          {"model_code": "EVS2407PL", "size": "24\"", "dealer_price": 508, "price_type": "MSRP", "weight_lbs": 9, "application": "pinnacle_mid_stack"},
+          {"model_code": "EVS3008PL", "size": "30\"", "dealer_price": 582, "price_type": "MSRP", "weight_lbs": 10, "application": "pinnacle_mid_stack"}
+        ]
+      },
+      {
+        "family_name": "Olde World Basket / Kiva",
+        "log_set_series": "OBLO/OBCO/KIS",
+        "material": "refractory or ceramic coals",
+        "series_category": "specialty",
+        "available_sizes": ["10\"", "19\""],
+        "styles_available": ["basket with logs (OBLO)", "basket with coals (OBCO)", "kiva (KIS)"],
+        "page": 15,
+        "notes": "Olde World Baskets ANSI Z.21-60 Certified, need 10\" depth min. Kiva is non-certified.",
+        "skus": [
+          {"model_code": "OBLO19N1T", "size": "19\"", "dealer_price": 1185, "price_type": "MSRP", "weight_lbs": 64, "application": "basket_with_logs_NG_manual"},
+          {"model_code": "OBCO19N1T", "size": "19\"", "dealer_price": 1185, "price_type": "MSRP", "weight_lbs": 54, "application": "basket_with_coals_NG_manual"},
+          {"model_code": "OB14", "size": "n/a", "dealer_price": 434, "price_type": "MSRP", "weight_lbs": 41, "application": "basket_only_replacement"},
+          {"model_code": "OG19", "size": "19\"", "dealer_price": 221, "price_type": "MSRP", "weight_lbs": 7, "application": "burner_only_replacement"},
+          {"model_code": "OBCO14", "size": "14\"", "dealer_price": 251, "price_type": "MSRP", "weight_lbs": 2, "application": "coals_only_replacement"},
+          {"model_code": "OBLO5", "size": "n/a", "dealer_price": 251, "price_type": "MSRP", "weight_lbs": 10, "application": "logs_only_replacement"},
+          {"model_code": "KIS1005AA", "size": "10\"", "dealer_price": 234, "price_type": "MSRP", "weight_lbs": 17, "application": "kiva_logs_only"},
+          {"model_code": "10SNKV0A1", "size": "10\"", "dealer_price": 275, "price_type": "MSRP", "weight_lbs": 28, "application": "kiva_accessory_kit_NG"}
+        ]
+      },
+      {
+        "family_name": "Full Pan - Oak",
+        "log_set_series": "OOS",
+        "material": "refractory concrete",
+        "series_category": "full_pan",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["full pan (FP)"],
+        "page": 10,
+        "notes": "For standard, see thru, three sided, or corner fireplaces. Min 14\" depth.",
+        "skus": [
+          {"model_code": "OOS1805FP", "size": "18\"", "dealer_price": 272, "price_type": "MSRP", "weight_lbs": 38, "application": "full_pan"},
+          {"model_code": "OOS2406FP", "size": "24\"", "dealer_price": 378, "price_type": "MSRP", "weight_lbs": 52, "application": "full_pan"},
+          {"model_code": "OOS3007FP", "size": "30\"", "dealer_price": 508, "price_type": "MSRP", "weight_lbs": 69, "application": "full_pan"}
+        ]
+      },
+      {
+        "family_name": "Rugged Craft (Outdoor)",
+        "log_set_series": "RCS",
+        "material": "metal",
+        "series_category": "outdoor",
+        "available_sizes": ["18\"", "24\"", "30\"", "36\""],
+        "styles_available": ["log set or firepit stack"],
+        "page": 13,
+        "notes": "Metal logs, arrangeable as firepit stack or typical log set.",
+        "skus": [
+          {"model_code": "RCS1805", "size": "18\"", "dealer_price": 1092, "price_type": "MSRP", "weight_lbs": 25, "application": "outdoor_metal_logs"},
+          {"model_code": "RCS2406", "size": "24\"", "dealer_price": 1400, "price_type": "MSRP", "weight_lbs": 31, "application": "outdoor_metal_logs"},
+          {"model_code": "RCS3007", "size": "30\"", "dealer_price": 1682, "price_type": "MSRP", "weight_lbs": 37, "application": "outdoor_metal_logs"},
+          {"model_code": "RCS3608", "size": "36\"", "dealer_price": 1961, "price_type": "MSRP", "weight_lbs": 47, "application": "outdoor_metal_logs"}
+        ]
+      },
+      {
+        "family_name": "Wilderness Series (Outdoor Firepit)",
+        "log_set_series": "WSS/WCS/WOS",
+        "material": "refractory concrete (outdoor)",
+        "series_category": "outdoor_firepit_logs",
+        "available_sizes": ["20\"", "30\"", "50\""],
+        "styles_available": ["firepit log stack (FL)"],
+        "page": 14,
+        "notes": "Wilderness Split (WSS) based on Mountain Timber. Wilderness Char (WCS) based on Magnificent Inferno. Wilderness Oak (WOS) based on Grand Oak. 20\"=18-24\" firepits, 30\"=20-40\" firepits, 50\"=40-60\" firepits.",
+        "skus": [
+          {"model_code": "WSS2004FL", "size": "20\"", "dealer_price": 381, "price_type": "MSRP", "weight_lbs": 30, "application": "outdoor_firepit_split"},
+          {"model_code": "WSS3007FL", "size": "30\"", "dealer_price": 984, "price_type": "MSRP", "weight_lbs": 84, "application": "outdoor_firepit_split"},
+          {"model_code": "WSS5013FL", "size": "50\"", "dealer_price": 2199, "price_type": "MSRP", "weight_lbs": 169, "application": "outdoor_firepit_split"},
+          {"model_code": "WCS2006FL", "size": "20\"", "dealer_price": 305, "price_type": "MSRP", "weight_lbs": 20, "application": "outdoor_firepit_char"},
+          {"model_code": "WCS3010FL", "size": "30\"", "dealer_price": 896, "price_type": "MSRP", "weight_lbs": 67, "application": "outdoor_firepit_char"},
+          {"model_code": "WCS5019FL", "size": "50\"", "dealer_price": 1728, "price_type": "MSRP", "weight_lbs": 140, "application": "outdoor_firepit_char"},
+          {"model_code": "WOS3008FL", "size": "30\"", "dealer_price": 578, "price_type": "MSRP", "weight_lbs": 76, "application": "outdoor_firepit_oak"},
+          {"model_code": "WOS5014FL", "size": "50\"", "dealer_price": 1127, "price_type": "MSRP", "weight_lbs": 128, "application": "outdoor_firepit_oak"}
+        ]
+      },
+      {
+        "family_name": "Cannon Balls (Specialty)",
+        "log_set_series": "FCBS",
+        "material": "ceramic",
+        "series_category": "full_pan_specialty",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "styles_available": ["set (FPBL)", "individual (F7004BL)"],
+        "page": 10,
+        "skus": [
+          {"model_code": "FCBS1820FPBL", "size": "18\"", "dealer_price": 298, "price_type": "MSRP", "weight_lbs": 9, "pieces": 20, "application": "cannon_balls_set"},
+          {"model_code": "FCBS2432FPBL", "size": "24\"", "dealer_price": 474, "price_type": "MSRP", "weight_lbs": 14, "pieces": 32, "application": "cannon_balls_set"},
+          {"model_code": "FCBS3038FPBL", "size": "30\"", "dealer_price": 567, "price_type": "MSRP", "weight_lbs": 17, "pieces": 38, "application": "cannon_balls_set"},
+          {"model_code": "F7004BL", "size": "4\"", "dealer_price": 22, "price_type": "MSRP", "weight_lbs": 0.5, "application": "cannon_ball_individual_black"}
+        ]
+      },
+      {
+        "family_name": "Blazing River Stones (Specialty)",
+        "log_set_series": "FRR7",
+        "material": "ceramic",
+        "series_category": "full_pan_specialty",
+        "available_sizes": ["7 set (covers 0.5 sq ft)"],
+        "styles_available": ["black (BL)", "beige (BG)", "brown (BR)"],
+        "page": 10,
+        "notes": "4 sets for 18\", 6 sets for 24\", 8 sets for 30\". Mix colors as desired.",
+        "skus": [
+          {"model_code": "FRR7FPBL", "size": "7-piece set", "dealer_price": 77, "price_type": "MSRP", "weight_lbs": 1.25, "pieces": 7, "application": "river_stones_black"},
+          {"model_code": "FRR7FPBG", "size": "7-piece set", "dealer_price": 77, "price_type": "MSRP", "weight_lbs": 1.25, "pieces": 7, "application": "river_stones_beige"},
+          {"model_code": "FRR7FPBR", "size": "7-piece set", "dealer_price": 77, "price_type": "MSRP", "weight_lbs": 1.25, "pieces": 7, "application": "river_stones_brown"}
+        ]
+      }
+    ],
+    "vented_burner_kits": {
+      "summary": "Burner kits ship matched to log set size. Each kit includes burner, valve (if applicable), 5/8\" grate, sand/vermiculite, embers, cinder, fittings, black non-whistling flex connector. Suffix CMT = Cool Mount valve. Replace 'N' with 'P' in part # for LP.",
+      "control_types_available": ["match_light (0A)", "manual_safety_pilot (1B/1T)", "on_off_remote (1H)", "variable_remote (1F)", "millivolt_on_off_wall_switch (2A)", "hi_cap_millivolt (2B)", "electronic_ignition (3F/3A/3B)"],
+      "e_burner_kits": {
+        "page": 3,
+        "kits": [
+          {"size": "15\"", "valve": "match_light", "model_code_NG": "15RNEB0A5", "dealer_price_NG": 285, "price_type": "MSRP", "weight_lbs": 29},
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18RNEB0A5", "dealer_price_NG": 314, "price_type": "MSRP", "weight_lbs": 32},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24RNEB0A5", "dealer_price_NG": 347, "price_type": "MSRP", "weight_lbs": 39},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30RNEB0A5", "dealer_price_NG": 399, "price_type": "MSRP", "weight_lbs": 40},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36RNEB0A5", "dealer_price_NG": 510, "price_type": "MSRP", "weight_lbs": 53},
+          {"size": "42-48\"", "valve": "match_light", "model_code_NG": "42SNEB0A5", "dealer_price_NG": 615, "price_type": "MSRP", "weight_lbs": 59},
+          {"size": "60\"", "valve": "match_light", "model_code_NG": "60SNES0A5", "dealer_price_NG": 1144, "price_type": "MSRP", "weight_lbs": 126},
+          {"size": "15\"", "valve": "manual_safety_pilot", "model_code_NG": "15RNEB(1B,1T)5", "dealer_price_NG": 539, "dealer_price_LP": 573, "price_type": "MSRP", "weight_lbs": 29},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18RNEB(1B,1T)5", "dealer_price_NG": 568, "dealer_price_LP": 602, "price_type": "MSRP", "weight_lbs": 32},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24RNEB(1B,1T)5", "dealer_price_NG": 601, "dealer_price_LP": 635, "price_type": "MSRP", "weight_lbs": 39},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30RNEB(1B,1T)5", "dealer_price_NG": 653, "dealer_price_LP": 687, "price_type": "MSRP", "weight_lbs": 40},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_NG": "36RNEB(1B,1T)5", "dealer_price_NG": 764, "dealer_price_LP": 798, "price_type": "MSRP", "weight_lbs": 53},
+          {"size": "42-48\"", "valve": "manual_safety_pilot", "model_code_NG": "42SNEB(1B,1T)5", "dealer_price_NG": 869, "price_type": "MSRP", "weight_lbs": 59},
+          {"size": "15\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "15RNEB1H5", "dealer_price_NG": 961, "dealer_price_LP": 995, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "18RNEB1H5", "dealer_price_NG": 990, "dealer_price_LP": 1024, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "24RNEB1H5", "dealer_price_NG": 1023, "dealer_price_LP": 1057, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "30RNEB1H5", "dealer_price_NG": 1075, "dealer_price_LP": 1109, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "36RNEB1H5", "dealer_price_NG": 1186, "dealer_price_LP": 1220, "price_type": "MSRP"},
+          {"size": "42-48\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "42SNEB1H5", "dealer_price_NG": 1291, "price_type": "MSRP"},
+          {"size": "15\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "15RNEB1F5", "dealer_price_NG": 1096, "dealer_price_LP": 1130, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18RNEB1F5", "dealer_price_NG": 1125, "dealer_price_LP": 1159, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24RNEB1F5", "dealer_price_NG": 1158, "dealer_price_LP": 1192, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30RNEB1F5", "dealer_price_NG": 1210, "dealer_price_LP": 1244, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "36RNEB1F5", "dealer_price_NG": 1321, "dealer_price_LP": 1355, "price_type": "MSRP"},
+          {"size": "15\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "15RNEB2A5", "dealer_price_NG": 913, "dealer_price_LP": 947, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18RNEB2A5", "dealer_price_NG": 942, "dealer_price_LP": 976, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24RNEB2A5", "dealer_price_NG": 975, "dealer_price_LP": 1009, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30RNEB2A5", "dealer_price_NG": 1027, "dealer_price_LP": 1061, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "36RNEB2A5", "dealer_price_NG": 1138, "dealer_price_LP": 1172, "price_type": "MSRP"},
+          {"size": "42-48\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "42SNEB2B5", "dealer_price_NG": 1243, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "hi_cap_millivolt", "model_code_NG": "60SNES2B5", "dealer_price_NG": 1772, "price_type": "MSRP"}
+        ]
+      },
+      "h_burner_kits": {
+        "page": 3,
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18RNHB0A5", "dealer_price_NG": 392, "price_type": "MSRP", "weight_lbs": 29},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24RNHB0A5", "dealer_price_NG": 424, "price_type": "MSRP", "weight_lbs": 32},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30RNHB0A5", "dealer_price_NG": 478, "price_type": "MSRP", "weight_lbs": 39},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36RNHB0A5", "dealer_price_NG": 595, "price_type": "MSRP", "weight_lbs": 53},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18RNHB(1B,1T)5", "dealer_price_NG": 646, "dealer_price_LP": 680, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24RNHB(1B,1T)5", "dealer_price_NG": 678, "dealer_price_LP": 712, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30RNHB(1B,1T)5", "dealer_price_NG": 732, "dealer_price_LP": 766, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_NG": "36RNHB(1B,1T)5", "dealer_price_NG": 849, "dealer_price_LP": 883, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "18RNHB1H5", "dealer_price_NG": 1068, "dealer_price_LP": 1102, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "24RNHB1H5", "dealer_price_NG": 1100, "dealer_price_LP": 1134, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "30RNHB1H5", "dealer_price_NG": 1154, "dealer_price_LP": 1188, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "36RNHB1H5", "dealer_price_NG": 1271, "dealer_price_LP": 1305, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18RNHB1F5", "dealer_price_NG": 1203, "dealer_price_LP": 1237, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24RNHB1F5", "dealer_price_NG": 1235, "dealer_price_LP": 1269, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30RNHB1F5", "dealer_price_NG": 1289, "dealer_price_LP": 1323, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "36RNHB1F5", "dealer_price_NG": 1406, "dealer_price_LP": 1440, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18RNHB2A5", "dealer_price_NG": 1020, "dealer_price_LP": 1054, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24RNHB2A5", "dealer_price_NG": 1052, "dealer_price_LP": 1086, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30RNHB2A5", "dealer_price_NG": 1106, "dealer_price_LP": 1140, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "36RNHB2A5", "dealer_price_NG": 1223, "dealer_price_LP": 1257, "price_type": "MSRP"}
+        ]
+      },
+      "system_4_burner_kits_LP_only": {
+        "page": 3,
+        "notes": "LP-specialized, sandless/vermiculite-free, ANSI Z21.60 certified",
+        "kits": [
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_LP": "18CPSF(1B,1T)5CMT", "dealer_price_LP": 820, "price_type": "MSRP", "weight_lbs": 32},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_LP": "24CPSF(1B,1T)5CMT", "dealer_price_LP": 858, "price_type": "MSRP", "weight_lbs": 39},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_LP": "30CPSF(1B,1T)5CMT", "dealer_price_LP": 896, "price_type": "MSRP", "weight_lbs": 40},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_LP": "36CPSF(1B,1T)5CMT", "dealer_price_LP": 1403, "price_type": "MSRP", "weight_lbs": 40},
+          {"size": "42-48\"", "valve": "manual_safety_pilot", "model_code_LP": "42SPSF(1B,1T)5CMT", "dealer_price_LP": 1439, "price_type": "MSRP", "weight_lbs": 60},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_LP": "18CPSF1H5CMT", "dealer_price_LP": 1242, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_LP": "24CPSF1H5CMT", "dealer_price_LP": 1280, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_LP": "30CPSF1H5CMT", "dealer_price_LP": 1318, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_on_off_remote", "model_code_LP": "36CPSF1H5CMT", "dealer_price_LP": 1825, "price_type": "MSRP"},
+          {"size": "42-48\"", "valve": "safety_pilot_on_off_remote", "model_code_LP": "42SPSF1H5CMT", "dealer_price_LP": 1861, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_LP": "18CPSF1F5CMT", "dealer_price_LP": 1377, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_LP": "24CPSF1F5CMT", "dealer_price_LP": 1415, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_LP": "30CPSF1F5CMT", "dealer_price_LP": 1453, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_LP": "36CPSF1F5CMT", "dealer_price_LP": 1960, "price_type": "MSRP"},
+          {"size": "42-48\"", "valve": "safety_pilot_variable_remote", "model_code_LP": "42SPSF1F5CMT", "dealer_price_LP": 1996, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "electronic_ignition_variable_IPI", "model_code_LP": "18CPSF3F5CMT", "dealer_price_LP": 1633, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "electronic_ignition_variable_IPI", "model_code_LP": "24CPSF3F5CMT", "dealer_price_LP": 1671, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "electronic_ignition_variable_IPI", "model_code_LP": "30CPSF3F5CMT", "dealer_price_LP": 1709, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "electronic_ignition_variable_IPI", "model_code_LP": "36CPSF3F5CMT", "dealer_price_LP": 2216, "price_type": "MSRP"}
+        ]
+      },
+      "stealth_burner_kits": {
+        "page": 5,
+        "notes": "ANSI Z.21-60 certified. Hides valve components. Compatible with SL log kits (and RG with riser removed).",
+        "kits": [
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18CNSLHB1T5", "dealer_price_NG": 956, "model_code_LP": "18CPSLSF1T5", "dealer_price_LP": 990, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24CNSLHB1T5", "dealer_price_NG": 1016, "model_code_LP": "24CPSLSF1T5", "dealer_price_LP": 1050, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30CNSLHB1T5", "dealer_price_NG": 1097, "model_code_LP": "30CPSLSF1T5", "dealer_price_LP": 1131, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_NG": "36CNSLHB1T5", "dealer_price_NG": 1241, "model_code_LP": "36CPSLSF1T5", "dealer_price_LP": 1275, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18CNSLHB2A5", "dealer_price_NG": 1330, "model_code_LP": "18CPSLSF2A5", "dealer_price_LP": 1364, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24CNSLHB2A5", "dealer_price_NG": 1390, "model_code_LP": "24CPSLSF2A5", "dealer_price_LP": 1424, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30CNSLHB2A5", "dealer_price_NG": 1471, "model_code_LP": "30CPSLSF2A5", "dealer_price_LP": 1505, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "36CNSLHB2A5", "dealer_price_NG": 1615, "model_code_LP": "36CPSLSF2A5", "dealer_price_LP": 1649, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18CNSLHB1F5", "dealer_price_NG": 1513, "model_code_LP": "18CPSLSF1F5", "dealer_price_LP": 1547, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24CNSLHB1F5", "dealer_price_NG": 1573, "model_code_LP": "24CPSLSF1F5", "dealer_price_LP": 1607, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30CNSLHB1F5", "dealer_price_NG": 1654, "model_code_LP": "30CPSLSF1F5", "dealer_price_LP": 1688, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "36CNSLHB1F5", "dealer_price_NG": 1798, "model_code_LP": "36CPSLSF1F5", "dealer_price_LP": 1832, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "electronic_ignition_on_off", "model_code_NG": "18CNSLHB3A5", "dealer_price_NG": 1381, "model_code_LP": "18CPSLSF3A5", "dealer_price_LP": 1415, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "electronic_ignition_on_off", "model_code_NG": "24CNSLHB3A5", "dealer_price_NG": 1441, "model_code_LP": "24CPSLSF3A5", "dealer_price_LP": 1475, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "electronic_ignition_on_off", "model_code_NG": "30CNSLHB3A5", "dealer_price_NG": 1522, "model_code_LP": "30CPSLSF3A5", "dealer_price_LP": 1556, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "electronic_ignition_on_off", "model_code_NG": "36CNSLHB3A5", "dealer_price_NG": 1666, "model_code_LP": "36CPSLSF3A5", "dealer_price_LP": 1700, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "18CNSLHB3F5", "dealer_price_NG": 1735, "model_code_LP": "18CPSLSF3F5", "dealer_price_LP": 1769, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "24CNSLHB3F5", "dealer_price_NG": 1795, "model_code_LP": "24CPSLSF3F5", "dealer_price_LP": 1829, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "30CNSLHB3F5", "dealer_price_NG": 1876, "model_code_LP": "30CPSLSF3F5", "dealer_price_LP": 1910, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "36CNSLHB3F5", "dealer_price_NG": 2020, "model_code_LP": "36CPSLSF3F5", "dealer_price_LP": 2054, "price_type": "MSRP"}
+        ]
+      },
+      "ember_supreme_burner_kits_NG_only": {
+        "page": 6,
+        "notes": "For Mountain Timber 30\"+ sets. NG only. Larger, deeper single burner pan.",
+        "kits": [
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30SNES0A3", "dealer_price_NG": 1109, "price_type": "MSRP", "weight_lbs": 65},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36SNES0A3", "dealer_price_NG": 1203, "price_type": "MSRP", "weight_lbs": 79},
+          {"size": "42-48\"", "valve": "match_light", "model_code_NG": "42SNES0A3", "dealer_price_NG": 1343, "price_type": "MSRP", "weight_lbs": 95},
+          {"size": "60\"", "valve": "match_light", "model_code_NG": "60SNES0A3", "dealer_price_NG": 1495, "price_type": "MSRP", "weight_lbs": 138},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30SNES1B3", "dealer_price_NG": 1363, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_NG": "36SNES1B3", "dealer_price_NG": 1457, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "30SNES2B3", "dealer_price_NG": 1983, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "36SNES2B3", "dealer_price_NG": 2077, "price_type": "MSRP"},
+          {"size": "42-48\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "42SNES2B3", "dealer_price_NG": 2217, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "60SNES2B3", "dealer_price_NG": 2369, "price_type": "MSRP"}
+        ]
+      },
+      "double_stack_burner_kits": {
+        "page": 7,
+        "notes": "Kodiak double stack burner. 18-36\" available NG and LP. 48-60\" NG only.",
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18SNDS0A8", "dealer_price_NG": 716, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24SNDS0A8", "dealer_price_NG": 787, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30SNDS0A8", "dealer_price_NG": 859, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36SNDS0A8", "dealer_price_NG": 930, "price_type": "MSRP"},
+          {"size": "48\"", "valve": "match_light", "model_code_NG": "48SNDS0A8", "dealer_price_NG": 1716, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "match_light", "model_code_NG": "60SNDS0A8", "dealer_price_NG": 2145, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18CNDS1F8", "dealer_price_NG": 1541, "dealer_price_LP": 1575, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24CNDS1F8", "dealer_price_NG": 1612, "dealer_price_LP": 1646, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30CNDS1F8", "dealer_price_NG": 1684, "dealer_price_LP": 1718, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "36CNDS1F8", "dealer_price_NG": 1755, "dealer_price_LP": 1789, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "24SNDS2B8", "dealer_price_NG": 1661, "dealer_price_LP": 1695, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "30SNDS2B8", "dealer_price_NG": 1733, "dealer_price_LP": 1767, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "36SNDS2B8", "dealer_price_NG": 1804, "dealer_price_LP": 1838, "price_type": "MSRP"},
+          {"size": "48\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "48SNDS2B8", "dealer_price_NG": 2590, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "60SNDS2B8", "dealer_price_NG": 3019, "price_type": "MSRP"}
+        ]
+      },
+      "triple_stack_burner_kits": {
+        "page": 7,
+        "notes": "Add-on to double-stack. 30-36 require min 25\" depth, 48-60 require 31\".",
+        "kits": [
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30SNTS0A5", "dealer_price_NG": 613, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36SNTS0A5", "dealer_price_NG": 707, "price_type": "MSRP"},
+          {"size": "48\"", "valve": "match_light", "model_code_NG": "48SNTS0A5", "dealer_price_NG": 864, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "match_light", "model_code_NG": "60SNTS0A5", "dealer_price_NG": 1041, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "30SNTS2A5", "dealer_price_NG": 1487, "dealer_price_LP": 1521, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "36SNTS2A5", "dealer_price_NG": 1581, "dealer_price_LP": 1615, "price_type": "MSRP"},
+          {"size": "48\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "48SNTS2A5", "dealer_price_NG": 1738, "price_type": "MSRP"},
+          {"size": "60\"", "valve": "hi_cap_millivolt_on_off_wall_switch", "model_code_NG": "60SNTS2A5", "dealer_price_NG": 1915, "price_type": "MSRP"}
+        ]
+      },
+      "see_thru_burner_kits": {
+        "page": 8,
+        "notes": "18\" deep grate, ST burner. Three-sided/corner. Needs 22\" depth.",
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18RNST0A5", "dealer_price_NG": 486, "price_type": "MSRP", "weight_lbs": 47},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24RNST0A5", "dealer_price_NG": 556, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30RNST0A5", "dealer_price_NG": 625, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "match_light", "model_code_NG": "36SNST0A5", "dealer_price_NG": 835, "price_type": "MSRP"},
+          {"size": "42\"", "valve": "match_light", "model_code_NG": "42SNST0A5", "dealer_price_NG": 914, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18RNST(1B,1T)5", "dealer_price_NG": 740, "dealer_price_LP": 774, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24RNST(1B,1T)5", "dealer_price_NG": 810, "dealer_price_LP": 844, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30RNST(1B,1T)5", "dealer_price_NG": 879, "dealer_price_LP": 913, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "manual_safety_pilot", "model_code_NG": "36SNST(1B,1T)5", "dealer_price_NG": 1089, "dealer_price_LP": 1377, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "18RNST1H5", "dealer_price_NG": 1162, "dealer_price_LP": 1196, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "24RNST1H5", "dealer_price_NG": 1232, "dealer_price_LP": 1266, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "30RNST1H5", "dealer_price_NG": 1301, "dealer_price_LP": 1335, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "36SNST1H5", "dealer_price_NG": 1511, "dealer_price_LP": 1781, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18RNST1F5", "dealer_price_NG": 1297, "dealer_price_LP": 1331, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24RNST1F5", "dealer_price_NG": 1367, "dealer_price_LP": 1401, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30RNST1F5", "dealer_price_NG": 1436, "dealer_price_LP": 1470, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "36SNST1F5", "dealer_price_NG": 1646, "dealer_price_LP": 2491, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18RNST2A5", "dealer_price_NG": 1114, "dealer_price_LP": 1148, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24RNST2A5", "dealer_price_NG": 1184, "dealer_price_LP": 1218, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30RNST2A5", "dealer_price_NG": 1253, "dealer_price_LP": 1287, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "36SNST2A5", "dealer_price_NG": 1463, "dealer_price_LP": 2125, "price_type": "MSRP"}
+        ]
+      },
+      "see_thru_shallow_burner_kits": {
+        "page": 9,
+        "notes": "12\" deep grate, SS burner. Needs 17\" depth.",
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18RNSS0A5", "dealer_price_NG": 447, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24RNSS0A5", "dealer_price_NG": 508, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30RNSS0A5", "dealer_price_NG": 577, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18RNSS(1B,1T)5", "dealer_price_NG": 667, "dealer_price_LP": 701, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24RNSS(1B,1T)5", "dealer_price_NG": 728, "dealer_price_LP": 762, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30RNSS(1B,1T)5", "dealer_price_NG": 797, "dealer_price_LP": 831, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "18RNSS1H5", "dealer_price_NG": 1089, "dealer_price_LP": 1123, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "24RNSS1H5", "dealer_price_NG": 1150, "dealer_price_LP": 1184, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "30RNSS1H5", "dealer_price_NG": 1219, "dealer_price_LP": 1253, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18RNSS1F5", "dealer_price_NG": 1224, "dealer_price_LP": 1258, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24RNSS1F5", "dealer_price_NG": 1285, "dealer_price_LP": 1319, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30RNSS1F5", "dealer_price_NG": 1354, "dealer_price_LP": 1388, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18RNSS2A5", "dealer_price_NG": 1041, "dealer_price_LP": 1075, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24RNSS2A5", "dealer_price_NG": 1102, "dealer_price_LP": 1136, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30RNSS2A5", "dealer_price_NG": 1171, "dealer_price_LP": 1205, "price_type": "MSRP"}
+        ]
+      },
+      "full_pan_burner_kits": {
+        "page": 11,
+        "notes": "Non-certified. For standard, see thru, three-sided or corner fireplaces. Min 14\" depth.",
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "model_code_NG": "18SNFP0A0", "dealer_price_NG": 307, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "match_light", "model_code_NG": "24SNFP0A0", "dealer_price_NG": 353, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "model_code_NG": "30SNFP0A0", "dealer_price_NG": 391, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18SNFP1B0", "dealer_price_NG": 561, "dealer_price_LP": 595, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24SNFP1B0", "dealer_price_NG": 607, "dealer_price_LP": 641, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30SNFP1B0", "dealer_price_NG": 645, "dealer_price_LP": 679, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "18SNFP1H0", "dealer_price_NG": 983, "dealer_price_LP": 1017, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "24SNFP1H0", "dealer_price_NG": 1029, "dealer_price_LP": 1063, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_on_off_remote", "model_code_NG": "30SNFP1H0", "dealer_price_NG": 1067, "dealer_price_LP": 1101, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18SNFP1F0", "dealer_price_NG": 1118, "dealer_price_LP": 1152, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24SNFP1F0", "dealer_price_NG": 1164, "dealer_price_LP": 1198, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30SNFP1F0", "dealer_price_NG": 1202, "dealer_price_LP": 1236, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "18SNFP2A0", "dealer_price_NG": 935, "dealer_price_LP": 969, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "24SNFP2A0", "dealer_price_NG": 981, "dealer_price_LP": 1015, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "millivolt_on_off_wall_switch", "model_code_NG": "30SNFP2A0", "dealer_price_NG": 1019, "dealer_price_LP": 1053, "price_type": "MSRP"}
+        ]
+      },
+      "pinnacle_burner_kits": {
+        "page": 16,
+        "notes": "ANSI Z.21-60 Certified.",
+        "kits": [
+          {"size": "12\"", "valve": "manual_safety_pilot", "model_code_NG": "12CNRM1T5", "dealer_price_NG": 698, "dealer_price_LP": 732, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "manual_safety_pilot", "model_code_NG": "18CNRM1T5", "dealer_price_NG": 763, "dealer_price_LP": 797, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "manual_safety_pilot", "model_code_NG": "24CNRM1T5", "dealer_price_NG": 830, "dealer_price_LP": 864, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "manual_safety_pilot", "model_code_NG": "30CNRM1T5", "dealer_price_NG": 898, "dealer_price_LP": 932, "price_type": "MSRP"},
+          {"size": "12\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "12CNRM1K5", "dealer_price_NG": 1107, "dealer_price_LP": 1141, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "18CNRM1K5", "dealer_price_NG": 1172, "dealer_price_LP": 1206, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "24CNRM1K5", "dealer_price_NG": 1239, "dealer_price_LP": 1273, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "safety_pilot_variable_remote", "model_code_NG": "30CNRM1K5", "dealer_price_NG": 1307, "dealer_price_LP": 1341, "price_type": "MSRP"},
+          {"size": "12\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "12CNRM3F5", "dealer_price_NG": 1477, "dealer_price_LP": 1511, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "18CNRM3F5", "dealer_price_NG": 1542, "dealer_price_LP": 1576, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "24CNRM3F5", "dealer_price_NG": 1609, "dealer_price_LP": 1643, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "electronic_ignition_variable_IPI", "model_code_NG": "30CNRM3F5", "dealer_price_NG": 1677, "dealer_price_LP": 1711, "price_type": "MSRP"}
+        ]
+      },
+      "outdoor_burner_kits": {
+        "page": 13,
+        "notes": "Non-certified. Stainless steel kits, fire ring firepit kits, drop-in firepit.",
+        "kits": [
+          {"size": "18\"", "valve": "match_light", "type": "stainless_steel_log_accessory", "model_code_NG": "18SNSK0A5", "dealer_price_NG": 919, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "match_light", "type": "stainless_steel_log_accessory", "model_code_NG": "24SNSK0A5", "dealer_price_NG": 999, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "type": "stainless_steel_log_accessory", "model_code_NG": "30SNSK0A5", "dealer_price_NG": 1070, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "match_light", "type": "stainless_steel_log_accessory", "model_code_NG": "36SNSK0A5", "dealer_price_NG": 1133, "price_type": "MSRP"},
+          {"size": "18\"", "valve": "match_light", "type": "fire_ring_firepit", "model_code": "18SSFRBA0", "dealer_price": 683, "price_type": "MSRP"},
+          {"size": "24\"", "valve": "match_light", "type": "fire_ring_firepit", "model_code": "24SSFRBA0", "dealer_price": 764, "price_type": "MSRP"},
+          {"size": "30\"", "valve": "match_light", "type": "fire_ring_firepit", "model_code": "30SSFRBA0", "dealer_price": 923, "price_type": "MSRP"},
+          {"size": "36\"", "valve": "match_light", "type": "fire_ring_firepit", "model_code": "36SSFRBA0", "dealer_price": 1078, "price_type": "MSRP"},
+          {"size": "22\"", "valve": "match_light", "type": "drop_in_firepit_NG_LP", "model_code": "FPTB22", "dealer_price": 692, "price_type": "MSRP"}
+        ]
+      }
+    }
+  },
+  "vent_free_gas_logs": {
+    "summary": "Vent-free log sets ship as COMPLETE SETS (logs + burner + valve + flex connector all included - this is different from vented). Listed standards: ANSI Z21.11.2 (vent-free) and Z21.60 (vented). All Hargrove VF are dual-listed - can operate vent-free OR vented in masonry/listed fireplace. Replace 'N' with 'P' in part # for LP.",
+    "drew_note": "Hargrove VF includes flex connector, so Field Rule 1 (Empire VF needs Whisper Flex) does NOT apply here. Drew sells these but prefers White Mountain (Empire) for VF display.",
+    "control_types_available": ["manual_valve (1G)", "millivolt_valve_remote_ready (2C)", "variable_flame_valve (1E)", "electronic_ignition (3E)"],
+    "log_set_families": [
+      {
+        "family_name": "Cimarron Timbers",
+        "log_set_series": "RGCI",
+        "burner_type_code": "RG",
+        "available_sizes": ["24\"", "30\""],
+        "controls_available": ["millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["timbers"],
+        "page": 1,
+        "btu_NG": {"24\"": 39000, "30\"": 39000},
+        "btu_LP": {"24\"": 37000, "30\"": 37000},
+        "notes": "Dual-listed (vent-free or vented). Drew apparently sells this but is 'not a big fan' per Apr 25 quote (likely referring to a Hargrove VF model, exact match TBD).",
+        "skus": [
+          {"model_code": "RGCI24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1612, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGCI30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1683, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "RGCI24N1E", "size": "24\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1725, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGCI30N1E", "size": "30\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1796, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "RGCI24N3E", "size": "24\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2275, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGCI30N3E", "size": "30\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2346, "price_type": "MSRP", "weight_lbs": 75}
+        ]
+      },
+      {
+        "family_name": "Birch Timbers",
+        "log_set_series": "RGBI",
+        "burner_type_code": "RG",
+        "available_sizes": ["24\"", "30\""],
+        "controls_available": ["millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["timbers"],
+        "page": 2,
+        "notes": "Dual-listed (vent-free or vented).",
+        "skus": [
+          {"model_code": "RGBI24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1682, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGBI30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1764, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "RGBI24N1E", "size": "24\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1795, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGBI30N1E", "size": "30\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1877, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "RGBI24N3E", "size": "24\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2345, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "RGBI30N3E", "size": "30\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2427, "price_type": "MSRP", "weight_lbs": 75}
+        ]
+      },
+      {
+        "family_name": "Yukon Char",
+        "log_set_series": "ETYC",
+        "burner_type_code": "ET",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "controls_available": ["manual (1G)", "millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["char"],
+        "page": 3,
+        "btu_NG": {"18\"": 30000, "24-30\"": 35000},
+        "btu_LP": {"18\"": 27000, "24-30\"": 31000},
+        "notes": "Dual-listed (vent-free or vented).",
+        "skus": [
+          {"model_code": "ETYC18N1G", "size": "18\"", "fuel": "NG", "control": "manual", "dealer_price": 1142, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETYC24N1G", "size": "24\"", "fuel": "NG", "control": "manual", "dealer_price": 1171, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETYC30N1G", "size": "30\"", "fuel": "NG", "control": "manual", "dealer_price": 1204, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETYC18N2C", "size": "18\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1420, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETYC24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1449, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETYC30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1482, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETYC18N1E", "size": "18\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1533, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETYC24N1E", "size": "24\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1562, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETYC30N1E", "size": "30\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1595, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETYC18N3E", "size": "18\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2083, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETYC24N3E", "size": "24\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2112, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETYC30N3E", "size": "30\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2145, "price_type": "MSRP", "weight_lbs": 75}
+        ]
+      },
+      {
+        "family_name": "Heritage Char",
+        "log_set_series": "ETHC",
+        "burner_type_code": "ET",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "controls_available": ["manual (1G)", "millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["char"],
+        "page": 4,
+        "btu_NG": {"18\"": 30000, "24-30\"": 35000},
+        "btu_LP": {"18\"": 27000, "24-30\"": 31000},
+        "notes": "Dual-listed (vent-free or vented).",
+        "skus": [
+          {"model_code": "ETHC18N1G", "size": "18\"", "fuel": "NG", "control": "manual", "dealer_price": 1115, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETHC24N1G", "size": "24\"", "fuel": "NG", "control": "manual", "dealer_price": 1142, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETHC30N1G", "size": "30\"", "fuel": "NG", "control": "manual", "dealer_price": 1172, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETHC18N2C", "size": "18\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1393, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETHC24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1420, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETHC30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1450, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETHC18N1E", "size": "18\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1506, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETHC24N1E", "size": "24\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1533, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETHC30N1E", "size": "30\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1563, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "ETHC18N3E", "size": "18\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2056, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "ETHC24N3E", "size": "24\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2083, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "ETHC30N3E", "size": "30\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2113, "price_type": "MSRP", "weight_lbs": 75}
+        ]
+      },
+      {
+        "family_name": "Charleston Glow",
+        "log_set_series": "EFCG",
+        "burner_type_code": "EF",
+        "available_sizes": ["22\"", "26\""],
+        "controls_available": ["manual (1G)", "millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["glow"],
+        "page": 5,
+        "btu_NG": {"22\"": 32000, "26\"": 40000},
+        "btu_LP": {"22\"": 32000, "26\"": 33000},
+        "notes": "Dual-listed (vent-free or vented).",
+        "skus": [
+          {"model_code": "EFCG22N1G", "size": "22\"", "fuel": "NG", "control": "manual", "dealer_price": 1071, "price_type": "MSRP", "weight_lbs": 25},
+          {"model_code": "EFCG26N1G", "size": "26\"", "fuel": "NG", "control": "manual", "dealer_price": 1099, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "EFCG22N2C", "size": "22\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1349, "price_type": "MSRP", "weight_lbs": 25},
+          {"model_code": "EFCG26N2C", "size": "26\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1377, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "EFCG22N1E", "size": "22\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1462, "price_type": "MSRP", "weight_lbs": 25},
+          {"model_code": "EFCG26N1E", "size": "26\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1490, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "EFCG22N3E", "size": "22\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2012, "price_type": "MSRP", "weight_lbs": 25},
+          {"model_code": "EFCG26N3E", "size": "26\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2040, "price_type": "MSRP", "weight_lbs": 30}
+        ]
+      },
+      {
+        "family_name": "Element Series",
+        "log_set_series": "ESCS",
+        "burner_type_code": "ES",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "controls_available": ["millivolt (2C)"],
+        "styles_available": ["contemporary - media options: fireglass, volcanic cinder, river stones, aspen twigs, driftwood twigs"],
+        "page": 6,
+        "btu_NG": {"18\"": 33000, "24\"": 35000, "30\"": 36000},
+        "btu_LP": {"18\"": 27000, "24\"": 35000, "30\"": 35000},
+        "notes": "Dual-listed (vent-free or vented). Millivolt only. Many decorative media swap options.",
+        "skus": [
+          {"model_code": "ESCS18N2C", "size": "18\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1284, "price_type": "MSRP", "weight_lbs": 11},
+          {"model_code": "ESCS24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1361, "price_type": "MSRP", "weight_lbs": 13},
+          {"model_code": "ESCS30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1437, "price_type": "MSRP", "weight_lbs": 15}
+        ]
+      },
+      {
+        "family_name": "Olde World Basket (Vent-Free)",
+        "log_set_series": "VFCO",
+        "burner_type_code": "VF",
+        "available_sizes": ["19\""],
+        "controls_available": ["millivolt (2C)"],
+        "styles_available": ["basket"],
+        "page": 8,
+        "btu_NG": {"19\" coal basket NG": 36000},
+        "btu_LP": {"19\" coal basket LP": 33000},
+        "notes": "Dual-listed (vent-free or vented). Millivolt only.",
+        "skus": [
+          {"model_code": "VFCO19N2C", "size": "19\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1383, "price_type": "MSRP", "weight_lbs": 64}
+        ]
+      },
+      {
+        "family_name": "Weathered Oak",
+        "log_set_series": "VFWR",
+        "burner_type_code": "VF",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "controls_available": ["manual (1G)", "millivolt (2C)", "manual + SS accessory", "millivolt + SS accessory"],
+        "styles_available": ["oak (with optional stainless steel accessory kit)"],
+        "page": 9,
+        "btu_NG": {"24\" Natural Gas": 36000},
+        "btu_LP": {"24\" Liquid Propane": 33000},
+        "notes": "Dual-listed (vent-free or vented). Stainless steel accessory kit option available.",
+        "skus": [
+          {"model_code": "VFWR18N1G", "size": "18\"", "fuel": "NG", "control": "manual", "dealer_price": 535, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR24N1G", "size": "24\"", "fuel": "NG", "control": "manual", "dealer_price": 555, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR30N1G", "size": "30\"", "fuel": "NG", "control": "manual", "dealer_price": 573, "price_type": "MSRP", "weight_lbs": 32},
+          {"model_code": "VFWR18N2C", "size": "18\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 684, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 704, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 722, "price_type": "MSRP", "weight_lbs": 32},
+          {"model_code": "VFWR18N1GSS", "size": "18\"", "fuel": "NG", "control": "manual_with_SS_kit", "dealer_price": 776, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR24N1GSS", "size": "24\"", "fuel": "NG", "control": "manual_with_SS_kit", "dealer_price": 796, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR30N1GSS", "size": "30\"", "fuel": "NG", "control": "manual_with_SS_kit", "dealer_price": 814, "price_type": "MSRP", "weight_lbs": 32},
+          {"model_code": "VFWR18N2CSS", "size": "18\"", "fuel": "NG", "control": "millivolt_with_SS_kit", "dealer_price": 1022, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR24N2CSS", "size": "24\"", "fuel": "NG", "control": "millivolt_with_SS_kit", "dealer_price": 1042, "price_type": "MSRP", "weight_lbs": 30},
+          {"model_code": "VFWR30N2CSS", "size": "30\"", "fuel": "NG", "control": "millivolt_with_SS_kit", "dealer_price": 1060, "price_type": "MSRP", "weight_lbs": 32}
+        ]
+      },
+      {
+        "family_name": "Frontier Blaze",
+        "log_set_series": "EFFB",
+        "burner_type_code": "EF",
+        "available_sizes": ["18\"", "24\"", "30\""],
+        "controls_available": ["manual (1G)", "millivolt (2C)", "variable flame (1E)", "electronic ignition (3E)"],
+        "styles_available": ["blaze"],
+        "page": 10,
+        "btu_NG": {"18\"": 32000, "24-30\"": 40000},
+        "btu_LP": {"18\"": 32000, "24-30\"": 33000},
+        "notes": "Dual-listed (vent-free or vented).",
+        "skus": [
+          {"model_code": "EFFB18N1G", "size": "18\"", "fuel": "NG", "control": "manual", "dealer_price": 1186, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "EFFB24N1G", "size": "24\"", "fuel": "NG", "control": "manual", "dealer_price": 1217, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "EFFB30N1G", "size": "30\"", "fuel": "NG", "control": "manual", "dealer_price": 1246, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "EFFB18N2C", "size": "18\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1464, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "EFFB24N2C", "size": "24\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1495, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "EFFB30N2C", "size": "30\"", "fuel": "NG", "control": "millivolt_remote_ready", "dealer_price": 1524, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "EFFB18N1E", "size": "18\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1577, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "EFFB24N1E", "size": "24\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1608, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "EFFB30N1E", "size": "30\"", "fuel": "NG", "control": "variable_flame_remote_ready", "dealer_price": 1637, "price_type": "MSRP", "weight_lbs": 75},
+          {"model_code": "EFFB18N3E", "size": "18\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2127, "price_type": "MSRP", "weight_lbs": 50},
+          {"model_code": "EFFB24N3E", "size": "24\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2158, "price_type": "MSRP", "weight_lbs": 62},
+          {"model_code": "EFFB30N3E", "size": "30\"", "fuel": "NG", "control": "electronic_ignition_with_variable_remote", "dealer_price": 2187, "price_type": "MSRP", "weight_lbs": 75}
+        ]
+      }
+    ]
+  },
+  "remote_controls_and_switching": {
+    "millivolt_vent_free": [
+      {"model_code": "RC-S12V-MV", "description": "12V DC remote/receiver - on/off function", "dealer_price": 136, "price_type": "MSRP"},
+      {"model_code": "RC-I12V-BT", "description": "12VDC Remote/Receiver & Bluetooth smart phone capability", "dealer_price": 278, "price_type": "MSRP"},
+      {"model_code": "BT-IBUG", "description": "Bluetooth Module Control for smart phone capability", "dealer_price": 196, "price_type": "MSRP"},
+      {"model_code": "RC-S12V-MVT", "description": "Thermostatic on/off function", "dealer_price": 223, "price_type": "MSRP"},
+      {"model_code": "RC-5301P", "description": "Thermostatic, programmable, full LCD touchscreen display", "dealer_price": 380, "price_type": "MSRP"},
+      {"model_code": "RC-A110V-A", "description": "110 volt A/C electricity - on/off function, child-proof switch", "dealer_price": 217, "price_type": "MSRP"},
+      {"model_code": "TST", "description": "Wall Mount Thermostat Control (not for vented sets)", "dealer_price": 61, "price_type": "MSRP"},
+      {"model_code": "BCS", "description": "Bark chip switch, on/off function", "dealer_price": 30, "price_type": "MSRP"},
+      {"model_code": "PCS", "description": "2 Piece Pine Cone switch, on/off function", "dealer_price": 36, "price_type": "MSRP"},
+      {"model_code": "WS", "description": "Wall switch, on/off function", "dealer_price": 30, "price_type": "MSRP"}
+    ],
+    "variable_flame_vent_free": [
+      {"model_code": "RC-S6V-MX", "description": "DC powered remote/receiver for variable flame system valves", "dealer_price": 224, "price_type": "MSRP"},
+      {"model_code": "RC-S6V-MXT", "description": "DC powered with thermostat (not for vented sets)", "dealer_price": 298, "price_type": "MSRP"},
+      {"model_code": "RC-R300", "description": "Full LCD display, thermostatic and child safety lock", "dealer_price": 380, "price_type": "MSRP"}
+    ],
+    "electronic_ignition_vent_free": [
+      {"model_code": "BT-MEI-IMOD", "description": "Bluetooth Module Control for smart phone capability", "dealer_price": 325, "price_type": "MSRP"}
+    ]
+  },
+  "totals": {
+    "vented_log_set_models_skus": 188,
+    "vented_log_set_families": 24,
+    "vent_free_log_set_models_skus": 65,
+    "vent_free_log_set_families": 9,
+    "total_log_set_skus": 253,
+    "burner_kit_skus_approx": 200,
+    "available_sizes_vented_logs": ["12\"", "15\"", "18\"", "20\"", "24\"", "30\"", "36\"", "42\"", "48\"", "50\"", "60\"", "66\""],
+    "available_sizes_vent_free": ["18\"", "19\"", "22\"", "24\"", "26\"", "30\""],
+    "dealer_price_range_USD": {
+      "vented_log_kits_min": 124,
+      "vented_log_kits_max": 2562,
+      "vent_free_complete_sets_min": 535,
+      "vent_free_complete_sets_max": 2427,
+      "burner_kits_min": 285,
+      "burner_kits_max": 3019
+    }
+  }
+}

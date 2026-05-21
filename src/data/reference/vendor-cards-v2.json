@@ -1,0 +1,846 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BSFA Vendor Cards (v2 \u2014 merged 2026-05-19)",
+  "description": "Per-vendor structured cards for BSFA Smart Context. Derived from Product Vendor Quick Reference + Master Knowledge + Manual Model Quick Reference. Source-of-truth: Liam \u2192 current price book \u2192 current vendor portal. Update when Drive PDFs are revised.",
+  "generated_at": "2026-05-19T04:30:00Z",
+  "source_docs": [
+    "Benson Fireplace Product Vendor Quick Reference (Drive ID 1aQdYQ1j1bG2Hn5AMt4tChyWZVpZrcV-c)",
+    "Benson_Stone_Fireplace_Sales_Agent_Master_Knowledge.md (Drive ID 1JqTI5FPNJuXr4RJV03YqSlcjl_Ynr-Px)",
+    "Benson Fireplace Manual Model Quick Reference Index (Drive ID 1d9NFdW0CfZcy3a5Jb-3FovPFz02XoMns)",
+    "Benson Fireplace Door Quick Reference (Drive ID 1LDIDS6fNy-snLhkytIciedSfWaHSNeNTxn6fKeOMnAM)"
+  ],
+  "vendors": [
+    {
+      "vendor_id": "kingsman",
+      "display_name": "Kingsman",
+      "brand_family": "kingsman_group",
+      "aliases": [
+        "Kingsman",
+        "Marquis",
+        "Marquee"
+      ],
+      "role": "Bread-and-butter direct vent gas fireplaces. Builder-friendly. Value-conscious gas conversations.",
+      "good_fit_customer": "Wants reliable DV gas fireplace, practical value without going premium. Builder/new-construction or straightforward replacement.",
+      "watch_points": [
+        "Add-ons often a la carte: remote, fan kit, interior lighting, liner/media/front",
+        "Verify current model/package in FP price list before quoting",
+        "Don't assume venting parts are included"
+      ],
+      "agent_answer_template": "Kingsman/Marquis is usually a strong practical direct-vent path, especially when the customer wants a good-looking gas fireplace without jumping to the highest-end category. We should still verify the exact model, options, venting, and current price list.",
+      "notable_models": [
+        "Bentley 39 (high-volume)",
+        "Bentley ZCV39N/ZCV42N",
+        "HBZDV3628N",
+        "HBZDV4736N"
+      ],
+      "distributor": {
+        "primary": "AES (Urbana/Enviro/PE/MF/Dimplex/Alderlea/Kingsman/Duravent/Hargrove)",
+        "manufacturer_direct": "Kingsman 204-632-1962, esarmiento@kingsmanfireplaces.com"
+      },
+      "current_price_book": "Kingsman March 2026.pdf (FP Central)",
+      "categories": [
+        "direct_vent_gas_fireplace",
+        "linear_gas_fireplace",
+        "specialty"
+      ],
+      "fuel_types": [
+        "natural_gas",
+        "propane"
+      ]
+    },
+    {
+      "vendor_id": "travis_industries",
+      "display_name": "Travis Industries",
+      "brand_family": "travis_industries",
+      "aliases": [
+        "Travis",
+        "Lopi",
+        "FPX",
+        "Fireplace Xtrordinair",
+        "Fireplace X",
+        "DaVinci",
+        "Fire Garden",
+        "Electric DaVinci",
+        "Tempest Torch"
+      ],
+      "role": "Premium Benson partner family. Strong showroom relationship. Covers gas/wood, FP/insert/stove conversations.",
+      "sub_brands": [
+        {
+          "id": "lopi",
+          "name": "Lopi",
+          "products": "wood, gas, pellet stoves/inserts/fireplaces",
+          "notable": "Berkshire = bread-and-butter DV freestanding gas stove"
+        },
+        {
+          "id": "fpx",
+          "name": "Fireplace Xtrordinair",
+          "products": "premium wood + gas fireplaces/inserts",
+          "notable": "864GS, 864HO, 44 Elite (wood), 4415HO linear"
+        },
+        {
+          "id": "davinci",
+          "name": "DaVinci",
+          "products": "high-end custom gas + electric",
+          "notable": "DaVinci 6030 (luxury/commercial)"
+        },
+        {
+          "id": "fire_garden",
+          "name": "Fire Garden",
+          "products": "outdoor fire systems",
+          "notable": ""
+        }
+      ],
+      "good_fit_customer": "Wants premium quality, strong design, efficient wood/gas, stove/insert path, higher-end project.",
+      "watch_points": [
+        "Exact sub-brand matters: Travis/Lopi/FPX/DaVinci can overlap in customer language",
+        "Wood units, inserts, venting compatibility are highly model-specific",
+        "Use current Travis/Lopi/FPX resources before quoting"
+      ],
+      "agent_answer_template": "That sounds like it may be in the Travis/Lopi/Fireplace Xtrordinair family. I'd want the exact model tag or quote item before giving a firm answer because the options, manuals, and venting can change by model.",
+      "current_price_books": [
+        "Travis Lopi September 2025.pdf",
+        "Travis FPX September 2025.pdf",
+        "Travis Gas DaVinci June 2025.pdf",
+        "Travis Electric DaVinci July 2025.pdf",
+        "Travis Fire Garden June 2025.pdf"
+      ],
+      "categories": [
+        "wood_fireplace",
+        "wood_insert",
+        "wood_stove",
+        "gas_fireplace",
+        "gas_insert",
+        "gas_stove",
+        "pellet_stove",
+        "electric_fireplace",
+        "outdoor_fire_system"
+      ]
+    },
+    {
+      "vendor_id": "kozy_heat",
+      "display_name": "Kozy Heat",
+      "brand_family": null,
+      "aliases": [
+        "Kozy Heat",
+        "Hussong"
+      ],
+      "role": "Active linear direct-vent presence. Modern linear FP conversations.",
+      "good_fit_customer": "Wants contemporary linear gas FP look. Likes modern wall/fireplace design.",
+      "watch_points": [
+        "Verify current model, display status, options, price list",
+        "Linear FPs create finish-wall, TV, mantel, heat-management questions"
+      ],
+      "agent_answer_template": "Kozy Heat is a good brand family to consider when the customer is looking for a modern linear direct-vent look. We should verify the specific model, heat-management needs, and finish details before quoting.",
+      "notable_models": [
+        "Nordik 41DV",
+        "Nordik 48TL (linear)",
+        "Nordik 29i (insert)"
+      ],
+      "distributor": {
+        "primary": "Hussong 800-253-4904, betsy@kozyheat.com"
+      },
+      "current_price_book": "Kozy Heat June 2025.pdf (FP Central) \u2014 note aging price book",
+      "categories": [
+        "direct_vent_gas_fireplace",
+        "linear_gas_fireplace",
+        "gas_insert",
+        "gas_stove",
+        "electric_fireplace"
+      ],
+      "liam_default_recommendation": true,
+      "liam_recommendation_quote": "Kozy Heat is what Liam steers toward when customers ask 'what would you do?' \u2014 happens on 8/10 closes",
+      "competitive_protection": "Kozy Heat protects their pricing \u2014 they don't sell online anywhere. Margin protection makes Kozy a preferred vendor.",
+      "comparable_units_liam_triangulates": [
+        "Travis Industries 36\"",
+        "Enviro 36\"",
+        "Kozy Heat 3060"
+      ],
+      "comparable_specs_per_liam": "All American-made, same gauge steel, same BTUs \u2014 true competitors. Liam steers to Kozy.",
+      "notable_models_addition": [
+        "Nordic 60 TL (Drew's go-to for Freeman job; ledgestone refractory + traditional logs + fan kit + Comfort Zone cool-wall)"
+      ],
+      "verification_flag": "Apr 22 11:02 ASR garbled when Liam said 'I'm a big fan of the [unclear] brand' \u2014 likely Kozy Heat consistently, but confirm with Liam",
+      "_correction_2026_05_19": "Per Apr 22 11:02 transcript: Liam's DEFAULT recommendation when customers ask 'what would you do?' (happens on 8/10 closes). Per Apr 30 transcript: 'Cozy heat protects their pricing \u2014 they don't sell online anywhere' \u2014 margin protection makes Kozy preferred."
+    },
+    {
+      "vendor_id": "urbana",
+      "display_name": "Urbana",
+      "brand_family": null,
+      "aliases": [
+        "Urbana"
+      ],
+      "role": "Luxury/specialty direct-vent and see-through specialty units.",
+      "good_fit_customer": "High-end modern design. Wants distinctive over standard builder unit. See-through/specialty applications.",
+      "watch_points": [
+        "DO NOT generalize cooler-touch/double-pane/no-screen features to all DV fireplaces \u2014 Urbana-specific",
+        "Verify exact Urbana model and manual"
+      ],
+      "agent_answer_template": "Urbana is more of a specialty/luxury direct-vent direction. Some models have unique front-glass/airflow behavior, so I would verify the exact model before describing those features as universal.",
+      "notable_models": [
+        "U50 IPI NG",
+        "UR37I",
+        "U70-2 IPI NG"
+      ],
+      "current_price_book": "Urbana March 2026.pdf (FP Central)",
+      "categories": [
+        "luxury_gas_fireplace",
+        "see_through_gas_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "enviro",
+      "display_name": "Enviro",
+      "brand_family": null,
+      "aliases": [
+        "Enviro"
+      ],
+      "role": "Specialty/minimalist design presence. Unique designs including suspended stove-style options.",
+      "good_fit_customer": "Wants distinctive design-forward unit. Interested in less standard.",
+      "watch_points": [
+        "Verify current display, model, manual, price source, install requirements"
+      ],
+      "notable_models": [
+        "EX35 Gas Insert",
+        "E30 Medium Gas Insert",
+        "S50 Nova"
+      ],
+      "current_price_book": "Enviro March 2026.pdf (FP Central)",
+      "categories": [
+        "gas_insert",
+        "gas_stove",
+        "specialty"
+      ]
+    },
+    {
+      "vendor_id": "hargrove",
+      "display_name": "Hargrove",
+      "brand_family": null,
+      "aliases": [
+        "Hargrove"
+      ],
+      "role": "Primary gas log supplier. Vented = realism/ambiance. Vent-free = heat-oriented.",
+      "good_fit_customer": "Existing fireplace owner: less mess, easier use, better look, simple gas fire experience.",
+      "watch_points": [
+        "First determine masonry vs prefab",
+        "Get dimensions: front width, height, depth, rear width, hearth context",
+        "Ask if gas already present + where it enters",
+        "Clarify realism vs heat priority",
+        "Vent-free REQUIRES caution: room suitability, location, air quality, moisture, odor, soot risk, local rules"
+      ],
+      "agent_answer_template": "Hargrove is the main gas-log path. Before recommending a set, we need to know whether the fireplace is masonry or prefab, the dimensions, gas-line location, and whether the customer wants realism or heat.",
+      "notable_models": [
+        "WTS2418RG Woodland Timbers (24\" + RG kit)",
+        "Pinnacle log set",
+        "Cross Timbers"
+      ],
+      "distributor": {
+        "primary": "Hargrove direct 1-800-725-4166, dougv@e-hargrove.com"
+      },
+      "current_price_books": [
+        "Hargrove 2026 Vented Gas Log price list.pdf",
+        "Hargrove Vent Free 2026.pdf"
+      ],
+      "categories": [
+        "vented_gas_logs",
+        "vent_free_gas_logs"
+      ],
+      "flagship_product": "Woodland Timbers series \u2014 Drew: 'the #1 best looking log set I have ever seen, and I've been to the HBBA show'",
+      "_correction_batch2": "Hargrove is the DISPLAYED gas log supplier; 2-decade relationship"
+    },
+    {
+      "vendor_id": "empire",
+      "display_name": "Empire / White Mountain Hearth",
+      "brand_family": "empire_comfort",
+      "aliases": [
+        "Empire",
+        "White Mountain Hearth",
+        "White Mountain",
+        "Empire Comfort",
+        "Broil Master"
+      ],
+      "role": "Vent-free path and select display use. Also fireplace/stove/log selections.",
+      "good_fit_customer": "Vent-free heat or value-oriented gas options.",
+      "watch_points": [
+        "Vent-free not universal",
+        "Local rules, room size, appliance listing, customer expectations matter",
+        "Verify with Liam on address/local-code-sensitive questions",
+        "DO NOT treat vent-free as automatic answer"
+      ],
+      "agent_answer_template": "Empire/White Mountain can be part of the vent-free conversation, but I would not treat vent-free as automatically right. We need room details, location, customer expectations, and any local-rule review before getting too specific.",
+      "notable_models": [
+        "Spirit Gas Stove",
+        "Vail VF system",
+        "Breckenridge Loft VF system"
+      ],
+      "distributor": {
+        "primary": "Empire Comfort 1-866-214-9918, houart@empirecomfort.com"
+      },
+      "current_price_book": "Empire Gas June 2025.pdf (FP Central)",
+      "categories": [
+        "vent_free_gas_appliance",
+        "vented_gas",
+        "gas_stove"
+      ]
+    },
+    {
+      "vendor_id": "mendota",
+      "display_name": "Mendota Hearth",
+      "brand_family": null,
+      "aliases": [
+        "Mendota",
+        "Mendota Hearth"
+      ],
+      "role": "Premium gas fireplace/insert brand. Recognition + parts/manual reference.",
+      "good_fit_customer": "Premium gas customer, existing Mendota owner, parts/service lookup.",
+      "watch_points": [
+        "Verify current price list, exact model, parts compatibility",
+        "Older Mendota parts manuals = reference only unless current confirmed"
+      ],
+      "notable_models": [
+        "FV41 Arch",
+        "FV44i Insert"
+      ],
+      "distributor": {
+        "primary": "Johnson Gas 319-730-7116, cbartosh@johnsongas.com"
+      },
+      "categories": [
+        "luxury_gas_fireplace",
+        "gas_insert",
+        "electric_fireplace_e_one"
+      ],
+      "display_status": "stuck_on_display",
+      "drew_intent": "trying to move off display",
+      "drew_quote": "I'm trying to sell this off display. I got it on a couple quotes. I think I might sell it this year.",
+      "price_book_velocity": "high \u2014 frequent updates, ask 'who has the most updated price book for Mendota' before quoting",
+      "_correction_2026_05_19": "Per Apr 25 + Apr 30 transcripts: display status struggling. Drew explicitly: 'I'm trying to sell this off display. I got it on a couple quotes. I think I might sell it this year.' Apr 30 references frequent Mendota price-book updates ('who has the most updated price book for Mendota')."
+    },
+    {
+      "vendor_id": "dimplex",
+      "display_name": "Dimplex",
+      "brand_family": null,
+      "aliases": [
+        "Dimplex"
+      ],
+      "role": "Electric fireplace path.",
+      "good_fit_customer": "No combustion, no gas/wood venting, easier install, aesthetic/fireplace-wall effect.",
+      "watch_points": [
+        "Don't blur electric into gas/wood venting requirements",
+        "Still verify electrical scope and finish"
+      ],
+      "current_price_book": "Dimplex October 2025.pdf (FP Central)",
+      "categories": [
+        "electric_fireplace",
+        "water_vapor_electric"
+      ],
+      "differentiators": [
+        "Glass pane ships ALREADY INSTALLED \u2014 unique among electric brands carried (install-anxious customers love this)",
+        "Log inserts use REAL WOOD (cut, burned, treated) for traditional look",
+        "Older 'hologram' angle-glass styles produce NO heat output (purely decorative)"
+      ],
+      "discontinued_items": [
+        "concrete background"
+      ],
+      "current_background_options": [
+        "weathered gray concrete",
+        "black"
+      ],
+      "agent_answer_addition": "Dimplex is the easy install path \u2014 glass comes pre-installed unlike other electric brands. If the customer wants real-wood look, our log inserts use actual wood that's been cut, burned, and treated.",
+      "_correction_2026_05_19": "Per Jonathan electric LEARNINGS: glass pre-installed (unique), real wood logs (cut/burned/treated), concrete background DISCONTINUED."
+    },
+    {
+      "vendor_id": "stuv",
+      "display_name": "St\u00fbv",
+      "brand_family": null,
+      "aliases": [
+        "Stuv",
+        "St\u00fbv"
+      ],
+      "role": "Design-forward fireplace/stove brand. Wood/gas/electric depending product line.",
+      "good_fit_customer": "Design-focused customer, freestanding stove conversation.",
+      "watch_points": [
+        "Verify exact model/fuel/current availability"
+      ],
+      "current_price_book": "Stuv September 2025.pdf (FP Central)",
+      "categories": [
+        "wood_stove",
+        "wood_insert",
+        "wood_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "jotul",
+      "display_name": "J\u00f8tul",
+      "brand_family": null,
+      "aliases": [
+        "Jotul",
+        "J\u00f8tul"
+      ],
+      "role": "Freestanding stove brand. Traditional cast-iron/design-conscious.",
+      "good_fit_customer": "Stove customer, cast-iron/design conversation.",
+      "watch_points": [
+        "Verify model/fuel/venting/chimney/hearth-floor protection/availability"
+      ],
+      "current_price_book": "j\u00f8tul monsma stock pages 1-16-26.pdf (note: stock pages, not pure price book)",
+      "categories": [
+        "wood_stove",
+        "wood_insert",
+        "gas_stove",
+        "gas_insert"
+      ]
+    },
+    {
+      "vendor_id": "pacific_energy",
+      "display_name": "Pacific Energy",
+      "brand_family": null,
+      "aliases": [
+        "Pacific Energy"
+      ],
+      "role": "Wood/stove/fireplace brand. Verify brand role with Liam/Rick.",
+      "current_price_book": "Pacific Energy June 2025.pdf (FP Central)",
+      "notable_models": [
+        "NEO 2.5 Wood Insert"
+      ],
+      "categories": [
+        "wood_stove",
+        "wood_insert",
+        "wood_fireplace",
+        "gas_fireplace",
+        "gas_stove"
+      ]
+    },
+    {
+      "vendor_id": "rsf",
+      "display_name": "RSF",
+      "brand_family": null,
+      "aliases": [
+        "RSF"
+      ],
+      "role": "Wood fireplace brand \u2014 high-efficiency.",
+      "current_price_book": "RSF June 2025.pdf (FP Central)",
+      "categories": [
+        "high_efficiency_wood_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "ironhaus",
+      "display_name": "Ironhaus",
+      "brand_family": null,
+      "aliases": [
+        "Ironhaus",
+        "Iron Haus"
+      ],
+      "role": "Doors, screens, mantels. Custom-order family.",
+      "good_fit_customer": "Custom door/mantel customer.",
+      "watch_points": [
+        "Custom-order \u2014 dimensions/options/finish must be exact"
+      ],
+      "current_price_books": [
+        "Ironhaus 2025.pdf",
+        "Ironhaus-Portland Willamette 2025.pdf",
+        "Ironhaus Home Mantel 2022- current in 2026.pdf",
+        "Ironhaus Heavy Duty Mantel 2022-current in 2026.pdf"
+      ],
+      "notable_models": [
+        "Lifestyle door",
+        "Luxe FullView glass door"
+      ],
+      "categories": [
+        "fireplace_doors",
+        "screens",
+        "mantels"
+      ]
+    },
+    {
+      "vendor_id": "stoll",
+      "display_name": "Stoll",
+      "brand_family": null,
+      "aliases": [
+        "Stoll"
+      ],
+      "role": "Custom glass doors and outdoor living.",
+      "good_fit_customer": "Wants better look, draft reduction, hiding firebox mess, finished FP appearance.",
+      "watch_points": [
+        "Masonry vs prefab decides path",
+        "Prefab requires brand/model + airflow/louver compatibility",
+        "Custom masonry doors require proper measure \u2014 don't rely on customer measurements"
+      ],
+      "current_price_books": [
+        "Stoll Glass Door orderbook 2025.pdf",
+        "Stoll Outdoor Living 2025.pdf"
+      ],
+      "categories": [
+        "fireplace_doors",
+        "outdoor_living"
+      ],
+      "common_configuration": {
+        "type": "ZC box with vertical vent",
+        "unit_only_price": 4000,
+        "vent_price_range": [
+          1500,
+          2000
+        ],
+        "out_the_door_typical": 6000,
+        "carried_volume": "Benson does this configuration a TON",
+        "features": [
+          "heat-rated decorative door"
+        ]
+      },
+      "stoll_glass_doors_inventory_alert": "65% of glass door displays in showroom are DISCONTINUED \u2014 verify with current Stoll/Design Specialties/Iron Haus orderbook before quoting",
+      "_correction_2026_05_19": "Per Jonathan electric LEARNINGS: Stoll-style ZC box with vertical vent is a frequent Benson configuration at ~$6K out the door (~$4K unit + $1.5-2K vent)."
+    },
+    {
+      "vendor_id": "design_specialties",
+      "display_name": "Design Specialties",
+      "brand_family": null,
+      "aliases": [
+        "Design Specialties",
+        "DS"
+      ],
+      "role": "Custom fireplace doors.",
+      "distributor": {
+        "primary": "414-371-1200, sam@designspecialties.com, orders@glassfireplacedoors.com"
+      },
+      "categories": [
+        "fireplace_doors_custom"
+      ]
+    },
+    {
+      "vendor_id": "heatilator",
+      "display_name": "Heatilator (HHT)",
+      "brand_family": "hearth_home_technologies",
+      "aliases": [
+        "Heatilator",
+        "HHT",
+        "Hearth & Home Technologies"
+      ],
+      "role": "Hearth & Home Technologies parent. Heat & Glo, Quadra-Fire, Monessen, Majestic also part of family.",
+      "good_fit_customer": "Builder/legacy unit conversations; existing customer service.",
+      "watch_points": [
+        "Many legacy models \u2014 verify current support",
+        "Could be old prefab, insert, or fireplace"
+      ],
+      "notable_models": [
+        "Icon I80 (open-face wood)",
+        "Birmingham 42B",
+        "Accelerator A42C",
+        "EC36",
+        "ICON 60/80/100"
+      ],
+      "distributor": {
+        "primary": "HHT 855-225-5448, mtp@hearthnhome.com"
+      },
+      "current_price_book": "Heatilator March 2025.pdf (FP Central) \u2014 note aging",
+      "categories": [
+        "wood_fireplace",
+        "gas_fireplace",
+        "insert"
+      ],
+      "kevin_obie_bias_warning": "Kevin Obie (predecessor at Benson, now national sales manager at HHT distributor) drops by occasionally. His technical info is factual, but his recommendations skew toward HHT brands. Per Liam's explicit warning: 'Kevin is gonna be telling you HIS units\u2026 those are the best units. Take it with a grain of salt.'",
+      "bsfa_smart_context_rule": "When quote vendor = HHT family (Heatilator/Heat&Glo/Quadra-Fire/Monessen/Majestic), optionally surface Kevin Obie bias note for Drew's situational awareness",
+      "_correction_2026_05_19": "Per Apr 22 11:02 transcript: Kevin Obie (mythic predecessor) is now national sales manager at HHT distributor. He visits Drew, gives advice biased toward HHT family. Liam's explicit warning: take Kevin's recommendations with a grain of salt.",
+      "discontinued_at_benson": [
+        "Monessen (HHT sub-brand) \u2014 'we don't even sell Monessen anymore'"
+      ]
+    },
+    {
+      "vendor_id": "vermont_castings",
+      "display_name": "Vermont Castings",
+      "brand_family": null,
+      "aliases": [
+        "Vermont Castings"
+      ],
+      "role": "Stove/fireplace brand. Many legacy models.",
+      "watch_points": [
+        "Verify model/year/manual"
+      ],
+      "notable_models": [
+        "Defiant 1945"
+      ],
+      "categories": [
+        "wood_stove",
+        "wood_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "real_fyre",
+      "display_name": "Real Fyre",
+      "brand_family": "rh_peterson",
+      "aliases": [
+        "Real Fyre",
+        "Realfyre",
+        "RH Peterson"
+      ],
+      "role": "Gas log alternative to Hargrove. Verify Benson preference per Liam.",
+      "current_price_book": "Realfyre price list March 2026.pdf (FP Central)",
+      "categories": [
+        "gas_logs"
+      ],
+      "display_status": "carried but NOT displayed in showroom",
+      "availability_caveat": "Real Fyre dealer network thin/broken in Rockford area. Default customers to Hargrove (displayed + reliable).",
+      "_correction_batch2": "Liam: 'nothing wrong with Real Fyre' but Benson has far more Hargrove experience"
+    },
+    {
+      "vendor_id": "magra_hearth",
+      "display_name": "Magra Hearth",
+      "brand_family": null,
+      "aliases": [
+        "Magra Hearth",
+        "MagraHearth"
+      ],
+      "role": "Specialty hearth product / Mendota mantels. Treat dealer cost data as internal.",
+      "distributor": {
+        "primary": "Magra Hearth 414-316-2995, orders@magrahearth.com"
+      },
+      "current_price_book": "MagraHearth Dealer Cost Pricing 2025 and 2026.pdf (INTERNAL)",
+      "categories": [
+        "hearth",
+        "mantels"
+      ],
+      "sensitivity": "internal_only"
+    },
+    {
+      "vendor_id": "marquis",
+      "display_name": "Marquis (Kingsman subsidiary)",
+      "brand_family": "kingsman_group",
+      "aliases": [
+        "Marquis",
+        "MQ"
+      ],
+      "role": "Kingsman subsidiary \u2014 direct-vent gas fireplaces.",
+      "current_price_book": "Marquis March 2026.pdf (FP Central)",
+      "notable_models": [
+        "MQHBZDV4236"
+      ],
+      "categories": [
+        "direct_vent_gas_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "uptown",
+      "display_name": "Uptown",
+      "brand_family": "kingsman_group",
+      "aliases": [
+        "Uptown"
+      ],
+      "role": "Kingsman-family premium DV.",
+      "current_price_book": "Uptown March 2026.pdf (FP Central)",
+      "categories": [
+        "direct_vent_gas_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "supreme",
+      "display_name": "Supreme",
+      "brand_family": null,
+      "aliases": [
+        "Supreme"
+      ],
+      "role": "Wood fireplace display family.",
+      "notable_models": [
+        "Astra 38"
+      ],
+      "categories": [
+        "wood_fireplace"
+      ]
+    },
+    {
+      "vendor_id": "napoleon",
+      "display_name": "Napoleon",
+      "brand_family": null,
+      "aliases": [
+        "Napoleon"
+      ],
+      "role": "Grills (freestanding default). Not core fireplace path.",
+      "current_price_book": "Napoleon Grill April 2025.pdf (FP Central)",
+      "distributor": {
+        "primary": "F&C Dist 630-241-0506 ext. 724"
+      },
+      "categories": [
+        "grill",
+        "outdoor"
+      ],
+      "fireplaces": {
+        "carried": false,
+        "reason_not_carried": "Napoleon requires dealers to have 6 burning display fireplaces in the showroom \u2014 not feasible for Benson space",
+        "competitor_status": "Other guys in town carry Napoleon fireplaces \u2014 fine to mention without disparaging",
+        "rep_response_when_customer_asks": "We don't carry Napoleon fireplaces here. We've got Modern Flames or Dimplex for similar electric, or [point to Kingsman/Travis] for gas. Other dealers around town do carry Napoleon if you specifically want that brand."
+      },
+      "grills": {
+        "carried": true,
+        "role": "bread-and-butter freestanding grill",
+        "premium_line": "Prestige Pro Series",
+        "current_price_book": "Napoleon Grill April 2025.pdf"
+      },
+      "_correction_2026_05_19": "I had Napoleon listed only as 'grills.' Per Jonathan electric LEARNINGS: Benson does NOT carry Napoleon FIREPLACES and won't order them. Napoleon requires 6 burning display fireplaces in showroom \u2014 not feasible. Grills only. Other guys in town carry Napoleon FIREPLACES."
+    },
+    {
+      "vendor_id": "summerset",
+      "display_name": "Summerset",
+      "brand_family": null,
+      "aliases": [
+        "Summerset"
+      ],
+      "role": "Bread-and-butter for built-in kitchen islands. Good margins. Long lasting partnership.",
+      "current_price_book": "Summerset Grills Feb 2026.pdf (FP Central)",
+      "categories": [
+        "grill_builtin",
+        "outdoor_kitchen"
+      ],
+      "relationship_strength": "long_partnership",
+      "margin_quality": "good",
+      "social_proof": "Jonathan owns a Summerset",
+      "key_features": [
+        "Lifetime warranty (no cover needed even outside)",
+        "Made of 3 or 4 stainless",
+        "Built to be outside forever",
+        "Cart feature available (can be freestanding too)"
+      ],
+      "agent_answer_template": "Summerset is our go-to for kitchen-island builds. Lifetime warranty, all stainless, made to live outside forever. Good margins for us means we can be competitive on the all-in install + granite + counter package \u2014 often $20K-plus jobs that look freaking sick.",
+      "premium_anchor_use": "$20K sale with better margins and just looks freaking sick \u2014 for full kitchen-island Summerset + granite countertop",
+      "_correction_2026_05_19": "Per Apr 25 showroom walkthrough: stronger positioning data than initial vendor card. 'Bread and butter for built-in kitchen islands. Good margins. Long lasting partnership.' Jonathan owns one (social proof)."
+    },
+    {
+      "vendor_id": "modern_flames",
+      "display_name": "Modern Flames",
+      "aliases": [
+        "Modern Flames"
+      ],
+      "role": "Mid-modern electric \u2014 showroom favorite, working demo upstairs is the 'wow' moment",
+      "good_fit_customer": "Wants contemporary linear electric look, supplemental heat OK but not primary",
+      "watch_points": [
+        "Cellar display unit currently broken (old plastic chip, since redesigned to metal) \u2014 needs swap or pull off floor",
+        "Use upstairs working demo as the closer when walking customers through electric options"
+      ],
+      "price_ranges": {
+        "entry": [
+          2000,
+          3000
+        ],
+        "premium": [
+          5000,
+          6000
+        ]
+      },
+      "categories": [
+        "electric_linear_fireplace"
+      ],
+      "_correction_2026_05_19": "Was missing from vendor-cards.json entirely. Per Jonathan electric LEARNINGS: this is the showroom favorite for mid-modern electric."
+    },
+    {
+      "vendor_id": "fire_magic",
+      "drew_bias": "not_a_fan",
+      "drew_bias_reason": "Pricing positioning relative to alternatives \u2014 'to justify between 10 grand? It's a complete opinion.' Drew genuinely doesn't sell off it often.",
+      "drew_quote": "I'm not a big fan of Fire Magic... they're made incredibly well but to justify between 10 grand? It's a complete opinion.",
+      "current_spiff_amount": 200,
+      "spiff_source": "Daily Desk Reference (refreshed May 14 2026)",
+      "spiff_purpose": "Incentivize sale-floor adoption despite Drew's bias",
+      "training_gap": "Drew explicitly notes: 'I've never had Fire Magic training before' \u2014 opportunity for Fire Magic rep to do training visit",
+      "carried": true,
+      "categories": [
+        "grill_luxury"
+      ],
+      "_correction_2026_05_19": "Per Apr 25 + Daily Desk Reference SPIFFs: Drew personally biased against (transparent honesty); $200 SPIFF active to incentivize sales; needs training. Current $200 SPIFF active per Daily Desk Reference (refreshed May 14 2026)."
+    },
+    {
+      "vendor_id": "davinci",
+      "ticket_size": "very_high",
+      "margin_quality": "very_high",
+      "sell_difficulty": "very_hard",
+      "drew_quote": "DaVinci is owned by Travis Industries. Same company makes this completely different fireplace. Still a direct vent. This is designed to heat. Designer fireplace \u2014 custom burners, custom glass. Very high ticket. Very high margin. Very hard sell, because you just don't sell too often.",
+      "customer_fit": "Customer who values custom design + heating performance + high investment ($15K+ unit territory)",
+      "sales_strategy": "Don't lead with DaVinci. Offer when customer expresses high-end design priority. The hard-sell + low-volume means low pressure to close \u2014 let it be the right fit or move on.",
+      "_correction_2026_05_19": "Per Apr 25 transcript: 'Very high ticket. Very high margin. Very hard sell, because you just don't sell too often.' Travis Industries subsidiary \u2014 important to frame separately from base Travis line."
+    }
+  ],
+  "behavior_rules": {
+    "source_priority": [
+      "Current management-reviewed/management-pending Sales Training Packet",
+      "Current guidance from Liam, Rick, Phil, Rodney, company process",
+      "Manufacturer manuals, dealer portals, FireBuilder, BisTrack, inventory tools, live pricing",
+      "Recent showroom training transcripts + direct manager explanations",
+      "Old scanned training packets + Fireplaces 101 = LEGACY CONTEXT ONLY",
+      "Quote examples/invoices/bills = STRUCTURE/PATTERN ONLY, not current pricing"
+    ],
+    "escalation_map": {
+      "brand_or_model_fit": "Liam \u2192 Rick \u2192 manufacturer rep",
+      "install_feasibility_venting_clearances": "Phil's install team or Rodney",
+      "code_permit_county_local": "Liam",
+      "b_vent_questions": "Liam (legacy recognition only \u2014 DO NOT SELL)",
+      "discount_pricing_exception": "Liam",
+      "quote_finalization": "BisTrack/current price list then review",
+      "stone_or_brick_match_questions": "Liam \u2192 Mike Wallin (Brick & Stone manager, x175, forwards to cell) \u2014 Mike is non-commissioned, happy to help. Gordon was the legacy stone SME who taught Liam.",
+      "design_or_proposal_visualization": "Jonathan (currently doing this manually + via Zach upstairs) \u2192 BSFA replacement target by September 2026"
+    },
+    "customer_safe_default": "That's a good question. I would want to verify the exact fireplace, venting, and installation conditions before giving you a firm answer. I would rather double-check it than tell you something that turns out to be wrong.",
+    "discovery_starter_5_questions": [
+      "What do you have now?",
+      "Is it wood, gas, pellet, or electric today?",
+      "Is it masonry or prefab / zero-clearance?",
+      "What do you wish was better about it: heat, convenience, appearance, mess, draft, repair, or noise?",
+      "Are you trying to keep the opening, convert it, replace it, or redesign the whole wall?"
+    ],
+    "photos_to_request": [
+      "Fireplace/front opening",
+      "Inside firebox if safe + accessible",
+      "Surrounding wall and mantle/TV area",
+      "Chimney or exterior termination from outside",
+      "Model tag or brand/model info if visible",
+      "Gas line and electrical location if relevant"
+    ],
+    "never_say": [
+      "Definitely.",
+      "No problem, we can do that.",
+      "That will pass code.",
+      "That will fit.",
+      "That price is current.",
+      "You do not need a measure.",
+      "The installer can figure it out later.",
+      "Vent-free is allowed everywhere.",
+      "Code definitely allows it at your address."
+    ],
+    "red_flags_slow_down": [
+      "Customer cannot clearly describe what they have",
+      "Photos missing + fireplace type unclear",
+      "Setup may be prefab/ZC and brand/model unknown",
+      "Existing venting or chimney route unclear",
+      "Customer wants to reuse old pipe/chase/chimney/liner",
+      "Customer asks code-compliance questions",
+      "Customer asks for gas/electrical/permits/DIY install advice",
+      "Customer wants wood insert in ZC/prefab fireplace",
+      "Customer asks to convert high-efficiency wood to gas",
+      "Customer wants to close doors over gas logs",
+      "Mantel/TV/combustible facing clearances tight",
+      "B-vent suspected",
+      "Vent-free being considered",
+      "Customer has breathing concerns + asks about vent-free",
+      "Pushing for discount before scope is understood",
+      "Special-order/custom door/mantel/discontinued display involved",
+      "Old quote/pricing being reused"
+    ],
+    "fp_to_napoleon_redirect_rule": {
+      "trigger": "customer mentions Napoleon + fireplace",
+      "action": "Recommend Modern Flames or Dimplex (electric) or Kingsman/Travis (gas) alternative. Acknowledge: 'We don't carry Napoleon fireplaces, only their grills.' Don't disparage \u2014 note other guys in town do carry."
+    },
+    "electric_fireplace_note": "Rick (predecessor) refused to sell electric. Liam loves them: 'easy sell, no venting, no clearances, plug it in.' Electric = ambiance, ~5000 BTU, 110V. Most units need 10-12in framed depth; one ~4in wall-mount model exists. Lead time 1-2 weeks.",
+    "stone_install_labor": {
+      "standard_natural_stone": "$50/sqft Mason labor",
+      "mesh_backed_veneer": "$60/sqft (Virginia Blair Stone etc - mesh harder to install)",
+      "buy_rule": "Buy individual pieces NOT mesh-backed panels"
+    },
+    "mantel_supplier_tiers": {
+      "wood_custom": "$300-$900 - local SW Wisconsin woodworker; white/walnut/pine/cedar",
+      "composite": "$1,200-$1,600 - Pearl Mantels + Premier; mountable anywhere"
+    }
+  },
+  "_merged": {
+    "merged_at": "2026-05-19",
+    "base": "vendor-cards.json",
+    "corrections_applied": [
+      "vendor-cards-corrections-2026-05-19.json",
+      "voice-notes-batch2-insights.md corrections table"
+    ],
+    "vendors_field_merged": 7,
+    "vendors_added": 3,
+    "note": "Canonical merged vendor cards v2. Base + 2026-05-19 delta + batch-2 transcript corrections applied. This is the file BSFA should ingest."
+  }
+}

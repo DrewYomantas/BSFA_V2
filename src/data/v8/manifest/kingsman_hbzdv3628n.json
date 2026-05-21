@@ -1,0 +1,103 @@
+{
+  "unitId": "kingsman_hbzdv3628n",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [
+    "rockford_millivolt_affected"
+  ],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "compact_to_standard",
+  "styleAffinity": [
+    "traditional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall context (interior vs exterior)",
+      "Vent routing"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Kingsman HBZDV3628N",
+    "shortDescription": "Value direct-vent gas fireplace from Kingsman \u2014 clean view kit, logs, liner, fan. Practical and reliable.",
+    "bestFor": [
+      "Value",
+      "Practical install",
+      "Builder-friendly"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "convenience",
+      "some_heat"
+    ],
+    "styleHuman": "Traditional",
+    "sizeHuman": "Compact to Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "entry"
+  },
+  "rep": {
+    "verificationNotes": "For Rockford-area installs, verify whether install address is inside city limits (millivolt ignition restriction). Also confirm a la carte options included/excluded before quote.",
+    "liamVoiceCallback": "Kingsman \u2014 our most sold fireplace every single year by far.",
+    "crossSellNotes": "If customer wants premium upgrade, walk to position 1 (FPX 564 TV) or position 11 (Kingsman Bentley 39 \u2014 bread-and-butter). If wanting modern, position 10 (Kozy Nordik 48TL linear).",
+    "educationCardRefs": [
+      "gas_vs_wood",
+      "btu_vs_sq_ft",
+      "rockford_ignition"
+    ],
+    "displayCallback": "Position 4 \u2014 Kingsman value path; \"available_for_sale\" flag set in showroom register.",
+    "sampleTargets": [],
+    "salesNotes": "Kingsman value-direct-vent path. Available for sale (per showroom register). Add-ons (remote, fan kit, lighting, liner/media/front) are a la carte \u2014 verify before quoting. HBZDV3628N is part of the broader HBZDV family that Kingsman runs as their builder-volume core."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "medium",
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": [
+      "value_path",
+      "builder_volume_driver"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active Kingsman value display; available for sale.",
+    "displayPosition": 4
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Kingsman.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "kingsman-march-2026-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 4,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-note-apr22-1102-raw.txt",
+        "speaker": "Liam",
+        "quote": "Our most sold fireplace every single year by far."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

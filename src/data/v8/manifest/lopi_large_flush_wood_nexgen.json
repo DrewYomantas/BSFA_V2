@@ -1,0 +1,97 @@
+{
+  "unitId": "lopi_large_flush_wood_nexgen",
+  "schemaVersion": "1.0",
+  "productClass": "wood_insert",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "retrofit_existing_open_face_wood"
+  ],
+  "fuelType": "wood",
+  "ventType": "wood_insert",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "traditional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Existing firebox dimensions",
+      "Existing chimney height + condition",
+      "Liner requirement",
+      "Combustion air path"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Lopi Large Flush Wood Insert Nex-Gen",
+    "shortDescription": "A high-efficiency wood-burning insert for upgrading an existing open-face wood fireplace. Rectangle door, shadowbox face, one-piece panel.",
+    "bestFor": [
+      "Existing wood fireplace upgrade for real heat",
+      "Wood-burning customer (committed to wood)",
+      "High-efficiency requirement"
+    ],
+    "experiencePillars": [
+      "heat",
+      "wood_authenticity",
+      "efficiency"
+    ],
+    "styleHuman": "Traditional",
+    "sizeHuman": "Large",
+    "fuelTypeHuman": "Wood",
+    "pricingBand": "premium"
+  },
+  "rep": {
+    "verificationNotes": "Wood inserts almost always need chimney liner; confirm chimney condition during measure. EPA Nex-Gen compliance \u2014 current production.",
+    "liamVoiceCallback": "Travis Industries family \u2014 Lopi is one of their sister brands. We've got the relationship for 40+ years.",
+    "crossSellNotes": "If customer wants alternative wood insert: position 32 (Pacific Energy NEO 2.5), 33 (Travis Medium Flushwood), 34 (Lopi Answer). If wanting wood-to-gas-logs, walk to position 14.",
+    "educationCardRefs": [
+      "wood_burning_101",
+      "chimney_liner_requirement",
+      "epa_compliance"
+    ],
+    "displayCallback": "Position 31 \u2014 wood insert anchor; current Nex-Gen.",
+    "sampleTargets": [],
+    "salesNotes": "Lopi (Travis sub-brand) wood insert. Nex-Gen generation = current EPA-compliant high-efficiency. Strong wood-burning choice for customers committed to wood \u2014 pairs with chimney inspection/liner conversation."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "high",
+    "marginNotes": "Travis Industries family \u2014 strong margin per 40+ year relationship.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "wood_insert",
+      "travis_family",
+      "epa_current"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active Lopi wood insert display; Travis-family margin; current EPA-compliant generation.",
+    "displayPosition": 31
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Travis Industries.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "travis-lopi-sep-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 31,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

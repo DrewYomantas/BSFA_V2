@@ -1,0 +1,114 @@
+{
+  "unitId": "heatilator_icon60_hargrove_woodland_timbers",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace_plus_log_set",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "retrofit_existing_open_face",
+    "new_construction_open_face"
+  ],
+  "fuelType": "wood_then_gas_logs",
+  "ventType": "masonry_or_prefab",
+  "sizeTier": "large",
+  "styleAffinity": [
+    "traditional",
+    "rustic"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Front width",
+      "Front height",
+      "Front depth",
+      "Rear width",
+      "Hearth context",
+      "Gas line presence + entry point"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Heatilator Icon 60 with Hargrove Woodland Timber log set",
+    "shortDescription": "An open-face wood fireplace shown with a Hargrove gas log set drop-in \u2014 a teaching display for \"convert wood to gas logs\" customers.",
+    "bestFor": [
+      "Customer with existing open-face wood fireplace exploring gas-log retrofit",
+      "Wood-to-gas conversion conversation",
+      "Hargrove gas log education"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "realism"
+    ],
+    "styleHuman": "Traditional / Rustic",
+    "sizeHuman": "Large (Icon 60)",
+    "fuelTypeHuman": "Wood (current) or Gas Logs (retrofit)",
+    "pricingBand": "mid"
+  },
+  "rep": {
+    "verificationNotes": "For a gas-log retrofit, first determine masonry vs prefab, then get all dimensions (front W/H/D, rear W, hearth context), then confirm if gas is already present and where the line enters.",
+    "liamVoiceCallback": "Hargrove \u2014 we've been dealing with them for two decades. Their Woodland Timbers series is the number one best looking log set I have ever seen \u2014 and I've been to the HBBA show.",
+    "crossSellNotes": "If customer wants a gas-only insert instead of log set retrofit, walk to positions 21-30 (gas insert anchors). If wanting a new wood fireplace, position 18 (Supreme Astra 38) or position 20 (FPX 44 Elite).",
+    "educationCardRefs": [
+      "wood_to_gas_logs_conversion",
+      "masonry_vs_prefab",
+      "vented_vs_vent_free_logs"
+    ],
+    "displayCallback": "Position 14 \u2014 wood + log set teaching display. Compare with position 15 (Heatilator Birmingham 42B + Hargrove Pinnacle + Ironhaus door).",
+    "sampleTargets": [
+      "Customers with existing open-face fireplaces"
+    ],
+    "salesNotes": "Teaching display, not a single-SKU sale. Use this to walk a customer through the wood-to-gas-logs decision. The Icon 60 is the open-face wood box; the Hargrove Woodland Timbers set is the gas-log drop-in shown inside it. Realism + heat (radiant ceramic fiber) story."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "medium",
+    "marginNotes": "Gas log sets are accessory-tier margin; full retrofit (line work, install) adds labor revenue.",
+    "bisTrackRef": null,
+    "businessFlags": [
+      "teaching_display",
+      "wood_to_gas_path",
+      "hargrove_flagship"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active teaching display; closes the wood-to-gas-logs path. Hargrove is Benson's primary gas log supplier (Real Fyre carried but not displayed).",
+    "displayPosition": 14
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Hargrove.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "hargrove-2026-skus.json",
+        "note": "Look in vented_gas_logs.log_set_families[family_name=Woodland Timbers]. Candidate SKU WTS2418RG (24\", radiant heat, $859 dealer) per drew_notable flag."
+      },
+      {
+        "fileId": "<placeholder>",
+        "fileName": "heatilator-march-2025-skus.json",
+        "note": "Icon series in Heatilator legacy/wood line."
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 14,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [
+      {
+        "transcript": "voice-notes-batch2-insights.md",
+        "speaker": "Drew",
+        "quote": "We've been dealing with Hargrove for two decades. Their Woodland Timbers series is the number one best looking log set I have ever seen \u2014 and I've been to the HBBA show."
+      }
+    ],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

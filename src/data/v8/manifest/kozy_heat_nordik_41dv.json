@@ -1,0 +1,91 @@
+{
+  "unitId": "kozy_heat_nordik_41dv",
+  "schemaVersion": "1.0",
+  "productClass": "fireplace",
+  "lastReviewedDate": "2026-05-20",
+  "lastReviewedBy": "claude (audit-content sync pass)",
+  "codeFlags": [],
+  "compatibleSetups": [
+    "new_construction",
+    "remodel_replace_existing"
+  ],
+  "fuelType": "gas_direct_vent",
+  "ventType": "direct_vent",
+  "sizeTier": "standard",
+  "styleAffinity": [
+    "traditional"
+  ],
+  "customer": {
+    "customerSafeBadges": [],
+    "verifyAtHomeMeasure": [
+      "Wall opening",
+      "Vent routing"
+    ],
+    "mantelCombustibleNote": null,
+    "displayName": "Kozy Heat Nordik 41DV",
+    "shortDescription": "Kozy Heat's traditional direct-vent gas fireplace. Birch logs, screen front, black brick panels \u2014 calm and clean.",
+    "bestFor": [
+      "Kozy Heat brand preference",
+      "Traditional gas conversation",
+      "Clean traditional aesthetic"
+    ],
+    "experiencePillars": [
+      "ambiance",
+      "convenience"
+    ],
+    "styleHuman": "Traditional",
+    "sizeHuman": "Standard",
+    "fuelTypeHuman": "Gas",
+    "pricingBand": "mid"
+  },
+  "rep": {
+    "verificationNotes": null,
+    "liamVoiceCallback": null,
+    "crossSellNotes": "If customer wants modern over traditional, walk them to position 10 (Nordik 48TL linear). Both Kozy = unified brand story.",
+    "educationCardRefs": [
+      "gas_vs_wood"
+    ],
+    "displayCallback": "Position 3 \u2014 Kozy traditional. Compare with positions 10 (Nordik 48TL linear) and 28 (Nordik 29i insert) for full Kozy story.",
+    "sampleTargets": [],
+    "salesNotes": "Kozy Heat traditional display. Use this for customers who walk in asking for Kozy Heat by name, or as a Kozy alternative to FPX/Kingsman traditional. Birch logs differentiate from oak/charred competitors."
+  },
+  "internal": {
+    "displayDisposition": "active_display",
+    "displaySection": "first_floor",
+    "spiffAmount": null,
+    "spiffNotes": null,
+    "marginBand": "medium",
+    "marginNotes": null,
+    "bisTrackRef": null,
+    "businessFlags": [
+      "kozy_brand_preference"
+    ],
+    "recommendableStatus": "recommendable",
+    "recommendableStatusReason": "Active Kozy Heat traditional display.",
+    "displayPosition": 3
+  },
+  "sources": {
+    "brandCard": {
+      "fileId": "<placeholder>",
+      "fileName": "Kozy Heat.md",
+      "lastSynced": "2026-05-20T00:00:00Z"
+    },
+    "manualRefs": [],
+    "brochureRefs": [
+      {
+        "fileId": "<placeholder>",
+        "fileName": "kozy-heat-june-2025-skus.json"
+      }
+    ],
+    "displayRegisterRefs": [
+      {
+        "position": 3,
+        "source": "src/data/showroom/first-floor-displays.json"
+      }
+    ],
+    "cheatSheetRefs": [],
+    "bisTrackRefs": null,
+    "transcriptRefs": [],
+    "lastFullSourceSync": "2026-05-20T00:00:00Z"
+  }
+}

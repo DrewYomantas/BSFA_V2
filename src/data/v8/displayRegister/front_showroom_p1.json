@@ -1,12 +1,12 @@
 {
-  "displaySlotId": "front_showroom_p14",
+  "displaySlotId": "front_showroom_p1",
   "schemaVersion": "1.0",
-  "currentUnitRef": "heatilator_icon60_hargrove_woodland_timbers",
-  "currentPlacementId": "placement_2026_pos14",
+  "currentUnitRef": "travis_fpx_564tv_35k_deluxe",
+  "currentPlacementId": "placement_2026_pos01",
   "location": {
     "zone": "front_showroom",
-    "position": 14,
-    "subLocation": "front showroom \u2014 position 14 (wood + log set teaching display)"
+    "position": 1,
+    "subLocation": "front showroom \u2014 position 1 (anchor entry)"
   },
   "lastReviewedDate": "2026-05-20",
   "lastReviewedBy": "claude (audit-content sync pass)",
@@ -16,10 +16,10 @@
     "customerSafeBadges": []
   },
   "rep": {
-    "salesNotes": "Use to walk a customer through the wood-fireplace-to-gas-log decision.",
-    "coachingNotes": "Pair with masonry-vs-prefab diagnostic. Get all dimensions (front W/H/D, rear W, hearth context) before quoting.",
-    "dailyConditionNotes": "Display: open-face wood unit with Hargrove Woodland Timbers log set installed for teaching.",
-    "displayCallbackLanguage": "Shown at front showroom position 14 \u2014 wood-to-gas-logs teaching display."
+    "salesNotes": "Use as the lead-in for premium traditional Travis FPX conversations.",
+    "coachingNotes": "Walk customers from this position toward position 2 (4237) for larger room sizing.",
+    "dailyConditionNotes": "Display operational; pilot lit during sales hours.",
+    "displayCallbackLanguage": "Shown at front showroom position 1 \u2014 first anchor on the traditional path."
   },
   "internal": {
     "displayDisposition": "active_display",
@@ -30,8 +30,8 @@
     "recommendableOverrideReviewDate": null,
     "replacementCandidate": null,
     "businessFlags": [
-      "teaching_display",
-      "wood_to_gas_path"
+      "core_showroom_example",
+      "premium_traditional_anchor"
     ]
   },
   "sources": {

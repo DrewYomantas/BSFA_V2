@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Liam's May 2026 Field Rules",
+  "description": "Active governance rules captured by Drew on 2026-05-08. These should drive BSFA's Field Rules engine as warning/blocker rules. Source: Cowork Workflow V1.md (Drive ID 135npwOf6GJd4MyDVkh_KPR3usZ8BavFJ). The BSFA app's CLAUDE.md confirms a Field Rules safety layer exists at src/config/fieldRules.js with these 4 rules.",
+  "generated_at": "2026-05-19T05:00:00Z",
+  "version": "May 2026",
+  "applies_to_app_areas": ["Quote Review", "Quote Prep", "Proposal Prep", "Customer File", "Setup + Goal Lens"],
+  "rules": [
+    {
+      "id": "whisper_flex_required",
+      "rule_number": 1,
+      "title": "Whisper Flex required on Empire vent-free logs",
+      "severity": "blocker",
+      "applies_when": {
+        "vendor": ["empire", "white_mountain_hearth"],
+        "product_category": "vent_free_logs"
+      },
+      "required_action": "Add Whisper Flex line item to quote",
+      "part_numbers": [
+        {"part_number": "T1009898-12", "description": "Smaller Whisper Flex"},
+        {"part_number": "T1009898-16", "description": "Larger Whisper Flex"}
+      ],
+      "exception": "Hargrove already includes flex — does not apply to Hargrove vent-free or vented logs",
+      "internal_explanation": "Whisper Flex is the brand-specific flex connector required for Empire vent-free systems. Forgetting it leads to an incomplete order.",
+      "customer_safe_wording": "Standard install scope — no customer-facing language needed unless asked"
+    },
+    {
+      "id": "zc_gas_insert_acknowledgement",
+      "rule_number": 2,
+      "title": "Gas insert into ZC fireplace — permanent modification acknowledgement",
+      "severity": "blocker",
+      "applies_when": {
+        "appliance_type": "gas_insert",
+        "fireplace_type": "zero_clearance"
+      },
+      "required_action": "Get explicit customer acknowledgement BEFORE order is finalized — fireplace will no longer function as wood-burner; box is being cut and modified permanently",
+      "internal_explanation": "Installing a gas insert into a ZC prefab fireplace involves cutting/modifying the firebox. This is irreversible. Customer must understand and consent upfront — not after install starts.",
+      "customer_safe_wording": "We need to share something important about how a gas insert installs in a zero-clearance fireplace. The fireplace gets modified during install, so once we proceed, it can no longer be used as a wood-burning fireplace. We want to make sure you're comfortable with that before we order anything.",
+      "ack_fields": [
+        "zcGasInsertAcknowledgedAt",
+        "zcGasInsertAcknowledgedBy"
+      ]
+    },
+    {
+      "id": "millivolt_banned_rockford",
+      "rule_number": 3,
+      "title": "Millivolt ignition banned in Rockford city limits",
+      "severity": "blocker",
+      "applies_when": {
+        "ignition_type": "millivolt",
+        "project_location": {
+          "city": "Rockford",
+          "state": "IL",
+          "scope": "city_limits"
+        }
+      },
+      "regulatory_citation": "2024 IL Energy Code R403.13(1)",
+      "required_action": "Offer the IPI variant of the same unit + run electric to it",
+      "out_of_scope": "Outside Rockford city limits: still allowed for now",
+      "watch_list": "Winnebago County is following — timeline TBD",
+      "internal_explanation": "Rockford adopted 2024 IL Energy Code section R403.13(1) which prohibits standing-pilot ignition systems in new gas appliance installs.",
+      "customer_safe_wording": "Per the current Rockford energy code, the standing-pilot version of this unit isn't allowed. The electronic-ignition version is the right path — it'll need power run to it, which I can include in the quote."
+    },
+    {
+      "id": "irtax_header_on_installs",
+      "rule_number": 4,
+      "title": "IRTAX header on every install order",
+      "severity": "warning",
+      "applies_when": {
+        "order_type": "install_order"
+      },
+      "required_action": "Switch order header to IRTAX before order is finalized",
+      "internal_explanation": "IRTAX is the order-header code that triggers Rockford install-tax handling in BisTrack. Setting it after the fact creates corrections.",
+      "customer_safe_wording": "Internal-only — no customer-facing language"
+    }
+  ],
+  "behavior_in_app": {
+    "engine_location": "src/lib/fieldRules.js (per BSFA CLAUDE.md)",
+    "config_location": "src/config/fieldRules.js (per BSFA CLAUDE.md)",
+    "card_component": "src/components/file/FieldRulesCard.jsx",
+    "mounted_on_screens": ["CustomerFileScreen", "SetupGoalLensScreen"],
+    "finding_statuses": ["triggered", "cleared", "satisfied", "soft-warning"],
+    "banned_phrases_in_customer_safe_text": [
+      "cost",
+      "margin",
+      "supplier",
+      "OCR",
+      "BisTrack confidence",
+      "fuzzy-match",
+      "ready to send",
+      "proposal ready",
+      "customer ready",
+      "approved"
+    ],
+    "scrub_function": "scrubCustomerSafe (refuses to publish string violating banned-phrase rule)"
+  }
+}

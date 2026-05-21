@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hearth Pricing — Limestone & Bluestone",
+  "description": "Canonical hearth/mantel material pricing for fabrication. Source: 'Harth Pricing.pdf' (uploaded 2026-05-19). Matches Liam Audio Transcript exactly ($48/sqft for 2-1/4\" limestone, $40 per angle cut) and extends with full table. BSFA can use this to compute base hearth/mantel pricing from dimensions.",
+  "generated_at": "2026-05-19T13:00:00Z",
+  "source_pdf": "Harth Pricing.pdf",
+  "verified_against": "LiamAudioTranscriptBisTrackQuote+Math.txt (matches exactly for 2-1/4\" limestone @ $48 + $40 angle cut)",
+  "currency": "USD",
+  "base_pricing": {
+    "limestone": {
+      "2.25_inch": {"thickness_label": "2-1/4\"", "thickness_inches": 2.25, "price_per_sqft": 48},
+      "3_inch":    {"thickness_label": "3\"",    "thickness_inches": 3.00, "price_per_sqft": 64},
+      "4_inch":    {"thickness_label": "4\"",    "thickness_inches": 4.00, "price_per_sqft": 82}
+    },
+    "bluestone": {
+      "2_inch": {"thickness_label": "2\"", "thickness_inches": 2.00, "price_per_sqft": 60}
+    }
+  },
+  "option_pricing_scope": "Options below are VALID ONLY for 2-1/4\" limestone. For 3\"/4\" limestone or 2\" bluestone option pricing, ESCALATE TO PAUL.",
+  "options_2_25_limestone_only": {
+    "angled_cuts": {
+      "price_per_cut": 40,
+      "examples": [
+        {"cuts": 1, "price": 40},
+        {"cuts": 2, "price": 80}
+      ],
+      "notes": "Each angle cut counts separately. Liam transcript example: Freeman hearth had 2 angle cuts = $80 added."
+    },
+    "radius_corners": {
+      "small": {
+        "max_radius_inches": 2,
+        "price_per_corner": 50,
+        "example_2_corners_price": 100
+      },
+      "large": {
+        "min_radius_inches": 2,
+        "exclusive_lower_bound": true,
+        "price_per_corner": 80,
+        "example_2_corners_price": 160
+      }
+    },
+    "notches": {
+      "small": {
+        "max_size_sq_in": 36,
+        "price_per_notch": 50,
+        "example_2_notches_price": 100
+      },
+      "large": {
+        "min_size_sq_in": 36,
+        "exclusive_lower_bound": true,
+        "price_per_notch": 75,
+        "example_2_notches_price": 150
+      }
+    },
+    "round_holes": {
+      "small": {
+        "max_diameter_inches": 2,
+        "price_per_hole": 50
+      },
+      "large": {
+        "max_diameter_inches": 6,
+        "exclusive_lower_bound_inches": 2,
+        "price_per_hole": 80
+      }
+    },
+    "square_holes": {
+      "small": {
+        "max_size_inches": "4x4",
+        "price_per_hole": 100
+      },
+      "large": {
+        "max_size_inches": "8x8",
+        "exclusive_lower_bound": "4x4",
+        "price_per_hole": 150
+      }
+    },
+    "cutouts": {
+      "price_per_cutout": 130
+    },
+    "radius_edge": {
+      "front_edge_price": 130,
+      "applies_to": "radius front edge treatment"
+    }
+  },
+  "calculation_formula": {
+    "base_fabrication": "(width_inches * depth_inches) / 144 * price_per_sqft (from base_pricing matching material/thickness)",
+    "options_total": "sum of all applicable option prices from options_2_25_limestone_only",
+    "subtotal": "base_fabrication + options_total",
+    "buffer_recommendation": "Liam adds ~$18-20 buffer to round up — common rep practice but NOT documented in the PDF",
+    "final_pricing": "subtotal + optional_buffer",
+    "important_note": "All option prices are IN ADDITION to base sq. ft. price."
+  },
+  "worked_examples_from_liam_transcript": [
+    {
+      "label": "Freeman hearth",
+      "material": "limestone",
+      "thickness": "2-1/4\"",
+      "dimensions": "96\" wide × 16\" deep",
+      "options": ["2 angle cuts"],
+      "calculation": "(96 × 16) / 144 = 10.67 sqft × $48 = $512 base + $80 (2 angle cuts) = $592 subtotal + ~$18 buffer = $610 final",
+      "final_quoted_price": 610
+    },
+    {
+      "label": "Freeman mantel",
+      "material": "limestone",
+      "thickness": "2-1/4\"",
+      "dimensions": "96\" wide × 14\" deep (built up 4\" since fireplace recesses 4\")",
+      "options": ["executive decision around corners (radius corners, exact pricing TBD by Liam)"],
+      "calculation": "(96 × 14) / 144 = 9.33 sqft × $48 = $448 base + buffer",
+      "notes": "Drew labeled it 'Indiana Buffalo Stone mantle 96 inches wide, 2.25 inches thick'"
+    }
+  ],
+  "open_questions": [
+    "What's the standard buffer amount Liam adds? Transcript shows $18-20 added but no fixed rule.",
+    "How are mantel corbel / frame-pocket-support charges calculated? Transcript mentions they're needed for limestone mantels (heavy, needs support) but no pricing.",
+    "What's the 'Paul' escalation procedure for 3\"/4\" limestone and bluestone options? Direct phone call? Specific request format?",
+    "Is there a minimum job size for fabrication?"
+  ],
+  "verification_needed_with_liam_or_paul": [
+    "Confirm this PDF is the current pricing (last revision date not shown in PDF)",
+    "Confirm 'Paul' = Paul Benson (VP) for escalation on thick limestone/bluestone option pricing",
+    "Confirm corbel / frame-pocket support pricing for mantel installations",
+    "Confirm whether there's a 3-inch or 4-inch option pricing sheet that just isn't here"
+  ]
+}

@@ -1,0 +1,577 @@
+So?
+
+[Speaker 1]
+I'm going to create an order for this Grill, all right. So, this is where we are. These are my notes for what it is from this desk, um. We are going to create an order.
+
+Now, I don't know. If this is going to be delivered or not, so I'm going
+
+[Speaker 2]
+to call actually. Let me just call him real quick.
+
+[Speaker 1]
+Look at all the questions out of the way you get all the questions out of the way so I can wrap this up.
+
+This guy's a talker, okay?
+
+[Speaker 3]
+Hey, this is Liam from Benson Stone companies. This, Mr Miller. Yeah, Liam. Hey, hey, thanks for answering here. Um, I'm I'm Trish, Dre. Because Jonathan's still out today, he's back tomorrow. So, I'm trying to write this up for you today so we can get this order today.
+
+[Speaker 1]
+And I just have a couple of quick questions for you. Um, so I, I went to Jonathan's desk and found all of his notes for the accessories he wanted, but she just gave me a note, saying, that's all you're looking for, is the grill
+
+[Speaker 4]
+the grill.
+
+[Speaker 5]
+You
+
+[Speaker 6]
+know sixteen thousand dollars worth of credit company, but uh, you know, elbows won't be able to find, uh,
+
+[Speaker 5]
+one account that I still you know, need to get a balance available. Credit minus hey, knock it off. So, I told her just to do the grill in the grill cover.
+
+Charge it through in the synchronym, the balance I'll pay with the credit cards or so, the remaining balance okay, understood, okay. And then, are you looking for delivery, uh, to your Mundalin address? Yeah, yeah, he told me a, uh, delivery, and set up with the 150
+
+[Speaker 1]
+okay, sounds good. Okay, well, I just wanted to clarify all that. Well, then I will get this written up and I will send you a receipt after she runs the financing. And I'll CC Jonathan in the email, so he's kind of up to date on all of it when he gets back.
+
+But I just wanted to confirm all that stuff with you.
+
+[Speaker 5]
+What's the best price you could do on the grill? I
+
+[Speaker 4]
+haven't even started I putting it into an order yet. I just got all the notes here and kind of wanted to knock this out for you because I, he told me that you were really looking after it. I haven't even started that yet. Yeah, yeah, oh, okay, okay, all right, yeah, you could, just, yeah, just, uh, call me, uh.
+
+Uh, when you know I have my phone on man will do? Sounds good. I'll give you a call here. Maybe in about an hour or so,
+
+[Speaker 3]
+all right. I got a little time, so okay. I appreciate it. All right. Thanks, sir. Bye.
+
+[Speaker 5]
+What do you mean best price? There's no best price, the price, the prices,
+
+[Speaker 1]
+the best price. Well, uh, MSRP, that is a pretty expensive Grill he's ordered, but, uh, so he's not in the system.
+
+[Speaker 7]
+So, we're going to add them
+
+[Speaker 1]
+to the system. Now, we've got a bunch of crazy notes here. So, we're going to kind of compile them here. So, adding to the system, it's new Alias. The code is pretty much just their first and last name and lowercase. So, we're going to need Jeffrey Miller. And then the names Jeffrey Miller.
+
+[Speaker 7]
+Jeffrey Miller, all right, and then his address. I've got a partial down here, so I always like to go to Google just because sometimes it can get incorrected, so I just type what I have okay into Google.
+
+[Speaker 1]
+All right, and then I just copy and paste off of Google. That way, I know, it's correct. Yeah, yep, makes sense. It's just the easiest way. Then, it all comes in one, and then you kind of gotta go down from there. Where is this a lady that just checked out here.
+
+She said she was from Mundelein. I've never heard of this place, and now it's twice in one day really.
+
+[Speaker 5]
+Online's cool. I went there for a retreat once there's like a
+
+[Speaker 1]
+young men's Retreat there that I went to okay.
+
+[Speaker 5]
+But it's like a it's a quite it's a quaint little town. Is
+
+[Speaker 6]
+it?
+
+[Speaker 1]
+It's a. It's kind of not, not really in the suburbs, but it's
+
+[Speaker 5]
+off East, though, like, yeah, it's definitely off East. Okay, I guess you could call it a suburb. Technically, that's where it's at. Oh, okay.
+
+[Speaker 2]
+Uh, East Crystal Lake south of McKenna country. Yep, it's a quiet town. I know that I've been there a couple times. Huh? Yeah, that was just ironic because the lady who was, yeah, I haven't heard him underlined in a very long time until today. Now, I've heard it twice twice.
+
+Yep. It's a nice little Tom. He must do golf courses, and this there's a big university here. Oh, God, Chapel of Immaculate Conception, and they have like Retreats here and everything. So, gotcha Banks and everything. It's pretty cool. That looks nice. But, uh. But yeah, so we've got the address in.
+
+And we've got his telephone is?
+
+What the hell? I called this. Yeah.
+
+[Speaker 1]
+But then she wrote down this. What if he has, like, a it's not even complete? Yeah.
+
+[Speaker 2]
+Yeah,
+
+[Speaker 1]
+just go off the one that he answered.
+
+[Speaker 7]
+Yeah, that, uh, another one's like longitude and latitude. Yeah, apparently, that's his address. But on Google Earth, yeah?
+
+[Speaker 2]
+So you type the phone number in there. Looks like we do have an email. Yeah, it's a Von Miller.
+
+Kennels. He owns a canine security company, whatever that does. Oh, okay.
+
+[Speaker 3]
+Uh, comcast.com, no comcast.net. Holy cow, everyone's just texting me.
+
+[Speaker 2]
+Okay, let's see, be honest to me. Do you think I would look better in blue or yellow? Okay, that can wait.
+
+[Speaker 1]
+So, we've got all of his information in here.
+
+[Speaker 2]
+Hit okay, pulls up. Now, we're going to add the Grille, and this is just so we know it's getting delivered. So, it's a delivery for customer reference is going to be a. Uh, Napoleon. Prestige. 665. Elite.
+
+Salesperson. It's Jonathan sales object from the credit, even though I'm doing my work. It's taking time to be. I have to do this sometimes. The phone number's up there, but down the phone.
+
+[Speaker 7]
+Anyways, all
+
+[Speaker 2]
+right, so we've got the customer reference is just a description. What it is now if we were installing this Grill, it would be inst if it was a service call. It would be SVC, but we're just delivering it something you know you can put. To live, you know? That way, it's a delivery.
+
+Beautiful name, whatever? Um, and we know he just wants the grill in the cover, so I don't want to too lazy to get up and grab the book, so I'm only in just go to there. Yeah,
+
+[Speaker 1]
+stage Pro. 665 Elite.
+
+[Speaker 2]
+This is what he wants. It's pretty, it's a decided girl. Yeah.
+
+[Speaker 1]
+Are it, although it's like, oh, it's a big grill, maybe get a discount? It's like our cost is going to be like four grand,
+
+[Speaker 2]
+so it's like you, what you know, discount. We're in this business to make money. Yeah, um. And then maybe I'll give him a cover for free or something.
+
+[Speaker 1]
+Sure, that's
+
+[Speaker 2]
+that'll be my deal. Um, but I'm not giving him anything off of MSIP. Plus, it hurts Jonathan's margins. I don't want to do that, right? Yeah, if they didn't talk about it performance, like, don't just, yeah, because you're talking to the manager doesn't mean that you're getting a disc.
+
+That's the other thing, too. People will think working with the manager like, you get special deals. No, okay, right? No, no, no. So, this is the item code I guarantee. We don't have this in our system, but I'm going to double check. You do not have it in our system, so if we don't have an item in our system, do you know the code?
+
+Is that the?
+
+[Speaker 1]
+Fp. When we're adding an item into our into our system, so?
+
+To do or just copy?
+
+[Speaker 2]
+That paste. Napoleon Prestige Pro 665 Elite NG for natural gas. You're just writing the description of it
+
+[Speaker 1]
+and
+
+[Speaker 2]
+then Dash. Then you put the part number.
+
+Back there, and then the MSRP is 57.49.
+
+When I'm quoting something like this, I always like to check Google anyway, just because sometimes that bullion has like a displayed sale that I don't know about. Yeah, yep. Well, I don't keep up with it. Maybe, so they saw a sale online and won't be having that, but? This comes with a rotisserie kit.
+
+It says here he wants a rotisserie, but it comes with a rotisserie kit. Um. What are these notes? I'm gonna go throw that away actually. Um. This is Jonathan's. He wrote down 125 for delivery, but he said 150 so weird, then we'll go with 150. I like that idea a lot better.
+
+Hello!
+
+[Speaker 7]
+Okay, do.
+
+[Speaker 2]
+Do you know if it's if it's, uh, just because I'm I'm trying to do that one for that guy? And I've gotta no. I'll go out there and verify with them. It's all right, all right. The customer here, who's looking to redo this fireplace, and it might just be stone work, and sometimes I'd like to help them.
+
+But something like today? Um, we see if we can send them to Gordon. Okay?
+
+[Speaker 7]
+How are you okay? Uh, what are you looking at in my house? I've got a.
+
+[Speaker 6]
+For your place. That's because I'm afraid, okay, I just want to make it look a little better. I don't even care if I can use the fireplace. Oh, we got a couple pictures. Is all I took?
+
+[Speaker 7]
+And just maybe an idea. This is what we look like
+
+[Speaker 8]
+now. Okay, of
+
+[Speaker 9]
+course. This
+
+[Speaker 8]
+is all dirty in the show, even the stones that go on top of here are off, and that's 30 down there. Yeah, this is carpeting. It probably needs to be placed. Okay, it's carpet, maybe a molding or something there. Yeah, and how can I get rid of the wood there?
+
+Do you know what would be underneath that?
+
+[Speaker 1]
+Don't. Unfortunately,
+
+[Speaker 7]
+they could. It looks like I, I will say, it does look like it's a masonry fireplace, so I'm assuming it's built up cinder blocks,
+
+[Speaker 9]
+um, majority of them. Are you mean all the way all the way all the way there, and that's just covering up the black.
+
+[Speaker 7]
+Yeah, because it's amazing fireplace, so I know there's Cinders behind the brick.
+
+[Speaker 2]
+Most of them
+
+[Speaker 7]
+that I've seen majority of them, if not all. They're cinder black storm kind of the whole encasement of the masonry fireplaces
+
+[Speaker 9]
+and give me an estimate and tell me what depends what you're looking for. Um, you know, you're
+
+[Speaker 7]
+not looking for anything with the fireplace, right? You're just looking kind of the the stone work around it, right?
+
+[Speaker 9]
+Well, yeah, maybe clean it up or something like that. When you get, you know, when we do it or something like this to make it look good, I don't even care if I use it. Okay, well, I mean.
+
+[Speaker 8]
+We could come out there, but it'd be it. We try not to come out there until we have, like, some idea of, like, what we're gonna go with.
+
+[Speaker 7]
+Um, that way, when our project manager does come out there, he kind of has something to advise on and look at. So, are you when you say clean it? Like, are you talking about keeping the brick on the bottom there, or are you up to kind of debate?
+
+[Speaker 9]
+I don't know. Can that stuff be clean the brick? It
+
+[Speaker 7]
+can be, um, you know, we? There's a, there's a special cleaner that they have for it, that you put it on there, and you scrub. Yeah, um, and it can be clean. Now, it's never gonna look new by any means, but it can be clean. Um, but there's no guarantee it's going to be pristine or to your liking, you know, but there is cleaners Stone.
+
+[Speaker 2]
+Yeah, it looks like they got some sort of limestone.
+
+[Speaker 9]
+It's so loud, like a slight
+
+[Speaker 2]
+yeah, a
+
+[Speaker 9]
+slate board or slate stone or something. Yeah, because it's machined oil on, yeah, I mean, yeah, ground, or whatever you call sure.
+
+I know what we can do. Is that carpet? What is? That's the same carpet it's just oh against there, I see. And there's there's bricks behind it. Okay, it's just glued to it or it's not glued. It'll pull right off. The problem is, you can really do whatever you want.
+
+It just depends on which money you want to spend, but I mean, you can pull everything off there and restone it. Or you can, you know, Stone?
+
+[Speaker 2]
+You can definitely
+
+[Speaker 8]
+pull the this. Whatever this kind
+
+[Speaker 7]
+of looks like, some
+
+[Speaker 9]
+Nutty Pine or something
+
+[Speaker 1]
+like that, it's
+
+[Speaker 9]
+been painted. It's been painted. Um, you can remove that potentially. And do you know you can do a mantel and wrapped it's you kind of there was, there's two stones
+
+[Speaker 5]
+that go on top of here. They're just kind of stone, yeah, up there, but they, but whatever, hell, the line is over. The years, come on. Okay, I've only lived here 48 years, and they've been off ever since I've lived it. Oh, really? Um. What city are you located in Chelsea?
+
+Okay, you're you're local, I'm right down over there. Okay, right across.
+
+[Speaker 6]
+Oh, we're across from that wood part. Yeah, oh yeah, okay. Anyway, Chuck Howard lives the big mansion. Yeah, on the 11 Health to Salvador, there you go nice. Well, mine's not nothing like that. No, not quite. Yeah, we'll get you there. You can see that by the picture. So?
+
+[Speaker 7]
+I don't know where to go. I mean, I don't know what can be done or what?
+
+[Speaker 6]
+Whoa, you're kind of a. You're kind of a blank canvas. It just depends on what you want to spend on it or what, because, like you mentioned, you mentioned this part 80 years old, come on.
+
+[Speaker 5]
+Yeah, that's what's up to you, man, it's um, you know. Like, when you're saying? Freshen it up, you know, clean it.
+
+[Speaker 4]
+It looks trashy, right? It just, yeah, it looks a little incomplete, you know? It's like the wood in the wood, yeah? So, would you be thinking about? Doing Spike. Something else other than wood, like, almost plaster. Yeah, I was just gonna say the best way to go about. It would be to take that off put.
+
+[Speaker 2]
+Drywall up there and get it finished. And you know, you're good to go from there. We, the fireplace department, doesn't do any drywall work. Could you do your drywall or whatever up against that the whatever the stone that's there?
+
+[Speaker 7]
+If
+
+[Speaker 4]
+you say, there's Stone behind there.
+
+[Speaker 2]
+The cinder block, yeah, you would have to. You would glue what you would put the.
+
+[Speaker 4]
+Uh, drywall onto it. Yes, it would
+
+[Speaker 2]
+be screwed into it, and then you would finish on. From there, you have mud, tape, and paint and then finish, but? It's kind of a bit of a blank canvas here.
+
+[Speaker 9]
+It's almost like, do you want a Band-Aid, or do you want to? Do the whole Band-Aid pretty much? Yeah, yeah, there's a couple more pictures here. There's a side, oh, it's pretty deep. I see the carpet how it's pinned up against that.
+
+[Speaker 4]
+I'm velcroated and taped it and doubled carpet tape. Hmm, I don't remember what was there before I got that carpeted. Is there another picture you sent me? This is the other side, which is barely. Yep, that's not it. You must be the other one. There you go.
+
+[Speaker 2]
+It's interesting, I've never seen an exact. There's just a lot of recessed and. And there's a ledge there, but I'm one. Like, I say, there's two stones that go on top of there that are just like the base down there, but they're only about that white.
+
+[Speaker 5]
+But did you
+
+[Speaker 2]
+want to keep that base?
+
+[Speaker 5]
+Are you serious necessarily?
+
+[Speaker 1]
+Yeah, because I would,
+
+[Speaker 5]
+I would. That's one thing that I'm kind of like a like a I'd say Marvel or something like that over the top of that one or take that one out. I would definitely take that
+
+[Speaker 2]
+out and then do a piece of limestone, but then I'm thinking, what are you doing where the carpets at because maybe just put baseboard molding there or something like that and paint it the same color as the walls or something like that could do that? Yeah, you could.
+
+[Speaker 5]
+Thinking, pull that off. Pull that off. Yeah, a little piece of limestone.
+
+[Speaker 2]
+Some sort of molding to finish that off. Definitely gonna need this recocked?
+
+[Speaker 5]
+And then I don't know what you would do with a mantle. Or you could even do the same piece
+
+[Speaker 2]
+of stone that you do the stone on the mail here. It's so if you look at the front of it, it's just filthy, and I don't think that'll clean.
+
+[Speaker 4]
+So it'd probably have to take that layer off. You just take the top layer of those bricks all your way. Good? And then pull off the board and then do trimmer board up to maybe a cut a pocket in there and do a limestone.
+
+[Speaker 5]
+You know what? I'll tell
+
+[Speaker 2]
+you what. What is your
+
+[Speaker 5]
+name? This is
+
+[Speaker 2]
+true. Uh, he's in training and he's kind of showing him this here.
+
+[Speaker 8]
+For something like this, why don't I
+
+[Speaker 10]
+get your information and set up a time for our project manager to stop by?
+
+[Speaker 6]
+Um,
+
+[Speaker 4]
+like my fiance to be there too. At the same time,
+
+[Speaker 1]
+design help. Yeah,
+
+[Speaker 4]
+she knows more. What? I can't tell her what she wants.
+
+[Speaker 1]
+Yeah, I would be impressed if you could. She don't
+
+[Speaker 4]
+like that fireplace at all. She don't like the wood, sure, sure. Yeah.
+
+[Speaker 2]
+Maybe we can set it up for the same day that you're going out to Black? Maybe, and you could just go to that one and that one and knock
+
+[Speaker 3]
+them out with Rodney.
+
+[Speaker 2]
+Um, I'll have to confirm what Rodney that that's okay, of course. Um, once you grab your notepad, absolutely, you can grab this information. What he'll do is he's going to get out, just want your name, phone number, and address for you. And then I will talk with my project manager.
+
+He's on a job site right now, um, and then get together with him on a date that he can come out there and I'll have Drew go with him so we can kind of facilitate some some notes for it as well. Sure, it'd be easier if I wrote, yeah, it would be right, you know, your information better than I do?
+
+[Speaker 1]
+I always have them ready because my head is so bad. Yeah, you know what, I guarantee their handwriting is better than mine. Yeah, I'm just gonna I'm printing it. How's that? That's perfect. Yeah. Oh yeah, I'm left-handed, so all my life whenever I write, even if it's nice. It should be a little smudge.
+
+Yeah.
+
+[Speaker 2]
+There we go. Oh, hey, you got
+
+[Speaker 4]
+me adventure
+
+[Speaker 7]
+name, address, phone number, perfect. Yeah, why don't you throw your email in there just in case. Um, because sometimes for
+
+[Speaker 8]
+keep a digital record going, just in case you need to say, no, I got it, right? This is huge, oh boy. First, last name birthday, gmail.com, yep, yeah.
+
+[Speaker 2]
+All, right. Well, thanks for your time out. Yeah, of course. Thank you. We're in touch soon there. We gotta set it up when she's going to be able to. One way to find out, right? Push the call button.
+
+Holy!
+
+[Speaker 1]
+Benson Stone company. This is Liam speaking. How can I help you today?
+
+[Speaker 3]
+Riley and my name is Steve Hass. My wife and I marry had visited, uh, your your store there. When was that left about a week ago, and we had talked to Jonathan and we were looking at wood stoves with we. We like the elderly, t4le wood stove that you had on display there.
+
+Yeah, and when he was writing us up an estimate he, he realized that the new ones were going to be quite that was the last one they had. Yep, and then the new ones were going to be higher. Yeah. And we want to think about it, but we have been trying to get all I, I'm so sad to hear.
+
+He has some type of an accident or something, but if that floor model is still available, we would like to speak for it. Yeah, no, I,
+
+[Speaker 7]
+I totally understand. Yeah, I do apologize, obviously, I'm foreseen. But yeah, he should be back tomorrow, but nonetheless, for right now. I can definitely put that unit on hold for you. I remember him asking me about if he could sell that display model or not, or if you can quote it whatever.
+
+And that's when I explained the situation about how there's the the version two models that came out, and that's the version one. Yeah, I'd be happy to sell that at a better price. Um, and yeah, and he did mention that I, I do recall this being a situation so.
+
+All I need is your last name, and I can put that unit on hold for you. Okay, our last name is Taz h-a-a-s. H-A-A-S. Correct. Oh, like, the Tory component I see. Well, yeah, the haas. Yep.
+
+[Speaker 3]
+And they're Steve and Mary, and uh, we had discussed them coming out okay. He has a quote number 74365.
+
+[Speaker 2]
+Said seven, four, three, six, five, yeah. With 424-26.
+
+Let me pull that up here.
+
+[Speaker 1]
+Tim Johnson's, okay?
+
+[Speaker 7]
+Me too. Trust me because I'm sure I'm I'm holding off his his word. So, yeah, I, I do, too. Trust me. Okay, good. Uh, yeah, I've got the call pulled up here. Yep, I see it. Okay. And then, uh, we. We don't know at this time if we're going to.
+
+[Speaker 4]
+Uh, want the floor fan the heart heart pad. We may have our Stone Mason make one, so we have. Homework to do someone answered questions if we would like to lock in that that, uh, remaining floor model?
+
+[Speaker 5]
+Yeah,
+
+[Speaker 4]
+so
+
+[Speaker 5]
+no, absolutely. Yeah, consider that done. I, I, I appreciate you you, giving us a heads up on that, and I will make sure that that is not sold to anybody else, but you. Okay, and then we, we're talking to our general contractor as far as we talked down about when they could come out and do some measuring ahead of time.
+
+Yeah.
+
+[Speaker 4]
+And we're still trying to determine whether we have the drywall worked on first or have it have the stove done. Yeah, we got to maybe do some flooring work before the sorry, you know, a hardwood floor, but I'm sure if you would want that at least, but even if not the drywall, would you want have that flooring?
+
+So our our timing isn't definitive yet, sure. But we definitely would like to know if we can lock that that sole burner if we need to look some more. Yeah, no,
+
+[Speaker 5]
+that consider that stove locked, um, as far as as far as the the, you know, the Hearth pad and all that I see he's got. He's got like a placeholder section for a hearth pad for you, uh.
+
+[Speaker 3]
+On the quote, which is fine. But yet, you know, it's just, I don't know the total, you know, I'm, you know, just coming in out of left field here, so I don't know the whole
+
+[Speaker 7]
+scope of the job or anything. But, yeah, definitely coordinate whatever you're doing with the heart, you know whether or not you're you're having your stonemason build one or whether or not you're gonna do a pad coordinate with that with the flooring, because that that tends to be an issue where people don't coordinate those two things together.
+
+And you know, they kind of bump into each other, but you know, make sure that you know if you're building one or setting one that your flooring can go up to it, or if you're doing the flooring before, Etc, usually the. Doesn't go in until after the pad is built or set.
+
+That way, you're not, you know, building on top of brand new hardwood.
+
+[Speaker 4]
+Boring. This is the old, original 1880s flooring that we just need to sand and refinish. Oh, that's pretty cool. Okay, yeah, so we don't want to. Uh, have to like, stop the sanding. Yes, yeah, definitely. Want the heart of that? I think to go on top of the, I think we'd want to have the whole expanse of flooring to work on it, because without having to work around the heart pad, you know what?
+
+I'm saying that does make sense. Yeah.
+
+[Speaker 3]
+One more question for you with our understanding that Ben and back of the stove. They're, they don't even require a backing or a fireproof backing between the back of the stove and the wall.
+
+[Speaker 7]
+Yes,
+
+[Speaker 3]
+designated distance requirement. Is that right, you got that exactly
+
+[Speaker 7]
+correct? Yeah, there's a minimum clearance that you need to be away from it, but as long as you hit those clearances, yeah, you do not need a non-combustible backing correct. With me. When the pipe goes up through, so we would have it be going up through two ceilings, you know?
+
+[Speaker 3]
+That we would go up through the ceiling to the second floor and then up through the second floor's feeling to the roof where it crosses the the joy, you know, where it goes in between the floor joists and stuff? Yeah, there's some sort of special. Insulation or not insulation, but protection or whatever?
+
+Oh yeah,
+
+[Speaker 7]
+yeah, it's called the support box. Yeah, it's called a support box, and it acts as a support for the pipe as well as a fire stop. Um, and then, when you uh when you go through?
+
+The second, well, well, first when you go through the first ceiling, and it's the floor of the second floor, right? Am I understanding this correctly, right?
+
+[Speaker 3]
+Yeah,
+
+[Speaker 7]
+there's a collar trim that goes on the on the bottom of the pipe on the wall. I'm trying to say this correctly on the floor of the second floor. There's a collar that surrounds it, uh, but yeah, underneath there. There's a support box that you'll see from the first floor.
+
+Um, that is a that is a supports the weight of the pipe as well as is acts as a fire stop. And yeah, it's it's insulated as well.
+
+[Speaker 3]
+Okay. And then, because we were going to do the double wall, one I think anyway. And then. So, then it goes through the second floor ceiling with the same kind of support box, I'm sure right along, something that would keep the insulation away from it. So kind of a, an attic insulation Shield is what it's called, yes.
+
+And we haven't installed the insulation yet, so it'd be handy to have that done before the insulation goes in. I think it would be anyway, but then it. Once it goes through the roof, then we have the stainless steel kind. Is that correct? Yeah, it's going to be well,
+
+[Speaker 7]
+so it's black pipe up up in the first first floor as you're looking at the stove. It's black pipe up to the ceiling. Then it transitions to a galvanized steel pipe, insulated steel pipe on the second floor, and once you poke through the roof and you're exposed to the outside, then it is a stainless steel Class A chimney.
+
+[Speaker 1]
+Okay,
+
+[Speaker 3]
+there's a reason for the galvanized because we wanted to look decent when it comes through because it's going to be in the bedroom. Yeah, it's
+
+[Speaker 7]
+the reason for the galvanized is to save you money because you don't need to have stainless steel inside. Now you can, but the galvanized is cheaper than the stainless. It looks the same, but it's galvanized and not stainless. Um, and galvanized is just a cheaper Class A, then it's just more cost effective to you because it's not made out of stainless, obviously.
+
+So, you don't need to do stainless, but it looks the same.
+
+[Speaker 3]
+But would it be double insulated? Yes, yeah, yeah, it's. It's, it's got an inch of insulation all the way around it. Yeah. Okay, and then it so. But that one is black on the first floor, right? Will it still be a blackish? It's a black
+
+[Speaker 7]
+pet. So, yeah, I'll just go through it real quick one more time. Just so, I'll say it a little bit more descriptive. So, like the, the black pipe on the first floor? What's exposed?
+
+Exposed on top of your roof.
+
+[Speaker 3]
+Okay, I see, I gotcha, but, but the color of it on the second floor would still be whatever we want. I mean, the galvanized, it would be, uh, like a silver steel color, yeah. Okay,
+
+[Speaker 7]
+now if if you really wanted to get fancy with it, you could sand that and paint it. But it's not made to take paint, so you gotta kind of go with a really aggressive grit sandpaper and paint it, and it may not look perfect so. I've never done it where they've painted it.
+
+I've always just had the steel kind of pipe looking out there now, but like I said you could sand it and paint it, but that's a little bit more labor intensive, but anyways.
+
+[Speaker 3]
+Just peel off, but I'm just concerned about how it might look and our. In this bedroom, you know, we're just redoing everything, sure. Oh yeah, so then, uh, it was our understanding. Your crew does all the installation. Yep, we are throwing through. That's good. That's good. Our general contractor like that, okay, they usually do.
+
+They don't like messing with wood stuff. Kind of encourage us a little bit, but uh, we used to burn wood and their sole sorts of heat at one time. So, anyway, thank you for taking your time and reassuring that that stove is there, and our name is on it.
+
+And yeah,
+
+[Speaker 7]
+I'll let Jonathan know that you called today as well, and I'll leave a copy on, uh, kind of some notes on his desk for him to follow up with you on. Okay. Very good and should have our contact information and he get older if he has any questions or or need a down payment or whatever.
+
+Absolutely. We'll do. Thanks a lot. Appreciate it. If you feel better about it all, right? Well, good. Take care guys. We wish Jonathan the best. Thank you, of course, me too. Take care, bye!
+
+Who's that recording? Yeah, good.

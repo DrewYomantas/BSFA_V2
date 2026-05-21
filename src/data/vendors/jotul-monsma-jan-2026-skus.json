@@ -1,0 +1,1376 @@
+{
+  "vendor": "jotul",
+  "price_book_title": "Jotul Monsma Stock Pages 1-16-26",
+  "drive_id": "11G3s92e2y3JYsFD92sl0077e-2ogetL5",
+  "extracted_at": "2026-05-19T00:00:00Z",
+  "effective_date": "2026-01",
+  "currency": "USD",
+  "price_field_note": "Document type: Monsma distributor STOCK PAGES (Monsma is the distributor that sells Jotul to Benson Stone). Each page shows a 'List Price' column only -- this is the Jotul retail/MSRP list price, not a separate dealer/wholesale price. Therefore msrp is populated and dealer_price is left null. Prices marked 'FOB Warehouse 01/26' and 'subject to change without notice'. Items flagged with an asterisk are non-stock products; items flagged 'uCannot Ship UPS or FedEx' (LTL freight only) are noted per accessory but no models are flagged as discontinued in this stock book. One model row is created per finish/manufacturer-code variant since each finish carries a distinct list price.",
+  "discontinued_for_jan_2026": [],
+  "categories": [
+    "wood_stove",
+    "wood_insert",
+    "gas_stove",
+    "gas_insert"
+  ],
+  "model_count": 56,
+  "models": [
+    {
+      "vendor": "jotul",
+      "model_code": "351665",
+      "model_name": "F 500 V3 Oslo Wood Stove - Matte Black Paint",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4650,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove. Max heating 2,000 sq ft, 22 in max log, top or rear vent, 9 h max burn. Jotul Fusion High Flow Combustor, 20-yr combustor warranty, emissions <1.0 g/h. Finish: Matte Black Paint.",
+      "parent_series": "F 500 V3 Oslo",
+      "page": 1
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351666",
+      "model_name": "F 500 V3 Oslo Wood Stove - Matte Black Paint (Clean Face)",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5249,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove, Clean Face variant. Max heating 2,000 sq ft, 22 in max log, top or rear vent, 9 h max burn. Jotul Fusion High Flow Combustor. Finish: Matte Black Paint (Clean Face).",
+      "parent_series": "F 500 V3 Oslo",
+      "page": 1
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351667",
+      "model_name": "F 500 V3 Oslo Wood Stove - Blue Black Enamel",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5249,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove. Max heating 2,000 sq ft, 22 in max log, top or rear vent, 9 h max burn. Jotul Fusion High Flow Combustor. Finish: Blue Black Enamel. Note: list-price column on page groups 351666 and 351667 together at $5,249.",
+      "parent_series": "F 500 V3 Oslo",
+      "page": 1
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351687",
+      "model_name": "F 500 V3 Oslo Wood Stove - Linen Enamel",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5448,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove. Max heating 2,000 sq ft, 22 in max log, top or rear vent, 9 h max burn. Jotul Fusion High Flow Combustor. Finish: Linen Enamel.",
+      "parent_series": "F 500 V3 Oslo",
+      "page": 1
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351688",
+      "model_name": "F 500 V3 Oslo Wood Stove - Linen Enamel (Clean Face)",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 70000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5448,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove, Clean Face variant. Max heating 2,000 sq ft, 22 in max log, top or rear vent, 9 h max burn. Jotul Fusion High Flow Combustor. Finish: Linen Enamel (Clean Face).",
+      "parent_series": "F 500 V3 Oslo",
+      "page": 1
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351680",
+      "model_name": "F 445 Holliday Wood Stove - Matte Black Paint",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 55000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4083,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove. Max heating 1,600 sq ft, 20 in max log, firebox 2.03 cu ft, 9 h max burn. Jotul Fusion Technology, weighted avg emissions 0.49 g/h. Finish: Matte Black Paint.",
+      "parent_series": "F 445 Holliday",
+      "page": 2
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351683",
+      "model_name": "F 445 Holliday Wood Stove - Matte Black Paint (Clean Face)",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 55000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4083,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove, Clean Face variant. Max heating 1,600 sq ft, 20 in max log, firebox 2.03 cu ft, 9 h max burn. Jotul Fusion Technology. Finish: Matte Black Paint (Clean Face). Page shows single list price $4,083 covering both 351680 and 351683.",
+      "parent_series": "F 445 Holliday",
+      "page": 2
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351810",
+      "model_name": "F 602 V3 Wood Stove",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 23415
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 2046,
+      "accessories_required": null,
+      "notes": "Cast iron wood stove with standard rear and bottom heat shields. Max heating 800 sq ft, 16 in max log, 5 h max burn. Jotul Fusion Technology 1.4 g/h. Efficiency 76.7% HHV / 82.9% LHV. Finish: Matte Black Paint.",
+      "parent_series": "F 602 V3",
+      "page": 3
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351695",
+      "model_name": "F 35 Rockwood Wood Stove",
+      "category": "wood_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 59443
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3065,
+      "accessories_required": null,
+      "notes": "Steel with cast iron wood stove, standard rear and bottom heat shields. Max heating 1,200 sq ft, firebox 1.58 cu ft, 16 in max log, 6.75 h max burn. Jotul Turbulator Non-Catalytic Technology 1.2 g/h. Efficiency 68.5% HHV / 73.67% LHV. Finish: Matte Black Paint.",
+      "parent_series": "F 35 Rockwood",
+      "page": 4
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351625",
+      "model_name": "GF Lillehammer 200 DV II MV Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 11400,
+        "max": 20000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 2592,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 800 sq ft, efficiency up to 87% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF Lillehammer 200 DV II",
+      "page": 5
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351627",
+      "model_name": "GF Lillehammer 200 DV II MV Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 11400,
+        "max": 20000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3264,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 800 sq ft, efficiency up to 87% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF Lillehammer 200 DV II",
+      "page": 5
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351635",
+      "model_name": "GF 300 DV Allagash Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 14000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3348,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 300 DV Allagash",
+      "page": 6
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351636",
+      "model_name": "GF 300 DV Allagash Gas Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 14000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3957,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Blue Black Enamel.",
+      "parent_series": "GF 300 DV Allagash",
+      "page": 6
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351638",
+      "model_name": "GF 300 DV Allagash Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 14000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4031,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF 300 DV Allagash",
+      "page": 6
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351639",
+      "model_name": "GF 300 DV Allagash Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 14000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4031,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Linen Enamel.",
+      "parent_series": "GF 300 DV Allagash",
+      "page": 6
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351630",
+      "model_name": "GF Allagash 300 DV Gas IPI Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 13000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3800,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF Allagash 300 DV IPI",
+      "page": 7
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351631",
+      "model_name": "GF Allagash 300 DV Gas IPI Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 13000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4220,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Linen Enamel. Page list-price column groups 351631 at $4,220.",
+      "parent_series": "GF Allagash 300 DV IPI",
+      "page": 7
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351632",
+      "model_name": "GF Allagash 300 DV Gas IPI Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 13000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4482,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Blue Black Enamel.",
+      "parent_series": "GF Allagash 300 DV IPI",
+      "page": 7
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351634",
+      "model_name": "GF Allagash 300 DV Gas IPI Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 13000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4482,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,300 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF Allagash 300 DV IPI",
+      "page": 7
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351645",
+      "model_name": "GF 400 DV MV Sebago Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 18000,
+        "max": 32000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4052,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 400 DV Sebago",
+      "page": 8
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351646",
+      "model_name": "GF 400 DV MV Sebago Gas Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 18000,
+        "max": 32000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4587,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Blue Black Enamel.",
+      "parent_series": "GF 400 DV Sebago",
+      "page": 8
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351647",
+      "model_name": "GF 400 DV MV Sebago Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 18000,
+        "max": 32000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4787,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF 400 DV Sebago",
+      "page": 8
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351648",
+      "model_name": "GF 400 DV MV Sebago Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 18000,
+        "max": 32000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4787,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 x 6 5/8. LP conversion yes. Finish: Linen Enamel.",
+      "parent_series": "GF 400 DV Sebago",
+      "page": 8
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351640",
+      "model_name": "GF Sebago 400 DV Gas IPI Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 17000,
+          "max": 32000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 30000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4230,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF Sebago 400 DV IPI",
+      "page": 9
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351641",
+      "model_name": "GF Sebago 400 DV Gas IPI Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 17000,
+          "max": 32000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 30000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4892,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Blue Black Enamel.",
+      "parent_series": "GF Sebago 400 DV IPI",
+      "page": 9
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351642",
+      "model_name": "GF Sebago 400 DV Gas IPI Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 17000,
+          "max": 32000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 30000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4965,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF Sebago 400 DV IPI",
+      "page": 9
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351643",
+      "model_name": "GF Sebago 400 DV Gas IPI Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 17000,
+          "max": 32000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 30000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4965,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 50% turn down, max heating 1,500 sq ft, efficiency 88% steady state, Stainless Steel JotulBurner II. Vent 4 x 6 5/8. LP conversion yes. Finish: Linen Enamel.",
+      "parent_series": "GF Sebago 400 DV IPI",
+      "page": 9
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351655",
+      "model_name": "GF 500 DV MV Portland Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 12800,
+          "max": 40000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 39500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4430,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 68% turn down, max heating 2,000 sq ft, efficiency 74.26% steady state NG / 73.92% LPG, Dual Ceramic JotulBurner. Vent 4 x 6 5/8 top or rear. LP conversion yes. Standard top filler piece. Finish: Matte Black Paint.",
+      "parent_series": "GF 500 DV Portland",
+      "page": 10
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351656",
+      "model_name": "GF 500 DV MV Portland Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 12800,
+          "max": 40000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 39500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5102,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, standing pilot/millivolt. 68% turn down, max heating 2,000 sq ft, efficiency 74.26% steady state NG / 73.92% LPG, Dual Ceramic JotulBurner. Vent 4 x 6 5/8 top or rear. LP conversion yes. Standard top filler piece. Finish: Brown Enamel.",
+      "parent_series": "GF 500 DV Portland",
+      "page": 10
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351650",
+      "model_name": "GF 500 DV IPI Portland Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 12800,
+          "max": 40000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 39500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4619,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 68% turn down, max heating 2,000 sq ft, efficiency 74.26% steady state NG / 73.92% LPG, Dual Ceramic JotulBurner. Vent 4 x 6 5/8 top or rear. LP conversion yes. Standard top filler piece. Finish: Matte Black Paint.",
+      "parent_series": "GF 500 DV Portland IPI",
+      "page": 11
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351651",
+      "model_name": "GF 500 DV IPI Portland Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 12800,
+          "max": 40000
+        },
+        "LP": {
+          "min": 14000,
+          "max": 39500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5301,
+      "accessories_required": null,
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system. 68% turn down, max heating 2,000 sq ft, efficiency 74.26% steady state NG / 73.92% LPG, Dual Ceramic JotulBurner. Vent 4 x 6 5/8 top or rear. LP conversion yes. Standard top filler piece. Finish: Brown Enamel.",
+      "parent_series": "GF 500 DV Portland IPI",
+      "page": 11
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351460",
+      "model_name": "GF 160 DV IPI Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 15800,
+        "max": 24000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5060,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, tumbled stone, river rock, or starfire embers).",
+      "notes": "Direct vent gas stove, multi-function ProFlame 2 IPI. Efficiency 67.07% AFUE NG / 67.84% AFUE LPG, JotulBurner III. Vent 4 x 6 5/8. LP conversion yes (Invisimesh barrier). Finish: Matte Black Paint.",
+      "parent_series": "GF 160 DV IPI",
+      "page": 12
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351459",
+      "model_name": "GF 160 DV IPI Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 15800,
+        "max": 24000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5669,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, tumbled stone, river rock, or starfire embers).",
+      "notes": "Direct vent gas stove, multi-function ProFlame 2 IPI. Efficiency 67.07% AFUE NG / 67.84% AFUE LPG, JotulBurner III. Vent 4 x 6 5/8. LP conversion yes (Invisimesh barrier). Finish: Linen Enamel.",
+      "parent_series": "GF 160 DV IPI",
+      "page": 12
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351458",
+      "model_name": "GF 160 DV MV Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 15800,
+          "max": 24000
+        },
+        "LP": {
+          "min": 19800,
+          "max": 24000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4503,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (traditional logset, beach fire logset, tumbled stone, river rock, or starfire embers).",
+      "notes": "Direct vent gas stove, standing pilot/millivolt. Max heating 1,000 sq ft. Vent 4 x 6 5/8. Finish: Matte Black Paint.",
+      "parent_series": "GF 160 DV MV",
+      "page": 13
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351457",
+      "model_name": "GF 160 DV MV Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 15800,
+          "max": 24000
+        },
+        "LP": {
+          "min": 19800,
+          "max": 24000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5060,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (traditional logset, beach fire logset, tumbled stone, river rock, or starfire embers).",
+      "notes": "Direct vent gas stove, standing pilot/millivolt. Max heating 1,000 sq ft. Vent 4 x 6 5/8. Finish: Linen Enamel.",
+      "parent_series": "GF 160 DV MV",
+      "page": 13
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351605",
+      "model_name": "GF 305 DV IPI Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 18760,
+        "max": 28000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4230,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (traditional logset or beach fire logset).",
+      "notes": "Direct vent gas stove, ProFlame 2 ceramic JotulBurner III. 33% turn down, efficiency 67.2% AFUE NG / 67.1% AFUE LPG. Vent 4 x 6 5/8. LP conversion yes. Includes Invisimesh. Finish offered: Matte Black Paint, White Enamel (only Matte Black 351605 priced/listed on this stock page at $4,230).",
+      "parent_series": "GF 305 DV IPI",
+      "page": 14
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351670",
+      "model_name": "GF 370 DV IPI Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 18173,
+          "max": 28000
+        },
+        "LP": {
+          "min": 19600,
+          "max": 24500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 6225,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, river rock set, fire glass, tumbled stones, or black star fire embers).",
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system, ceramic JotulBurner III. Efficiency 74.7% steady state NG / 73.9% LPG. Vent 4 x 6 5/8. LP conversion yes. Standard blower, standard remote, standard Skamol panels, lighting. Finish: Matte Black Paint.",
+      "parent_series": "GF 370 DV IPI",
+      "page": 15
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351674",
+      "model_name": "GF 370 DV IPI Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 18173,
+          "max": 28000
+        },
+        "LP": {
+          "min": 19600,
+          "max": 24500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 6845,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, river rock set, fire glass, tumbled stones, or black star fire embers).",
+      "notes": "Direct vent gas stove, SIT ProFlame 2 IPI system, ceramic JotulBurner III. Efficiency 74.7% steady state NG / 73.9% LPG. Vent 4 x 6 5/8. LP conversion yes. Standard blower, standard remote, standard Skamol panels, lighting. Finish: Linen Enamel.",
+      "parent_series": "GF 370 DV IPI",
+      "page": 15
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351672",
+      "model_name": "GF 370 DV MV Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 18170,
+          "max": 28000
+        },
+        "LP": {
+          "min": 20750,
+          "max": 24000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5669,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, river rock set, fire glass, tumbled stones, or black star fire embers).",
+      "notes": "Direct vent gas stove, standing pilot/millivolt, ceramic JotulBurner III. Max heating 400-1,300 sq ft. Vent 4 x 6 5/8. LP conversion yes. Standard Skamol panels. Finish: Matte Black Paint.",
+      "parent_series": "GF 370 DV MV",
+      "page": 16
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351676",
+      "model_name": "GF 370 DV MV Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 18170,
+          "max": 28000
+        },
+        "LP": {
+          "min": 20750,
+          "max": 24000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 6131,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (logset, beach fire logset, river rock set, fire glass, tumbled stones, or black star fire embers).",
+      "notes": "Direct vent gas stove, standing pilot/millivolt, ceramic JotulBurner III. Max heating 400-1,300 sq ft. Vent 4 x 6 5/8. LP conversion yes. Standard Skamol panels. Finish: Linen Enamel.",
+      "parent_series": "GF 370 DV MV",
+      "page": 16
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351662",
+      "model_name": "GF 520 DV IPI Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "NG": {
+          "min": 16500,
+          "max": 30000
+        },
+        "LP": {
+          "min": 16500,
+          "max": 29000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 5333,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (beach fire logset or birch logset).",
+      "notes": "Direct vent gas stove with Invisimesh safety screen, multifunction ProFlame 2 remote. Max heating 700-2,000 sq ft. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 520 DV IPI",
+      "page": 17
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351766",
+      "model_name": "GF 520 DV MV Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "NG": {
+          "min": 16500,
+          "max": 30000
+        },
+        "LP": {
+          "min": 16500,
+          "max": 29000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4713,
+      "accessories_required": "A burner treatment must be ordered to complete the unit (beach fire logset or birch logset).",
+      "notes": "Direct vent gas stove with Invisimesh safety screen, standing pilot/millivolt. Max heating 700-2,000 sq ft. Vent 4 x 6 5/8. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 520 DV MV",
+      "page": 18
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351600",
+      "model_name": "GF 300 BV MV Allagash Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 15000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3579,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 86% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 300 BV Allagash",
+      "page": 19
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351603",
+      "model_name": "GF 300 BV MV Allagash Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 15000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4251,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 86% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF 300 BV Allagash",
+      "page": 19
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351604",
+      "model_name": "GF 300 BV MV Allagash Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 15000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4251,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 86% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Linen Enamel.",
+      "parent_series": "GF 300 BV Allagash",
+      "page": 19
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351601",
+      "model_name": "GF 300 BV MV Allagash Gas Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 15000,
+        "max": 26000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4062,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 1,300 sq ft, efficiency 86% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Blue Black Enamel. Non-stock product (asterisk flagged on stock page).",
+      "parent_series": "GF 300 BV Allagash",
+      "page": 19
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351610",
+      "model_name": "GF 400 BV MV Sebago Gas Stove - Matte Black Paint",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 20000,
+        "max": 40000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4041,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 2,000 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Matte Black Paint.",
+      "parent_series": "GF 400 BV Sebago",
+      "page": 20
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351611",
+      "model_name": "GF 400 BV MV Sebago Gas Stove - Blue Black Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 20000,
+        "max": 40000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4587,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 2,000 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Blue Black Enamel.",
+      "parent_series": "GF 400 BV Sebago",
+      "page": 20
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351612",
+      "model_name": "GF 400 BV MV Sebago Gas Stove - Brown Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 20000,
+        "max": 40000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4776,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 2,000 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Brown Enamel.",
+      "parent_series": "GF 400 BV Sebago",
+      "page": 20
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351613",
+      "model_name": "GF 400 BV MV Sebago Gas Stove - Linen Enamel",
+      "category": "gas_stove",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "millivolt",
+      "btu_input": {
+        "min": 20000,
+        "max": 40000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4776,
+      "accessories_required": null,
+      "notes": "B-vent gas stove, standing pilot/millivolt. 50% turn down, max heating 2,000 sq ft, efficiency 88% steady state, JotulBurner. Vent 4 in B-Vent. LP conversion yes. Finish: Linen Enamel. Note: stock page list-price column groups Brown and Linen at $4,776 and Blue Black at $4,587.",
+      "parent_series": "GF 400 BV Sebago",
+      "page": 20
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351690",
+      "model_name": "C 550 V2 Rockland Wood Insert - Arched Matte Black Firebox",
+      "category": "wood_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 65000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4650,
+      "accessories_required": "Surround required (cast iron surround, decorative steel surround, simple steel surround, or trimmable surround).",
+      "notes": "Cast iron wood insert. Max heating 1,700 sq ft, 24 in max log, emissions 1.1 g/h, 9 h max burn. Jotul Fusion Technology, clean burning, no bypass damper. Finish: Matte Black Paint. Arched Matte Black Firebox variant.",
+      "parent_series": "C 550 V2 Rockland",
+      "page": 21
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351691",
+      "model_name": "C 550 V2 Rockland Wood Insert - Clean Face Matte Black Firebox",
+      "category": "wood_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "wood",
+      "ignition": null,
+      "btu_input": {
+        "max": 65000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4650,
+      "accessories_required": "Surround required (cast iron surround, decorative steel surround, simple steel surround, or trimmable surround).",
+      "notes": "Cast iron wood insert, Clean Face firebox variant. Max heating 1,700 sq ft, 24 in max log, emissions 1.1 g/h, 9 h max burn. Jotul Fusion Technology, clean burning, no bypass damper. Finish: Matte Black Paint. Stock page shows single list price $4,650 covering both 351690 and 351691.",
+      "parent_series": "C 550 V2 Rockland",
+      "page": 21
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351429",
+      "model_name": "GI 535 DV IPI New Harbor Gas Insert",
+      "category": "gas_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 11500,
+        "max": 32000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4052,
+      "accessories_required": "Log set and overlay are required accessories.",
+      "notes": "Direct vent gas insert, SIT ProFlame II IPI ignition system, Dual Ceramic JotulBurner III. Blower 120 cfm. Vent 3 x 3 co-linear flex kit. LP conversion yes. Top firing accent light with dimmer, multi-function remote, 6-piece HD log set. Firebox manufacturer code 351429.",
+      "parent_series": "GI 535 DV New Harbor",
+      "page": 22
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351431",
+      "model_name": "GI 635 DV IPI Newcastle Gas Insert",
+      "category": "gas_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": "IPI",
+      "btu_input": {
+        "min": 10000,
+        "max": 40000
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 4430,
+      "accessories_required": "Log set and overlay are required accessories.",
+      "notes": "Direct vent gas insert, SIT ProFlame II IPI ignition system, Dual Ceramic JotulBurner III. Blower 190 cfm. Vent 3 x 3 co-linear flex kit. LP conversion yes. Top firing accent light with dimmer, multi-function remote, 7-piece HD log set. Firebox manufacturer code 351431.",
+      "parent_series": "GI 635 DV Newcastle",
+      "page": 23
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351615",
+      "model_name": "GI 545 DV Winter Harbor Gas Insert - without blower",
+      "category": "gas_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": null,
+      "btu_input": {
+        "NG": {
+          "min": 16000,
+          "max": 30000
+        },
+        "LP": {
+          "min": 13500,
+          "max": 28000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 2844,
+      "accessories_required": "A burner treatment must be ordered (traditional, beach fire, or birch log set); an overlay must also be ordered to complete the unit.",
+      "notes": "Direct vent gas insert. SIT 820 Nova valve, 50% turndown, JotulBurner II. LP conversion yes, LPG conversion kit included. Code 351615 is the non-blower configuration. Stock page lists $2,844 for 351615 and $3,096 for the with-blower code 351616.",
+      "parent_series": "GI 545 DV Winter Harbor",
+      "page": 24
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351616",
+      "model_name": "GI 545 DV Winter Harbor Gas Insert - with blower",
+      "category": "gas_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": null,
+      "btu_input": {
+        "NG": {
+          "min": 16000,
+          "max": 30000
+        },
+        "LP": {
+          "min": 13500,
+          "max": 28000
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3096,
+      "accessories_required": "A burner treatment must be ordered (traditional, beach fire, or birch log set); an overlay must also be ordered to complete the unit.",
+      "notes": "Direct vent gas insert with blower (120 cfm). SIT 820 Nova valve, 50% turndown, JotulBurner II. LP conversion yes, LPG conversion kit included. Code 351616 is the with-blower configuration.",
+      "parent_series": "GI 545 DV Winter Harbor",
+      "page": 24
+    },
+    {
+      "vendor": "jotul",
+      "model_code": "351617",
+      "model_name": "GI 645 DV Astrid Gas Insert with Blower",
+      "category": "gas_insert",
+      "width_inches": null,
+      "height_inches": null,
+      "depth_inches": null,
+      "fuel_type": "gas",
+      "ignition": null,
+      "btu_input": {
+        "NG": {
+          "min": 21000,
+          "max": 38000
+        },
+        "LP": {
+          "min": 20000,
+          "max": 36500
+        }
+      },
+      "viewing_area": null,
+      "dealer_price": null,
+      "msrp": 3495,
+      "accessories_required": "A burner treatment must be ordered (traditional, beach fire, or birch log set); an overlay must also be ordered to complete the unit.",
+      "notes": "Direct vent gas insert with blower (120 cfm). 50% turndown, JotulBurner II. Invisimesh safety barrier. Heating capacity up to 2,200 sq ft. Manufacturer code 351617.",
+      "parent_series": "GI 645 DV Astrid",
+      "page": 25
+    }
+  ]
+}
