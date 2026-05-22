@@ -15,7 +15,8 @@ export default function V8SliceIndex() {
         <li><Link className="underline" to="/rep/front_showroom_p14">Rep: front_showroom_p14</Link></li>
         <li><Link className="underline" to="/rep/front_showroom_p7">Rep: front_showroom_p7</Link></li>
         <li><Link className="underline" to="/backstage/gap-list">Backstage gap list</Link></li>
-        <li><Link className="underline" to="/v9-hearth-studio-3d">Open V9 Hearth Studio proof</Link></li>
+        <li><Link className="underline" to="/hearth-studio-v9">Open V9 visual shell</Link></li>
+        <li><Link className="underline" to="/v9-hearth-studio-3d">Open V9 3D study proof</Link></li>
       </ul>
       <CustomerRecommendationPreview previews={previews} />
     </main>

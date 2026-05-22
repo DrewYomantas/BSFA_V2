@@ -13,6 +13,7 @@ import GapListRoute from './screens/v8-slice/GapListRoute.jsx'
 import StoneShopPacketScreen from './screens/stone-shop-packet/StoneShopPacketScreen.jsx'
 import HearthStudioV9Screen from './screens/v9-hearth-studio-3d/HearthStudioV9Screen.jsx'
 import HearthVisualAssetsScreen from './screens/hearth-visual-assets/HearthVisualAssetsScreen.jsx'
+import HearthStudioV9Shell from './screens/hearth-studio-v9/HearthStudioV9Shell.jsx'
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
       <Route path="/backstage/gap-list" element={<GapListRoute />} />
       <Route path="/stone-shop-packet" element={<AppShell><StoneShopPacketScreen /></AppShell>} />
       <Route path="/v9-hearth-studio-3d" element={<HearthStudioV9Screen />} />
+      <Route path="/hearth-studio-v9" element={<HearthStudioV9Shell />} />
       <Route path="/hearth-visual-assets" element={<AppShell><HearthVisualAssetsScreen /></AppShell>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
