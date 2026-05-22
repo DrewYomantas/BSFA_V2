@@ -14,30 +14,6 @@ import {
 } from '../../lib/hearthStudioV9/hearthStudioV9Session.js'
 import { buildHearthStudioV9DirectionBridge } from '../../lib/hearthStudioV9/hearthStudioV9DirectionBridge.js'
 
-const cafeSteps = [
-  {
-    label: 'Sit',
-    title: 'Start from the room you want.',
-    copy: 'A few calm prompts help your rep understand the current fireplace, the room, and the feeling you want from the fire.',
-  },
-  {
-    label: 'Walk',
-    title: 'See fewer, better directions.',
-    copy: 'The showroom walk becomes focused on real displays, real materials, and the options worth reacting to in person.',
-  },
-  {
-    label: 'Confirm',
-    title: 'Return with a clearer path.',
-    copy: 'Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details are confirmed before quote or order.',
-  },
-]
-
-const futureDirectionPlaceholders = [
-  'Current fireplace or wall',
-  'Main goal for the room',
-  'Style and warmth direction',
-]
-
 const bannedShellTerms = [
   'cost',
   'margin',
@@ -62,8 +38,21 @@ export default function HearthStudioV9Shell() {
   const fireExperienceCopy = useMemo(() => buildHearthStudioV9FireExperienceCopy(session), [session])
   const directionBridge = useMemo(() => buildHearthStudioV9DirectionBridge(session), [session])
   const summary = session.customerSummary
-  const isContextPromptActive = Boolean(session.selectedGoalId)
-  const isFireExperiencePromptActive = Boolean(session.selectedGoalId && session.selectedContextId)
+  const activePrompt = buildActivePrompt({
+    session,
+    customerCopy,
+    contextCopy,
+    fireExperienceCopy,
+    handleGoalSelection,
+    handleContextSelection,
+    handleFireExperienceSelection,
+  })
+  const stageMoodClass = buildStageMoodClass(session)
+  const primaryUnknowns = [
+    summary.stillUnknown[0],
+    summary.contextUnknowns[0],
+    summary.fireExperienceUnknowns[0],
+  ].filter(Boolean)
 
   function handleGoalSelection(goalId) {
     setSession((currentSession) => selectHearthStudioV9Goal(currentSession, goalId))
@@ -79,117 +68,88 @@ export default function HearthStudioV9Shell() {
 
   return (
     <main className="v9-shell" aria-label="Hearth Studio V9 customer preview">
-      <section className="v9-shell__hero" aria-label="Hearth Cafe seated start">
-        <div className="v9-shell__ambient" aria-hidden="true">
-          <div className="v9-shell__fireplace">
-            <span className="v9-shell__mantel" />
-            <span className="v9-shell__opening">
-              <i />
-              <i />
-              <i />
-            </span>
-            <span className="v9-shell__hearth" />
-          </div>
-        </div>
-
+      <section className="v9-shell__tablet" aria-label="Stage-first Hearth Studio tablet">
         <header className="v9-shell__topbar">
-          <a className="v9-shell__brand" href="#cafe-flow" aria-label="Benson Stone Hearth Studio">
+          <div className="v9-shell__brand" aria-label="Benson Stone Hearth Studio">
             <span className="v9-shell__monogram" aria-hidden="true">B</span>
             <span>Benson Stone</span>
-          </a>
-          <nav aria-label="Hearth Studio preview stages">
-            <a href="#cafe-flow">Hearth Cafe</a>
-            <a href="#direction-preview">Preview</a>
+          </div>
+          <div className="v9-shell__title">
+            <span>Hearth Studio V9</span>
+            <strong>Hearth Cafe Sit</strong>
+          </div>
+          <nav className="v9-shell__rhythm" aria-label="Hearth Studio preview stages">
+            <span className="v9-shell__rhythm-step v9-shell__rhythm-step--active">Sit</span>
+            <span className="v9-shell__rhythm-step">Walk</span>
+            <span className="v9-shell__rhythm-step">Confirm</span>
           </nav>
         </header>
 
-        <div className="v9-shell__hero-copy">
-          <p className="v9-shell__eyebrow">Hearth Studio V9</p>
-          <h1>Begin seated. Walk the showroom with purpose.</h1>
-          <p>
-            A premium customer preview for narrowing fireplace direction before anyone starts comparing products.
-          </p>
-          <a className="v9-shell__primary-action" href="#cafe-flow">Start the Hearth Cafe sit</a>
-        </div>
+        <div className="v9-shell__workspace">
+          <section className="v9-shell__stage-column">
+            <div className={stageMoodClass} aria-label="Fireplace room stage">
+              <div className="v9-shell__room-glow" aria-hidden="true" />
+              <div className="v9-shell__back-wall" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="v9-shell__fireplace-mass" aria-hidden="true">
+                <div className="v9-shell__stone-course v9-shell__stone-course--top" />
+                <div className="v9-shell__mantel" />
+                <div className="v9-shell__firebox">
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div className="v9-shell__hearth" />
+              </div>
+              <div className="v9-shell__floor-plane" aria-hidden="true" />
+              <div className="v9-shell__seat-shadow" aria-hidden="true" />
 
-        <aside className="v9-shell__session" aria-label="Customer mode boundary">
-          <p>Showroom conversation mode</p>
-          <strong>No final selections yet.</strong>
-          <span>Real displays and reviewed materials guide the next conversation.</span>
-        </aside>
-      </section>
-
-      <section id="cafe-flow" className="v9-shell__band" aria-label="Hearth Cafe flow">
-        <div className="v9-shell__section-heading">
-          <p className="v9-shell__eyebrow">Hearth Cafe Sit</p>
-          <h2>Three calm moves before the showroom walk.</h2>
-        </div>
-        <div className="v9-shell__steps">
-          {cafeSteps.map((step) => (
-            <article key={step.label}>
-              <span>{step.label}</span>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="v9-shell__opening-prompt" aria-label="Opening Hearth Cafe prompt">
-          <span className="v9-shell__corner v9-shell__corner--top-left" aria-hidden="true" />
-          <span className="v9-shell__corner v9-shell__corner--top-right" aria-hidden="true" />
-          <span className="v9-shell__corner v9-shell__corner--bottom-left" aria-hidden="true" />
-          <span className="v9-shell__corner v9-shell__corner--bottom-right" aria-hidden="true" />
-
-          <div className="v9-shell__question">
-            <p className="v9-shell__eyebrow">First seated prompt</p>
-            <h2>What brought you in today?</h2>
-            <p>
-              Pick the answer that feels closest. This only shapes the showroom conversation; it is not a product choice.
-            </p>
-
-            <div className="v9-shell__sit-progress" aria-label="Hearth Cafe Sit progress">
-              <span className={session.selectedGoalId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Goal</span>
-              <span className={session.selectedContextId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Setup</span>
-              <span className={session.selectedFireExperienceId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Fire Feel</span>
+              <div className="v9-shell__stage-caption">
+                <p>Seated showroom preview</p>
+                <h1>Start with the room. Narrow the fire together.</h1>
+                <div className="v9-shell__stage-chips" aria-label="Current seated choices">
+                  <span>{summary.goalDirection}</span>
+                  <span>{summary.projectContext}</span>
+                  <span>{summary.fireExperience}</span>
+                </div>
+              </div>
             </div>
 
-            <div className="v9-shell__answer-grid" role="list" aria-label="Opening goal options">
-              {HEARTH_STUDIO_V9_GOAL_OPTIONS.map((option) => {
-                const isSelected = session.selectedGoalId === option.id
+            <aside className="v9-shell__summary-strip" aria-label="Customer-safe session summary">
+              <div>
+                <span>Goal</span>
+                <strong>{summary.goalDirection}</strong>
+              </div>
+              <div>
+                <span>Setup</span>
+                <strong>{summary.projectContext}</strong>
+              </div>
+              <div>
+                <span>Fire feel</span>
+                <strong>{summary.fireExperience}</strong>
+              </div>
+              <p>{summary.finalSelectionState}</p>
+            </aside>
+          </section>
 
-                return (
-                  <button
-                    key={option.id}
-                    type="button"
-                    className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
-                    aria-pressed={isSelected}
-                    onClick={() => handleGoalSelection(option.id)}
-                  >
-                    <span>{option.label}</span>
-                    <small>{option.nextPromptPreview}</small>
-                    {isSelected ? (
-                      <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
-                        <path d="M5.5 12.4 10 16.9 18.8 7.6" />
-                      </svg>
-                    ) : null}
-                  </button>
-                )
-              })}
+          <aside className="v9-shell__conversation" aria-label="Hearth Cafe conversation tray">
+            <div className="v9-shell__progress" aria-label="Hearth Cafe Sit progress">
+              <span className={session.selectedGoalId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : 'v9-shell__progress-step v9-shell__progress-step--active'}>Goal</span>
+              <span className={session.selectedContextId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : session.selectedGoalId ? 'v9-shell__progress-step v9-shell__progress-step--active' : 'v9-shell__progress-step'}>Setup</span>
+              <span className={session.selectedFireExperienceId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : session.selectedContextId ? 'v9-shell__progress-step v9-shell__progress-step--active' : 'v9-shell__progress-step'}>Fire Feel</span>
             </div>
 
-            <div
-              className={isContextPromptActive ? 'v9-shell__context-prompt' : 'v9-shell__context-prompt v9-shell__context-prompt--inactive'}
-              aria-label="Current setup prompt"
-            >
-              <p className="v9-shell__eyebrow">Second seated prompt</p>
-              <h3>What kind of fireplace situation are we working with?</h3>
-              <p>
-                This helps us understand the starting point before the showroom walk. A best guess is enough for now.
-              </p>
+            <section className="v9-shell__prompt-card" aria-label={activePrompt.promptLabel}>
+              <p className="v9-shell__eyebrow">{activePrompt.eyebrow}</p>
+              <h2>{activePrompt.title}</h2>
+              <p>{activePrompt.copy}</p>
 
-              <div className="v9-shell__answer-grid v9-shell__answer-grid--compact" role="list" aria-label="Current setup options">
-                {HEARTH_STUDIO_V9_CONTEXT_OPTIONS.map((option) => {
-                  const isSelected = session.selectedContextId === option.id
+              <div className="v9-shell__answer-grid" role="list" aria-label={activePrompt.optionsLabel}>
+                {activePrompt.options.map((option) => {
+                  const isSelected = activePrompt.selectedId === option.id
 
                   return (
                     <button
@@ -197,154 +157,50 @@ export default function HearthStudioV9Shell() {
                       type="button"
                       className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
                       aria-pressed={isSelected}
-                      disabled={!isContextPromptActive}
-                      onClick={() => handleContextSelection(option.id)}
+                      onClick={() => activePrompt.onSelect(option.id)}
                     >
                       <span>{option.label}</span>
                       <small>{option.nextPromptPreview}</small>
-                      {isSelected ? (
-                        <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
-                          <path d="M5.5 12.4 10 16.9 18.8 7.6" />
-                        </svg>
-                      ) : null}
                     </button>
                   )
                 })}
               </div>
+            </section>
+
+            <div className="v9-shell__response-card" aria-label="Selected response preview">
+              <span>{activePrompt.responseLabel}</span>
+              <p>{activePrompt.response}</p>
+              <strong>{activePrompt.nextPromptPreview}</strong>
             </div>
 
-            <div
-              className={isFireExperiencePromptActive ? 'v9-shell__context-prompt' : 'v9-shell__context-prompt v9-shell__context-prompt--inactive'}
-              aria-label="Fire experience prompt"
-            >
-              <p className="v9-shell__eyebrow">Third seated prompt</p>
-              <h3>What kind of fire experience sounds right?</h3>
-              <p>
-                This is about the feeling you want to live with, not choosing a final fuel or product today.
-              </p>
+            <div className="v9-shell__unknowns-card">
+              <span>Still open</span>
+              <p>{primaryUnknowns.join(' / ')}</p>
+            </div>
 
-              <div className="v9-shell__answer-grid v9-shell__answer-grid--compact" role="list" aria-label="Fire experience options">
-                {HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS.map((option) => {
-                  const isSelected = session.selectedFireExperienceId === option.id
-
-                  return (
-                    <button
-                      key={option.id}
-                      type="button"
-                      className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
-                      aria-pressed={isSelected}
-                      disabled={!isFireExperiencePromptActive}
-                      onClick={() => handleFireExperienceSelection(option.id)}
-                    >
-                      <span>{option.label}</span>
-                      <small>{option.nextPromptPreview}</small>
-                      {isSelected ? (
-                        <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
-                          <path d="M5.5 12.4 10 16.9 18.8 7.6" />
-                        </svg>
-                      ) : null}
-                    </button>
-                  )
-                })}
+            <details className="v9-shell__diagnostic" aria-label="Backstage direction bridge diagnostic">
+              <summary>Backstage preview - direction bridge only</summary>
+              <div className="v9-shell__diagnostic-grid">
+                <div>
+                  <span>Bridge status</span>
+                  <strong>{directionBridge.canRunDirectionFinder ? 'Ready for headless check' : 'Waiting for seated inputs'}</strong>
+                  <p>
+                    {directionBridge.canRunDirectionFinder
+                      ? 'The seated choices can be mapped into the headless input shape.'
+                      : `Still needed: ${directionBridge.missingInputs.join(', ') || 'None'}.`}
+                  </p>
+                </div>
+                <div>
+                  <span>Mapped input</span>
+                  <pre>{JSON.stringify(directionBridge.mappedInput, null, 2)}</pre>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <aside className="v9-shell__customer-summary" aria-label="Customer-safe session summary">
-            <p className="v9-shell__eyebrow">Session-safe summary</p>
-            <div className="v9-shell__selected-response">
-              <span>Goal direction selected</span>
-              <strong>{summary.goalDirection}</strong>
-              <p>{customerCopy.response}</p>
-            </div>
-
-            <div className="v9-shell__selected-response">
-              <span>Project context selected</span>
-              <strong>{summary.projectContext}</strong>
-              <p>{contextCopy.response}</p>
-            </div>
-
-            <div className="v9-shell__selected-response">
-              <span>Fire experience selected</span>
-              <strong>{summary.fireExperience}</strong>
-              <p>{fireExperienceCopy.response}</p>
-            </div>
-
-            <div className="v9-shell__summary-block">
-              <span>What is still unknown</span>
-              <ul>
-                {[...summary.stillUnknown, ...summary.contextUnknowns, ...summary.fireExperienceUnknowns].map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="v9-shell__next-preview">
-              <span>Next we will narrow</span>
-              <p>
-                {session.selectedFireExperienceId
-                  ? fireExperienceCopy.nextPromptPreview
-                  : session.selectedContextId
-                    ? contextCopy.nextPromptPreview
-                    : customerCopy.nextPromptPreview}
+              <p className="v9-shell__diagnostic-note">
+                Diagnostic only. Product direction output is not shown in this customer preview.
               </p>
-            </div>
-
-            <p className="v9-shell__summary-boundary">{summary.finalSelectionState}</p>
+            </details>
           </aside>
         </div>
-      </section>
-
-      <section id="direction-preview" className="v9-shell__preview" aria-label="Future direction preview placeholders">
-        <div className="v9-shell__section-heading">
-          <p className="v9-shell__eyebrow">Future Direction Preview</p>
-          <h2>Reserved space for the narrowing engine.</h2>
-          <p>
-            This screen does not choose products yet. It shows where reviewed, source-backed directions will appear once the customer flow is ready.
-          </p>
-        </div>
-
-        <div className="v9-shell__direction-surface">
-          <div className="v9-shell__prompt-stack">
-            {futureDirectionPlaceholders.map((item, index) => (
-              <div key={item} className="v9-shell__prompt-row">
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{item}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="v9-shell__direction-placeholder" aria-label="Preview-only direction placeholders">
-            <p>Direction cards will appear here after the seated prompts.</p>
-            <div>
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-        </div>
-
-        <details className="v9-shell__diagnostic" aria-label="Backstage direction bridge diagnostic">
-          <summary>Backstage preview - direction bridge only</summary>
-          <div className="v9-shell__diagnostic-grid">
-            <div>
-              <span>Bridge status</span>
-              <strong>{directionBridge.canRunDirectionFinder ? 'Ready for headless check' : 'Waiting for seated inputs'}</strong>
-              <p>
-                {directionBridge.canRunDirectionFinder
-                  ? 'The seated choices can be mapped into the headless input shape.'
-                  : `Still needed: ${directionBridge.missingInputs.join(', ') || 'None'}.`}
-              </p>
-            </div>
-            <div>
-              <span>Mapped input</span>
-              <pre>{JSON.stringify(directionBridge.mappedInput, null, 2)}</pre>
-            </div>
-          </div>
-          <p className="v9-shell__diagnostic-note">
-            Diagnostic only. Product direction output is not shown in this customer preview.
-          </p>
-        </details>
 
         <p className="v9-shell__fine-print">
           Concept visualization only. Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details are confirmed before quote or order.
@@ -352,6 +208,84 @@ export default function HearthStudioV9Shell() {
       </section>
     </main>
   )
+}
+
+function buildActivePrompt({
+  session,
+  customerCopy,
+  contextCopy,
+  fireExperienceCopy,
+  handleGoalSelection,
+  handleContextSelection,
+  handleFireExperienceSelection,
+}) {
+  if (!session.selectedGoalId) {
+    return {
+      eyebrow: 'First seated prompt',
+      title: 'What brought you in today?',
+      copy: 'Choose the answer that feels closest. This only shapes the showroom conversation.',
+      options: HEARTH_STUDIO_V9_GOAL_OPTIONS,
+      selectedId: session.selectedGoalId,
+      onSelect: handleGoalSelection,
+      promptLabel: 'Opening Hearth Cafe prompt',
+      optionsLabel: 'Opening goal options',
+      responseLabel: 'Before we narrow',
+      response: customerCopy.response,
+      nextPromptPreview: customerCopy.nextPromptPreview,
+    }
+  }
+
+  if (!session.selectedContextId) {
+    return {
+      eyebrow: 'Second seated prompt',
+      title: 'What kind of fireplace situation are we working with?',
+      copy: 'A best guess is enough for now. The showroom visit can help name the current setup in plain language.',
+      options: HEARTH_STUDIO_V9_CONTEXT_OPTIONS,
+      selectedId: session.selectedContextId,
+      onSelect: handleContextSelection,
+      promptLabel: 'Current setup prompt',
+      optionsLabel: 'Current setup options',
+      responseLabel: 'Selected goal response',
+      response: customerCopy.response,
+      nextPromptPreview: contextCopy.nextPromptPreview,
+    }
+  }
+
+  return {
+    eyebrow: 'Third seated prompt',
+    title: 'What kind of fire experience sounds right?',
+    copy: 'This is about the feeling you want to live with, not choosing a final fuel or product today.',
+    options: HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS,
+    selectedId: session.selectedFireExperienceId,
+    onSelect: handleFireExperienceSelection,
+    promptLabel: 'Fire experience prompt',
+    optionsLabel: 'Fire experience options',
+    responseLabel: session.selectedFireExperienceId ? 'Selected fire-feel response' : 'Selected setup response',
+    response: session.selectedFireExperienceId ? fireExperienceCopy.response : contextCopy.response,
+    nextPromptPreview: fireExperienceCopy.nextPromptPreview,
+  }
+}
+
+function buildStageMoodClass(session) {
+  const moods = ['v9-shell__stage']
+
+  if (session.selectedGoalId === 'more_heat' || session.selectedFireExperienceId === 'gas_convenience') {
+    moods.push('v9-shell__stage--warm')
+  }
+
+  if (session.selectedGoalId === 'better_looking_fireplace' || session.selectedFireExperienceId === 'best_looking_flame') {
+    moods.push('v9-shell__stage--polished')
+  }
+
+  if (session.selectedGoalId === 'real_wood_feel' || session.selectedFireExperienceId === 'real_wood_feel') {
+    moods.push('v9-shell__stage--wood')
+  }
+
+  if (session.selectedContextId === 'outdoor_fireplace_area' || session.selectedFireExperienceId === 'outdoor_flame') {
+    moods.push('v9-shell__stage--outdoor')
+  }
+
+  return moods.join(' ')
 }
 
 export function scanHearthStudioV9ShellCopy(text, bannedTerms = bannedShellTerms) {

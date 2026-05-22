@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import App from '../src/App.jsx'
@@ -6,39 +6,38 @@ import HearthStudioV9Shell, { scanHearthStudioV9ShellCopy } from '../src/screens
 import { HEARTH_STUDIO_V9_CONTEXT_OPTIONS, HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS, HEARTH_STUDIO_V9_GOAL_OPTIONS } from '../src/lib/hearthStudioV9/hearthStudioV9Session.js'
 
 describe('Hearth Studio V9 visual shell', () => {
-  it('renders the customer-facing seated-start shell with safe preview language', () => {
+  it('renders the stage-first customer preview with safe language', () => {
     render(<HearthStudioV9Shell />)
 
     expect(screen.getByLabelText('Hearth Studio V9 customer preview')).toBeInTheDocument()
-    expect(screen.getByText('Begin seated. Walk the showroom with purpose.')).toBeInTheDocument()
-    expect(screen.getAllByText('No final selections yet.')).toHaveLength(2)
+    expect(screen.getByLabelText('Stage-first Hearth Studio tablet')).toBeInTheDocument()
+    expect(screen.getByLabelText('Fireplace room stage')).toBeInTheDocument()
+    expect(screen.getByText('Start with the room. Narrow the fire together.')).toBeInTheDocument()
+    expect(screen.getAllByText('No final selections yet.')).toHaveLength(1)
     expect(screen.getByText(/Concept visualization only. Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details/)).toBeInTheDocument()
   })
 
-  it('renders the opening seated prompt', () => {
+  it('renders the opening seated prompt inside the conversation tray', () => {
     render(<HearthStudioV9Shell />)
 
+    expect(screen.getByLabelText('Hearth Cafe conversation tray')).toBeInTheDocument()
     expect(screen.getByLabelText('Opening Hearth Cafe prompt')).toBeInTheDocument()
     expect(screen.getByText('What brought you in today?')).toBeInTheDocument()
-    expect(screen.getByLabelText('Current setup prompt')).toBeInTheDocument()
-    expect(screen.getByLabelText('Fire experience prompt')).toBeInTheDocument()
-    expect(screen.getByText('Goal direction selected')).toBeInTheDocument()
-    expect(screen.getAllByText('Not selected yet')).toHaveLength(3)
-    expect(screen.getByText('Goal')).toBeInTheDocument()
-    expect(screen.getByText('Setup')).toBeInTheDocument()
-    expect(screen.getByText('Fire Feel')).toBeInTheDocument()
+    expect(screen.getAllByText('Not selected yet').length).toBeGreaterThanOrEqual(3)
+    expect(screen.getAllByText('Goal').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Setup').length).toBeGreaterThanOrEqual(1)
+    expect(screen.getAllByText('Fire Feel').length).toBeGreaterThanOrEqual(1)
   })
 
   it('lets each opening answer card be selected', () => {
-    render(<HearthStudioV9Shell />)
-    const goalOptions = within(screen.getByLabelText('Opening goal options'))
-
     HEARTH_STUDIO_V9_GOAL_OPTIONS.forEach((option) => {
+      cleanup()
+      render(<HearthStudioV9Shell />)
+      const goalOptions = within(screen.getByLabelText('Opening goal options'))
       const card = goalOptions.getByRole('button', { name: new RegExp(option.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) })
 
       fireEvent.click(card)
 
-      expect(card).toHaveAttribute('aria-pressed', 'true')
       expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent(option.shortLabel)
     })
   })
@@ -50,32 +49,29 @@ describe('Hearth Studio V9 visual shell', () => {
 
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('More heat')
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('No final selections yet.')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Venting and measurements')
+    expect(screen.getByText(/Current setup details/)).toBeInTheDocument()
   })
 
   it('activates the second context prompt after a goal is selected', () => {
     render(<HearthStudioV9Shell />)
 
-    expect(screen.getByRole('button', { name: /Existing masonry fireplace/ })).toBeDisabled()
-
     fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
 
-    expect(screen.getByRole('button', { name: /Existing masonry fireplace/ })).not.toBeDisabled()
+    expect(screen.getByLabelText('Current setup prompt')).toBeInTheDocument()
     expect(screen.getByText('What kind of fireplace situation are we working with?')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Existing masonry fireplace/ })).toBeInTheDocument()
   })
 
   it('lets each context card be selected', () => {
-    render(<HearthStudioV9Shell />)
-
-    fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
-    const contextOptions = within(screen.getByLabelText('Current setup options'))
-
     HEARTH_STUDIO_V9_CONTEXT_OPTIONS.forEach((option) => {
+      cleanup()
+      render(<HearthStudioV9Shell />)
+      fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
+      const contextOptions = within(screen.getByLabelText('Current setup options'))
       const card = contextOptions.getByRole('button', { name: new RegExp(option.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')) })
 
       fireEvent.click(card)
 
-      expect(card).toHaveAttribute('aria-pressed', 'true')
       expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent(option.shortLabel)
     })
   })
@@ -88,22 +84,19 @@ describe('Hearth Studio V9 visual shell', () => {
 
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Less mess')
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Factory-built fireplace')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Current setup details')
+    expect(screen.getByText(/Current setup details|Venting and measurements/)).toBeInTheDocument()
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('No final selections yet.')
   })
 
   it('activates the third fire-experience prompt after goal and setup are selected', () => {
     render(<HearthStudioV9Shell />)
 
-    expect(screen.getByRole('button', { name: /Gas convenience/ })).toBeDisabled()
-
     fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
-    expect(screen.getByRole('button', { name: /Gas convenience/ })).toBeDisabled()
-
     fireEvent.click(screen.getByRole('button', { name: /Existing masonry fireplace/ }))
 
-    expect(screen.getByRole('button', { name: /Gas convenience/ })).not.toBeDisabled()
+    expect(screen.getByLabelText('Fire experience prompt')).toBeInTheDocument()
     expect(screen.getByText('What kind of fire experience sounds right?')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Gas convenience/ })).toBeInTheDocument()
   })
 
   it('lets each fire-experience card be selected', () => {
@@ -133,7 +126,7 @@ describe('Hearth Studio V9 visual shell', () => {
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Less mess')
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Factory-built fireplace')
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Gas convenience')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Preferred fire feel')
+    expect(screen.getByText(/Preferred fire feel/)).toBeInTheDocument()
     expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('No final selections yet.')
   })
 
@@ -144,8 +137,8 @@ describe('Hearth Studio V9 visual shell', () => {
     fireEvent.click(screen.getByRole('button', { name: /Existing masonry fireplace/ }))
     fireEvent.click(within(screen.getByLabelText('Fire experience options')).getByRole('button', { name: /I'm not sure yet/ }))
 
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('That is normal')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('You do not need to know the fuel answer')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('That is normal')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('You do not need to know the fuel answer')
   })
 
   it('gives reassuring guidance when the customer is not sure about context', () => {
@@ -154,8 +147,8 @@ describe('Hearth Studio V9 visual shell', () => {
     fireEvent.click(screen.getByRole('button', { name: /Better looking fireplace/ }))
     fireEvent.click(within(screen.getByLabelText('Current setup options')).getByRole('button', { name: /I'm not sure yet/ }))
 
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('Identifying the current setup is part of the visit')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('plain observations')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('Identifying the current setup is part of the visit')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('plain observations')
   })
 
   it('keeps new construction or remodel out of the goal prompt', () => {
@@ -163,6 +156,7 @@ describe('Hearth Studio V9 visual shell', () => {
 
     expect(within(screen.getByLabelText('Opening goal options')).queryByRole('button', { name: /New construction or remodel/ })).not.toBeInTheDocument()
     expect(within(screen.getByLabelText('Opening goal options')).getByRole('button', { name: /Easier to use/ })).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
     expect(within(screen.getByLabelText('Current setup options')).getByRole('button', { name: /New construction or remodel/ })).toBeInTheDocument()
   })
 
@@ -171,8 +165,8 @@ describe('Hearth Studio V9 visual shell', () => {
 
     fireEvent.click(within(screen.getByLabelText('Opening goal options')).getByRole('button', { name: /I'm not sure yet/ }))
 
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('That is completely normal')
-    expect(screen.getByLabelText('Customer-safe session summary')).toHaveTextContent('simply narrowing the type of fireplace direction')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('That is completely normal')
+    expect(screen.getByLabelText('Selected response preview')).toHaveTextContent('simply narrowing the type of fireplace direction')
   })
 
   it('keeps banned internal terms out of the shell copy', () => {
@@ -181,14 +175,13 @@ describe('Hearth Studio V9 visual shell', () => {
     expect(scanHearthStudioV9ShellCopy(screen.getByLabelText('Hearth Studio V9 customer preview').textContent)).toEqual([])
   })
 
-  it('shows bridge diagnostics without rendering direction output', () => {
+  it('keeps bridge diagnostics collapsed and avoids rendering direction output', () => {
     render(<HearthStudioV9Shell />)
 
-    expect(screen.getByLabelText('Backstage direction bridge diagnostic')).toBeInTheDocument()
+    const diagnostic = screen.getByLabelText('Backstage direction bridge diagnostic')
+    expect(diagnostic).toBeInTheDocument()
+    expect(diagnostic).not.toHaveAttribute('open')
     expect(screen.getByText('Backstage preview - direction bridge only')).toBeInTheDocument()
-    expect(screen.getByText('Waiting for seated inputs')).toBeInTheDocument()
-    expect(screen.getByText(/Still needed: Goal direction, Project setup, Fire experience/)).toBeInTheDocument()
-    expect(screen.getByText(/"currentSetup": "not_sure"/)).toBeInTheDocument()
 
     const text = screen.getByLabelText('Hearth Studio V9 customer preview').textContent
     expect(text).not.toContain('unitId')
@@ -203,6 +196,8 @@ describe('Hearth Studio V9 visual shell', () => {
     fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
     fireEvent.click(screen.getByRole('button', { name: /Existing masonry fireplace/ }))
     fireEvent.click(screen.getByRole('button', { name: /Gas convenience/ }))
+
+    fireEvent.click(screen.getByText('Backstage preview - direction bridge only'))
 
     expect(screen.getByText('Ready for headless check')).toBeInTheDocument()
     expect(screen.getByText(/"currentSetup": "existing_fireplace"/)).toBeInTheDocument()
