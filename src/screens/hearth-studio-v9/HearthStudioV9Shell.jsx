@@ -2,11 +2,14 @@ import { useMemo, useState } from 'react'
 import './HearthStudioV9Shell.css'
 import {
   HEARTH_STUDIO_V9_CONTEXT_OPTIONS,
+  HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS,
   HEARTH_STUDIO_V9_GOAL_OPTIONS,
   buildHearthStudioV9ContextCopy,
   buildHearthStudioV9CustomerCopy,
+  buildHearthStudioV9FireExperienceCopy,
   createInitialHearthStudioV9Session,
   selectHearthStudioV9Context,
+  selectHearthStudioV9FireExperience,
   selectHearthStudioV9Goal,
 } from '../../lib/hearthStudioV9/hearthStudioV9Session.js'
 
@@ -40,9 +43,13 @@ const bannedShellTerms = [
   'spiff',
   'OCR',
   'confidence',
+  'source confidence',
   'Needs Verification',
+  'needs verification',
+  'needs review',
   'BisTrack',
   'shop readiness',
+  'shop ready',
   'internal notes',
   'needs_review',
 ]
@@ -51,8 +58,10 @@ export default function HearthStudioV9Shell() {
   const [session, setSession] = useState(() => createInitialHearthStudioV9Session())
   const customerCopy = useMemo(() => buildHearthStudioV9CustomerCopy(session), [session])
   const contextCopy = useMemo(() => buildHearthStudioV9ContextCopy(session), [session])
+  const fireExperienceCopy = useMemo(() => buildHearthStudioV9FireExperienceCopy(session), [session])
   const summary = session.customerSummary
   const isContextPromptActive = Boolean(session.selectedGoalId)
+  const isFireExperiencePromptActive = Boolean(session.selectedGoalId && session.selectedContextId)
 
   function handleGoalSelection(goalId) {
     setSession((currentSession) => selectHearthStudioV9Goal(currentSession, goalId))
@@ -60,6 +69,10 @@ export default function HearthStudioV9Shell() {
 
   function handleContextSelection(contextId) {
     setSession((currentSession) => selectHearthStudioV9Context(currentSession, contextId))
+  }
+
+  function handleFireExperienceSelection(fireExperienceId) {
+    setSession((currentSession) => selectHearthStudioV9FireExperience(currentSession, fireExperienceId))
   }
 
   return (
@@ -132,6 +145,12 @@ export default function HearthStudioV9Shell() {
               Pick the answer that feels closest. This only shapes the showroom conversation; it is not a product choice.
             </p>
 
+            <div className="v9-shell__sit-progress" aria-label="Hearth Cafe Sit progress">
+              <span className={session.selectedGoalId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Goal</span>
+              <span className={session.selectedContextId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Setup</span>
+              <span className={session.selectedFireExperienceId ? 'v9-shell__sit-progress-item v9-shell__sit-progress-item--complete' : 'v9-shell__sit-progress-item'}>Fire Feel</span>
+            </div>
+
             <div className="v9-shell__answer-grid" role="list" aria-label="Opening goal options">
               {HEARTH_STUDIO_V9_GOAL_OPTIONS.map((option) => {
                 const isSelected = session.selectedGoalId === option.id
@@ -191,6 +210,42 @@ export default function HearthStudioV9Shell() {
                 })}
               </div>
             </div>
+
+            <div
+              className={isFireExperiencePromptActive ? 'v9-shell__context-prompt' : 'v9-shell__context-prompt v9-shell__context-prompt--inactive'}
+              aria-label="Fire experience prompt"
+            >
+              <p className="v9-shell__eyebrow">Third seated prompt</p>
+              <h3>What kind of fire experience sounds right?</h3>
+              <p>
+                This is about the feeling you want to live with, not choosing a final fuel or product today.
+              </p>
+
+              <div className="v9-shell__answer-grid v9-shell__answer-grid--compact" role="list" aria-label="Fire experience options">
+                {HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS.map((option) => {
+                  const isSelected = session.selectedFireExperienceId === option.id
+
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
+                      aria-pressed={isSelected}
+                      disabled={!isFireExperiencePromptActive}
+                      onClick={() => handleFireExperienceSelection(option.id)}
+                    >
+                      <span>{option.label}</span>
+                      <small>{option.nextPromptPreview}</small>
+                      {isSelected ? (
+                        <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
+                          <path d="M5.5 12.4 10 16.9 18.8 7.6" />
+                        </svg>
+                      ) : null}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           <aside className="v9-shell__customer-summary" aria-label="Customer-safe session summary">
@@ -207,10 +262,16 @@ export default function HearthStudioV9Shell() {
               <p>{contextCopy.response}</p>
             </div>
 
+            <div className="v9-shell__selected-response">
+              <span>Fire experience selected</span>
+              <strong>{summary.fireExperience}</strong>
+              <p>{fireExperienceCopy.response}</p>
+            </div>
+
             <div className="v9-shell__summary-block">
               <span>What is still unknown</span>
               <ul>
-                {[...summary.stillUnknown, ...summary.contextUnknowns].map((item) => (
+                {[...summary.stillUnknown, ...summary.contextUnknowns, ...summary.fireExperienceUnknowns].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -218,7 +279,13 @@ export default function HearthStudioV9Shell() {
 
             <div className="v9-shell__next-preview">
               <span>Next we will narrow</span>
-              <p>{session.selectedContextId ? contextCopy.nextPromptPreview : customerCopy.nextPromptPreview}</p>
+              <p>
+                {session.selectedFireExperienceId
+                  ? fireExperienceCopy.nextPromptPreview
+                  : session.selectedContextId
+                    ? contextCopy.nextPromptPreview
+                    : customerCopy.nextPromptPreview}
+              </p>
             </div>
 
             <p className="v9-shell__summary-boundary">{summary.finalSelectionState}</p>

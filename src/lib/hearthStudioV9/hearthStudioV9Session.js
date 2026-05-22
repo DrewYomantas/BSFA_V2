@@ -100,6 +100,57 @@ export const HEARTH_STUDIO_V9_CONTEXT_OPTIONS = [
   },
 ]
 
+export const HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS = [
+  {
+    id: 'gas_convenience',
+    label: 'Gas convenience',
+    shortLabel: 'Gas convenience',
+    response: 'That points us toward simple start-up, steady heat, and an easy daily fire experience.',
+    nextPromptPreview: 'Next we will narrow how convenient the fire should feel and what kind of flame presence you like.',
+    directionFinderSeed: { fireExperience: 'gas_convenience' },
+  },
+  {
+    id: 'real_wood_feel',
+    label: 'Real wood feel',
+    shortLabel: 'Real wood feel',
+    response: 'That keeps the conversation close to sound, smell, and the ritual of building a real wood fire.',
+    nextPromptPreview: 'Next we will narrow which parts of the wood-fire feeling matter most to you.',
+    directionFinderSeed: { fireExperience: 'real_wood_feel' },
+  },
+  {
+    id: 'electric_simplicity',
+    label: 'Electric simplicity',
+    shortLabel: 'Electric simplicity',
+    response: 'That can be a good fit when visual warmth matters more than a full fireplace project.',
+    nextPromptPreview: 'Next we will narrow where visual warmth belongs and how simple the installation conversation should stay.',
+    directionFinderSeed: { fireExperience: 'electric_simplicity' },
+  },
+  {
+    id: 'outdoor_flame',
+    label: 'Outdoor flame',
+    shortLabel: 'Outdoor flame',
+    response: 'That keeps the focus on the outdoor setting, how people gather, and what kind of flame feels inviting there.',
+    nextPromptPreview: 'Next we will narrow how the outdoor area is used and what the flame should add to that space.',
+    directionFinderSeed: { fireExperience: 'outdoor_flame' },
+  },
+  {
+    id: 'best_looking_flame',
+    label: 'Best-looking flame',
+    shortLabel: 'Best-looking flame',
+    response: 'That is a perfectly valid lead. We will focus on appearance first, then keep the practical details honest.',
+    nextPromptPreview: 'Next we will narrow the flame look: quiet, dramatic, traditional, modern, or somewhere between.',
+    directionFinderSeed: { fireExperience: 'best_looking_flame' },
+  },
+  {
+    id: 'not_sure_yet',
+    label: "I'm not sure yet",
+    shortLabel: "I'm not sure yet",
+    response: 'That is normal. You do not need to know the fuel answer before seeing and talking through the options.',
+    nextPromptPreview: 'Next we will compare the feeling of the fire in plain language before narrowing the technical path.',
+    directionFinderSeed: { fireExperience: 'not_sure_yet' },
+  },
+]
+
 const DEFAULT_UNKNOWNS = [
   'Fireplace type',
   'Room fit',
@@ -113,15 +164,21 @@ const DEFAULT_CONTEXT_UNKNOWNS = [
   'What can stay or change',
 ]
 
+const DEFAULT_FIRE_EXPERIENCE_UNKNOWNS = [
+  'Preferred fire feel',
+  'How often the fire will be used',
+  'Flame look and daily ease',
+]
+
 export function createInitialHearthStudioV9Session() {
-  return buildHearthStudioV9Session(null, null)
+  return buildHearthStudioV9Session(null, null, null)
 }
 
 export function selectHearthStudioV9Goal(session, goalId) {
   const goal = HEARTH_STUDIO_V9_GOAL_OPTIONS.find((option) => option.id === goalId) ?? null
 
   return {
-    ...buildHearthStudioV9Session(goal, session?.selectedContext),
+    ...buildHearthStudioV9Session(goal, session?.selectedContext, session?.selectedFireExperience),
     startedAt: session?.startedAt ?? null,
   }
 }
@@ -130,7 +187,16 @@ export function selectHearthStudioV9Context(session, contextId) {
   const context = HEARTH_STUDIO_V9_CONTEXT_OPTIONS.find((option) => option.id === contextId) ?? null
 
   return {
-    ...buildHearthStudioV9Session(session?.selectedGoal, context),
+    ...buildHearthStudioV9Session(session?.selectedGoal, context, session?.selectedFireExperience),
+    startedAt: session?.startedAt ?? null,
+  }
+}
+
+export function selectHearthStudioV9FireExperience(session, fireExperienceId) {
+  const fireExperience = HEARTH_STUDIO_V9_FIRE_EXPERIENCE_OPTIONS.find((option) => option.id === fireExperienceId) ?? null
+
+  return {
+    ...buildHearthStudioV9Session(session?.selectedGoal, session?.selectedContext, fireExperience),
     startedAt: session?.startedAt ?? null,
   }
 }
@@ -138,12 +204,15 @@ export function selectHearthStudioV9Context(session, contextId) {
 export function buildHearthStudioV9SessionSummary(session) {
   const goal = normalizeOption(session?.selectedGoal)
   const context = normalizeOption(session?.selectedContext)
+  const fireExperience = normalizeOption(session?.selectedFireExperience)
 
   return {
     goalDirection: goal?.shortLabel ?? 'Not selected yet',
     projectContext: context?.shortLabel ?? 'Not selected yet',
+    fireExperience: fireExperience?.shortLabel ?? 'Not selected yet',
     stillUnknown: [...DEFAULT_UNKNOWNS],
     contextUnknowns: [...DEFAULT_CONTEXT_UNKNOWNS],
+    fireExperienceUnknowns: [...DEFAULT_FIRE_EXPERIENCE_UNKNOWNS],
     finalSelectionState: 'No final selections yet.',
   }
 }
@@ -180,26 +249,49 @@ export function buildHearthStudioV9ContextCopy(session) {
   }
 }
 
-function buildHearthStudioV9Session(goal, context) {
+export function buildHearthStudioV9FireExperienceCopy(session) {
+  const fireExperience = normalizeOption(session?.selectedFireExperience)
+
+  if (!fireExperience) {
+    return {
+      response: 'After the setup is named, we will talk about the kind of fire you picture living with.',
+      nextPromptPreview: 'Next we will narrow convenience, wood feeling, visual warmth, or flame appearance.',
+    }
+  }
+
+  return {
+    response: fireExperience.response,
+    nextPromptPreview: fireExperience.nextPromptPreview,
+  }
+}
+
+function buildHearthStudioV9Session(goal, context, fireExperience) {
   const selectedGoal = normalizeOption(goal)
   const selectedContext = normalizeOption(context)
+  const selectedFireExperience = normalizeOption(fireExperience)
 
   return {
     selectedGoalId: selectedGoal?.id ?? null,
     selectedGoal,
     selectedContextId: selectedContext?.id ?? null,
     selectedContext,
+    selectedFireExperienceId: selectedFireExperience?.id ?? null,
+    selectedFireExperience,
     unknowns: [...DEFAULT_UNKNOWNS],
     contextUnknowns: [...DEFAULT_CONTEXT_UNKNOWNS],
+    fireExperienceUnknowns: [...DEFAULT_FIRE_EXPERIENCE_UNKNOWNS],
     directionFinderSeed: {
       ...(selectedGoal?.directionFinderSeed ?? {}),
       ...(selectedContext?.directionFinderSeed ?? {}),
+      ...(selectedFireExperience?.directionFinderSeed ?? {}),
     },
     customerSummary: {
       goalDirection: selectedGoal?.shortLabel ?? 'Not selected yet',
       projectContext: selectedContext?.shortLabel ?? 'Not selected yet',
+      fireExperience: selectedFireExperience?.shortLabel ?? 'Not selected yet',
       stillUnknown: [...DEFAULT_UNKNOWNS],
       contextUnknowns: [...DEFAULT_CONTEXT_UNKNOWNS],
+      fireExperienceUnknowns: [...DEFAULT_FIRE_EXPERIENCE_UNKNOWNS],
       finalSelectionState: 'No final selections yet.',
     },
   }
