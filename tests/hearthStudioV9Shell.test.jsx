@@ -181,6 +181,35 @@ describe('Hearth Studio V9 visual shell', () => {
     expect(scanHearthStudioV9ShellCopy(screen.getByLabelText('Hearth Studio V9 customer preview').textContent)).toEqual([])
   })
 
+  it('shows bridge diagnostics without rendering direction output', () => {
+    render(<HearthStudioV9Shell />)
+
+    expect(screen.getByLabelText('Backstage direction bridge diagnostic')).toBeInTheDocument()
+    expect(screen.getByText('Backstage preview - direction bridge only')).toBeInTheDocument()
+    expect(screen.getByText('Waiting for seated inputs')).toBeInTheDocument()
+    expect(screen.getByText(/Still needed: Goal direction, Project setup, Fire experience/)).toBeInTheDocument()
+    expect(screen.getByText(/"currentSetup": "not_sure"/)).toBeInTheDocument()
+
+    const text = screen.getByLabelText('Hearth Studio V9 customer preview').textContent
+    expect(text).not.toContain('unitId')
+    expect(text).not.toContain('displayName')
+    expect(text).not.toContain('Worth seeing')
+    expect(text).not.toContain('internalHandoff')
+  })
+
+  it('updates bridge diagnostics after the seated inputs are complete', () => {
+    render(<HearthStudioV9Shell />)
+
+    fireEvent.click(screen.getByRole('button', { name: /More heat/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Existing masonry fireplace/ }))
+    fireEvent.click(screen.getByRole('button', { name: /Gas convenience/ }))
+
+    expect(screen.getByText('Ready for headless check')).toBeInTheDocument()
+    expect(screen.getByText(/"currentSetup": "existing_fireplace"/)).toBeInTheDocument()
+    expect(screen.getByText(/"mainGoal": "more_heat"/)).toBeInTheDocument()
+    expect(screen.getByText(/"styleDirection": "modern"/)).toBeInTheDocument()
+  })
+
   it('mounts at the preview route without replacing existing routes', () => {
     render(
       <MemoryRouter initialEntries={['/hearth-studio-v9']}>

@@ -12,6 +12,7 @@ import {
   selectHearthStudioV9FireExperience,
   selectHearthStudioV9Goal,
 } from '../../lib/hearthStudioV9/hearthStudioV9Session.js'
+import { buildHearthStudioV9DirectionBridge } from '../../lib/hearthStudioV9/hearthStudioV9DirectionBridge.js'
 
 const cafeSteps = [
   {
@@ -59,6 +60,7 @@ export default function HearthStudioV9Shell() {
   const customerCopy = useMemo(() => buildHearthStudioV9CustomerCopy(session), [session])
   const contextCopy = useMemo(() => buildHearthStudioV9ContextCopy(session), [session])
   const fireExperienceCopy = useMemo(() => buildHearthStudioV9FireExperienceCopy(session), [session])
+  const directionBridge = useMemo(() => buildHearthStudioV9DirectionBridge(session), [session])
   const summary = session.customerSummary
   const isContextPromptActive = Boolean(session.selectedGoalId)
   const isFireExperiencePromptActive = Boolean(session.selectedGoalId && session.selectedContextId)
@@ -321,6 +323,28 @@ export default function HearthStudioV9Shell() {
             </div>
           </div>
         </div>
+
+        <details className="v9-shell__diagnostic" aria-label="Backstage direction bridge diagnostic">
+          <summary>Backstage preview - direction bridge only</summary>
+          <div className="v9-shell__diagnostic-grid">
+            <div>
+              <span>Bridge status</span>
+              <strong>{directionBridge.canRunDirectionFinder ? 'Ready for headless check' : 'Waiting for seated inputs'}</strong>
+              <p>
+                {directionBridge.canRunDirectionFinder
+                  ? 'The seated choices can be mapped into the headless input shape.'
+                  : `Still needed: ${directionBridge.missingInputs.join(', ') || 'None'}.`}
+              </p>
+            </div>
+            <div>
+              <span>Mapped input</span>
+              <pre>{JSON.stringify(directionBridge.mappedInput, null, 2)}</pre>
+            </div>
+          </div>
+          <p className="v9-shell__diagnostic-note">
+            Diagnostic only. Product direction output is not shown in this customer preview.
+          </p>
+        </details>
 
         <p className="v9-shell__fine-print">
           Concept visualization only. Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details are confirmed before quote or order.

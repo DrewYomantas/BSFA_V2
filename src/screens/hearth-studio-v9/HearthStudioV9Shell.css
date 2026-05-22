@@ -670,6 +670,75 @@
   padding-top: 18px;
 }
 
+.v9-shell__diagnostic {
+  border: 1px solid rgba(222, 199, 142, 0.18);
+  color: rgba(248, 243, 232, 0.72);
+  margin-top: 24px;
+  max-width: 920px;
+}
+
+.v9-shell__diagnostic summary {
+  color: var(--v9-brass-hi);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  padding: 16px 18px;
+  text-transform: uppercase;
+}
+
+.v9-shell__diagnostic-grid {
+  border-top: 1px solid rgba(222, 199, 142, 0.15);
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(260px, 1.15fr);
+  padding: 18px;
+}
+
+.v9-shell__diagnostic span {
+  color: rgba(232, 199, 131, 0.76);
+  display: block;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.v9-shell__diagnostic strong {
+  color: var(--v9-cream);
+  display: block;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.v9-shell__diagnostic p,
+.v9-shell__diagnostic-note {
+  color: rgba(248, 243, 232, 0.64);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 10px 0 0;
+}
+
+.v9-shell__diagnostic pre {
+  background: rgba(248, 243, 232, 0.06);
+  color: rgba(248, 243, 232, 0.78);
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  overflow: auto;
+  padding: 14px;
+  white-space: pre-wrap;
+}
+
+.v9-shell__diagnostic-note {
+  border-top: 1px solid rgba(222, 199, 142, 0.12);
+  margin: 0;
+  padding: 0 18px 18px;
+}
+
 @media (max-width: 980px) {
   .v9-shell__fireplace {
     opacity: 0.58;
@@ -684,6 +753,7 @@
 
   .v9-shell__steps,
   .v9-shell__opening-prompt,
+  .v9-shell__diagnostic-grid,
   .v9-shell__direction-surface {
     grid-template-columns: 1fr;
   }
