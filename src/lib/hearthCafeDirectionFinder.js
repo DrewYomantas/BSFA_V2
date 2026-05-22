@@ -28,12 +28,32 @@ const styleSignals = {
   not_sure: [],
 }
 
+const fireExperienceSignals = {
+  gas_convenience: ['fuel:gas', 'pillar:convenience', 'best:convenience'],
+  real_wood_feel: ['fuel:wood', 'pillar:wood_authenticity', 'pillar:realism', 'best:wood'],
+  electric_simplicity: [],
+  outdoor_flame: [],
+  best_looking_flame: ['pillar:realism', 'pillar:ambiance', 'best:flame', 'best:design'],
+  not_sure: [],
+}
+
+const unsupportedFireExperienceNotes = {
+  electric_simplicity: 'Electric simplicity is not represented in the current reviewed direction set yet.',
+  outdoor_flame: 'Outdoor flame is not represented in the current reviewed direction set yet.',
+}
+
 const goalReason = {
   more_heat: 'because it supports a stronger heat conversation without locking in a quote yet.',
   easier_fire: 'because it keeps the conversation focused on simple, convenient use.',
   better_looking_room: 'because it gives the room a clear fireplace direction to react to.',
   real_wood_feel: 'because it keeps the real-fire look and feel in the conversation.',
   not_sure: 'because it is a useful starting point while the room direction is still open.',
+}
+
+const fireExperienceReason = {
+  gas_convenience: 'It also supports the simple-start fire experience the customer is picturing.',
+  real_wood_feel: 'It also keeps the real wood feeling in the conversation.',
+  best_looking_flame: 'It also keeps flame appearance near the center of the conversation.',
 }
 
 const styleReason = {
@@ -83,11 +103,27 @@ export function getHearthCafeSkippedRecords(data = {}) {
   }
 }
 
+export function getHearthCafeInputDiagnostics(input = {}) {
+  const normalized = normalizeInput(input)
+  const unsupportedFireExperience = unsupportedFireExperienceNotes[normalized.fireExperience]
+
+  return {
+    normalizedInput: normalized,
+    unsupportedFireExperience: unsupportedFireExperience
+      ? {
+          fireExperience: normalized.fireExperience,
+          message: unsupportedFireExperience,
+        }
+      : null,
+  }
+}
+
 function normalizeInput(input) {
   return {
     currentSetup: setupSignals[input.currentSetup] ? input.currentSetup : 'not_sure',
     mainGoal: goalSignals[input.mainGoal] ? input.mainGoal : 'not_sure',
     styleDirection: styleSignals[input.styleDirection] ? input.styleDirection : 'not_sure',
+    fireExperience: fireExperienceSignals[input.fireExperience] ? input.fireExperience : 'not_sure',
   }
 }
 
@@ -95,6 +131,7 @@ function scoreManifest(manifest, input) {
   const setupMatches = intersect(manifest.compatibleSetups, setupSignals[input.currentSetup])
   const goalMatches = intersect(manifest.customer?.experiencePillars, goalSignals[input.mainGoal])
   const styleMatches = intersect(manifest.styleAffinity, styleSignals[input.styleDirection])
+  const fireExperienceMatches = scoreFireExperience(manifest, input.fireExperience)
   const bestForMatches = scoreBestFor(manifest.customer?.bestFor, input)
   const displayBoost = manifest.internal?.displayPosition != null ? 1 : 0
 
@@ -102,9 +139,10 @@ function scoreManifest(manifest, input) {
     setupMatches,
     goalMatches,
     styleMatches,
+    fireExperienceMatches,
     bestForMatches,
     displayBoost,
-    total: setupMatches.length * 4 + goalMatches.length * 3 + styleMatches.length * 3 + bestForMatches + displayBoost,
+    total: setupMatches.length * 4 + goalMatches.length * 3 + styleMatches.length * 3 + fireExperienceMatches.length * 2 + bestForMatches + displayBoost,
   }
 }
 
@@ -140,6 +178,10 @@ function buildReason(manifest, input, score) {
     return `${manifest.customer.shortDescription} ${styleReason[input.styleDirection]}`
   }
 
+  if (score.fireExperienceMatches.length > 0 && fireExperienceReason[input.fireExperience]) {
+    return `${manifest.customer.shortDescription} ${fireExperienceReason[input.fireExperience]}`
+  }
+
   return `${manifest.customer.shortDescription} ${goalReason.not_sure}`
 }
 
@@ -148,6 +190,7 @@ function buildMatchedSignals(input, score) {
   if (score.setupMatches.length > 0) signals.push(`setup:${input.currentSetup}`)
   if (score.goalMatches.length > 0) signals.push(`goal:${input.mainGoal}`)
   if (score.styleMatches.length > 0) signals.push(`style:${input.styleDirection}`)
+  if (score.fireExperienceMatches.length > 0) signals.push(`fire:${input.fireExperience}`)
   if (signals.length === 0) signals.push('starting-point')
   return signals
 }
@@ -164,6 +207,7 @@ function buildInternalHandoff(handoff, score) {
       setup: score.setupMatches,
       goal: score.goalMatches,
       style: score.styleMatches,
+      fireExperience: score.fireExperienceMatches,
     },
     nextSteps: [
       'Confirm measurements and site conditions.',
@@ -183,6 +227,26 @@ function toSkippedRecord(manifest) {
     unitId: manifest.unitId,
     displayName: manifest.customer?.displayName ?? manifest.unitId,
   }
+}
+
+function scoreFireExperience(manifest, fireExperience) {
+  const targets = fireExperienceSignals[fireExperience] ?? []
+  if (targets.length === 0) return []
+
+  const fuelType = manifest.customer?.fuelTypeHuman?.toLowerCase() ?? ''
+  const pillars = manifest.customer?.experiencePillars ?? []
+  const bestFor = (manifest.customer?.bestFor ?? []).join(' ').toLowerCase()
+  const matches = []
+
+  targets.forEach((target) => {
+    const [kind, value] = target.split(':')
+
+    if (kind === 'fuel' && fuelType.includes(value)) matches.push(target)
+    if (kind === 'pillar' && pillars.includes(value)) matches.push(target)
+    if (kind === 'best' && bestFor.includes(value)) matches.push(target)
+  })
+
+  return matches
 }
 
 function scoreBestFor(bestFor = [], input) {

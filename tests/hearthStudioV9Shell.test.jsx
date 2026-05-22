@@ -207,7 +207,8 @@ describe('Hearth Studio V9 visual shell', () => {
     expect(screen.getByText('Ready for headless check')).toBeInTheDocument()
     expect(screen.getByText(/"currentSetup": "existing_fireplace"/)).toBeInTheDocument()
     expect(screen.getByText(/"mainGoal": "more_heat"/)).toBeInTheDocument()
-    expect(screen.getByText(/"styleDirection": "modern"/)).toBeInTheDocument()
+    expect(screen.getByText(/"fireExperience": "gas_convenience"/)).toBeInTheDocument()
+    expect(screen.queryByText(/"styleDirection"/)).not.toBeInTheDocument()
   })
 
   it('mounts at the preview route without replacing existing routes', () => {

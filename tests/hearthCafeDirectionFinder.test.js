@@ -3,6 +3,7 @@ import { gapList, manifests, registerRecords } from '../src/lib/v8LoadData.js'
 import { customerBannedTerms } from '../src/lib/v8ProofSliceContract.js'
 import {
   buildHearthCafeDirections,
+  getHearthCafeInputDiagnostics,
   getHearthCafeSkippedRecords,
 } from '../src/lib/hearthCafeDirectionFinder.js'
 
@@ -41,6 +42,68 @@ describe('Hearth Cafe direction finder', () => {
     expect(directions).toHaveLength(3)
     expect(directions.every((direction) => direction.reason.length > 0)).toBe(true)
     expect(directions.every((direction) => direction.nextActionText.length > 0)).toBe(true)
+  })
+
+  it('preserves backward compatibility when fire experience is omitted', () => {
+    const directions = buildHearthCafeDirections(defaultInput, { manifests, registerRecords })
+    const diagnostics = getHearthCafeInputDiagnostics(defaultInput)
+
+    expect(directions).toHaveLength(3)
+    expect(diagnostics.normalizedInput.fireExperience).toBe('not_sure')
+  })
+
+  it('uses native gas fire experience as a small matching signal', () => {
+    const directions = buildHearthCafeDirections({
+      currentSetup: 'new_fireplace_wall',
+      mainGoal: 'not_sure',
+      fireExperience: 'gas_convenience',
+    }, { manifests, registerRecords })
+
+    expect(directions).toHaveLength(3)
+    expect(directions.some((direction) => direction.matchedSignals.includes('fire:gas_convenience'))).toBe(true)
+  })
+
+  it('uses native real wood fire experience without requiring a style direction', () => {
+    const directions = buildHearthCafeDirections({
+      currentSetup: 'insert_upgrade',
+      mainGoal: 'not_sure',
+      fireExperience: 'real_wood_feel',
+    }, { manifests, registerRecords })
+
+    expect(directions).toHaveLength(3)
+    expect(directions.some((direction) => direction.matchedSignals.includes('fire:real_wood_feel'))).toBe(true)
+  })
+
+  it('does not over-constrain results when fire experience is not sure', () => {
+    const directions = buildHearthCafeDirections({
+      currentSetup: 'not_sure',
+      mainGoal: 'not_sure',
+      fireExperience: 'not_sure',
+    }, { manifests, registerRecords })
+
+    expect(directions).toHaveLength(3)
+    expect(directions.flatMap((direction) => direction.matchedSignals)).not.toContain('fire:not_sure')
+  })
+
+  it('returns safe diagnostics for fire experiences not represented in the current direction set', () => {
+    const electricDiagnostics = getHearthCafeInputDiagnostics({ fireExperience: 'electric_simplicity' })
+    const outdoorDiagnostics = getHearthCafeInputDiagnostics({ fireExperience: 'outdoor_flame' })
+    const electricDirections = buildHearthCafeDirections({
+      currentSetup: 'not_sure',
+      mainGoal: 'not_sure',
+      fireExperience: 'electric_simplicity',
+    }, { manifests, registerRecords })
+
+    expect(electricDiagnostics.unsupportedFireExperience).toEqual({
+      fireExperience: 'electric_simplicity',
+      message: 'Electric simplicity is not represented in the current reviewed direction set yet.',
+    })
+    expect(outdoorDiagnostics.unsupportedFireExperience).toEqual({
+      fireExperience: 'outdoor_flame',
+      message: 'Outdoor flame is not represented in the current reviewed direction set yet.',
+    })
+    expect(electricDirections).toHaveLength(3)
+    expect(electricDirections.flatMap((direction) => direction.matchedSignals)).not.toContain('fire:electric_simplicity')
   })
 
   it('excludes display-only records from primary customer recommendations', () => {

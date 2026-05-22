@@ -21,7 +21,7 @@ describe('Hearth Studio V9 direction bridge', () => {
     expect(bridge.mappedInput).toEqual({
       currentSetup: 'not_sure',
       mainGoal: 'not_sure',
-      styleDirection: 'not_sure',
+      fireExperience: 'not_sure',
     })
   })
 
@@ -34,8 +34,9 @@ describe('Hearth Studio V9 direction bridge', () => {
     expect(bridge.mappedInput).toEqual({
       currentSetup: 'existing_fireplace',
       mainGoal: 'more_heat',
-      styleDirection: 'modern',
+      fireExperience: 'gas_convenience',
     })
+    expect(bridge.mappedInput).not.toHaveProperty('styleDirection')
     expect(bridge.seed).toEqual({
       openingGoal: 'more_heat',
       projectContext: 'existing_masonry_fireplace',
@@ -68,8 +69,9 @@ describe('Hearth Studio V9 direction bridge', () => {
     expect(compatibility.mappedInput).toEqual({
       currentSetup: 'new_fireplace_wall',
       mainGoal: 'better_looking_room',
-      styleDirection: 'premium_showpiece',
+      fireExperience: 'best_looking_flame',
     })
+    expect(compatibility.mappedInput).not.toHaveProperty('styleDirection')
   })
 
   it('keeps bridge summaries and mapped input clear of banned customer-facing terms', () => {

@@ -24,12 +24,12 @@ const contextToCurrentSetup = {
   not_sure_yet: 'not_sure',
 }
 
-const fireExperienceToStyleDirection = {
-  gas_convenience: 'modern',
-  real_wood_feel: 'rustic_lodge',
-  electric_simplicity: 'modern',
-  outdoor_flame: 'rustic_lodge',
-  best_looking_flame: 'premium_showpiece',
+const fireExperienceToNativeInput = {
+  gas_convenience: 'gas_convenience',
+  real_wood_feel: 'real_wood_feel',
+  electric_simplicity: 'electric_simplicity',
+  outdoor_flame: 'outdoor_flame',
+  best_looking_flame: 'best_looking_flame',
   not_sure_yet: 'not_sure',
 }
 
@@ -41,7 +41,7 @@ export function buildHearthStudioV9DirectionBridge(session = {}) {
   const mappedInput = {
     currentSetup: mapValue(contextToCurrentSetup, session.selectedContextId),
     mainGoal: mapValue(goalToMainGoal, session.selectedGoalId),
-    styleDirection: mapValue(fireExperienceToStyleDirection, session.selectedFireExperienceId),
+    fireExperience: mapValue(fireExperienceToNativeInput, session.selectedFireExperienceId),
   }
 
   return {
@@ -64,8 +64,8 @@ export function buildHearthStudioV9DirectionBridge(session = {}) {
       finalSelectionState: session.customerSummary?.finalSelectionState ?? 'No final selections yet.',
     },
     internalNotes: [
-      'Bridge maps V9 seated prompt state into the current headless input shape.',
-      'Fire experience is currently represented through styleDirection plus seed metadata.',
+      'Bridge maps V9 seated prompt state into the headless input shape.',
+      'Fire experience is passed through as a native input.',
       'Direction output is intentionally not rendered in the V9 shell.',
     ],
   }
