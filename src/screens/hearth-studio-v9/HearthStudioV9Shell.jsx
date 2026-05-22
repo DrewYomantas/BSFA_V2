@@ -1,4 +1,11 @@
+import { useMemo, useState } from 'react'
 import './HearthStudioV9Shell.css'
+import {
+  HEARTH_STUDIO_V9_GOAL_OPTIONS,
+  buildHearthStudioV9CustomerCopy,
+  createInitialHearthStudioV9Session,
+  selectHearthStudioV9Goal,
+} from '../../lib/hearthStudioV9/hearthStudioV9Session.js'
 
 const cafeSteps = [
   {
@@ -38,6 +45,14 @@ const bannedShellTerms = [
 ]
 
 export default function HearthStudioV9Shell() {
+  const [session, setSession] = useState(() => createInitialHearthStudioV9Session())
+  const customerCopy = useMemo(() => buildHearthStudioV9CustomerCopy(session), [session])
+  const summary = session.customerSummary
+
+  function handleGoalSelection(goalId) {
+    setSession((currentSession) => selectHearthStudioV9Goal(currentSession, goalId))
+  }
+
   return (
     <main className="v9-shell" aria-label="Hearth Studio V9 customer preview">
       <section className="v9-shell__hero" aria-label="Hearth Cafe seated start">
@@ -54,7 +69,10 @@ export default function HearthStudioV9Shell() {
         </div>
 
         <header className="v9-shell__topbar">
-          <span>Benson Stone</span>
+          <a className="v9-shell__brand" href="#cafe-flow" aria-label="Benson Stone Hearth Studio">
+            <span className="v9-shell__monogram" aria-hidden="true">B</span>
+            <span>Benson Stone</span>
+          </a>
           <nav aria-label="Hearth Studio preview stages">
             <a href="#cafe-flow">Hearth Cafe</a>
             <a href="#direction-preview">Preview</a>
@@ -90,6 +108,70 @@ export default function HearthStudioV9Shell() {
               <p>{step.copy}</p>
             </article>
           ))}
+        </div>
+
+        <div className="v9-shell__opening-prompt" aria-label="Opening Hearth Cafe prompt">
+          <span className="v9-shell__corner v9-shell__corner--top-left" aria-hidden="true" />
+          <span className="v9-shell__corner v9-shell__corner--top-right" aria-hidden="true" />
+          <span className="v9-shell__corner v9-shell__corner--bottom-left" aria-hidden="true" />
+          <span className="v9-shell__corner v9-shell__corner--bottom-right" aria-hidden="true" />
+
+          <div className="v9-shell__question">
+            <p className="v9-shell__eyebrow">First seated prompt</p>
+            <h2>What brought you in today?</h2>
+            <p>
+              Pick the answer that feels closest. This only shapes the showroom conversation; it is not a product choice.
+            </p>
+
+            <div className="v9-shell__answer-grid" role="list" aria-label="Opening goal options">
+              {HEARTH_STUDIO_V9_GOAL_OPTIONS.map((option) => {
+                const isSelected = session.selectedGoalId === option.id
+
+                return (
+                  <button
+                    key={option.id}
+                    type="button"
+                    className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
+                    aria-pressed={isSelected}
+                    onClick={() => handleGoalSelection(option.id)}
+                  >
+                    <span>{option.label}</span>
+                    <small>{option.nextPromptPreview}</small>
+                    {isSelected ? (
+                      <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
+                        <path d="M5.5 12.4 10 16.9 18.8 7.6" />
+                      </svg>
+                    ) : null}
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+
+          <aside className="v9-shell__customer-summary" aria-label="Customer-safe session summary">
+            <p className="v9-shell__eyebrow">Session-safe summary</p>
+            <div className="v9-shell__selected-response">
+              <span>Goal direction selected</span>
+              <strong>{summary.goalDirection}</strong>
+              <p>{customerCopy.response}</p>
+            </div>
+
+            <div className="v9-shell__summary-block">
+              <span>What is still unknown</span>
+              <ul>
+                {summary.stillUnknown.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="v9-shell__next-preview">
+              <span>Next we will narrow</span>
+              <p>{customerCopy.nextPromptPreview}</p>
+            </div>
+
+            <p className="v9-shell__summary-boundary">{summary.finalSelectionState}</p>
+          </aside>
         </div>
       </section>
 
