@@ -2,10 +2,13 @@ import { describe, expect, it } from 'vitest'
 import { hearthVisualAssetSeed } from '../../src/data/hearthVisualAssets/hearthVisualAssetSeed.js'
 import {
   getAssetsAllowedForUse,
+  getAssetsByReviewStatus,
   getAssetsByType,
   getAssetsByVendor,
   getAssetsNeedingReview,
+  getAssetsWithSourceBlockers,
   getCustomerSafeVisualAssets,
+  getReferenceReadyVisualAssets,
 } from '../../src/lib/hearthVisualAssets/hearthVisualAssetFilters.js'
 
 describe('hearth visual asset filters', () => {
@@ -14,6 +17,12 @@ describe('hearth visual asset filters', () => {
 
     expect(customerSafeAssets.map((asset) => asset.id)).toEqual(['eldorado-nantucket-stacked-stone'])
     expect(customerSafeAssets.every((asset) => asset.assetType !== 'needs_review')).toBe(true)
+  })
+
+  it('includes reviewed assets in reference-ready lists', () => {
+    const referenceReadyAssets = getReferenceReadyVisualAssets(hearthVisualAssetSeed)
+
+    expect(referenceReadyAssets.map((asset) => asset.id)).toEqual(['eldorado-nantucket-stacked-stone'])
   })
 
   it('filters by type deterministically', () => {
@@ -55,5 +64,25 @@ describe('hearth visual asset filters', () => {
         'eldorado-cliffstone-ecl-candidate',
       ]),
     )
+  })
+
+  it('flags records with missing required source fields', () => {
+    const sourceBlockers = getAssetsWithSourceBlockers(hearthVisualAssetSeed)
+    const nantucket = sourceBlockers.find((item) => item.asset.id === 'eldorado-nantucket-stacked-stone')
+
+    expect(nantucket.blockers).toEqual(['missing exact Drive folder URL'])
+    expect(sourceBlockers.map((item) => item.asset.id)).toEqual(
+      expect.arrayContaining(['fpx-premium-traditional-gas-fireplaces-brochure']),
+    )
+  })
+
+  it('filters by review status and asset type deterministically', () => {
+    const needsReviewAssets = getAssetsByReviewStatus(hearthVisualAssetSeed, 'needs_review')
+    const needsReviewMantels = needsReviewAssets.filter((asset) => asset.assetType === 'mantel_reference')
+
+    expect(needsReviewMantels.map((asset) => asset.id)).toEqual([
+      'collinswood-mantel-display-candidate',
+      'log-style-mantels-beam-photo-candidates',
+    ])
   })
 })

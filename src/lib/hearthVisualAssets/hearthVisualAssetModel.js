@@ -1,4 +1,6 @@
 const assetTypes = new Set([
+  'library_root',
+  'reference_index',
   'stone_sample',
   'fireplace_face_reference',
   'mantel_reference',
@@ -9,6 +11,22 @@ const assetTypes = new Set([
   'processed_cropped_asset',
   'customer_safe_concept_output',
   'needs_review',
+])
+
+const sourceTypes = new Set([
+  'drive_folder',
+  'drive_file',
+  'markdown_index',
+  'brochure_group',
+  'candidate_group',
+  'unknown',
+])
+
+const reviewStatuses = new Set([
+  'reference_ready',
+  'needs_review',
+  'intake_only',
+  'do_not_use',
 ])
 
 const sourceKinds = new Set([
@@ -32,6 +50,7 @@ export const visualAssetCustomerDisclaimer = 'Concept visualization only. Final 
 
 export const visualAssetCustomerBannedTerms = [
   'cost',
+  'pricing',
   'margin',
   'spiff',
   'OCR',
@@ -47,6 +66,7 @@ export function normalizeHearthVisualAsset(asset = {}) {
   const sourceConfidence = sourceConfidenceValues.has(asset.sourceConfidence)
     ? asset.sourceConfidence
     : 'low_pending_review'
+  const reviewStatus = reviewStatuses.has(asset.reviewStatus) ? asset.reviewStatus : 'needs_review'
 
   return {
     id: stringOrFallback(asset.id, 'untracked-visual-asset'),
@@ -59,8 +79,19 @@ export function normalizeHearthVisualAsset(asset = {}) {
     driveFolderUrl: nullableString(asset.driveFolderUrl),
     driveFileUrl: nullableString(asset.driveFileUrl),
     sourceDocumentTitle: nullableString(asset.sourceDocumentTitle),
+    sourcePageOrSection: nullableString(asset.sourcePageOrSection),
+    sourceType: sourceTypes.has(asset.sourceType) ? asset.sourceType : 'unknown',
     sourceConfidence,
-    customerSafe: Boolean(asset.customerSafe) && assetType !== 'needs_review' && sourceConfidence !== 'do_not_use',
+    lastReviewedDate: nullableString(asset.lastReviewedDate),
+    reviewedBy: nullableString(asset.reviewedBy),
+    reviewStatus,
+    customerSafeUse: nullableString(asset.customerSafeUse),
+    customerSafe: (
+      Boolean(asset.customerSafe) &&
+      assetType !== 'needs_review' &&
+      sourceConfidence !== 'do_not_use' &&
+      reviewStatus === 'reference_ready'
+    ),
     allowedUses: normalizeList(asset.allowedUses, []),
     prohibitedUses: normalizeList(asset.prohibitedUses, ['product truth without review']),
     customerDisclaimer: stringOrFallback(asset.customerDisclaimer, buildCustomerSafeDisclaimer(asset)),
@@ -85,8 +116,14 @@ export function isCustomerSafeVisualAsset(asset = {}) {
     normalized.customerSafe &&
     normalized.assetType !== 'needs_review' &&
     normalized.sourceConfidence !== 'do_not_use' &&
+    normalized.reviewStatus === 'reference_ready' &&
     normalized.customerDisclaimer.includes('Concept visualization only.')
   )
+}
+
+export function isReferenceReadyVisualAsset(asset = {}) {
+  const normalized = normalizeHearthVisualAsset(asset)
+  return normalized.reviewStatus === 'reference_ready' && normalized.sourceConfidence !== 'do_not_use'
 }
 
 export function buildVisualAssetSummary(asset = {}) {
@@ -101,11 +138,53 @@ export function buildVisualAssetSummary(asset = {}) {
     profileOrSeries: normalized.profileOrSeries,
     sourceKind: normalized.sourceKind,
     customerSafe: isCustomerSafeVisualAsset(normalized),
-    allowedUses: normalized.allowedUses,
-    prohibitedUses: normalized.prohibitedUses,
+    customerSafeUse: normalized.customerSafeUse,
     customerDisclaimer: normalized.customerDisclaimer,
     sourceLabel: buildSourceLabel(normalized),
   }
+}
+
+export function getVisualAssetSourceBlockers(asset = {}) {
+  const normalized = normalizeHearthVisualAsset(asset)
+  const blockers = []
+
+  if (normalized.reviewStatus !== 'reference_ready') {
+    blockers.push('review status is not reference-ready')
+  }
+
+  if (!normalized.sourceDocumentTitle && !normalized.driveFolderUrl && !normalized.driveFileUrl) {
+    blockers.push('missing source document or Drive location')
+  }
+
+  if (
+    normalized.sourceType === 'drive_folder' &&
+    !normalized.driveFolderUrl &&
+    normalized.reviewStatus === 'reference_ready'
+  ) {
+    blockers.push('missing exact Drive folder URL')
+  }
+
+  if (
+    normalized.sourceType === 'drive_file' &&
+    !normalized.driveFileUrl &&
+    normalized.reviewStatus === 'reference_ready'
+  ) {
+    blockers.push('missing exact Drive file URL')
+  }
+
+  if (!normalized.sourcePageOrSection) {
+    blockers.push('missing source page or section')
+  }
+
+  if (normalized.reviewStatus === 'reference_ready' && !normalized.lastReviewedDate) {
+    blockers.push('missing last reviewed date')
+  }
+
+  if (normalized.reviewStatus === 'reference_ready' && !normalized.reviewedBy) {
+    blockers.push('missing reviewer')
+  }
+
+  return blockers
 }
 
 export function assertNoCustomerUnsafeTerms(value, bannedTerms = visualAssetCustomerBannedTerms) {

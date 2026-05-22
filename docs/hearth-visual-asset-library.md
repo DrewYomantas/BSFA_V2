@@ -43,6 +43,24 @@ Photos and brochure images should be classified by asset type, source kind, safe
 - Concept outputs must be labeled conceptual.
 - Unknown Drive file URLs should stay `null` until confirmed.
 
+Source tracking fields now include:
+
+- `driveFolderUrl` and `driveFileUrl` for exact Drive locations when known.
+- `sourceDocumentTitle` and `sourcePageOrSection` for repo/Drive evidence.
+- `sourceType` for folder, file, markdown index, brochure group, or candidate group.
+- `lastReviewedDate`, `reviewedBy`, and `reviewStatus` for review state.
+- `customerSafeUse` for the one approved customer-facing use, if any.
+
+Current promoted record:
+
+- `Eldorado Stone - Nantucket Stacked Stone` is marked `reference_ready` for customer material reference only. Its exact Drive folder URL is still missing in repo docs/data, so the app flags that blocker instead of inventing a URL.
+
+Current needs-review groups:
+
+- `stage_v1b_existing_material_image_inventory.md` is an index source, not individual image approval.
+- Eldorado Cliffstone, Imperial ProStack white stacked ledge, Dutch Quality Winter Point Weatherledge, Dutch Quality Greystone Rough Ashlar, Dutch Quality Coal Crest Weatherledge, Collinswood mantel display, and Log Style Mantels beam photos need individual source review.
+- FPX, Lopi, Kingsman, Napoleon, and Stoll brochure groups are candidates only until specific images are reviewed.
+
 ## Customer-Safe Meaning
 
 `customerSafe: true` means the asset can support a visual conversation. It does not mean final approval, compatibility, availability, pricing, dimensions, venting, clearances, or install layout.

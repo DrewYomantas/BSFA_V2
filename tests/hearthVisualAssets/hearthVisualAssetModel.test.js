@@ -4,7 +4,9 @@ import {
   assertNoCustomerUnsafeTerms,
   buildCustomerSafeDisclaimer,
   buildVisualAssetSummary,
+  getVisualAssetSourceBlockers,
   isCustomerSafeVisualAsset,
+  isReferenceReadyVisualAsset,
   normalizeHearthVisualAsset,
   visualAssetCustomerDisclaimer,
 } from '../../src/lib/hearthVisualAssets/hearthVisualAssetModel.js'
@@ -26,6 +28,7 @@ describe('hearth visual asset model', () => {
 
     expect(summary).not.toHaveProperty('internalNotes')
     expect(summary).not.toHaveProperty('sourceConfidence')
+    expect(summary).not.toHaveProperty('prohibitedUses')
     expect(() => assertNoCustomerUnsafeTerms(summary)).not.toThrow()
   })
 
@@ -38,6 +41,9 @@ describe('hearth visual asset model', () => {
     expect(nantucket.vendor).toBe('Eldorado Stone')
     expect(nantucket.productName).toBe('Nantucket')
     expect(nantucket.profileOrSeries).toBe('Stacked Stone')
+    expect(nantucket.reviewStatus).toBe('reference_ready')
+    expect(nantucket.customerSafeUse).toBe('customer material reference')
+    expect(isReferenceReadyVisualAsset(nantucket)).toBe(true)
     expect(nantucket.allowedUses).toEqual(expect.arrayContaining(['customer material reference']))
     expect(nantucket.prohibitedUses).toEqual(
       expect.arrayContaining(['exact color guarantee', 'exact dimensions', 'install layout', 'pricing']),
@@ -66,10 +72,21 @@ describe('hearth visual asset model', () => {
     expect(normalized.driveFolderUrl).toBeNull()
     expect(normalized.driveFileUrl).toBeNull()
     expect(normalized.sourceConfidence).toBe('low_pending_review')
+    expect(normalized.reviewStatus).toBe('needs_review')
     expect(normalized.customerSafe).toBe(false)
   })
 
   it('throws when a customer summary contains unsafe language', () => {
     expect(() => assertNoCustomerUnsafeTerms({ title: 'cost and margin leak' })).toThrow(/cost/)
+  })
+
+  it('flags missing exact source locations without blocking safe summary projection', () => {
+    const nantucket = normalizeHearthVisualAsset(
+      hearthVisualAssetSeed.find((asset) => asset.id === 'eldorado-nantucket-stacked-stone'),
+    )
+    const blockers = getVisualAssetSourceBlockers(nantucket)
+
+    expect(blockers).toEqual(['missing exact Drive folder URL'])
+    expect(() => assertNoCustomerUnsafeTerms(buildVisualAssetSummary(nantucket))).not.toThrow()
   })
 })
