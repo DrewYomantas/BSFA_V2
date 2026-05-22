@@ -1,9 +1,12 @@
 import { useMemo, useState } from 'react'
 import './HearthStudioV9Shell.css'
 import {
+  HEARTH_STUDIO_V9_CONTEXT_OPTIONS,
   HEARTH_STUDIO_V9_GOAL_OPTIONS,
+  buildHearthStudioV9ContextCopy,
   buildHearthStudioV9CustomerCopy,
   createInitialHearthStudioV9Session,
+  selectHearthStudioV9Context,
   selectHearthStudioV9Goal,
 } from '../../lib/hearthStudioV9/hearthStudioV9Session.js'
 
@@ -47,10 +50,16 @@ const bannedShellTerms = [
 export default function HearthStudioV9Shell() {
   const [session, setSession] = useState(() => createInitialHearthStudioV9Session())
   const customerCopy = useMemo(() => buildHearthStudioV9CustomerCopy(session), [session])
+  const contextCopy = useMemo(() => buildHearthStudioV9ContextCopy(session), [session])
   const summary = session.customerSummary
+  const isContextPromptActive = Boolean(session.selectedGoalId)
 
   function handleGoalSelection(goalId) {
     setSession((currentSession) => selectHearthStudioV9Goal(currentSession, goalId))
+  }
+
+  function handleContextSelection(contextId) {
+    setSession((currentSession) => selectHearthStudioV9Context(currentSession, contextId))
   }
 
   return (
@@ -146,6 +155,42 @@ export default function HearthStudioV9Shell() {
                 )
               })}
             </div>
+
+            <div
+              className={isContextPromptActive ? 'v9-shell__context-prompt' : 'v9-shell__context-prompt v9-shell__context-prompt--inactive'}
+              aria-label="Current setup prompt"
+            >
+              <p className="v9-shell__eyebrow">Second seated prompt</p>
+              <h3>What kind of fireplace situation are we working with?</h3>
+              <p>
+                This helps us understand the starting point before the showroom walk. A best guess is enough for now.
+              </p>
+
+              <div className="v9-shell__answer-grid v9-shell__answer-grid--compact" role="list" aria-label="Current setup options">
+                {HEARTH_STUDIO_V9_CONTEXT_OPTIONS.map((option) => {
+                  const isSelected = session.selectedContextId === option.id
+
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      className={isSelected ? 'v9-shell__answer-card v9-shell__answer-card--selected' : 'v9-shell__answer-card'}
+                      aria-pressed={isSelected}
+                      disabled={!isContextPromptActive}
+                      onClick={() => handleContextSelection(option.id)}
+                    >
+                      <span>{option.label}</span>
+                      <small>{option.nextPromptPreview}</small>
+                      {isSelected ? (
+                        <svg aria-hidden="true" className="v9-shell__selected-mark" viewBox="0 0 24 24">
+                          <path d="M5.5 12.4 10 16.9 18.8 7.6" />
+                        </svg>
+                      ) : null}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
           </div>
 
           <aside className="v9-shell__customer-summary" aria-label="Customer-safe session summary">
@@ -156,10 +201,16 @@ export default function HearthStudioV9Shell() {
               <p>{customerCopy.response}</p>
             </div>
 
+            <div className="v9-shell__selected-response">
+              <span>Project context selected</span>
+              <strong>{summary.projectContext}</strong>
+              <p>{contextCopy.response}</p>
+            </div>
+
             <div className="v9-shell__summary-block">
               <span>What is still unknown</span>
               <ul>
-                {summary.stillUnknown.map((item) => (
+                {[...summary.stillUnknown, ...summary.contextUnknowns].map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -167,7 +218,7 @@ export default function HearthStudioV9Shell() {
 
             <div className="v9-shell__next-preview">
               <span>Next we will narrow</span>
-              <p>{customerCopy.nextPromptPreview}</p>
+              <p>{session.selectedContextId ? contextCopy.nextPromptPreview : customerCopy.nextPromptPreview}</p>
             </div>
 
             <p className="v9-shell__summary-boundary">{summary.finalSelectionState}</p>
