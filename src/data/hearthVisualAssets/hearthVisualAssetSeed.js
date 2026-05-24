@@ -49,6 +49,46 @@ function materialCandidate(id, title, vendor, productName, profileOrSeries) {
   }
 }
 
+function productTruthRecord(fields) {
+  const today = '2026-05-24'
+  return {
+    id: fields.id,
+    title: fields.title,
+    assetType: 'product_truth',
+    vendor: fields.vendor,
+    productName: fields.productName,
+    profileOrSeries: fields.profileOrSeries,
+    sourceKind: 'vendor_price_book',
+    driveFolderUrl: null,
+    driveFileUrl: null,
+    sourceDocumentTitle: fields.sourceDocumentTitle || `${fields.vendor} price book — SKU extract`,
+    sourcePageOrSection: fields.sourcePageOrSection || null,
+    sourceType: 'vendor_sku_file',
+    sourceConfidence: fields.dimensionStatus === 'confirmed' ? 'medium_sku_source' : 'low_pending_review',
+    lastReviewedDate: null,
+    reviewedBy: null,
+    reviewStatus: 'needs_review',
+    customerSafeUse: null,
+    customerSafe: false,
+    allowedUses: ['internal product truth review', 'fabrication dimension planning', 'rough-opening reference'],
+    prohibitedUses: ['exact pricing without current price book check', 'customer-facing product truth without rep review', 'install layout without confirmed measure-up'],
+    customerDisclaimer: 'Internal product record. Dimensions and pricing require rep verification before use in quotes, fabrication, or customer conversations.',
+    internalNotes: fields.internalNotes || null,
+    createdAt: today,
+    updatedAt: today,
+    modelCodes: fields.modelCodes || [],
+    seriesDimensions: fields.seriesDimensions || null,
+    dimensionStatus: fields.dimensionStatus || 'missing',
+    msrpRange: fields.msrpRange || null,
+    ignitionType: fields.ignitionType || null,
+    fuelType: fields.fuelType || null,
+    category: fields.category || null,
+    sourceSkuFile: fields.sourceSkuFile || null,
+    sourceSkuPage: fields.sourceSkuPage || null,
+    skuVariants: fields.skuVariants || [],
+  }
+}
+
 function brochureCandidate(id, title, vendor, productName, profileOrSeries, internalNotes = null) {
   return {
     id,
@@ -191,4 +231,52 @@ export const hearthVisualAssetSeed = [
   brochureCandidate('kinsgman-solace-brochure-candidate', 'Kinsgman Solace Brochure', 'Kingsman', 'Solace', null, 'Brochure candidate group. Title preserves current source spelling until the Drive file is reviewed.'),
   brochureCandidate('napoleon-gas-burning-inserts-vented-logsets-brochure', 'Napoleon Gas Burning Inserts Vented Logsets brochure', 'Napoleon', null, 'Gas Burning Inserts Vented Logsets'),
   brochureCandidate('stoll-fireplace-doors-brochure-candidate', 'Stoll Fireplace Doors brochure', 'Stoll', null, 'Fireplace Doors'),
+
+  productTruthRecord({
+    id: 'kozy-heat-chaska-25-product-truth',
+    title: 'Kozy Heat Chaska 25 — CSK-25',
+    vendor: 'Kozy Heat',
+    productName: 'Chaska 25',
+    profileOrSeries: 'Chaska Insert series',
+    sourceDocumentTitle: 'Kozy Heat June 2025 — price book SKU extract (kozy-heat-june-2025-skus.json)',
+    sourcePageOrSection: 'gas inserts / Chaska 25 / page 44',
+    modelCodes: ['CSK-25'],
+    seriesDimensions: null,
+    dimensionStatus: 'missing',
+    msrpRange: { min: 3125, max: 3125 },
+    ignitionType: 'IPI ProFlame 2',
+    fuelType: 'NG/LP',
+    category: 'gas_insert',
+    sourceSkuFile: 'src/data/vendors/kozy-heat-june-2025-skus.json',
+    sourceSkuPage: 44,
+    skuVariants: [
+      { modelCode: 'CSK-25', name: 'Chaska Insert', ignition: 'IPI', msrp: 3125, widthIn: null, heightIn: null, depthIn: null },
+    ],
+    internalNotes: 'All three dimension fields (width, height, depth) are null in the June 2025 Kozy Heat price book extract. Dimensions must be sourced from the Kozy Heat install manual, product datasheet, or kozyheat.com before use in stonework planning or rough-opening conversations.',
+  }),
+
+  productTruthRecord({
+    id: 'kozy-heat-chaska-29-product-truth',
+    title: 'Kozy Heat Chaska 29 — CSK-29-G / CSK-29-L / CSK-29-MV',
+    vendor: 'Kozy Heat',
+    productName: 'Chaska 29',
+    profileOrSeries: 'Chaska Insert series',
+    sourceDocumentTitle: 'Kozy Heat June 2025 — price book SKU extract (kozy-heat-june-2025-skus.json)',
+    sourcePageOrSection: 'gas inserts / Chaska 29 / pages 47–53',
+    modelCodes: ['CSK-29-G', 'CSK-29-L', 'CSK-29-MV'],
+    seriesDimensions: { widthIn: 29.5, heightIn: 19.25, depthIn: 14.5 },
+    dimensionStatus: 'confirmed',
+    msrpRange: { min: 2825, max: 3495 },
+    ignitionType: 'IPI ProFlame 2 / millivolt',
+    fuelType: 'NG/LP',
+    category: 'gas_insert',
+    sourceSkuFile: 'src/data/vendors/kozy-heat-june-2025-skus.json',
+    sourceSkuPage: 47,
+    skuVariants: [
+      { modelCode: 'CSK-29-G', name: 'Chaska Insert - Glass', ignition: 'IPI', msrp: 3495, widthIn: 29.5, heightIn: 19.25, depthIn: 14.5 },
+      { modelCode: 'CSK-29-L', name: 'Chaska Insert - Log', ignition: 'IPI', msrp: 3350, widthIn: 29.5, heightIn: 19.25, depthIn: 14.5 },
+      { modelCode: 'CSK-29-MV', name: 'Chaska Insert - Millivolt', ignition: 'millivolt', msrp: 2825, widthIn: 29.5, heightIn: 19.25, depthIn: 14.5 },
+    ],
+    internalNotes: 'Three variants share the same 29.5 × 19.25 × 14.5 in insert body dimensions per June 2025 price book. Millivolt (CSK-29-MV) cross-ref field-rules-may-2026.json Rule 3: millivolt units are not permitted inside Rockford city limits. Recommend IPI variant for most customers unless millivolt is explicitly requested and the customer is confirmed outside city limits.',
+  }),
 ]

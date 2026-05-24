@@ -10,6 +10,7 @@ const assetTypes = new Set([
   'brochure_image_candidate',
   'processed_cropped_asset',
   'customer_safe_concept_output',
+  'product_truth',
   'needs_review',
 ])
 
@@ -19,6 +20,7 @@ const sourceTypes = new Set([
   'markdown_index',
   'brochure_group',
   'candidate_group',
+  'vendor_sku_file',
   'unknown',
 ])
 
@@ -32,6 +34,7 @@ const reviewStatuses = new Set([
 const sourceKinds = new Set([
   'drew_showroom_photo',
   'vendor_brochure',
+  'vendor_price_book',
   'benson_drive_existing_photo',
   'customer_photo',
   'ai_concept_output',
@@ -42,9 +45,12 @@ const sourceKinds = new Set([
 const sourceConfidenceValues = new Set([
   'high_visual_reference',
   'medium_visual_reference',
+  'medium_sku_source',
   'low_pending_review',
   'do_not_use',
 ])
+
+const dimensionStatuses = new Set(['confirmed', 'missing', 'partial'])
 
 export const visualAssetCustomerDisclaimer = 'Concept visualization only. Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details are confirmed before quote/order.'
 
@@ -89,6 +95,7 @@ export function normalizeHearthVisualAsset(asset = {}) {
     customerSafe: (
       Boolean(asset.customerSafe) &&
       assetType !== 'needs_review' &&
+      assetType !== 'product_truth' &&
       sourceConfidence !== 'do_not_use' &&
       reviewStatus === 'reference_ready'
     ),
@@ -98,6 +105,16 @@ export function normalizeHearthVisualAsset(asset = {}) {
     internalNotes: nullableString(asset.internalNotes),
     createdAt: stringOrFallback(asset.createdAt, null),
     updatedAt: stringOrFallback(asset.updatedAt, null),
+    modelCodes: normalizeList(asset.modelCodes, []),
+    seriesDimensions: isPlainObject(asset.seriesDimensions) ? asset.seriesDimensions : null,
+    dimensionStatus: dimensionStatuses.has(asset.dimensionStatus) ? asset.dimensionStatus : null,
+    msrpRange: isPlainObject(asset.msrpRange) ? asset.msrpRange : null,
+    ignitionType: nullableString(asset.ignitionType),
+    fuelType: nullableString(asset.fuelType),
+    category: nullableString(asset.category),
+    sourceSkuFile: nullableString(asset.sourceSkuFile),
+    sourceSkuPage: typeof asset.sourceSkuPage === 'number' ? asset.sourceSkuPage : null,
+    skuVariants: Array.isArray(asset.skuVariants) ? asset.skuVariants : [],
   }
 }
 
@@ -184,6 +201,10 @@ export function getVisualAssetSourceBlockers(asset = {}) {
     blockers.push('missing reviewer')
   }
 
+  if (normalized.assetType === 'product_truth' && normalized.dimensionStatus === 'missing') {
+    blockers.push('product dimensions not in source — pull from install manual or vendor portal')
+  }
+
   return blockers
 }
 
@@ -201,11 +222,16 @@ export function assertNoCustomerUnsafeTerms(value, bannedTerms = visualAssetCust
 function buildSourceLabel(asset) {
   if (asset.sourceKind === 'drew_showroom_photo') return 'Showroom photo reference'
   if (asset.sourceKind === 'vendor_brochure') return 'Brochure candidate'
+  if (asset.sourceKind === 'vendor_price_book') return 'Vendor price book / SKU extract'
   if (asset.sourceKind === 'benson_drive_existing_photo') return 'Existing Drive photo reference'
   if (asset.sourceKind === 'customer_photo') return 'Customer-provided photo reference'
   if (asset.sourceKind === 'ai_concept_output') return 'Concept output'
   if (asset.sourceKind === 'processed_derivative') return 'Processed derivative'
   return 'Source review pending'
+}
+
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
 }
 
 function normalizeList(value, fallback) {

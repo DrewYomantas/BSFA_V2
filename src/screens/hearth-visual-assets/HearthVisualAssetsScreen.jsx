@@ -21,6 +21,7 @@ const typeLabels = {
   brochure_image_candidate: 'Brochure candidates',
   processed_cropped_asset: 'Processed assets',
   customer_safe_concept_output: 'Concept outputs',
+  product_truth: 'Product truth',
   needs_review: 'Review pending',
 }
 
@@ -172,6 +173,8 @@ function AssetCard({ asset }) {
         </div>
       )}
 
+      {asset.assetType === 'product_truth' && <ProductTruthPanel asset={asset} />}
+
       <div className="mt-4 grid gap-4 text-sm text-hearth-muted md:grid-cols-2">
         <UseList title="Allowed" items={asset.allowedUses} />
         <UseList title="Prohibited" items={asset.prohibitedUses} />
@@ -181,6 +184,97 @@ function AssetCard({ asset }) {
         {summary.customerDisclaimer}
       </p>
     </article>
+  )
+}
+
+function ProductTruthPanel({ asset }) {
+  const dimStatus = asset.dimensionStatus
+  const dimTone = dimStatus === 'confirmed' ? 'green' : dimStatus === 'partial' ? 'amber' : 'red'
+  const dimLabel = dimStatus === 'confirmed' ? 'Dimensions confirmed' : dimStatus === 'partial' ? 'Dimensions partial' : 'Dimensions missing'
+
+  return (
+    <div className="mt-4 space-y-4 border border-hearth-line bg-slate-50 p-4">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-hearth-muted">Product truth</p>
+
+      <div className="flex flex-wrap gap-2">
+        {asset.modelCodes.map((code) => (
+          <span key={code} className="border border-hearth-line bg-white px-2 py-1 font-mono text-xs text-hearth-ink">
+            {code}
+          </span>
+        ))}
+        <span className={`border px-2 py-1 text-xs font-semibold uppercase tracking-[0.14em] ${
+          dimTone === 'green' ? 'border-emerald-700 bg-emerald-50 text-emerald-800'
+            : dimTone === 'amber' ? 'border-amber-700 bg-amber-50 text-amber-800'
+            : 'border-red-700 bg-red-50 text-red-800'
+        }`}>
+          {dimLabel}
+        </span>
+      </div>
+
+      {asset.seriesDimensions ? (
+        <div className="grid grid-cols-3 gap-3 text-sm">
+          <div className="border border-hearth-line bg-white p-3 text-center">
+            <p className="text-xs uppercase tracking-[0.14em] text-hearth-muted">Width</p>
+            <p className="mt-1 text-lg font-semibold text-hearth-ink">{asset.seriesDimensions.widthIn}&Prime;</p>
+          </div>
+          <div className="border border-hearth-line bg-white p-3 text-center">
+            <p className="text-xs uppercase tracking-[0.14em] text-hearth-muted">Height</p>
+            <p className="mt-1 text-lg font-semibold text-hearth-ink">{asset.seriesDimensions.heightIn}&Prime;</p>
+          </div>
+          <div className="border border-hearth-line bg-white p-3 text-center">
+            <p className="text-xs uppercase tracking-[0.14em] text-hearth-muted">Depth</p>
+            <p className="mt-1 text-lg font-semibold text-hearth-ink">{asset.seriesDimensions.depthIn}&Prime;</p>
+          </div>
+        </div>
+      ) : (
+        <p className="text-sm text-red-700">No dimensions in source. Check install manual or vendor portal before use.</p>
+      )}
+
+      <div className="grid gap-2 text-sm text-hearth-muted md:grid-cols-2">
+        {asset.fuelType && <MetaLine label="Fuel" value={asset.fuelType} />}
+        {asset.ignitionType && <MetaLine label="Ignition" value={asset.ignitionType} />}
+        {asset.msrpRange && (
+          <MetaLine
+            label="MSRP range"
+            value={asset.msrpRange.min === asset.msrpRange.max
+              ? `$${asset.msrpRange.min.toLocaleString()}`
+              : `$${asset.msrpRange.min.toLocaleString()} – $${asset.msrpRange.max.toLocaleString()}`}
+          />
+        )}
+        {asset.category && <MetaLine label="Category" value={asset.category.replace(/_/g, ' ')} />}
+        {asset.sourceSkuFile && <MetaLine label="Source file" value={asset.sourceSkuFile} />}
+        {asset.sourceSkuPage && <MetaLine label="Source page" value={String(asset.sourceSkuPage)} />}
+      </div>
+
+      {asset.skuVariants.length > 1 && (
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-hearth-line text-left">
+                <th className="pb-2 pr-4 font-semibold text-hearth-ink">Model</th>
+                <th className="pb-2 pr-4 font-semibold text-hearth-ink">Name</th>
+                <th className="pb-2 pr-4 font-semibold text-hearth-ink">Ignition</th>
+                <th className="pb-2 pr-4 font-semibold text-hearth-ink">MSRP</th>
+                <th className="pb-2 font-semibold text-hearth-ink">W × H × D</th>
+              </tr>
+            </thead>
+            <tbody>
+              {asset.skuVariants.map((v) => (
+                <tr key={v.modelCode} className="border-b border-hearth-line/50">
+                  <td className="py-2 pr-4 font-mono text-hearth-ink">{v.modelCode}</td>
+                  <td className="py-2 pr-4 text-hearth-muted">{v.name}</td>
+                  <td className="py-2 pr-4 text-hearth-muted">{v.ignition}</td>
+                  <td className="py-2 pr-4 text-hearth-muted">{v.msrp ? `$${v.msrp.toLocaleString()}` : '—'}</td>
+                  <td className="py-2 text-hearth-muted">
+                    {v.widthIn ? `${v.widthIn} × ${v.heightIn} × ${v.depthIn}` : '—'}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
   )
 }
 

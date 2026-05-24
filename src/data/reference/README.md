@@ -16,6 +16,7 @@ Operational data the rep workflow depends on — pricing, field rules, sales scr
 | `gas-log-vs-insert-sales-script.json` | Structured script for the gas-log vs insert customer conversation |
 | `wood-burning-and-electric-101.json` | Education content — wood-burning and electric fireplace fundamentals |
 | `Manual-Model-Quick-Reference.md` | Legacy manual lookup index (14 legacy PDFs with model aliases) — use when customer brings in an old unit |
+| `SOURCE_HIERARCHY.md` | Explains the three data layers (vendor SKUs → reference data → visual asset seed), intake folder workflow, and source confidence levels |
 
 ## Customer-safe boundary
 
