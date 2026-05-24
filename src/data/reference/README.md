@@ -17,6 +17,7 @@ Operational data the rep workflow depends on — pricing, field rules, sales scr
 | `wood-burning-and-electric-101.json` | Education content — wood-burning and electric fireplace fundamentals |
 | `Manual-Model-Quick-Reference.md` | Legacy manual lookup index (14 legacy PDFs with model aliases) — use when customer brings in an old unit |
 | `SOURCE_HIERARCHY.md` | Explains the three data layers (vendor SKUs → reference data → visual asset seed), intake folder workflow, and source confidence levels |
+| `CHASKA_SOURCE_TRUTH_NOTES.md` | Follow-up notes for Chaska 25 / 29 product-truth records — which CADdetails packages were inspected and the depth conflict on Chaska 29 |
 
 ## Customer-safe boundary
 

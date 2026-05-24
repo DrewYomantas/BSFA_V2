@@ -21,6 +21,9 @@ const sourceTypes = new Set([
   'brochure_group',
   'candidate_group',
   'vendor_sku_file',
+  'vendor_spec_sheet',
+  'cad_details_pdf',
+  'cad_drawing',
   'unknown',
 ])
 
@@ -44,6 +47,7 @@ const sourceKinds = new Set([
 
 const sourceConfidenceValues = new Set([
   'high_visual_reference',
+  'high_vendor_spec',
   'medium_visual_reference',
   'medium_sku_source',
   'low_pending_review',
@@ -115,6 +119,11 @@ export function normalizeHearthVisualAsset(asset = {}) {
     sourceSkuFile: nullableString(asset.sourceSkuFile),
     sourceSkuPage: typeof asset.sourceSkuPage === 'number' ? asset.sourceSkuPage : null,
     skuVariants: Array.isArray(asset.skuVariants) ? asset.skuVariants : [],
+    sourceEvidence: Array.isArray(asset.sourceEvidence) ? asset.sourceEvidence : [],
+    sourceConflict: Boolean(asset.sourceConflict),
+    framingDimensions: isPlainObject(asset.framingDimensions) ? asset.framingDimensions : null,
+    viewingArea: isPlainObject(asset.viewingArea) ? asset.viewingArea : null,
+    ventingNotes: nullableString(asset.ventingNotes),
   }
 }
 

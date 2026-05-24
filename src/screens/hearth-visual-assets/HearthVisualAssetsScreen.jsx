@@ -209,6 +209,11 @@ function ProductTruthPanel({ asset }) {
         }`}>
           {dimLabel}
         </span>
+        {asset.sourceConflict && (
+          <span className="border border-amber-700 bg-amber-50 px-2 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-amber-800">
+            Source conflict
+          </span>
+        )}
       </div>
 
       {asset.seriesDimensions ? (
@@ -245,6 +250,40 @@ function ProductTruthPanel({ asset }) {
         {asset.sourceSkuFile && <MetaLine label="Source file" value={asset.sourceSkuFile} />}
         {asset.sourceSkuPage && <MetaLine label="Source page" value={String(asset.sourceSkuPage)} />}
       </div>
+
+      {(asset.viewingArea || asset.framingDimensions || asset.ventingNotes) && (
+        <div className="space-y-2 border-t border-hearth-line pt-3 text-sm text-hearth-muted">
+          {asset.viewingArea && (
+            <MetaLine
+              label="Viewing area"
+              value={`${asset.viewingArea.widthIn}" W × ${asset.viewingArea.heightIn}" H`}
+            />
+          )}
+          {asset.framingDimensions && (
+            <MetaLine
+              label="Top / flanges"
+              value={`top ${asset.framingDimensions.topWidthIn}" × ${asset.framingDimensions.topDepthIn}" · L flange ${asset.framingDimensions.leftFlangeIn}" · R flange ${asset.framingDimensions.rightFlangeIn}"`}
+            />
+          )}
+          {asset.ventingNotes && <MetaLine label="Venting" value={asset.ventingNotes} />}
+        </div>
+      )}
+
+      {asset.sourceEvidence && asset.sourceEvidence.length > 0 && (
+        <div className="space-y-2 border-t border-hearth-line pt-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-hearth-muted">Source evidence</p>
+          <ul className="space-y-2 text-xs">
+            {asset.sourceEvidence.map((ev, idx) => (
+              <li key={`${ev.innerFile}-${idx}`} className="border border-hearth-line bg-white p-2">
+                <p className="font-mono text-hearth-ink">{ev.innerFile}</p>
+                <p className="text-hearth-muted">{ev.sourceType} · {ev.confidence}</p>
+                {ev.packagePath && <p className="break-all text-[10px] text-hearth-muted">{ev.packagePath}</p>}
+                {ev.notes && <p className="mt-1 text-hearth-muted">{ev.notes}</p>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {asset.skuVariants.length > 1 && (
         <div className="overflow-x-auto">
