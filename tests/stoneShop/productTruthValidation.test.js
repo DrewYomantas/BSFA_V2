@@ -343,6 +343,49 @@ describe('Kozy Heat seed — batch validation', () => {
   })
 })
 
+describe('Travis Industries seed — batch validation', () => {
+  it('all Travis Industries product_truth records pass validation', () => {
+    const travis = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Travis Industries'
+    )
+    expect(travis.length).toBeGreaterThan(0)
+
+    const failures = travis
+      .map(r => ({ id: r.id, ...validateProductTruthRecord(r) }))
+      .filter(r => !r.valid)
+
+    if (failures.length > 0) {
+      const report = failures
+        .map(f => `  ${f.id}: ${f.errors.join(', ')}`)
+        .join('\n')
+      throw new Error(`${failures.length} Travis Industries records failed validation:\n${report}`)
+    }
+
+    expect(failures).toHaveLength(0)
+  })
+
+  it('no Travis Industries product_truth records have customerSafe=true', () => {
+    const travis = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Travis Industries'
+    )
+    const leaks = travis.filter(r => r.customerSafe === true)
+    expect(leaks).toHaveLength(0)
+  })
+
+  it('QA summary shows 5 records, all confirmed, 0 conflicts', () => {
+    const summary = buildProductTruthQASummary(
+      hearthVisualAssetSeed.filter(
+        a => a.assetType === 'product_truth' && a.vendor === 'Travis Industries'
+      )
+    )
+    expect(summary.total).toBe(5)
+    expect(summary.confirmed).toBe(5)
+    expect(summary.partial).toBe(0)
+    expect(summary.conflicts).toHaveLength(0)
+    expect(summary.missingKeyDimensions).toHaveLength(0)
+  })
+})
+
 describe('Kingsman seed — batch validation', () => {
   it('all Kingsman product_truth records pass validation', () => {
     const kingsman = hearthVisualAssetSeed.filter(
