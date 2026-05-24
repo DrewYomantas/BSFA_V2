@@ -342,3 +342,46 @@ describe('Kozy Heat seed — batch validation', () => {
     expect(summary.confirmed).toBeGreaterThan(summary.partial)
   })
 })
+
+describe('Kingsman seed — batch validation', () => {
+  it('all Kingsman product_truth records pass validation', () => {
+    const kingsman = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Kingsman'
+    )
+    expect(kingsman.length).toBeGreaterThan(0)
+
+    const failures = kingsman
+      .map(r => ({ id: r.id, ...validateProductTruthRecord(r) }))
+      .filter(r => !r.valid)
+
+    if (failures.length > 0) {
+      const report = failures
+        .map(f => `  ${f.id}: ${f.errors.join(', ')}`)
+        .join('\n')
+      throw new Error(`${failures.length} Kingsman records failed validation:\n${report}`)
+    }
+
+    expect(failures).toHaveLength(0)
+  })
+
+  it('no Kingsman product_truth records have customerSafe=true', () => {
+    const kingsman = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Kingsman'
+    )
+    const leaks = kingsman.filter(r => r.customerSafe === true)
+    expect(leaks).toHaveLength(0)
+  })
+
+  it('QA summary shows 13 records, 1 partial, 0 conflicts', () => {
+    const summary = buildProductTruthQASummary(
+      hearthVisualAssetSeed.filter(
+        a => a.assetType === 'product_truth' && a.vendor === 'Kingsman'
+      )
+    )
+    expect(summary.total).toBe(13)
+    expect(summary.partial).toBe(1)
+    expect(summary.confirmed).toBe(12)
+    expect(summary.conflicts).toHaveLength(0)
+    expect(summary.missingKeyDimensions.find(r => r.id === 'kingsman-idv26-product-truth')).toBeDefined()
+  })
+})
