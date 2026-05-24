@@ -343,6 +343,59 @@ describe('Kozy Heat seed — batch validation', () => {
   })
 })
 
+describe('Empire Comfort Systems seed — batch validation', () => {
+  it('all Empire Comfort Systems product_truth records pass validation', () => {
+    const empire = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
+    )
+    expect(empire.length).toBeGreaterThan(0)
+
+    const failures = empire
+      .map(r => ({ id: r.id, ...validateProductTruthRecord(r) }))
+      .filter(r => !r.valid)
+
+    if (failures.length > 0) {
+      const report = failures
+        .map(f => `  ${f.id}: ${f.errors.join(', ')}`)
+        .join('\n')
+      throw new Error(`${failures.length} Empire Comfort Systems records failed validation:\n${report}`)
+    }
+
+    expect(failures).toHaveLength(0)
+  })
+
+  it('no Empire Comfort Systems product_truth records have customerSafe=true', () => {
+    const empire = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
+    )
+    const leaks = empire.filter(r => r.customerSafe === true)
+    expect(leaks).toHaveLength(0)
+  })
+
+  it('QA summary shows 7 records, 0 confirmed, 7 partial, 0 conflicts', () => {
+    const summary = buildProductTruthQASummary(
+      hearthVisualAssetSeed.filter(
+        a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
+      )
+    )
+    expect(summary.total).toBe(7)
+    expect(summary.confirmed).toBe(0)
+    expect(summary.partial).toBe(7)
+    expect(summary.conflicts).toHaveLength(0)
+  })
+
+  it('Whisper Flex sales guardrail appears in all vf_log_set internalNotes', () => {
+    const logSets = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' &&
+           a.vendor === 'Empire Comfort Systems' &&
+           a.category === 'vf_log_set'
+    )
+    expect(logSets.length).toBeGreaterThan(0)
+    const missing = logSets.filter(r => !(r.internalNotes || '').includes('Whisper Flex'))
+    expect(missing).toHaveLength(0)
+  })
+})
+
 describe('Travis Industries seed — batch validation', () => {
   it('all Travis Industries product_truth records pass validation', () => {
     const travis = hearthVisualAssetSeed.filter(
