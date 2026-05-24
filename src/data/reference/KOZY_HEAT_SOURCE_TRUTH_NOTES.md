@@ -158,3 +158,111 @@ distinction surfaced by this pilot.
 - DWG/DXF/Revit/SketchUp/GIF were noted but not parsed.
 - customerSafe / customerFacingAllowed remain false.
 - No batch ingest — this is a single-unit pilot.
+
+---
+
+## Batch Source Truth V1 — All Available Kozy Heat CADdetails Packages
+
+_Date: 2026-05-24_
+
+Full pass over all 24 available Kozy Heat CADdetails "Fireplaces - All.zip" packages in the
+App Source Intake. 23 new `product_truth` records written (21 products, some covering multiple
+SKU variants). Added to `src/data/hearthVisualAssets/hearthVisualAssetSeed.js` in addition to
+the 3 existing Chaska records.
+
+### Packages inspected
+
+| Package | Product | CAD format | Rev date | Result |
+|---|---|---|---|---|
+| 5178-001 | Alpha 36S | PDF Plus | — | ✓ record written |
+| 5178-002 | Chaska 25 | PDF Plus | 06/12/2017 | existing record |
+| 5178-003 | Chaska 29 | PDF Plus | 06/12/2017 | existing record |
+| 5178-004 | Chaska 335S | PDF Plus | 06/12/2017 | existing record |
+| 5178-005 | Chaska 34 | PDF Plus | — | ✓ record written (partial — opening H unlabeled) |
+| 5178-010 | Bayport 36 | PDF Plus | 01/04/2024 | ✓ record written |
+| 5178-011 | Bayport 41 | PDF Plus | 01/04/2024 | ✓ record written |
+| 5178-019 | SP34 | PDF Plus | — | ✓ record written (conflict: H) |
+| 5178-020 | SP41 | PDF Plus | — | ✓ record written (SKU dims null — CAD only) |
+| 5178-021 | Springfield 36 | PDF Plus | — | ✓ record written (conflict: W and H) |
+| 5178-024 | Oakport 18 | PDF Plus | — | ✓ record written (all confirmed) |
+| 5178-026 | Callaway 50 | PDF Plus | — | ✓ record written |
+| 5178-028 | Callaway 40 | PDF Plus | — | ✓ record written |
+| 5178-029 | Callaway 72 | PDF Plus | — | ✓ record written |
+| 5178-030 | Bellingham 52 | PDF Plus | — | ✓ record written |
+| 5178-031 | Bellingham 44 | PDF Plus | — | ✓ record written |
+| 5178-033 | Bellingham 38 | PDF Plus | — | ✓ record written |
+| 5178-034 | Callaway See-Thru | PDF Plus | — | ✓ record written |
+| 5178-040 | Nordik 29i | PDF Plus | — | ✓ record written |
+| 5178-041 | Nordik 34i | PDF Plus | — | ✓ record written |
+| 5178-042 | Nordik 36DV | PDF Plus | 01/04/2024 | ✓ record written |
+| 5178-043 | Nordik 41DV | PDF Plus | 01/04/2024 | ✓ record written |
+| 5178-044 | Nordik 48DV | PDF Plus | 01/04/2024 | ✓ record written |
+| 5178-045 | Nordik 60TL | PDF Plus | 19/02/2025 | ✓ record written |
+| 5178-049 | Nordik 48TL | MFG PDF | — | ✓ record written (ID by SKU dim match) |
+| 5178-050 | Lakefield XL Log (IPI) | MFG PDF | — | ✓ record written (partial — ID by elimination) |
+| 5178-051 | Lakefield XL MV | MFG PDF | — | ✓ record written (partial — ID by elimination) |
+
+_Packages 5178-006 through 5178-009, 5178-012 through 5178-018, 5178-022, 5178-023, 5178-025,
+5178-027, 5178-032, 5178-035 through 5178-039, 5178-046 through 5178-048 were not present in
+the intake folder (may represent retired products, alternate bundles, or not yet ingested)._
+
+### Dimension summary
+
+| Product | Outer W | Outer H | Depth (used) | Opening W × H | Conflicts / flags |
+|---|---|---|---|---|---|
+| Alpha 36S | 46.5" | 47" | 23.375" | 41.69" × 33.56" | sourceConflict: SKU H 41.69" = opening W (likely data entry error) |
+| Chaska 34 | 33.375" | 23" | 17.25" | 32.375" × null | partial: opening H unlabeled |
+| Bayport 36 | 35.75" | 32" | 25.875" | 32.625" × 26.81" | confirmed |
+| Bayport 41 | 40.75" | 34.5" | 28.375" | 37.625" × 29.31" | confirmed |
+| SP34 | 34" | 33.375" | 13.5" | 28" × 20.5" | sourceConflict: H — CAD 33.375" vs SKU 30" |
+| SP41 | 40.75" | 37" | 15" | 34.375" × 24.125" | SKU dims null — CAD only |
+| Springfield 36 | 35.75" | 33.44" | 19.75" | 29.625" × 21.81" | sourceConflict: W (CAD 35.75 vs SKU 36.75) and H |
+| Oakport 18 | 22.44" | 26.75" | 13.81" | 16.56" × 11.125" | confirmed, all sources agree |
+| Callaway 40 | 49.5" | 39.25" | 22" | 43.375" × 16.75" | confirmed |
+| Callaway 50 | 59.5" | 39" | 22" | 53.5" × 16.75" | confirmed |
+| Callaway 72 | 81.5" | 40.75" | 22" | 75.5" × 18.375" | confirmed |
+| Callaway See-Thru | 59.5" | 39.125" | 17" | 53.5" × 16.75" | confirmed |
+| Bellingham 38 | 44.625" | 35.25" | 20" | 38.44" × 24.875" | confirmed |
+| Bellingham 44 | 50.625" | 35.25" | 20" | 44.44" × 24.875" | confirmed |
+| Bellingham 52 | 58.625" | 41.25" | 26.5625" | 52.44" × 30.875" | confirmed |
+| Nordik 29i | 29.625" | 19.875" | 14" (body) | 27.69" × 17.31" | confirmed |
+| Nordik 34i | 33.875" | 23.75" | 14.0625" (body) | 30.69" × 22.25" | confirmed |
+| Nordik 36DV | 35.75" | 32" | 19.5" | 32.625" × 26.875" | confirmed |
+| Nordik 41DV | 40.75" | 34.5" | 20" | 37.625" × 29.375" | confirmed |
+| Nordik 48DV | 47.625" | 41" | 21.375" | 44.5" × 35.375" | confirmed |
+| Nordik 60TL | 69.5" | 46.125" | 19.5" | 63.375" × 23.75" | confirmed |
+| Nordik 48TL | 57.5" | 46.125" | 19.5" | 51.375" × 23.75" | confirmed (ID by SKU dim match) |
+| Lakefield XL | 60.25" | null | 21.5" | 47.25" × 20" (Log) / 18.5" (MV) | partial — H unlabeled; product ID by elimination |
+
+### Conflicts found
+
+1. **Alpha 36S**: SKU height field 41.6875" exactly equals CAD opening width — likely data entry
+   error. CAD outer H 47" used.
+2. **SP34**: Outer height CAD 33 3/8" vs SKU 30". Width and depth agree.
+3. **Springfield 36**: Outer width CAD 35 3/4" vs SKU 36 3/4" (1" difference) and height
+   CAD 33 7/16" vs SKU 30".
+
+### Newer MFG PDF packages (5178-049 through 5178-051)
+
+These packages use a newer CADdetails format (`MFG PDF *.pdf`, `Specs *.pdf`) and contain no
+product title text in the drawing. Products were identified by:
+- **5178-049**: Exact dimensional match with SKU `NDK-48-TL` (57.5 × 46.125 × 19.5 in).
+- **5178-050/051**: SKU elimination — only remaining Kozy Heat gas products without confirmed
+  CAD packages were `LXL-22-L` and `LXL-22-MV` (Lakefield XL). Both packages share the same
+  outer shell (60 1/4" wide, 21 1/2" deep) with different opening heights (20" vs 18 1/2").
+  Rep should confirm product IDs against Lakefield XL install manual before quoting.
+
+### Products NOT in this pass
+
+- Osseo Electric series (OSO-E29/E34/E50/E64/E80): electric fireplaces, not relevant for
+  stone work planning.
+- Roosevelt: no CADdetails package found in intake folder.
+- Z42 Albany (wood burning): no CADdetails package found in intake folder.
+- Stone-veneer bundles: skipped per pattern rule.
+
+### What was NOT done
+
+- No stone-veneer bundles opened.
+- MFG DXF/DWG/Specs/Revit files noted but not parsed.
+- customerSafe / customerFacingAllowed remain false on all new records.
+- No UI changes — ProductTruthPanel surfaces these records same as Chaska records.
