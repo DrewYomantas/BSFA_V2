@@ -10,6 +10,10 @@ import {
   isCustomerSafeVisualAsset,
   normalizeHearthVisualAsset,
 } from '../../lib/hearthVisualAssets/hearthVisualAssetModel.js'
+import {
+  buildProductTruthQASummary,
+  validateProductTruthBatch,
+} from '../../lib/hearthVisualAssets/productTruthValidation.js'
 
 const typeLabels = {
   stone_sample: 'Stone samples',
@@ -29,6 +33,8 @@ export default function HearthVisualAssetsScreen() {
   const assets = useMemo(() =>
     hearthVisualAssetSeed.map(normalizeHearthVisualAsset).sort((a, b) => a.title.localeCompare(b.title)),
   [])
+  const ptQA = useMemo(() => buildProductTruthQASummary(hearthVisualAssetSeed), [])
+  const ptValidation = useMemo(() => validateProductTruthBatch(hearthVisualAssetSeed), [])
   const [selectedType, setSelectedType] = useState('all')
   const [selectedReviewStatus, setSelectedReviewStatus] = useState('all')
   const types = ['all', ...new Set(assets.map((asset) => asset.assetType))]
@@ -61,6 +67,8 @@ export default function HearthVisualAssetsScreen() {
           <StatusTile label="Source blockers" value={sourceBlockerCount} />
         </div>
       </header>
+
+      <ProductTruthQAPanel summary={ptQA} validationResult={ptValidation} />
 
       <div className="space-y-3 border-b border-hearth-line pb-6">
         <FilterRow
@@ -314,6 +322,110 @@ function ProductTruthPanel({ asset }) {
         </div>
       )}
     </div>
+  )
+}
+
+function ProductTruthQAPanel({ summary, validationResult }) {
+  if (!summary) return null
+  const failureCount = validationResult?.summary?.invalid ?? 0
+  const partialRecords = summary.missingKeyDimensions.filter(
+    r => r.dimensionStatus === 'partial'
+  )
+
+  return (
+    <section className="space-y-4 border border-hearth-line bg-slate-50 p-5" aria-label="Product truth QA">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-hearth-ember">
+          Product truth QA
+        </p>
+        <p className={`text-xs font-semibold ${failureCount > 0 ? 'text-red-700' : 'text-emerald-700'}`}>
+          {failureCount > 0 ? `${failureCount} validation failure${failureCount > 1 ? 's' : ''}` : 'All records valid'}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-3 text-sm sm:grid-cols-5">
+        <QATile label="Total" value={summary.total} />
+        <QATile label="Confirmed" value={summary.confirmed} tone="green" />
+        <QATile label="Partial" value={summary.partial} tone={summary.partial > 0 ? 'amber' : 'neutral'} />
+        <QATile label="Conflicts" value={summary.conflicts.length} tone={summary.conflicts.length > 0 ? 'amber' : 'neutral'} />
+        <QATile label="Failures" value={failureCount} tone={failureCount > 0 ? 'red' : 'neutral'} />
+      </div>
+
+      {summary.conflicts.length > 0 && (
+        <QAExpandable title={`Source conflicts (${summary.conflicts.length})`} tone="amber">
+          <ul className="space-y-1">
+            {summary.conflicts.map(id => (
+              <li key={id} className="font-mono text-xs text-hearth-ink">{id}</li>
+            ))}
+          </ul>
+        </QAExpandable>
+      )}
+
+      {partialRecords.length > 0 && (
+        <QAExpandable title={`Partial records (${partialRecords.length})`} tone="amber">
+          <ul className="space-y-1.5">
+            {partialRecords.map(r => (
+              <li key={r.id} className="text-xs">
+                <span className="font-mono text-hearth-ink">{r.id}</span>
+                {r.missingFields.length > 0 && (
+                  <span className="ml-2 text-hearth-muted">missing: {r.missingFields.join(', ')}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        </QAExpandable>
+      )}
+
+      {failureCount > 0 && (
+        <QAExpandable title={`Validation failures (${failureCount})`} tone="red">
+          <ul className="space-y-3">
+            {validationResult.results.filter(r => !r.valid).map(r => (
+              <li key={r.id}>
+                <p className="font-mono text-xs font-semibold text-hearth-ink">{r.id}</p>
+                <ul className="mt-1 space-y-0.5 text-xs text-red-700">
+                  {r.errors.map(e => <li key={e}>{e}</li>)}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </QAExpandable>
+      )}
+    </section>
+  )
+}
+
+function QATile({ label, value, tone = 'neutral' }) {
+  const valueStyles = {
+    green: 'text-emerald-700',
+    amber: 'text-amber-700',
+    red: 'text-red-700',
+    neutral: 'text-hearth-ink',
+  }[tone] ?? 'text-hearth-ink'
+
+  return (
+    <div className="border border-hearth-line bg-white px-3 py-2.5 text-center">
+      <p className="text-xs uppercase tracking-[0.14em] text-hearth-muted">{label}</p>
+      <p className={`mt-1 text-xl font-semibold ${valueStyles}`}>{value}</p>
+    </div>
+  )
+}
+
+function QAExpandable({ title, tone, children }) {
+  const titleStyles = {
+    red: 'text-red-700',
+    amber: 'text-amber-800',
+    neutral: 'text-hearth-ink',
+  }[tone] ?? 'text-hearth-ink'
+
+  return (
+    <details className="border border-hearth-line bg-white">
+      <summary className={`cursor-pointer select-none px-4 py-3 text-sm font-semibold ${titleStyles}`}>
+        {title}
+      </summary>
+      <div className="border-t border-hearth-line px-4 py-3">
+        {children}
+      </div>
+    </details>
   )
 }
 
