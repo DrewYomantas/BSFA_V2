@@ -372,16 +372,39 @@ describe('Empire Comfort Systems seed — batch validation', () => {
     expect(leaks).toHaveLength(0)
   })
 
-  it('QA summary shows 7 records, 0 confirmed, 7 partial, 0 conflicts', () => {
+  it('QA summary shows 7 records, 6 confirmed, 1 partial (VFS42FB), 0 conflicts after diagram verification pass', () => {
     const summary = buildProductTruthQASummary(
       hearthVisualAssetSeed.filter(
         a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
       )
     )
     expect(summary.total).toBe(7)
-    expect(summary.confirmed).toBe(0)
-    expect(summary.partial).toBe(7)
+    expect(summary.confirmed).toBe(6)
+    expect(summary.partial).toBe(1)
     expect(summary.conflicts).toHaveLength(0)
+  })
+
+  it('only VFS42FB remains partial; its internalNotes explain why', () => {
+    const empire = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
+    )
+    const partials = empire.filter(r => r.dimensionStatus === 'partial')
+    expect(partials.map(r => r.id)).toEqual(['empire-vfs42fb-product-truth'])
+    const notes = partials[0].internalNotes || ''
+    expect(notes).toMatch(/binary.*\.doc|figure.*not.*inspectable|UNRESOLVED/i)
+  })
+
+  it('confirmed Empire records cite a verifiable page/section', () => {
+    const confirmed = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' &&
+           a.vendor === 'Empire Comfort Systems' &&
+           a.dimensionStatus === 'confirmed'
+    )
+    expect(confirmed.length).toBe(6)
+    for (const r of confirmed) {
+      expect(r.sourcePageOrSection).toBeTruthy()
+      expect(r.sourceEvidence?.[0]?.notes || '').toMatch(/Figure|p\.\d+/)
+    }
   })
 
   it('Whisper Flex sales guardrail appears in all vf_log_set internalNotes', () => {
@@ -393,6 +416,16 @@ describe('Empire Comfort Systems seed — batch validation', () => {
     expect(logSets.length).toBeGreaterThan(0)
     const missing = logSets.filter(r => !(r.internalNotes || '').includes('Whisper Flex'))
     expect(missing).toHaveLength(0)
+  })
+
+  it('Empire records do not expose internal uncertainty language at customer-safe surface', () => {
+    const empire = hearthVisualAssetSeed.filter(
+      a => a.assetType === 'product_truth' && a.vendor === 'Empire Comfort Systems'
+    )
+    // product_truth records must never be customerSafe — that is the boundary
+    for (const r of empire) {
+      expect(r.customerSafe).toBe(false)
+    }
   })
 })
 
