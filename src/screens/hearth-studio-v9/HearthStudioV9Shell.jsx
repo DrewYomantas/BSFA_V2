@@ -31,6 +31,24 @@ const bannedShellTerms = [
   'needs_review',
 ]
 
+const OPTION_ICONS = {
+  more_heat: 'H',
+  less_mess: 'M',
+  better_looking_fireplace: 'B',
+  real_wood_feel: 'W',
+  easier_to_use: 'E',
+  existing_masonry_fireplace: 'M',
+  factory_built_fireplace: 'F',
+  wood_stove: 'S',
+  new_construction_or_remodel: 'N',
+  outdoor_fireplace_area: 'O',
+  gas_convenience: 'G',
+  electric_simplicity: 'E',
+  outdoor_flame: 'O',
+  best_looking_flame: 'F',
+  not_sure_yet: '?',
+}
+
 export default function HearthStudioV9Shell() {
   const [session, setSession] = useState(() => createInitialHearthStudioV9Session())
   const customerCopy = useMemo(() => buildHearthStudioV9CustomerCopy(session), [session])
@@ -38,6 +56,7 @@ export default function HearthStudioV9Shell() {
   const fireExperienceCopy = useMemo(() => buildHearthStudioV9FireExperienceCopy(session), [session])
   const directionBridge = useMemo(() => buildHearthStudioV9DirectionBridge(session), [session])
   const summary = session.customerSummary
+  const currentStep = !session.selectedGoalId ? 1 : !session.selectedContextId ? 2 : 3
   const activePrompt = buildActivePrompt({
     session,
     customerCopy,
@@ -69,19 +88,45 @@ export default function HearthStudioV9Shell() {
   return (
     <main className="v9-shell" aria-label="Hearth Studio V9 customer preview">
       <section className="v9-shell__tablet" aria-label="Stage-first Hearth Studio tablet">
+
         <header className="v9-shell__topbar">
           <div className="v9-shell__brand" aria-label="Benson Stone Hearth Studio">
             <span className="v9-shell__monogram" aria-hidden="true">B</span>
-            <span>Benson Stone</span>
+            <div className="v9-shell__brand-text">
+              <span className="v9-shell__brand-name">Benson Stone</span>
+              <span className="v9-shell__brand-est">EST. 1930</span>
+            </div>
           </div>
           <div className="v9-shell__title">
             <span>Hearth Studio V9</span>
-            <strong>Hearth Cafe Sit</strong>
+            <strong>Cinematic Showroom Builder</strong>
           </div>
           <nav className="v9-shell__rhythm" aria-label="Hearth Studio preview stages">
-            <span className="v9-shell__rhythm-step v9-shell__rhythm-step--active">Sit</span>
-            <span className="v9-shell__rhythm-step">Walk</span>
-            <span className="v9-shell__rhythm-step">Confirm</span>
+            <span className="v9-shell__rhythm-step v9-shell__rhythm-step--active">
+              <svg className="v9-icon" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <rect x="1" y="6" width="12" height="5" rx="1" stroke="currentColor" strokeWidth="1.25" />
+                <rect x="3" y="3.5" width="8" height="3.5" rx="0.75" stroke="currentColor" strokeWidth="1.25" />
+                <line x1="4" y1="11" x2="4" y2="13.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+                <line x1="10" y1="11" x2="10" y2="13.5" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+              </svg>
+              Sit
+            </span>
+            <span className="v9-shell__rhythm-step">
+              <svg className="v9-icon" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="2.5" r="1.4" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M7 3.9 L5.5 8 L4.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+                <path d="M7 3.9 L8.5 8 L9.5 13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+                <path d="M5.5 8 L3 9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+                <path d="M8.5 8 L11 9.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+              </svg>
+              Walk
+            </span>
+            <span className="v9-shell__rhythm-step">
+              <svg className="v9-icon" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <polyline points="2,7 6,11 12,3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Confirm
+            </span>
           </nav>
         </header>
 
@@ -107,7 +152,8 @@ export default function HearthStudioV9Shell() {
               <div className="v9-shell__floor-plane" aria-hidden="true" />
               <div className="v9-shell__seat-shadow" aria-hidden="true" />
 
-              <div className="v9-shell__stage-caption">
+              {/* Stage caption: DOM-preserved for tests and a11y, not customer-visible */}
+              <div className="v9-shell__stage-caption v9-shell__sr-only">
                 <p>Seated showroom preview</p>
                 <h1>Start with the room. Narrow the fire together.</h1>
                 <div className="v9-shell__stage-chips" aria-label="Current seated choices">
@@ -120,36 +166,58 @@ export default function HearthStudioV9Shell() {
 
             <aside className="v9-shell__summary-strip" aria-label="Customer-safe session summary">
               <div>
-                <span>Goal</span>
+                <div className="v9-shell__strip-meta">
+                  <span className="v9-shell__strip-icon" aria-hidden="true">*</span>
+                  <span className="v9-shell__strip-label">Goal</span>
+                </div>
                 <strong>{summary.goalDirection}</strong>
               </div>
               <div>
-                <span>Setup</span>
+                <div className="v9-shell__strip-meta">
+                  <span className="v9-shell__strip-icon" aria-hidden="true">*</span>
+                  <span className="v9-shell__strip-label">Setup</span>
+                </div>
                 <strong>{summary.projectContext}</strong>
               </div>
               <div>
-                <span>Fire feel</span>
+                <div className="v9-shell__strip-meta">
+                  <span className="v9-shell__strip-icon" aria-hidden="true">*</span>
+                  <span className="v9-shell__strip-label">Fire Feel</span>
+                </div>
                 <strong>{summary.fireExperience}</strong>
               </div>
-              <p>{summary.finalSelectionState}</p>
+              <div>
+                <div className="v9-shell__strip-meta">
+                  <span className="v9-shell__strip-icon" aria-hidden="true">*</span>
+                  <span className="v9-shell__strip-label">Status</span>
+                </div>
+                <p>{summary.finalSelectionState}</p>
+              </div>
             </aside>
           </section>
 
           <aside className="v9-shell__conversation" aria-label="Hearth Cafe conversation tray">
-            <div className="v9-shell__progress" aria-label="Hearth Cafe Sit progress">
+            {/* Progress: DOM-preserved for test accessibility, not customer-visible */}
+            <div className="v9-shell__progress v9-shell__sr-only" aria-label="Hearth Cafe Sit progress">
               <span className={session.selectedGoalId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : 'v9-shell__progress-step v9-shell__progress-step--active'}>Goal</span>
               <span className={session.selectedContextId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : session.selectedGoalId ? 'v9-shell__progress-step v9-shell__progress-step--active' : 'v9-shell__progress-step'}>Setup</span>
               <span className={session.selectedFireExperienceId ? 'v9-shell__progress-step v9-shell__progress-step--complete' : session.selectedContextId ? 'v9-shell__progress-step v9-shell__progress-step--active' : 'v9-shell__progress-step'}>Fire Feel</span>
             </div>
 
+            <div className="v9-shell__tray-header">
+              <span className="v9-shell__tray-label">Hearth Cafe</span>
+              <span className="v9-shell__tray-step">Step {currentStep} of 3</span>
+            </div>
+
             <section className="v9-shell__prompt-card" aria-label={activePrompt.promptLabel}>
-              <p className="v9-shell__eyebrow">{activePrompt.eyebrow}</p>
+              <p className="v9-shell__eyebrow v9-shell__sr-only">{activePrompt.eyebrow}</p>
               <h2>{activePrompt.title}</h2>
               <p>{activePrompt.copy}</p>
 
               <div className="v9-shell__answer-grid" role="list" aria-label={activePrompt.optionsLabel}>
                 {activePrompt.options.map((option) => {
                   const isSelected = activePrompt.selectedId === option.id
+                  const icon = OPTION_ICONS[option.id] || '*'
 
                   return (
                     <button
@@ -159,8 +227,11 @@ export default function HearthStudioV9Shell() {
                       aria-pressed={isSelected}
                       onClick={() => activePrompt.onSelect(option.id)}
                     >
-                      <span>{option.label}</span>
-                      <small>{option.nextPromptPreview}</small>
+                      <span className="v9-shell__card-icon" aria-hidden="true">{icon}</span>
+                      <div className="v9-shell__card-body">
+                        <span>{option.label}</span>
+                        <small>{option.nextPromptPreview}</small>
+                      </div>
                     </button>
                   )
                 })}
@@ -204,6 +275,7 @@ export default function HearthStudioV9Shell() {
 
         <p className="v9-shell__fine-print">
           Concept visualization only. Final fireplace, venting, dimensions, hearth, mantel, stone, and installation details are confirmed before quote or order.
+          <span className="v9-shell__fine-print-scale" aria-hidden="true">Not to scale.</span>
         </p>
       </section>
     </main>
